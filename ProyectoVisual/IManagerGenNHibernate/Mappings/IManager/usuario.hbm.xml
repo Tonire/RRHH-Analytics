@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8" ?>
+		<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+		                   assembly="IManagerGenNHibernate"
+		                   namespace="IManagerGenNHibernate.EN.IManager">
+		    
+		    
+			
+				<class name="UsuarioEN" table="Usuario"> 
+						<id name="Email" column="email"/> 
+			
+					
+					<property name="DNI" type="string"> 
+						<column name="DNI"  unique="true" not-null="true"/>
+					</property>
+					<property name="Password" type="string"> 
+						<column name="password"  not-null="true"/>
+					</property>
+			
+			
+			
+			
+			
+		  			
+						<bag name="Envía" >
+							<key>
+							
+								
+								<column name="FK_email_idUsuario"/>
+					      	</key>
+							<one-to-many class="IManagerGenNHibernate.EN.IManager.MensajeEN"/>
+					    </bag>
+					
+			
+		  			
+						<bag name="Recibe" >
+							<key>
+							
+								
+								<column name="FK_email_idUsuario_0"/>
+					      	</key>
+							<one-to-many class="IManagerGenNHibernate.EN.IManager.MensajeEN"/>
+					    </bag>
+					
+			
+		  			
+						<bag name="Horario" table="[usuario_horario]"  >
+							<key>
+								
+									<column name="FK_email_idUsuario"/> 
+							</key>
+      						<many-to-many class="IManagerGenNHibernate.EN.IManager.HorarioEN">
+									<column name="FK_id_idHorario"/> 
+      						</many-to-many>
+    					</bag>
+			
+		  			
+						<bag name="Pedido" >
+							<key>
+							
+								
+								<column name="FK_email_idUsuario"/>
+					      	</key>
+							<one-to-many class="IManagerGenNHibernate.EN.IManager.PedidoEN"/>
+					    </bag>
+					
+			
+		  			
+						<bag name="Proveedor" table="[usuario_proveedor]"  >
+							<key>
+								
+									<column name="FK_email_idUsuario"/> 
+							</key>
+      						<many-to-many class="IManagerGenNHibernate.EN.IManager.ProveedorEN">
+									<column name="FK_email_idProveedor"/> 
+      						</many-to-many>
+    					</bag>
+			
+		  			
+						<bag name="Ventas" >
+							<key>
+							
+								
+								<column name="FK_email_idUsuario"/>
+					      	</key>
+							<one-to-many class="IManagerGenNHibernate.EN.IManager.VentasEN"/>
+					    </bag>
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+		
+		 </class>	
+		  
+		  <query name="UsuarioENReadAllHQL">from UsuarioEN</query>
+		</hibernate-mapping>
+	

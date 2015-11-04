@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" ?>
+		<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+		                   assembly="IManagerGenNHibernate"
+		                   namespace="IManagerGenNHibernate.EN.IManager">
+		    
+		    
+			
+				<class name="MensajeEN" table="Mensaje"> 
+				  	
+						<id name="Id" column="id" type="integer"> 
+							<generator class="identity"/>
+						</id>
+			
+					
+					<property name="Asunto" type="string"> 
+						<column name="asunto"  not-null="true"/>
+					</property>
+					<property name="Contenido" type="string"> 
+						<column name="contenido"  not-null="true"/>
+					</property>
+			
+			
+			
+		  			
+						<many-to-one name="Remitente" class="IManagerGenNHibernate.EN.IManager.UsuarioEN" >	
+								<column name="FK_email_idUsuario"/> 
+						</many-to-one>
+											 					
+			
+		  			
+						<many-to-one name="Destinatario" class="IManagerGenNHibernate.EN.IManager.UsuarioEN" >	
+								<column name="FK_email_idUsuario_0"/> 
+						</many-to-one>
+											 					
+			
+			
+					
+					
+					
+					
+					
+		
+		 </class>	
+		  
+		  <query name="MensajeENReadAllHQL">from MensajeEN</query>
+		</hibernate-mapping>
+	

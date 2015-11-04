@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8" ?>
+		<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+		                   assembly="IManagerGenNHibernate"
+		                   namespace="IManagerGenNHibernate.EN.IManager">
+		    
+		    
+			
+				<class name="TurnoEN" table="Turno"> 
+				  	
+						<id name="Id" column="id" type="integer"> 
+							<generator class="identity"/>
+						</id>
+			
+					
+					<property name="Nombre" type="string"> 
+						<column name="nombre"  not-null="true"/>
+					</property>
+					<property name="Desde" type="string"> 
+						<column name="desde"  not-null="true"/>
+					</property>
+					<property name="Hasta" type="string"> 
+						<column name="hasta"  not-null="true"/>
+					</property>
+			
+			
+			
+			
+			
+			
+		  			
+						<bag name="Fecha" >
+							<key>
+							
+								
+								<column name="FK_id_idTurno"/>
+					      	</key>
+							<one-to-many class="IManagerGenNHibernate.EN.IManager.FechaEN"/>
+					    </bag>
+					
+					
+					
+					
+					
+					
+		
+		 </class>	
+		  
+		  <query name="TurnoENReadAllHQL">from TurnoEN</query>
+		</hibernate-mapping>
+	

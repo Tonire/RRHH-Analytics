@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8" ?>
+		<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+		                   assembly="IManagerGenNHibernate"
+		                   namespace="IManagerGenNHibernate.EN.IManager">
+		    
+		    
+			
+				<class name="ProveedorEN" table="Proveedor"> 
+						<id name="Email" column="email"/> 
+			
+					
+					<property name="Nombre" type="string"> 
+						<column name="nombre"  unique="true" not-null="true"/>
+					</property>
+					<property name="Telefono" type="string"> 
+						<column name="telefono"  not-null="true"/>
+					</property>
+			
+			
+			
+			
+			
+		  			
+						<bag name="Producto" table="[producto_proveedor]" inverse="true" >
+							<key>
+								
+									<column name="FK_email_idProveedor"/> 
+							</key>
+      						<many-to-many class="IManagerGenNHibernate.EN.IManager.ProductoEN">
+									<column name="FK_referencia_idProducto"/> 
+      						</many-to-many>
+    					</bag>
+			
+		  			
+						<bag name="Usuario" table="[usuario_proveedor]" inverse="true" >
+							<key>
+								
+									<column name="FK_email_idProveedor"/> 
+							</key>
+      						<many-to-many class="IManagerGenNHibernate.EN.IManager.UsuarioEN">
+									<column name="FK_email_idUsuario"/> 
+      						</many-to-many>
+    					</bag>
+					
+					
+					
+					
+					
+		
+		 </class>	
+		  
+		  <query name="ProveedorENReadAllHQL">from ProveedorEN</query>
+		</hibernate-mapping>
+	

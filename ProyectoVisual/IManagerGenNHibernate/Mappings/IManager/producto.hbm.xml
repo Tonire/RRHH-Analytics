@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8" ?>
+		<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+		                   assembly="IManagerGenNHibernate"
+		                   namespace="IManagerGenNHibernate.EN.IManager">
+		    
+		    
+			
+				<class name="ProductoEN" table="Producto"> 
+						<id name="Referencia" column="referencia"/> 
+			
+					
+					<property name="Nombre" type="string"> 
+						<column name="nombre"  not-null="true"/>
+					</property>
+					<property name="Marca" type="string"> 
+						<column name="marca"  not-null="true"/>
+					</property>
+					<property name="PrecioCompra" type="integer"> 
+						<column name="precioCompra"  not-null="true"/>
+					</property>
+					<property name="PrecioVenta" type="integer"> 
+						<column name="precioVenta"  not-null="true"/>
+					</property>
+					<property name="Stock" type="integer"> 
+						<column name="stock"  not-null="true"/>
+					</property>
+			
+			
+			
+			
+			
+			
+			
+			
+		  			
+						<bag name="LineaPedido" >
+							<key>
+							
+								
+								<column name="FK_referencia_idProducto"/>
+					      	</key>
+							<one-to-many class="IManagerGenNHibernate.EN.IManager.LineaPedidoEN"/>
+					    </bag>
+					
+			
+		  			
+						<bag name="Proveedor" table="[producto_proveedor]"  >
+							<key>
+								
+									<column name="FK_referencia_idProducto"/> 
+							</key>
+      						<many-to-many class="IManagerGenNHibernate.EN.IManager.ProveedorEN">
+									<column name="FK_email_idProveedor"/> 
+      						</many-to-many>
+    					</bag>
+			
+		  			
+						<bag name="Ventas" >
+							<key>
+							
+								
+								<column name="FK_referencia_idProducto"/>
+					      	</key>
+							<one-to-many class="IManagerGenNHibernate.EN.IManager.VentasEN"/>
+					    </bag>
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+		
+		 </class>	
+		  
+		  <query name="ProductoENReadAllHQL">from ProductoEN</query>
+		</hibernate-mapping>
+	

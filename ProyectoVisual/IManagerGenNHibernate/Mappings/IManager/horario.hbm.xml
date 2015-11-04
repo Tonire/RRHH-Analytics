@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8" ?>
+		<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+		                   assembly="IManagerGenNHibernate"
+		                   namespace="IManagerGenNHibernate.EN.IManager">
+		    
+		    
+			
+				<class name="HorarioEN" table="Horario"> 
+				  	
+						<id name="Id" column="id" type="integer"> 
+							<generator class="identity"/>
+						</id>
+			
+					
+					<property name="Anyo" type="integer"> 
+						<column name="anyo"  unique="true" not-null="true"/>
+					</property>
+					<property name="Titulo" type="string"> 
+						<column name="titulo"  not-null="true"/>
+					</property>
+			
+			
+			
+			
+			
+		  			
+						<bag name="Usuario" table="[usuario_horario]" inverse="true" >
+							<key>
+								
+									<column name="FK_id_idHorario"/> 
+							</key>
+      						<many-to-many class="IManagerGenNHibernate.EN.IManager.UsuarioEN">
+									<column name="FK_email_idUsuario"/> 
+      						</many-to-many>
+    					</bag>
+			
+		  			
+						<bag name="Fecha" cascade="delete">
+							<key>
+							
+								
+								<column name="FK_id_idHorario"/>
+					      	</key>
+							<one-to-many class="IManagerGenNHibernate.EN.IManager.FechaEN"/>
+					    </bag>
+					
+					
+					
+					
+					
+					
+		
+		 </class>	
+		  
+		  <query name="HorarioENReadAllHQL">from HorarioEN</query>
+		</hibernate-mapping>
+	

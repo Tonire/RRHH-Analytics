@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" ?>
+		<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+		                   assembly="IManagerGenNHibernate"
+		                   namespace="IManagerGenNHibernate.EN.IManager">
+		    
+		    
+			
+				<class name="BalanceEN" table="Balance"> 
+						<id name="Anyo" column="anyo"/> 
+			
+					
+					<property name="Mes" type="integer"> 
+						<column name="mes"  unique="true" not-null="true"/>
+					</property>
+					<property name="Gastos" type="double"> 
+						<column name="gastos"  not-null="true"/>
+					</property>
+					<property name="Ingresos" type="double"> 
+						<column name="ingresos"  not-null="true"/>
+					</property>
+			
+			
+			
+			
+			
+					
+					
+					
+					
+		
+		 </class>	
+		  
+		  <query name="BalanceENReadAllHQL">from BalanceEN</query>
+		  <query name="BalanceENgetBalancesPorAnyoHQL"><![CDATA[FROM BalanceEN]]></query>
+		</hibernate-mapping>
+	

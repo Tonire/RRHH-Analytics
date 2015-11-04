@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8" ?>
+		<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+		                   assembly="IManagerGenNHibernate"
+		                   namespace="IManagerGenNHibernate.EN.IManager">
+		    
+		    
+			
+				<class name="PedidoEN" table="Pedido"> 
+				  	
+						<id name="Id" column="id" type="integer"> 
+							<generator class="identity"/>
+						</id>
+			
+					
+					<property name="Total" type="string"> 
+						<column name="total"  not-null="true"/>
+					</property>
+					<property name="Descripcion" > 
+						<column name="descripcion"  not-null="true"/>
+					</property>
+			
+			
+			
+			
+			
+		  			
+						<many-to-one name="Usuario" class="IManagerGenNHibernate.EN.IManager.UsuarioEN" >	
+								<column name="FK_email_idUsuario"/> 
+						</many-to-one>
+											 					
+			
+		  			
+						<bag name="LineaPedido" cascade="delete">
+							<key>
+							
+								
+								<column name="FK_id_idPedido"/>
+					      	</key>
+							<one-to-many class="IManagerGenNHibernate.EN.IManager.LineaPedidoEN"/>
+					    </bag>
+					
+					
+					
+					
+					
+					
+		
+		 </class>	
+		  
+		  <query name="PedidoENReadAllHQL">from PedidoEN</query>
+		</hibernate-mapping>
+	

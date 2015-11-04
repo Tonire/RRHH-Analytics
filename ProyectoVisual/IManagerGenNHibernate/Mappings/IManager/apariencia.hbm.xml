@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" ?>
+		<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+		                   assembly="IManagerGenNHibernate"
+		                   namespace="IManagerGenNHibernate.EN.IManager">
+		    
+		    
+			
+				<class name="AparienciaEN" table="Apariencia"> 
+						<id name="Nombre" column="nombre"/> 
+			
+					
+					<property name="Logo" type="string"> 
+						<column name="logo"  not-null="true"/>
+					</property>
+					<property name="Css" type="string"> 
+						<column name="css"  not-null="true"/>
+					</property>
+			
+			
+			
+			
+					
+					
+					
+		
+		 </class>	
+		  
+		  <query name="AparienciaENReadAllHQL">from AparienciaEN</query>
+		</hibernate-mapping>
+	

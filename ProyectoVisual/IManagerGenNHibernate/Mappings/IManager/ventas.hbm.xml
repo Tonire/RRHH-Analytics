@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8" ?>
+		<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+		                   assembly="IManagerGenNHibernate"
+		                   namespace="IManagerGenNHibernate.EN.IManager">
+		    
+		    
+			
+				<class name="VentasEN" table="Ventas"> 
+				  	
+						<id name="Id" column="id" type="integer"> 
+							<generator class="identity"/>
+						</id>
+			
+					
+			
+			
+			
+		  			
+						<many-to-one name="Usuario" class="IManagerGenNHibernate.EN.IManager.UsuarioEN" >	
+								<column name="FK_email_idUsuario"/> 
+						</many-to-one>
+											 					
+			
+		  			
+						<many-to-one name="Producto" class="IManagerGenNHibernate.EN.IManager.ProductoEN" >	
+								<column name="FK_referencia_idProducto"/> 
+						</many-to-one>
+											 					
+					
+					
+					
+		
+		 </class>	
+		  
+		  <query name="VentasENReadAllHQL">from VentasEN</query>
+		</hibernate-mapping>
+	
