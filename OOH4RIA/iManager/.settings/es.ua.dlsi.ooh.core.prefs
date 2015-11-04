@@ -1,0 +1,6 @@
+dataSourceHost=(local)
+dataSourcePassword=nhibernatePass
+dataSourcePort=3306
+dataSourceUser=nhibernateUser
+eclipse.preferences.version=1
+platform=Silverlight
