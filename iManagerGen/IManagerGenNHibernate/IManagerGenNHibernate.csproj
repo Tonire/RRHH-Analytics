@@ -168,10 +168,10 @@
 			<Compile Include="CEN\IManager\BalanceCEN_AddIngresos.cs" />
 			<Compile Include="CEN\IManager\BalanceCEN_QuitarGastos.cs" />
 			<Compile Include="CEN\IManager\BalanceCEN_QuitarIngresos.cs" />
-	<Compile Include="EN\IManager\VentasEN.cs" />
-	<Compile Include="CEN\IManager\VentasCEN.cs" />
-	<Compile Include="CAD\IManager\IVentasCAD.cs" />
-	<Compile Include="CAD\IManager\VentasCAD.cs" />
+	<Compile Include="EN\IManager\VentaEN.cs" />
+	<Compile Include="CEN\IManager\VentaCEN.cs" />
+	<Compile Include="CAD\IManager\IVentaCAD.cs" />
+	<Compile Include="CAD\IManager\VentaCAD.cs" />
 	<Compile Include="Enumerated\IManager\EstadoPedidoEnum.cs" />
 	
 	
@@ -202,7 +202,7 @@
 	<EmbeddedResource Include="Mappings\IManager\proveedor.hbm.xml" />
 	<EmbeddedResource Include="Mappings\IManager\apariencia.hbm.xml" />
 	<EmbeddedResource Include="Mappings\IManager\balance.hbm.xml" />
-	<EmbeddedResource Include="Mappings\IManager\ventas.hbm.xml" />
+	<EmbeddedResource Include="Mappings\IManager\venta.hbm.xml" />
 	
 	
 

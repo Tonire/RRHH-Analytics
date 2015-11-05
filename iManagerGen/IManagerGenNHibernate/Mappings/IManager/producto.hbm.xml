@@ -61,7 +61,7 @@
 								
 								<column name="FK_referencia_idProducto"/>
 					      	</key>
-							<one-to-many class="IManagerGenNHibernate.EN.IManager.VentasEN"/>
+							<one-to-many class="IManagerGenNHibernate.EN.IManager.VentaEN"/>
 					    </bag>
 					
 					

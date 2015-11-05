@@ -15,10 +15,5 @@ void Modify (UsuarioEN usuario);
 
 
 void Destroy (string email);
-
-
-void AddVenta (string p_Usuario_OID, System.Collections.Generic.IList<int> p_ventas_OIDs);
-
-void QuitarVenta (string p_Usuario_OID, System.Collections.Generic.IList<int> p_ventas_OIDs);
 }
 }

@@ -73,18 +73,5 @@ public void Destroy (string email)
 {
         _IUsuarioCAD.Destroy (email);
 }
-
-public void AddVenta (string p_Usuario_OID, System.Collections.Generic.IList<int> p_ventas_OIDs)
-{
-        //Call to UsuarioCAD
-
-        _IUsuarioCAD.AddVenta (p_Usuario_OID, p_ventas_OIDs);
-}
-public void QuitarVenta (string p_Usuario_OID, System.Collections.Generic.IList<int> p_ventas_OIDs)
-{
-        //Call to UsuarioCAD
-
-        _IUsuarioCAD.QuitarVenta (p_Usuario_OID, p_ventas_OIDs);
-}
 }
 }

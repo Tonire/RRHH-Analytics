@@ -14,7 +14,7 @@ public SuperAdministradorEN() : base ()
 
 
 public SuperAdministradorEN(string email,
-                            string dNI, String password, System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.MensajeEN> envía, System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.MensajeEN> recibe, System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.HorarioEN> horario, System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.PedidoEN> pedido, System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.ProveedorEN> proveedor, System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.VentasEN> ventas
+                            string dNI, String password, System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.MensajeEN> envía, System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.MensajeEN> recibe, System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.HorarioEN> horario, System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.PedidoEN> pedido, System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.ProveedorEN> proveedor, System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.VentaEN> ventas
                             )
 {
         this.init (Email, dNI, password, envía, recibe, horario, pedido, proveedor, ventas);
@@ -26,7 +26,7 @@ public SuperAdministradorEN(SuperAdministradorEN superAdministrador)
         this.init (Email, superAdministrador.DNI, superAdministrador.Password, superAdministrador.Envía, superAdministrador.Recibe, superAdministrador.Horario, superAdministrador.Pedido, superAdministrador.Proveedor, superAdministrador.Ventas);
 }
 
-private void init (string email, string dNI, String password, System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.MensajeEN> envía, System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.MensajeEN> recibe, System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.HorarioEN> horario, System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.PedidoEN> pedido, System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.ProveedorEN> proveedor, System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.VentasEN> ventas)
+private void init (string email, string dNI, String password, System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.MensajeEN> envía, System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.MensajeEN> recibe, System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.HorarioEN> horario, System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.PedidoEN> pedido, System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.ProveedorEN> proveedor, System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.VentaEN> ventas)
 {
         this.Email = email;
 

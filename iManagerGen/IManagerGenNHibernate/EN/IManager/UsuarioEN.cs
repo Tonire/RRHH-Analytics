@@ -64,7 +64,7 @@ private System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.Prove
 /**
  *	Atributo ventas
  */
-private System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.VentasEN> ventas;
+private System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.VentaEN> ventas;
 
 
 
@@ -119,7 +119,7 @@ public virtual System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManage
 
 
 
-public virtual System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.VentasEN> Ventas {
+public virtual System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.VentaEN> Ventas {
         get { return ventas; } set { ventas = value;  }
 }
 
@@ -134,12 +134,12 @@ public UsuarioEN()
         horario = new System.Collections.Generic.List<IManagerGenNHibernate.EN.IManager.HorarioEN>();
         pedido = new System.Collections.Generic.List<IManagerGenNHibernate.EN.IManager.PedidoEN>();
         proveedor = new System.Collections.Generic.List<IManagerGenNHibernate.EN.IManager.ProveedorEN>();
-        ventas = new System.Collections.Generic.List<IManagerGenNHibernate.EN.IManager.VentasEN>();
+        ventas = new System.Collections.Generic.List<IManagerGenNHibernate.EN.IManager.VentaEN>();
 }
 
 
 
-public UsuarioEN(string email, string dNI, String password, System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.MensajeEN> envía, System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.MensajeEN> recibe, System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.HorarioEN> horario, System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.PedidoEN> pedido, System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.ProveedorEN> proveedor, System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.VentasEN> ventas
+public UsuarioEN(string email, string dNI, String password, System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.MensajeEN> envía, System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.MensajeEN> recibe, System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.HorarioEN> horario, System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.PedidoEN> pedido, System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.ProveedorEN> proveedor, System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.VentaEN> ventas
                  )
 {
         this.init (Email, dNI, password, envía, recibe, horario, pedido, proveedor, ventas);
@@ -151,7 +151,7 @@ public UsuarioEN(UsuarioEN usuario)
         this.init (Email, usuario.DNI, usuario.Password, usuario.Envía, usuario.Recibe, usuario.Horario, usuario.Pedido, usuario.Proveedor, usuario.Ventas);
 }
 
-private void init (string email, string dNI, String password, System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.MensajeEN> envía, System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.MensajeEN> recibe, System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.HorarioEN> horario, System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.PedidoEN> pedido, System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.ProveedorEN> proveedor, System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.VentasEN> ventas)
+private void init (string email, string dNI, String password, System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.MensajeEN> envía, System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.MensajeEN> recibe, System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.HorarioEN> horario, System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.PedidoEN> pedido, System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.ProveedorEN> proveedor, System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.VentaEN> ventas)
 {
         this.Email = email;
 

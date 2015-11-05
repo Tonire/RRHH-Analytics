@@ -82,7 +82,7 @@
 								
 								<column name="FK_email_idUsuario"/>
 					      	</key>
-							<one-to-many class="IManagerGenNHibernate.EN.IManager.VentasEN"/>
+							<one-to-many class="IManagerGenNHibernate.EN.IManager.VentaEN"/>
 					    </bag>
 					
 					
