@@ -6,19 +6,12 @@
 		    
 			
 				<class name="HorarioEN" table="Horario"> 
-				  	
-						<id name="Id" column="id" type="integer"> 
-							<generator class="identity"/>
-						</id>
+						<id name="Titulo" column="titulo"/> 
 			
 					
 					<property name="Anyo" type="integer"> 
 						<column name="anyo"  unique="true" not-null="true"/>
 					</property>
-					<property name="Titulo" type="string"> 
-						<column name="titulo"  not-null="true"/>
-					</property>
-			
 			
 			
 			
@@ -27,7 +20,7 @@
 						<bag name="Usuario" table="[usuario_horario]" inverse="true" >
 							<key>
 								
-									<column name="FK_id_idHorario"/> 
+									<column name="FK_titulo_idHorario"/> 
 							</key>
       						<many-to-many class="IManagerGenNHibernate.EN.IManager.UsuarioEN">
 									<column name="FK_email_idUsuario"/> 
@@ -35,13 +28,24 @@
     					</bag>
 			
 		  			
-						<bag name="Fecha" cascade="delete">
+						<bag name="Turno" >
 							<key>
 							
 								
-								<column name="FK_id_idHorario"/>
+								<column name="FK_titulo_idHorario"/>
 					      	</key>
-							<one-to-many class="IManagerGenNHibernate.EN.IManager.FechaEN"/>
+							<one-to-many class="IManagerGenNHibernate.EN.IManager.TurnoEN"/>
+					    </bag>
+					
+			
+		  			
+						<bag name="Dia" >
+							<key>
+							
+								
+								<column name="FK_titulo_idHorario"/>
+					      	</key>
+							<one-to-many class="IManagerGenNHibernate.EN.IManager.DiaEN"/>
 					    </bag>
 					
 					

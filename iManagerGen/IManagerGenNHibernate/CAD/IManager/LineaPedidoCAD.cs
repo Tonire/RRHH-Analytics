@@ -85,13 +85,6 @@ public int CrearLineaPedido (LineaPedidoEN lineaPedido)
         try
         {
                 SessionInitializeTransaction ();
-                if (lineaPedido.Pedido != null) {
-                        // Argumento OID y no colección.
-                        lineaPedido.Pedido = (IManagerGenNHibernate.EN.IManager.PedidoEN)session.Load (typeof(IManagerGenNHibernate.EN.IManager.PedidoEN), lineaPedido.Pedido.Id);
-
-                        lineaPedido.Pedido.LineaPedido
-                        .Add (lineaPedido);
-                }
                 if (lineaPedido.Producto != null) {
                         // Argumento OID y no colección.
                         lineaPedido.Producto = (IManagerGenNHibernate.EN.IManager.ProductoEN)session.Load (typeof(IManagerGenNHibernate.EN.IManager.ProductoEN), lineaPedido.Producto.Referencia);
@@ -118,6 +111,37 @@ public int CrearLineaPedido (LineaPedidoEN lineaPedido)
         }
 
         return lineaPedido.Id;
+}
+
+public void RelationerLinea (int p_LineaPedido_OID, int p_pedido_OID)
+{
+        IManagerGenNHibernate.EN.IManager.LineaPedidoEN lineaPedidoEN = null;
+        try
+        {
+                SessionInitializeTransaction ();
+                lineaPedidoEN = (LineaPedidoEN)session.Load (typeof(LineaPedidoEN), p_LineaPedido_OID);
+                lineaPedidoEN.Pedido = (IManagerGenNHibernate.EN.IManager.PedidoEN)session.Load (typeof(IManagerGenNHibernate.EN.IManager.PedidoEN), p_pedido_OID);
+
+                lineaPedidoEN.Pedido.LineaPedido.Add (lineaPedidoEN);
+
+
+
+                session.Update (lineaPedidoEN);
+                SessionCommit ();
+        }
+
+        catch (Exception ex) {
+                SessionRollBack ();
+                if (ex is IManagerGenNHibernate.Exceptions.ModelException)
+                        throw ex;
+                throw new IManagerGenNHibernate.Exceptions.DataLayerException ("Error in LineaPedidoCAD.", ex);
+        }
+
+
+        finally
+        {
+                SessionClose ();
+        }
 }
 }
 }

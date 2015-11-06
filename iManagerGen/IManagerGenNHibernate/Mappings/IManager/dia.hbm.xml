@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" ?>
+		<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+		                   assembly="IManagerGenNHibernate"
+		                   namespace="IManagerGenNHibernate.EN.IManager">
+		    
+		    
+			
+				<class name="DiaEN" table="Dia"> 
+						<id name="Dia" column="fecha"/> 
+			
+					
+			
+			
+			
+		  			
+						<many-to-one name="Turno" class="IManagerGenNHibernate.EN.IManager.TurnoEN" >	
+								<column name="FK_id_idTurno"/> 
+						</many-to-one>
+											 					
+			
+		  			
+						<many-to-one name="Horario" class="IManagerGenNHibernate.EN.IManager.HorarioEN" >	
+								<column name="FK_titulo_idHorario"/> 
+						</many-to-one>
+											 					
+					
+					
+					
+		
+		 </class>	
+		  
+		  <query name="DiaENReadAllHQL">from DiaEN</query>
+		</hibernate-mapping>
+	

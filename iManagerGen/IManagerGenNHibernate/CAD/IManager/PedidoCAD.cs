@@ -92,6 +92,12 @@ public int CrearPedido (PedidoEN pedido)
                         pedido.Usuario.Pedido
                         .Add (pedido);
                 }
+                if (pedido.LineaPedido != null) {
+                        foreach (IManagerGenNHibernate.EN.IManager.LineaPedidoEN item in pedido.LineaPedido) {
+                                item.Pedido = pedido;
+                                session.Save (item);
+                        }
+                }
 
                 session.Save (pedido);
                 SessionCommit ();
@@ -124,6 +130,18 @@ public void Modify (PedidoEN pedido)
 
 
                 pedidoEN.Descripcion = pedido.Descripcion;
+
+
+                pedidoEN.Estado = pedido.Estado;
+
+
+                pedidoEN.FechaRealizacion = pedido.FechaRealizacion;
+
+
+                pedidoEN.FechaConfirmacion = pedido.FechaConfirmacion;
+
+
+                pedidoEN.FechaCancelacion = pedido.FechaCancelacion;
 
                 session.Update (pedidoEN);
                 SessionCommit ();

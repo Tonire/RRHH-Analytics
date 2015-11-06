@@ -22,21 +22,28 @@ private string nombre;
 /**
  *	Atributo desde
  */
-private string desde;
+private Nullable<DateTime> desde;
 
 
 
 /**
  *	Atributo hasta
  */
-private string hasta;
+private Nullable<DateTime> hasta;
 
 
 
 /**
  *	Atributo fecha
  */
-private System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.FechaEN> fecha;
+private System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.DiaEN> fecha;
+
+
+
+/**
+ *	Atributo horario
+ */
+private IManagerGenNHibernate.EN.IManager.HorarioEN horario;
 
 
 
@@ -55,20 +62,26 @@ public virtual string Nombre {
 
 
 
-public virtual string Desde {
+public virtual Nullable<DateTime> Desde {
         get { return desde; } set { desde = value;  }
 }
 
 
 
-public virtual string Hasta {
+public virtual Nullable<DateTime> Hasta {
         get { return hasta; } set { hasta = value;  }
 }
 
 
 
-public virtual System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.FechaEN> Fecha {
+public virtual System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.DiaEN> Fecha {
         get { return fecha; } set { fecha = value;  }
+}
+
+
+
+public virtual IManagerGenNHibernate.EN.IManager.HorarioEN Horario {
+        get { return horario; } set { horario = value;  }
 }
 
 
@@ -77,24 +90,24 @@ public virtual System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManage
 
 public TurnoEN()
 {
-        fecha = new System.Collections.Generic.List<IManagerGenNHibernate.EN.IManager.FechaEN>();
+        fecha = new System.Collections.Generic.List<IManagerGenNHibernate.EN.IManager.DiaEN>();
 }
 
 
 
-public TurnoEN(int id, string nombre, string desde, string hasta, System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.FechaEN> fecha
+public TurnoEN(int id, string nombre, Nullable<DateTime> desde, Nullable<DateTime> hasta, System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.DiaEN> fecha, IManagerGenNHibernate.EN.IManager.HorarioEN horario
                )
 {
-        this.init (Id, nombre, desde, hasta, fecha);
+        this.init (Id, nombre, desde, hasta, fecha, horario);
 }
 
 
 public TurnoEN(TurnoEN turno)
 {
-        this.init (Id, turno.Nombre, turno.Desde, turno.Hasta, turno.Fecha);
+        this.init (Id, turno.Nombre, turno.Desde, turno.Hasta, turno.Fecha, turno.Horario);
 }
 
-private void init (int id, string nombre, string desde, string hasta, System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.FechaEN> fecha)
+private void init (int id, string nombre, Nullable<DateTime> desde, Nullable<DateTime> hasta, System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.DiaEN> fecha, IManagerGenNHibernate.EN.IManager.HorarioEN horario)
 {
         this.Id = id;
 
@@ -106,6 +119,8 @@ private void init (int id, string nombre, string desde, string hasta, System.Col
         this.Hasta = hasta;
 
         this.Fecha = fecha;
+
+        this.Horario = horario;
 }
 
 public override bool Equals (object obj)

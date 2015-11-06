@@ -1,0 +1,37 @@
+metodos que tienen que ser un CP:
+------------------------------------------------
+De la clase horario:
+
+asignarTurnos:
+--->Comprobar que la IList de turnos tiene una longitud de 7, si no lanza una excepcion
+--->Crear una IList de 7 dias, y asignarle a cada dia el turno que le corresponde con el metodo
+	asignarTurno de dia
+--->Llamar al metodo asignarDias() del horario y pasarle el IList con los 7 dias, que ya tienen que
+tener un turno asignado
+asignarTurnos(p_tituloHorario, IList dias(con sus turnos))
+
+De la clase Pedido:(fijarse en el CP de Pedido de la PETSTORE, añadiendo una modificacion)
+
+--->De la misma forma que en el CP RestarStcokyENviarPedido de la PetStore(hay que hacer lo mismo) , con una modificacion,
+Tendremos que recuperar el Pedido cuyo id nos pasan por parametro, y llamar al 
+productoCP.SumarStock(Pedidorecuperado.p_lineasPedido), que tendra que modificar el stock de cada uno de los productos, que
+se encuentran en las lineas de pedido del Pedidorecuperado
+--->en lugar de llamar a crearpedidoCP simplemente tenemos que modificar el pedido llamando a
+	pedidoCEN.modificar(p_OID_pedido,p_fechaConfirmacion,p_estado)
+
+AumentarStockyConfirmarPedido(p_OID_pedido,p_fechaConfirmacion,p_estado)
+
+
+De la clase Producto(fijarse en el CP de articulo de la PETSTORE)
+
+--->Recorrer las lineas pasadas por parametro.
+--->Calcular el stock, usando para ello el articulo dentro de cada linea de pedido y modificando el stock
+	para ese articulo(Ver metodo RestarStock del ArticuloCP de la PetStore), lanzar excepcion (igual al ejemplo). 
+	La diferencia es que en lugar de restar stock lo aumenta
+
+SumarStock(IList lineaspedidoEN)
+
+De la claseVenta
+--->Lo mismo que la clase Pedido, que me canso de escribir, aunque aqui en vez de modificar creamos, igual al ejemplo
+de la PetStore.
+ReducirStockyCrearVenta(p_OID_pedido,p_fechaConfirmacion,p_estado)

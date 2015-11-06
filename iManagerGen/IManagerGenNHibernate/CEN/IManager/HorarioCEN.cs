@@ -36,42 +36,74 @@ public IHorarioCAD get_IHorarioCAD ()
         return this._IHorarioCAD;
 }
 
-public void Modify (int p_Horario_OID, int p_anyo, string p_titulo)
+public void Modify (string p_Horario_OID, int p_anyo)
 {
         HorarioEN horarioEN = null;
 
         //Initialized HorarioEN
         horarioEN = new HorarioEN ();
-        horarioEN.Id = p_Horario_OID;
+        horarioEN.Titulo = p_Horario_OID;
         horarioEN.Anyo = p_anyo;
-        horarioEN.Titulo = p_titulo;
         //Call to HorarioCAD
 
         _IHorarioCAD.Modify (horarioEN);
 }
 
-public void Destroy (int id)
+public void Destroy (string titulo)
 {
-        _IHorarioCAD.Destroy (id);
+        _IHorarioCAD.Destroy (titulo);
 }
 
-public int CreaHorario (int p_anyo, string p_titulo, System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.FechaEN> p_fecha)
+public string CreaHorario (string p_titulo, int p_anyo, System.Collections.Generic.IList<string> p_usuario, System.Collections.Generic.IList<int> p_turno)
 {
         HorarioEN horarioEN = null;
-        int oid;
+        string oid;
 
         //Initialized HorarioEN
         horarioEN = new HorarioEN ();
-        horarioEN.Anyo = p_anyo;
-
         horarioEN.Titulo = p_titulo;
 
-        horarioEN.Fecha = p_fecha;
+        horarioEN.Anyo = p_anyo;
+
+
+        horarioEN.Usuario = new System.Collections.Generic.List<IManagerGenNHibernate.EN.IManager.UsuarioEN>();
+        if (p_usuario != null) {
+                foreach (string item in p_usuario) {
+                        IManagerGenNHibernate.EN.IManager.UsuarioEN en = new IManagerGenNHibernate.EN.IManager.UsuarioEN ();
+                        en.Email = item;
+                        horarioEN.Usuario.Add (en);
+                }
+        }
+
+        else{
+                horarioEN.Usuario = new System.Collections.Generic.List<IManagerGenNHibernate.EN.IManager.UsuarioEN>();
+        }
+
+
+        horarioEN.Turno = new System.Collections.Generic.List<IManagerGenNHibernate.EN.IManager.TurnoEN>();
+        if (p_turno != null) {
+                foreach (int item in p_turno) {
+                        IManagerGenNHibernate.EN.IManager.TurnoEN en = new IManagerGenNHibernate.EN.IManager.TurnoEN ();
+                        en.Id = item;
+                        horarioEN.Turno.Add (en);
+                }
+        }
+
+        else{
+                horarioEN.Turno = new System.Collections.Generic.List<IManagerGenNHibernate.EN.IManager.TurnoEN>();
+        }
 
         //Call to HorarioCAD
 
         oid = _IHorarioCAD.CreaHorario (horarioEN);
         return oid;
+}
+
+public void AsignarDias (string p_Horario_OID, System.Collections.Generic.IList<IManagerGenNHibernate.Enumerated.IManager.DiasSemanaEnum> p_dia_OIDs)
+{
+        //Call to HorarioCAD
+
+        _IHorarioCAD.AsignarDias (p_Horario_OID, p_dia_OIDs);
 }
 }
 }

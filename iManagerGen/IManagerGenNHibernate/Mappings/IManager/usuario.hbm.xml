@@ -49,7 +49,7 @@
 									<column name="FK_email_idUsuario"/> 
 							</key>
       						<many-to-many class="IManagerGenNHibernate.EN.IManager.HorarioEN">
-									<column name="FK_id_idHorario"/> 
+									<column name="FK_titulo_idHorario"/> 
       						</many-to-many>
     					</bag>
 			

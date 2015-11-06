@@ -28,14 +28,14 @@ public HorarioCAD(ISession sessionAux) : base (sessionAux)
 
 
 
-public HorarioEN ReadOIDDefault (int id)
+public HorarioEN ReadOIDDefault (string titulo)
 {
         HorarioEN horarioEN = null;
 
         try
         {
                 SessionInitializeTransaction ();
-                horarioEN = (HorarioEN)session.Get (typeof(HorarioEN), id);
+                horarioEN = (HorarioEN)session.Get (typeof(HorarioEN), titulo);
                 SessionCommit ();
         }
 
@@ -85,12 +85,9 @@ public void Modify (HorarioEN horario)
         try
         {
                 SessionInitializeTransaction ();
-                HorarioEN horarioEN = (HorarioEN)session.Load (typeof(HorarioEN), horario.Id);
+                HorarioEN horarioEN = (HorarioEN)session.Load (typeof(HorarioEN), horario.Titulo);
 
                 horarioEN.Anyo = horario.Anyo;
-
-
-                horarioEN.Titulo = horario.Titulo;
 
                 session.Update (horarioEN);
                 SessionCommit ();
@@ -109,12 +106,12 @@ public void Modify (HorarioEN horario)
                 SessionClose ();
         }
 }
-public void Destroy (int id)
+public void Destroy (string titulo)
 {
         try
         {
                 SessionInitializeTransaction ();
-                HorarioEN horarioEN = (HorarioEN)session.Load (typeof(HorarioEN), id);
+                HorarioEN horarioEN = (HorarioEN)session.Load (typeof(HorarioEN), titulo);
                 session.Delete (horarioEN);
                 SessionCommit ();
         }
@@ -133,15 +130,21 @@ public void Destroy (int id)
         }
 }
 
-public int CreaHorario (HorarioEN horario)
+public string CreaHorario (HorarioEN horario)
 {
         try
         {
                 SessionInitializeTransaction ();
-                if (horario.Fecha != null) {
-                        foreach (IManagerGenNHibernate.EN.IManager.FechaEN item in horario.Fecha) {
-                                item.Horario = horario;
-                                session.Save (item);
+                if (horario.Usuario != null) {
+                        for (int i = 0; i < horario.Usuario.Count; i++) {
+                                horario.Usuario [i] = (IManagerGenNHibernate.EN.IManager.UsuarioEN)session.Load (typeof(IManagerGenNHibernate.EN.IManager.UsuarioEN), horario.Usuario [i].Email);
+                                horario.Usuario [i].Horario.Add (horario);
+                        }
+                }
+                if (horario.Turno != null) {
+                        for (int i = 0; i < horario.Turno.Count; i++) {
+                                horario.Turno [i] = (IManagerGenNHibernate.EN.IManager.TurnoEN)session.Load (typeof(IManagerGenNHibernate.EN.IManager.TurnoEN), horario.Turno [i].Id);
+                                horario.Turno [i].Horario = horario;
                         }
                 }
 
@@ -162,7 +165,46 @@ public int CreaHorario (HorarioEN horario)
                 SessionClose ();
         }
 
-        return horario.Id;
+        return horario.Titulo;
+}
+
+public void AsignarDias (string p_Horario_OID, System.Collections.Generic.IList<IManagerGenNHibernate.Enumerated.IManager.DiasSemanaEnum> p_dia_OIDs)
+{
+        IManagerGenNHibernate.EN.IManager.HorarioEN horarioEN = null;
+        try
+        {
+                SessionInitializeTransaction ();
+                horarioEN = (HorarioEN)session.Load (typeof(HorarioEN), p_Horario_OID);
+                IManagerGenNHibernate.EN.IManager.DiaEN diaENAux = null;
+                if (horarioEN.Dia == null) {
+                        horarioEN.Dia = new System.Collections.Generic.List<IManagerGenNHibernate.EN.IManager.DiaEN>();
+                }
+
+                foreach (IManagerGenNHibernate.Enumerated.IManager.DiasSemanaEnum item in p_dia_OIDs) {
+                        diaENAux = new IManagerGenNHibernate.EN.IManager.DiaEN ();
+                        diaENAux = (IManagerGenNHibernate.EN.IManager.DiaEN)session.Load (typeof(IManagerGenNHibernate.EN.IManager.DiaEN), item);
+                        diaENAux.Horario = horarioEN;
+
+                        horarioEN.Dia.Add (diaENAux);
+                }
+
+
+                session.Update (horarioEN);
+                SessionCommit ();
+        }
+
+        catch (Exception ex) {
+                SessionRollBack ();
+                if (ex is IManagerGenNHibernate.Exceptions.ModelException)
+                        throw ex;
+                throw new IManagerGenNHibernate.Exceptions.DataLayerException ("Error in HorarioCAD.", ex);
+        }
+
+
+        finally
+        {
+                SessionClose ();
+        }
 }
 }
 }

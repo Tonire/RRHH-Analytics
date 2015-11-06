@@ -36,7 +36,7 @@ public ILineaPedidoCAD get_ILineaPedidoCAD ()
         return this._ILineaPedidoCAD;
 }
 
-public int CrearLineaPedido (int p_cantidad, int p_pedido, int p_producto)
+public int CrearLineaPedido (int p_cantidad, int p_producto)
 {
         LineaPedidoEN lineaPedidoEN = null;
         int oid;
@@ -44,14 +44,6 @@ public int CrearLineaPedido (int p_cantidad, int p_pedido, int p_producto)
         //Initialized LineaPedidoEN
         lineaPedidoEN = new LineaPedidoEN ();
         lineaPedidoEN.Cantidad = p_cantidad;
-
-
-        if (p_pedido != -1) {
-                // El argumento p_pedido -> Property pedido es oid = false
-                // Lista de oids id
-                lineaPedidoEN.Pedido = new IManagerGenNHibernate.EN.IManager.PedidoEN ();
-                lineaPedidoEN.Pedido.Id = p_pedido;
-        }
 
 
         if (p_producto != -1) {
@@ -65,6 +57,13 @@ public int CrearLineaPedido (int p_cantidad, int p_pedido, int p_producto)
 
         oid = _ILineaPedidoCAD.CrearLineaPedido (lineaPedidoEN);
         return oid;
+}
+
+public void RelationerLinea (int p_LineaPedido_OID, int p_pedido_OID)
+{
+        //Call to LineaPedidoCAD
+
+        _ILineaPedidoCAD.RelationerLinea (p_LineaPedido_OID, p_pedido_OID);
 }
 }
 }

@@ -6,9 +6,9 @@ namespace IManagerGenNHibernate.EN.IManager
 public partial class HorarioEN
 {
 /**
- *	Atributo id
+ *	Atributo titulo
  */
-private int id;
+private string titulo;
 
 
 
@@ -20,13 +20,6 @@ private int anyo;
 
 
 /**
- *	Atributo titulo
- */
-private string titulo;
-
-
-
-/**
  *	Atributo usuario
  */
 private System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.UsuarioEN> usuario;
@@ -34,17 +27,24 @@ private System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.Usuar
 
 
 /**
- *	Atributo fecha
+ *	Atributo turno
  */
-private System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.FechaEN> fecha;
+private System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.TurnoEN> turno;
+
+
+
+/**
+ *	Atributo dia
+ */
+private System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.DiaEN> dia;
 
 
 
 
 
 
-public virtual int Id {
-        get { return id; } set { id = value;  }
+public virtual string Titulo {
+        get { return titulo; } set { titulo = value;  }
 }
 
 
@@ -55,20 +55,20 @@ public virtual int Anyo {
 
 
 
-public virtual string Titulo {
-        get { return titulo; } set { titulo = value;  }
-}
-
-
-
 public virtual System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.UsuarioEN> Usuario {
         get { return usuario; } set { usuario = value;  }
 }
 
 
 
-public virtual System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.FechaEN> Fecha {
-        get { return fecha; } set { fecha = value;  }
+public virtual System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.TurnoEN> Turno {
+        get { return turno; } set { turno = value;  }
+}
+
+
+
+public virtual System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.DiaEN> Dia {
+        get { return dia; } set { dia = value;  }
 }
 
 
@@ -78,35 +78,36 @@ public virtual System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManage
 public HorarioEN()
 {
         usuario = new System.Collections.Generic.List<IManagerGenNHibernate.EN.IManager.UsuarioEN>();
-        fecha = new System.Collections.Generic.List<IManagerGenNHibernate.EN.IManager.FechaEN>();
+        turno = new System.Collections.Generic.List<IManagerGenNHibernate.EN.IManager.TurnoEN>();
+        dia = new System.Collections.Generic.List<IManagerGenNHibernate.EN.IManager.DiaEN>();
 }
 
 
 
-public HorarioEN(int id, int anyo, string titulo, System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.UsuarioEN> usuario, System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.FechaEN> fecha
+public HorarioEN(string titulo, int anyo, System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.UsuarioEN> usuario, System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.TurnoEN> turno, System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.DiaEN> dia
                  )
 {
-        this.init (Id, anyo, titulo, usuario, fecha);
+        this.init (Titulo, anyo, usuario, turno, dia);
 }
 
 
 public HorarioEN(HorarioEN horario)
 {
-        this.init (Id, horario.Anyo, horario.Titulo, horario.Usuario, horario.Fecha);
+        this.init (Titulo, horario.Anyo, horario.Usuario, horario.Turno, horario.Dia);
 }
 
-private void init (int id, int anyo, string titulo, System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.UsuarioEN> usuario, System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.FechaEN> fecha)
+private void init (string titulo, int anyo, System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.UsuarioEN> usuario, System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.TurnoEN> turno, System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.DiaEN> dia)
 {
-        this.Id = id;
+        this.Titulo = titulo;
 
 
         this.Anyo = anyo;
 
-        this.Titulo = titulo;
-
         this.Usuario = usuario;
 
-        this.Fecha = fecha;
+        this.Turno = turno;
+
+        this.Dia = dia;
 }
 
 public override bool Equals (object obj)
@@ -116,7 +117,7 @@ public override bool Equals (object obj)
         HorarioEN t = obj as HorarioEN;
         if (t == null)
                 return false;
-        if (Id.Equals (t.Id))
+        if (Titulo.Equals (t.Titulo))
                 return true;
         else
                 return false;
@@ -126,7 +127,7 @@ public override int GetHashCode ()
 {
         int hash = 13;
 
-        hash += this.Id.GetHashCode ();
+        hash += this.Titulo.GetHashCode ();
         return hash;
 }
 }

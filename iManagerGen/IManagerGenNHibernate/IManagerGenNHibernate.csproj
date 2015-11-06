@@ -127,10 +127,10 @@
 	<Compile Include="CEN\IManager\HorarioCEN.cs" />
 	<Compile Include="CAD\IManager\IHorarioCAD.cs" />
 	<Compile Include="CAD\IManager\HorarioCAD.cs" />
-	<Compile Include="EN\IManager\FechaEN.cs" />
-	<Compile Include="CEN\IManager\FechaCEN.cs" />
-	<Compile Include="CAD\IManager\IFechaCAD.cs" />
-	<Compile Include="CAD\IManager\FechaCAD.cs" />
+	<Compile Include="EN\IManager\DiaEN.cs" />
+	<Compile Include="CEN\IManager\DiaCEN.cs" />
+	<Compile Include="CAD\IManager\IDiaCAD.cs" />
+	<Compile Include="CAD\IManager\DiaCAD.cs" />
 	<Compile Include="EN\IManager\TurnoEN.cs" />
 	<Compile Include="CEN\IManager\TurnoCEN.cs" />
 	<Compile Include="CAD\IManager\ITurnoCAD.cs" />
@@ -140,7 +140,7 @@
 	<Compile Include="CAD\IManager\IPedidoCAD.cs" />
 	<Compile Include="CAD\IManager\PedidoCAD.cs" />
 			<Compile Include="CEN\IManager\PedidoCEN_ConfirmarPedido.cs" />
-			<Compile Include="CEN\IManager\PedidoCEN_RechazarPedido.cs" />
+			<Compile Include="CEN\IManager\PedidoCEN_DeshacerPedido.cs" />
 	<Compile Include="EN\IManager\LineaPedidoEN.cs" />
 	<Compile Include="CEN\IManager\LineaPedidoCEN.cs" />
 	<Compile Include="CAD\IManager\ILineaPedidoCAD.cs" />
@@ -173,6 +173,7 @@
 	<Compile Include="CAD\IManager\IVentaCAD.cs" />
 	<Compile Include="CAD\IManager\VentaCAD.cs" />
 	<Compile Include="Enumerated\IManager\EstadoPedidoEnum.cs" />
+	<Compile Include="Enumerated\IManager\DiasSemanaEnum.cs" />
 	
 	
 
@@ -194,7 +195,7 @@
 	<EmbeddedResource Include="Mappings\IManager\empleado.hbm.xml" />
 	<EmbeddedResource Include="Mappings\IManager\mensaje.hbm.xml" />
 	<EmbeddedResource Include="Mappings\IManager\horario.hbm.xml" />
-	<EmbeddedResource Include="Mappings\IManager\fecha.hbm.xml" />
+	<EmbeddedResource Include="Mappings\IManager\dia.hbm.xml" />
 	<EmbeddedResource Include="Mappings\IManager\turno.hbm.xml" />
 	<EmbeddedResource Include="Mappings\IManager\pedido.hbm.xml" />
 	<EmbeddedResource Include="Mappings\IManager\lineapedido.hbm.xml" />

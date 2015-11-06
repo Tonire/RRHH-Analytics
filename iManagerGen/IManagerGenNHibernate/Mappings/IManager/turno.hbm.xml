@@ -15,10 +15,10 @@
 					<property name="Nombre" type="string"> 
 						<column name="nombre"  not-null="true"/>
 					</property>
-					<property name="Desde" type="string"> 
+					<property name="Desde" type="date"> 
 						<column name="desde"  not-null="true"/>
 					</property>
-					<property name="Hasta" type="string"> 
+					<property name="Hasta" type="date"> 
 						<column name="hasta"  not-null="true"/>
 					</property>
 			
@@ -34,8 +34,15 @@
 								
 								<column name="FK_id_idTurno"/>
 					      	</key>
-							<one-to-many class="IManagerGenNHibernate.EN.IManager.FechaEN"/>
+							<one-to-many class="IManagerGenNHibernate.EN.IManager.DiaEN"/>
 					    </bag>
+					
+			
+		  			
+						<many-to-one name="Horario" class="IManagerGenNHibernate.EN.IManager.HorarioEN" >	
+								<column name="FK_titulo_idHorario"/> 
+						</many-to-one>
+											 					
 					
 					
 					

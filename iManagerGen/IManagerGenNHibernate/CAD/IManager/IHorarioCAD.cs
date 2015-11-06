@@ -6,14 +6,16 @@ namespace IManagerGenNHibernate.CAD.IManager
 {
 public partial interface IHorarioCAD
 {
-HorarioEN ReadOIDDefault (int id);
+HorarioEN ReadOIDDefault (string titulo);
 
 void Modify (HorarioEN horario);
 
 
-void Destroy (int id);
+void Destroy (string titulo);
 
 
-int CreaHorario (HorarioEN horario);
+string CreaHorario (HorarioEN horario);
+
+void AsignarDias (string p_Horario_OID, System.Collections.Generic.IList<IManagerGenNHibernate.Enumerated.IManager.DiasSemanaEnum> p_dia_OIDs);
 }
 }

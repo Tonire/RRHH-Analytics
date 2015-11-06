@@ -36,7 +36,7 @@ public IPedidoCAD get_IPedidoCAD ()
         return this._IPedidoCAD;
 }
 
-public int CrearPedido (string p_total, IManagerGenNHibernate.Enumerated.IManager.EstadoPedidoEnum p_descripcion, string p_usuario)
+public int CrearPedido (string p_total, string p_descripcion, IManagerGenNHibernate.Enumerated.IManager.EstadoPedidoEnum p_estado, Nullable<DateTime> p_fechaRealizacion, string p_usuario, System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.LineaPedidoEN> p_lineaPedido, string p_fechaConfirmacion, string p_fechaCancelacion)
 {
         PedidoEN pedidoEN = null;
         int oid;
@@ -47,6 +47,10 @@ public int CrearPedido (string p_total, IManagerGenNHibernate.Enumerated.IManage
 
         pedidoEN.Descripcion = p_descripcion;
 
+        pedidoEN.Estado = p_estado;
+
+        pedidoEN.FechaRealizacion = p_fechaRealizacion;
+
 
         if (p_usuario != null) {
                 // El argumento p_usuario -> Property usuario es oid = false
@@ -55,13 +59,19 @@ public int CrearPedido (string p_total, IManagerGenNHibernate.Enumerated.IManage
                 pedidoEN.Usuario.Email = p_usuario;
         }
 
+        pedidoEN.LineaPedido = p_lineaPedido;
+
+        pedidoEN.FechaConfirmacion = p_fechaConfirmacion;
+
+        pedidoEN.FechaCancelacion = p_fechaCancelacion;
+
         //Call to PedidoCAD
 
         oid = _IPedidoCAD.CrearPedido (pedidoEN);
         return oid;
 }
 
-public void Modify (int p_Pedido_OID, string p_total, IManagerGenNHibernate.Enumerated.IManager.EstadoPedidoEnum p_descripcion)
+public void Modify (int p_Pedido_OID, string p_total, string p_descripcion, IManagerGenNHibernate.Enumerated.IManager.EstadoPedidoEnum p_estado, Nullable<DateTime> p_fechaRealizacion, string p_fechaConfirmacion, string p_fechaCancelacion)
 {
         PedidoEN pedidoEN = null;
 
@@ -70,6 +80,10 @@ public void Modify (int p_Pedido_OID, string p_total, IManagerGenNHibernate.Enum
         pedidoEN.Id = p_Pedido_OID;
         pedidoEN.Total = p_total;
         pedidoEN.Descripcion = p_descripcion;
+        pedidoEN.Estado = p_estado;
+        pedidoEN.FechaRealizacion = p_fechaRealizacion;
+        pedidoEN.FechaConfirmacion = p_fechaConfirmacion;
+        pedidoEN.FechaCancelacion = p_fechaCancelacion;
         //Call to PedidoCAD
 
         _IPedidoCAD.Modify (pedidoEN);
