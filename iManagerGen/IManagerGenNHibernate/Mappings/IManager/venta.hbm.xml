@@ -12,6 +12,9 @@
 						</id>
 			
 					
+					<property name="FechaVenta" type="string"> 
+						<column name="fechaVenta"  not-null="true"/>
+					</property>
 			
 			
 			
@@ -22,10 +25,17 @@
 											 					
 			
 		  			
-						<many-to-one name="Producto" class="IManagerGenNHibernate.EN.IManager.ProductoEN" >	
-								<column name="FK_referencia_idProducto"/> 
-						</many-to-one>
-											 					
+						<bag name="LineaVenta" table="[lineaVenta_venta]" inverse="true" cascade="delete">
+							<key>
+								
+									<column name="FK_id_idVenta"/> 
+							</key>
+      						<many-to-many class="IManagerGenNHibernate.EN.IManager.LineaVentaEN">
+									<column name="FK_attribute_idLineaVenta"/> 
+      						</many-to-many>
+    					</bag>
+			
+					
 					
 					
 					

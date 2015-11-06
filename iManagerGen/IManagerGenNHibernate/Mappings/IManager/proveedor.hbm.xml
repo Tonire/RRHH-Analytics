@@ -30,18 +30,6 @@
 									<column name="FK_referencia_idProducto"/> 
       						</many-to-many>
     					</bag>
-			
-		  			
-						<bag name="Usuario" table="[usuario_proveedor]" inverse="true" >
-							<key>
-								
-									<column name="FK_email_idProveedor"/> 
-							</key>
-      						<many-to-many class="IManagerGenNHibernate.EN.IManager.UsuarioEN">
-									<column name="FK_email_idUsuario"/> 
-      						</many-to-many>
-    					</bag>
-					
 					
 					
 					

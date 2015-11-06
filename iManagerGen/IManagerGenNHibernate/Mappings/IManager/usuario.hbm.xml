@@ -21,7 +21,7 @@
 			
 			
 		  			
-						<bag name="Envía" >
+						<bag name="MensajesEnviados" >
 							<key>
 							
 								
@@ -32,7 +32,7 @@
 					
 			
 		  			
-						<bag name="Recibe" >
+						<bag name="MensajesRecibidos" >
 							<key>
 							
 								
@@ -65,17 +65,6 @@
 					
 			
 		  			
-						<bag name="Proveedor" table="[usuario_proveedor]"  >
-							<key>
-								
-									<column name="FK_email_idUsuario"/> 
-							</key>
-      						<many-to-many class="IManagerGenNHibernate.EN.IManager.ProveedorEN">
-									<column name="FK_email_idProveedor"/> 
-      						</many-to-many>
-    					</bag>
-			
-		  			
 						<bag name="Ventas" >
 							<key>
 							
@@ -84,7 +73,6 @@
 					      	</key>
 							<one-to-many class="IManagerGenNHibernate.EN.IManager.VentaEN"/>
 					    </bag>
-					
 					
 					
 					

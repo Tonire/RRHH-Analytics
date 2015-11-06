@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" ?>
+		<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+		                   assembly="IManagerGenNHibernate"
+		                   namespace="IManagerGenNHibernate.EN.IManager">
+		    
+		    
+			
+				<class name="LineaVentaEN" table="lineaVenta"> 
+				  	
+						<id name="Id" column="attribute" type="integer"> 
+							<generator class="identity"/>
+						</id>
+			
+					
+					<property name="Cantidad" type="integer"> 
+						<column name="cantidad"  not-null="true"/>
+					</property>
+			
+			
+			
+			
+		  			
+						<bag name="Venta" table="[lineaVenta_venta]"  >
+							<key>
+								
+									<column name="FK_attribute_idLineaVenta"/> 
+							</key>
+      						<many-to-many class="IManagerGenNHibernate.EN.IManager.VentaEN">
+									<column name="FK_id_idVenta"/> 
+      						</many-to-many>
+    					</bag>
+			
+		  			
+						<many-to-one name="Producto" class="IManagerGenNHibernate.EN.IManager.ProductoEN" >	
+								<column name="FK_referencia_idProducto"/> 
+						</many-to-one>
+											 					
+					
+					
+					
+					
+		
+		 </class>	
+		  
+		  <query name="LineaVentaENReadAllHQL">from LineaVentaEN</query>
+		</hibernate-mapping>
+	

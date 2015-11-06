@@ -36,7 +36,7 @@ public IProveedorCAD get_IProveedorCAD ()
         return this._IProveedorCAD;
 }
 
-public string CrearProveedor (string p_email, string p_nombre, string p_telefono)
+public string CrearProveedor (string p_email, string p_nombre, string p_telefono, System.Collections.Generic.IList<int> p_producto)
 {
         ProveedorEN proveedorEN = null;
         string oid;
@@ -48,6 +48,20 @@ public string CrearProveedor (string p_email, string p_nombre, string p_telefono
         proveedorEN.Nombre = p_nombre;
 
         proveedorEN.Telefono = p_telefono;
+
+
+        proveedorEN.Producto = new System.Collections.Generic.List<IManagerGenNHibernate.EN.IManager.ProductoEN>();
+        if (p_producto != null) {
+                foreach (int item in p_producto) {
+                        IManagerGenNHibernate.EN.IManager.ProductoEN en = new IManagerGenNHibernate.EN.IManager.ProductoEN ();
+                        en.Referencia = item;
+                        proveedorEN.Producto.Add (en);
+                }
+        }
+
+        else{
+                proveedorEN.Producto = new System.Collections.Generic.List<IManagerGenNHibernate.EN.IManager.ProductoEN>();
+        }
 
         //Call to ProveedorCAD
 

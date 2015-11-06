@@ -73,5 +73,13 @@ public void Destroy (string email)
 {
         _IUsuarioCAD.Destroy (email);
 }
+
+public UsuarioEN GetUsuarioByEmail (string email)
+{
+        UsuarioEN usuarioEN = null;
+
+        usuarioEN = _IUsuarioCAD.GetUsuarioByEmail (email);
+        return usuarioEN;
+}
 }
 }

@@ -36,7 +36,7 @@ public IVentaCAD get_IVentaCAD ()
         return this._IVentaCAD;
 }
 
-public int NuevaVenta (string p_usuario, int p_producto)
+public int NuevaVenta (string p_usuario, System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.LineaVentaEN> p_lineaVenta, string p_fechaVenta)
 {
         VentaEN ventaEN = null;
         int oid;
@@ -51,13 +51,9 @@ public int NuevaVenta (string p_usuario, int p_producto)
                 ventaEN.Usuario.Email = p_usuario;
         }
 
+        ventaEN.LineaVenta = p_lineaVenta;
 
-        if (p_producto != -1) {
-                // El argumento p_producto -> Property producto es oid = false
-                // Lista de oids id
-                ventaEN.Producto = new IManagerGenNHibernate.EN.IManager.ProductoEN ();
-                ventaEN.Producto.Referencia = p_producto;
-        }
+        ventaEN.FechaVenta = p_fechaVenta;
 
         //Call to VentaCAD
 
@@ -70,13 +66,14 @@ public void Destroy (int id)
         _IVentaCAD.Destroy (id);
 }
 
-public void Modify (int p_Venta_OID)
+public void Modify (int p_Venta_OID, string p_fechaVenta)
 {
         VentaEN ventaEN = null;
 
         //Initialized VentaEN
         ventaEN = new VentaEN ();
         ventaEN.Id = p_Venta_OID;
+        ventaEN.FechaVenta = p_fechaVenta;
         //Call to VentaCAD
 
         _IVentaCAD.Modify (ventaEN);

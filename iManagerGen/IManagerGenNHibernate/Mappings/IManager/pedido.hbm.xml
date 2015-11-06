@@ -12,9 +12,6 @@
 						</id>
 			
 					
-					<property name="Total" type="string"> 
-						<column name="total"  not-null="true"/>
-					</property>
 					<property name="Descripcion" type="string"> 
 						<column name="descripcion"  not-null="true"/>
 					</property>
@@ -30,7 +27,6 @@
 					<property name="FechaCancelacion" type="string"> 
 						<column name="fechaCancelacion"  not-null="true"/>
 					</property>
-			
 			
 			
 			
@@ -63,10 +59,12 @@
 					
 					
 					
-					
 		
 		 </class>	
 		  
 		  <query name="PedidoENReadAllHQL">from PedidoEN</query>
+		  <query name="PedidoENgetPedidosRealizadosHQL"><![CDATA[FROM PedidoEN]]></query>
+		  <query name="PedidoENgetPedidosConfirmadosHQL"><![CDATA[FROM PedidoEN]]></query>
+		  <query name="PedidoENgetPedidosCanceladosHQL"><![CDATA[FROM PedidoEN]]></query>
 		</hibernate-mapping>
 	

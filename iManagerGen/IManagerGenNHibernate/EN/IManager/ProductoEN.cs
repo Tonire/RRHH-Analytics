@@ -62,9 +62,9 @@ private System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.Prove
 
 
 /**
- *	Atributo ventas
+ *	Atributo lineaVenta
  */
-private System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.VentaEN> ventas;
+private System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.LineaVentaEN> lineaVenta;
 
 
 
@@ -119,8 +119,8 @@ public virtual System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManage
 
 
 
-public virtual System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.VentaEN> Ventas {
-        get { return ventas; } set { ventas = value;  }
+public virtual System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.LineaVentaEN> LineaVenta {
+        get { return lineaVenta; } set { lineaVenta = value;  }
 }
 
 
@@ -131,24 +131,24 @@ public ProductoEN()
 {
         lineaPedido = new System.Collections.Generic.List<IManagerGenNHibernate.EN.IManager.LineaPedidoEN>();
         proveedor = new System.Collections.Generic.List<IManagerGenNHibernate.EN.IManager.ProveedorEN>();
-        ventas = new System.Collections.Generic.List<IManagerGenNHibernate.EN.IManager.VentaEN>();
+        lineaVenta = new System.Collections.Generic.List<IManagerGenNHibernate.EN.IManager.LineaVentaEN>();
 }
 
 
 
-public ProductoEN(int referencia, string nombre, string marca, int precioCompra, int precioVenta, int stock, System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.LineaPedidoEN> lineaPedido, System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.ProveedorEN> proveedor, System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.VentaEN> ventas
+public ProductoEN(int referencia, string nombre, string marca, int precioCompra, int precioVenta, int stock, System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.LineaPedidoEN> lineaPedido, System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.ProveedorEN> proveedor, System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.LineaVentaEN> lineaVenta
                   )
 {
-        this.init (Referencia, nombre, marca, precioCompra, precioVenta, stock, lineaPedido, proveedor, ventas);
+        this.init (Referencia, nombre, marca, precioCompra, precioVenta, stock, lineaPedido, proveedor, lineaVenta);
 }
 
 
 public ProductoEN(ProductoEN producto)
 {
-        this.init (Referencia, producto.Nombre, producto.Marca, producto.PrecioCompra, producto.PrecioVenta, producto.Stock, producto.LineaPedido, producto.Proveedor, producto.Ventas);
+        this.init (Referencia, producto.Nombre, producto.Marca, producto.PrecioCompra, producto.PrecioVenta, producto.Stock, producto.LineaPedido, producto.Proveedor, producto.LineaVenta);
 }
 
-private void init (int referencia, string nombre, string marca, int precioCompra, int precioVenta, int stock, System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.LineaPedidoEN> lineaPedido, System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.ProveedorEN> proveedor, System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.VentaEN> ventas)
+private void init (int referencia, string nombre, string marca, int precioCompra, int precioVenta, int stock, System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.LineaPedidoEN> lineaPedido, System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.ProveedorEN> proveedor, System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.LineaVentaEN> lineaVenta)
 {
         this.Referencia = referencia;
 
@@ -167,7 +167,7 @@ private void init (int referencia, string nombre, string marca, int precioCompra
 
         this.Proveedor = proveedor;
 
-        this.Ventas = ventas;
+        this.LineaVenta = lineaVenta;
 }
 
 public override bool Equals (object obj)

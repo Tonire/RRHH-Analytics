@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" ?>
+		<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+		                   assembly="IManagerGenNHibernate"
+		                   namespace="IManagerGenNHibernate.EN.IManager">
+		    
+		    
+			
+				<class name="IngresosEN" table="Ingresos"> 
+				<composite-id name="IngresosOID" 
+				class="IManagerGenNHibernate.EN.IManager.IngresosEN_OID">
+					<key-property name="Anyo"/> 
+					<key-property name="Mes"/> 
+				</composite-id>	
+		
+			
+					
+					<property name="Ingresos" type="float"> 
+						<column name="ingresos"  not-null="true"/>
+					</property>
+			
+			
+			
+			
+					
+					
+					
+		
+		 </class>	
+		  
+		  <query name="IngresosENReadAllHQL">from IngresosEN</query>
+		</hibernate-mapping>
+	

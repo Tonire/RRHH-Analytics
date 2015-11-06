@@ -15,5 +15,8 @@ void Modify (UsuarioEN usuario);
 
 
 void Destroy (string email);
+
+
+UsuarioEN GetUsuarioByEmail (string email);
 }
 }

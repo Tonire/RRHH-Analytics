@@ -36,15 +36,13 @@ public IPedidoCAD get_IPedidoCAD ()
         return this._IPedidoCAD;
 }
 
-public int CrearPedido (string p_total, string p_descripcion, IManagerGenNHibernate.Enumerated.IManager.EstadoPedidoEnum p_estado, Nullable<DateTime> p_fechaRealizacion, string p_usuario, System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.LineaPedidoEN> p_lineaPedido, string p_fechaConfirmacion, string p_fechaCancelacion)
+public int CrearPedido (string p_descripcion, IManagerGenNHibernate.Enumerated.IManager.EstadoPedidoEnum p_estado, Nullable<DateTime> p_fechaRealizacion, string p_usuario, System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.LineaPedidoEN> p_lineaPedido, string p_fechaConfirmacion, string p_fechaCancelacion)
 {
         PedidoEN pedidoEN = null;
         int oid;
 
         //Initialized PedidoEN
         pedidoEN = new PedidoEN ();
-        pedidoEN.Total = p_total;
-
         pedidoEN.Descripcion = p_descripcion;
 
         pedidoEN.Estado = p_estado;
@@ -71,14 +69,13 @@ public int CrearPedido (string p_total, string p_descripcion, IManagerGenNHibern
         return oid;
 }
 
-public void Modify (int p_Pedido_OID, string p_total, string p_descripcion, IManagerGenNHibernate.Enumerated.IManager.EstadoPedidoEnum p_estado, Nullable<DateTime> p_fechaRealizacion, string p_fechaConfirmacion, string p_fechaCancelacion)
+public void Modify (int p_Pedido_OID, string p_descripcion, IManagerGenNHibernate.Enumerated.IManager.EstadoPedidoEnum p_estado, Nullable<DateTime> p_fechaRealizacion, string p_fechaConfirmacion, string p_fechaCancelacion)
 {
         PedidoEN pedidoEN = null;
 
         //Initialized PedidoEN
         pedidoEN = new PedidoEN ();
         pedidoEN.Id = p_Pedido_OID;
-        pedidoEN.Total = p_total;
         pedidoEN.Descripcion = p_descripcion;
         pedidoEN.Estado = p_estado;
         pedidoEN.FechaRealizacion = p_fechaRealizacion;
@@ -92,6 +89,19 @@ public void Modify (int p_Pedido_OID, string p_total, string p_descripcion, IMan
 public void Destroy (int id)
 {
         _IPedidoCAD.Destroy (id);
+}
+
+public System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.PedidoEN> GetPedidosRealizados ()
+{
+        return _IPedidoCAD.GetPedidosRealizados ();
+}
+public System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.PedidoEN> GetPedidosConfirmados ()
+{
+        return _IPedidoCAD.GetPedidosConfirmados ();
+}
+public System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.PedidoEN> GetPedidosCancelados ()
+{
+        return _IPedidoCAD.GetPedidosCancelados ();
 }
 }
 }

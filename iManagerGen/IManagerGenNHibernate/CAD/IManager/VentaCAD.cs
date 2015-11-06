@@ -92,12 +92,11 @@ public int NuevaVenta (VentaEN venta)
                         venta.Usuario.Ventas
                         .Add (venta);
                 }
-                if (venta.Producto != null) {
-                        // Argumento OID y no colección.
-                        venta.Producto = (IManagerGenNHibernate.EN.IManager.ProductoEN)session.Load (typeof(IManagerGenNHibernate.EN.IManager.ProductoEN), venta.Producto.Referencia);
-
-                        venta.Producto.Ventas
-                        .Add (venta);
+                if (venta.LineaVenta != null) {
+                        foreach (IManagerGenNHibernate.EN.IManager.LineaVentaEN item in venta.LineaVenta) {
+                                item.Venta.Add (venta);
+                                session.Save (item);
+                        }
                 }
 
                 session.Save (venta);
@@ -150,6 +149,9 @@ public void Modify (VentaEN venta)
         {
                 SessionInitializeTransaction ();
                 VentaEN ventaEN = (VentaEN)session.Load (typeof(VentaEN), venta.Id);
+
+                ventaEN.FechaVenta = venta.FechaVenta;
+
                 session.Update (ventaEN);
                 SessionCommit ();
         }

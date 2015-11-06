@@ -13,13 +13,6 @@ private int id;
 
 
 /**
- *	Atributo total
- */
-private string total;
-
-
-
-/**
  *	Atributo descripcion
  */
 private string descripcion;
@@ -77,12 +70,6 @@ public virtual int Id {
 
 
 
-public virtual string Total {
-        get { return total; } set { total = value;  }
-}
-
-
-
 public virtual string Descripcion {
         get { return descripcion; } set { descripcion = value;  }
 }
@@ -134,24 +121,22 @@ public PedidoEN()
 
 
 
-public PedidoEN(int id, string total, string descripcion, IManagerGenNHibernate.Enumerated.IManager.EstadoPedidoEnum estado, Nullable<DateTime> fechaRealizacion, IManagerGenNHibernate.EN.IManager.UsuarioEN usuario, System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.LineaPedidoEN> lineaPedido, string fechaConfirmacion, string fechaCancelacion
+public PedidoEN(int id, string descripcion, IManagerGenNHibernate.Enumerated.IManager.EstadoPedidoEnum estado, Nullable<DateTime> fechaRealizacion, IManagerGenNHibernate.EN.IManager.UsuarioEN usuario, System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.LineaPedidoEN> lineaPedido, string fechaConfirmacion, string fechaCancelacion
                 )
 {
-        this.init (Id, total, descripcion, estado, fechaRealizacion, usuario, lineaPedido, fechaConfirmacion, fechaCancelacion);
+        this.init (Id, descripcion, estado, fechaRealizacion, usuario, lineaPedido, fechaConfirmacion, fechaCancelacion);
 }
 
 
 public PedidoEN(PedidoEN pedido)
 {
-        this.init (Id, pedido.Total, pedido.Descripcion, pedido.Estado, pedido.FechaRealizacion, pedido.Usuario, pedido.LineaPedido, pedido.FechaConfirmacion, pedido.FechaCancelacion);
+        this.init (Id, pedido.Descripcion, pedido.Estado, pedido.FechaRealizacion, pedido.Usuario, pedido.LineaPedido, pedido.FechaConfirmacion, pedido.FechaCancelacion);
 }
 
-private void init (int id, string total, string descripcion, IManagerGenNHibernate.Enumerated.IManager.EstadoPedidoEnum estado, Nullable<DateTime> fechaRealizacion, IManagerGenNHibernate.EN.IManager.UsuarioEN usuario, System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.LineaPedidoEN> lineaPedido, string fechaConfirmacion, string fechaCancelacion)
+private void init (int id, string descripcion, IManagerGenNHibernate.Enumerated.IManager.EstadoPedidoEnum estado, Nullable<DateTime> fechaRealizacion, IManagerGenNHibernate.EN.IManager.UsuarioEN usuario, System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.LineaPedidoEN> lineaPedido, string fechaConfirmacion, string fechaCancelacion)
 {
         this.Id = id;
 
-
-        this.Total = total;
 
         this.Descripcion = descripcion;
 

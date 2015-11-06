@@ -43,5 +43,7 @@
 		 </class>	
 		  
 		  <query name="MensajeENReadAllHQL">from MensajeEN</query>
+		  <query name="MensajeENgetMensajesByRemitenteHQL"><![CDATA[FROM MensajeEN where Remitente.Email=:p_email]]></query>
+		  <query name="MensajeENgetMensajesByDestinatarioHQL"><![CDATA[FROM MensajeEN where Destinatario.Email=:p_email]]></query>
 		</hibernate-mapping>
 	

@@ -55,13 +55,13 @@
     					</bag>
 			
 		  			
-						<bag name="Ventas" >
+						<bag name="LineaVenta" >
 							<key>
 							
 								
 								<column name="FK_referencia_idProducto"/>
 					      	</key>
-							<one-to-many class="IManagerGenNHibernate.EN.IManager.VentaEN"/>
+							<one-to-many class="IManagerGenNHibernate.EN.IManager.LineaVentaEN"/>
 					    </bag>
 					
 					

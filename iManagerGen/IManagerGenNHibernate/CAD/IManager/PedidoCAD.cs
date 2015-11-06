@@ -126,9 +126,6 @@ public void Modify (PedidoEN pedido)
                 SessionInitializeTransaction ();
                 PedidoEN pedidoEN = (PedidoEN)session.Load (typeof(PedidoEN), pedido.Id);
 
-                pedidoEN.Total = pedido.Total;
-
-
                 pedidoEN.Descripcion = pedido.Descripcion;
 
 
@@ -182,6 +179,94 @@ public void Destroy (int id)
         {
                 SessionClose ();
         }
+}
+
+public System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.PedidoEN> GetPedidosRealizados ()
+{
+        System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.PedidoEN> result;
+        try
+        {
+                SessionInitializeTransaction ();
+                //String sql = @"FROM PedidoEN self where FROM PedidoEN";
+                //IQuery query = session.CreateQuery(sql);
+                IQuery query = (IQuery)session.GetNamedQuery ("PedidoENgetPedidosRealizadosHQL");
+
+                result = query.List<IManagerGenNHibernate.EN.IManager.PedidoEN>();
+                SessionCommit ();
+        }
+
+        catch (Exception ex) {
+                SessionRollBack ();
+                if (ex is IManagerGenNHibernate.Exceptions.ModelException)
+                        throw ex;
+                throw new IManagerGenNHibernate.Exceptions.DataLayerException ("Error in PedidoCAD.", ex);
+        }
+
+
+        finally
+        {
+                SessionClose ();
+        }
+
+        return result;
+}
+public System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.PedidoEN> GetPedidosConfirmados ()
+{
+        System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.PedidoEN> result;
+        try
+        {
+                SessionInitializeTransaction ();
+                //String sql = @"FROM PedidoEN self where FROM PedidoEN";
+                //IQuery query = session.CreateQuery(sql);
+                IQuery query = (IQuery)session.GetNamedQuery ("PedidoENgetPedidosConfirmadosHQL");
+
+                result = query.List<IManagerGenNHibernate.EN.IManager.PedidoEN>();
+                SessionCommit ();
+        }
+
+        catch (Exception ex) {
+                SessionRollBack ();
+                if (ex is IManagerGenNHibernate.Exceptions.ModelException)
+                        throw ex;
+                throw new IManagerGenNHibernate.Exceptions.DataLayerException ("Error in PedidoCAD.", ex);
+        }
+
+
+        finally
+        {
+                SessionClose ();
+        }
+
+        return result;
+}
+public System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.PedidoEN> GetPedidosCancelados ()
+{
+        System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.PedidoEN> result;
+        try
+        {
+                SessionInitializeTransaction ();
+                //String sql = @"FROM PedidoEN self where FROM PedidoEN";
+                //IQuery query = session.CreateQuery(sql);
+                IQuery query = (IQuery)session.GetNamedQuery ("PedidoENgetPedidosCanceladosHQL");
+
+                result = query.List<IManagerGenNHibernate.EN.IManager.PedidoEN>();
+                SessionCommit ();
+        }
+
+        catch (Exception ex) {
+                SessionRollBack ();
+                if (ex is IManagerGenNHibernate.Exceptions.ModelException)
+                        throw ex;
+                throw new IManagerGenNHibernate.Exceptions.DataLayerException ("Error in PedidoCAD.", ex);
+        }
+
+
+        finally
+        {
+                SessionClose ();
+        }
+
+        return result;
 }
 }
 }

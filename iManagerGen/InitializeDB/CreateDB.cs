@@ -8,7 +8,8 @@ using System.Data;
 using IManagerGenNHibernate.EN.IManager;
 using IManagerGenNHibernate.CEN.IManager;
 using IManagerGenNHibernate.CAD.IManager;
-using EjemploProyectoCP.CPs;
+using System.Windows.Forms;
+//using EjemploProyectoCP.CPs;
 
 /*PROTECTED REGION END*/
 namespace InitializeDB
@@ -22,7 +23,7 @@ public static void Create (string databaseArg, string userArg, string passArg)
         String pass = passArg;
 
         // Conex DB
-        SqlConnection cnn = new SqlConnection (@"Server=(local); database=master; integrated security=yes");
+        SqlConnection cnn = new SqlConnection (@"Server=(local)\sqlexpress; database=master; integrated security=yes");
 
         // Order T-SQL create user
         String createUser = @"IF NOT EXISTS(SELECT name FROM master.dbo.syslogins WHERE name = '" + user + @"')
@@ -114,6 +115,33 @@ public static void InitializeData ()
                  * //Define Album
                  * //IManagerGenNHibernate.CEN.Mediaplayer.AlbumCEN albumCEN = new IManagerGenNHibernate.CEN.Mediaplayer.AlbumCEN();
                  * //albumCEN.New_("Album 1", "This is a Album 1", artists, musicTracks);*/
+                #region Cliente
+                //Cliente 1
+                //MessageBox.Show ("Cago en dios!");
+                IUsuarioCAD _IUsuarioCAD = new UsuarioCAD ();
+                UsuarioCEN usuarioCEN = new UsuarioCEN (_IUsuarioCAD);
+                IMensajeCAD _IMensajeCAD = new MensajeCAD ();
+                MensajeCEN mensajeCEN = new MensajeCEN (_IMensajeCAD);
+                UsuarioEN toni = new UsuarioEN ();
+                UsuarioEN julio = new UsuarioEN ();
+                toni.Email = "toni.rb.rebollo.el.mas.xulo@hotmail.com";
+                toni.DNI = "48730721h";
+                toni.Password = "tonireasdf";
+                usuarioCEN.Registrar (toni.Email, toni.DNI, toni.Password);
+                //CLiente 2
+                julio.Email = "julio.el.pro@hotmail.com";
+                julio.DNI = "48730721T";
+                julio.Password = "julioasdf";
+                usuarioCEN.Registrar (julio.Email, julio.DNI, julio.Password);
+                MensajeEN mensaje1 = new MensajeEN ();
+                mensaje1.Asunto = "Te reviento";
+                mensaje1.Contenido = "Te voy a reventar un dia de estos.";
+                mensajeCEN.CreaMensaje (julio.Email, toni.Email, mensaje1.Asunto, mensaje1.Contenido);
+                IList<MensajeEN> listaMensajes = mensajeCEN.GetMensajesByRemitente (julio.Email);
+                //MensajeEN mensaje = mensajeCEN.GetMensajesByRemitente (julio.Email);
+                MessageBox.Show ("El asunto es: " + listaMensajes[0].Asunto);
+
+                #endregion
                 /*PROTECTED REGION END*/
         }
         catch (Exception ex)

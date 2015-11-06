@@ -33,13 +33,6 @@ private System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.Produ
 
 
 
-/**
- *	Atributo usuario
- */
-private System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.UsuarioEN> usuario;
-
-
-
 
 
 
@@ -67,35 +60,28 @@ public virtual System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManage
 
 
 
-public virtual System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.UsuarioEN> Usuario {
-        get { return usuario; } set { usuario = value;  }
-}
-
-
-
 
 
 public ProveedorEN()
 {
         producto = new System.Collections.Generic.List<IManagerGenNHibernate.EN.IManager.ProductoEN>();
-        usuario = new System.Collections.Generic.List<IManagerGenNHibernate.EN.IManager.UsuarioEN>();
 }
 
 
 
-public ProveedorEN(string email, string nombre, string telefono, System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.ProductoEN> producto, System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.UsuarioEN> usuario
+public ProveedorEN(string email, string nombre, string telefono, System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.ProductoEN> producto
                    )
 {
-        this.init (Email, nombre, telefono, producto, usuario);
+        this.init (Email, nombre, telefono, producto);
 }
 
 
 public ProveedorEN(ProveedorEN proveedor)
 {
-        this.init (Email, proveedor.Nombre, proveedor.Telefono, proveedor.Producto, proveedor.Usuario);
+        this.init (Email, proveedor.Nombre, proveedor.Telefono, proveedor.Producto);
 }
 
-private void init (string email, string nombre, string telefono, System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.ProductoEN> producto, System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.UsuarioEN> usuario)
+private void init (string email, string nombre, string telefono, System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.ProductoEN> producto)
 {
         this.Email = email;
 
@@ -105,8 +91,6 @@ private void init (string email, string nombre, string telefono, System.Collecti
         this.Telefono = telefono;
 
         this.Producto = producto;
-
-        this.Usuario = usuario;
 }
 
 public override bool Equals (object obj)

@@ -89,14 +89,14 @@ public int CreaMensaje (MensajeEN mensaje)
                         // Argumento OID y no colección.
                         mensaje.Remitente = (IManagerGenNHibernate.EN.IManager.UsuarioEN)session.Load (typeof(IManagerGenNHibernate.EN.IManager.UsuarioEN), mensaje.Remitente.Email);
 
-                        mensaje.Remitente.Envía
+                        mensaje.Remitente.MensajesEnviados
                         .Add (mensaje);
                 }
                 if (mensaje.Destinatario != null) {
                         // Argumento OID y no colección.
                         mensaje.Destinatario = (IManagerGenNHibernate.EN.IManager.UsuarioEN)session.Load (typeof(IManagerGenNHibernate.EN.IManager.UsuarioEN), mensaje.Destinatario.Email);
 
-                        mensaje.Destinatario.Recibe
+                        mensaje.Destinatario.MensajesRecibidos
                         .Add (mensaje);
                 }
 
@@ -147,6 +147,67 @@ public MensajeEN GetMensaje (int id)
         }
 
         return mensajeEN;
+}
+
+public System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.MensajeEN> GetMensajesByRemitente (string p_email)
+{
+        System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.MensajeEN> result;
+        try
+        {
+                SessionInitializeTransaction ();
+                //String sql = @"FROM MensajeEN self where FROM MensajeEN where Remitente.Email=:p_email";
+                //IQuery query = session.CreateQuery(sql);
+                IQuery query = (IQuery)session.GetNamedQuery ("MensajeENgetMensajesByRemitenteHQL");
+                query.SetParameter ("p_email", p_email);
+
+                result = query.List<IManagerGenNHibernate.EN.IManager.MensajeEN>();
+                SessionCommit ();
+        }
+
+        catch (Exception ex) {
+                SessionRollBack ();
+                if (ex is IManagerGenNHibernate.Exceptions.ModelException)
+                        throw ex;
+                throw new IManagerGenNHibernate.Exceptions.DataLayerException ("Error in MensajeCAD.", ex);
+        }
+
+
+        finally
+        {
+                SessionClose ();
+        }
+
+        return result;
+}
+public System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.MensajeEN> GetMensajesByDestinatario (string p_email)
+{
+        System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.MensajeEN> result;
+        try
+        {
+                SessionInitializeTransaction ();
+                //String sql = @"FROM MensajeEN self where FROM MensajeEN where Destinatario.Email=:p_email";
+                //IQuery query = session.CreateQuery(sql);
+                IQuery query = (IQuery)session.GetNamedQuery ("MensajeENgetMensajesByDestinatarioHQL");
+                query.SetParameter ("p_email", p_email);
+
+                result = query.List<IManagerGenNHibernate.EN.IManager.MensajeEN>();
+                SessionCommit ();
+        }
+
+        catch (Exception ex) {
+                SessionRollBack ();
+                if (ex is IManagerGenNHibernate.Exceptions.ModelException)
+                        throw ex;
+                throw new IManagerGenNHibernate.Exceptions.DataLayerException ("Error in MensajeCAD.", ex);
+        }
+
+
+        finally
+        {
+                SessionClose ();
+        }
+
+        return result;
 }
 }
 }

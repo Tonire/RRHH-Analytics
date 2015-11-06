@@ -20,9 +20,16 @@ private IManagerGenNHibernate.EN.IManager.UsuarioEN usuario;
 
 
 /**
- *	Atributo producto
+ *	Atributo lineaVenta
  */
-private IManagerGenNHibernate.EN.IManager.ProductoEN producto;
+private System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.LineaVentaEN> lineaVenta;
+
+
+
+/**
+ *	Atributo fechaVenta
+ */
+private string fechaVenta;
 
 
 
@@ -41,8 +48,14 @@ public virtual IManagerGenNHibernate.EN.IManager.UsuarioEN Usuario {
 
 
 
-public virtual IManagerGenNHibernate.EN.IManager.ProductoEN Producto {
-        get { return producto; } set { producto = value;  }
+public virtual System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.LineaVentaEN> LineaVenta {
+        get { return lineaVenta; } set { lineaVenta = value;  }
+}
+
+
+
+public virtual string FechaVenta {
+        get { return fechaVenta; } set { fechaVenta = value;  }
 }
 
 
@@ -51,30 +64,33 @@ public virtual IManagerGenNHibernate.EN.IManager.ProductoEN Producto {
 
 public VentaEN()
 {
+        lineaVenta = new System.Collections.Generic.List<IManagerGenNHibernate.EN.IManager.LineaVentaEN>();
 }
 
 
 
-public VentaEN(int id, IManagerGenNHibernate.EN.IManager.UsuarioEN usuario, IManagerGenNHibernate.EN.IManager.ProductoEN producto
+public VentaEN(int id, IManagerGenNHibernate.EN.IManager.UsuarioEN usuario, System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.LineaVentaEN> lineaVenta, string fechaVenta
                )
 {
-        this.init (Id, usuario, producto);
+        this.init (Id, usuario, lineaVenta, fechaVenta);
 }
 
 
 public VentaEN(VentaEN venta)
 {
-        this.init (Id, venta.Usuario, venta.Producto);
+        this.init (Id, venta.Usuario, venta.LineaVenta, venta.FechaVenta);
 }
 
-private void init (int id, IManagerGenNHibernate.EN.IManager.UsuarioEN usuario, IManagerGenNHibernate.EN.IManager.ProductoEN producto)
+private void init (int id, IManagerGenNHibernate.EN.IManager.UsuarioEN usuario, System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.LineaVentaEN> lineaVenta, string fechaVenta)
 {
         this.Id = id;
 
 
         this.Usuario = usuario;
 
-        this.Producto = producto;
+        this.LineaVenta = lineaVenta;
+
+        this.FechaVenta = fechaVenta;
 }
 
 public override bool Equals (object obj)

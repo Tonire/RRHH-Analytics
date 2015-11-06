@@ -14,5 +14,15 @@ void Modify (PedidoEN pedido);
 
 
 void Destroy (int id);
+
+
+
+System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.PedidoEN> GetPedidosRealizados ();
+
+
+System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.PedidoEN> GetPedidosConfirmados ();
+
+
+System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.PedidoEN> GetPedidosCancelados ();
 }
 }

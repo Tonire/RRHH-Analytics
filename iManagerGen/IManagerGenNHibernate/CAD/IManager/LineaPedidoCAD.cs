@@ -113,7 +113,7 @@ public int CrearLineaPedido (LineaPedidoEN lineaPedido)
         return lineaPedido.Id;
 }
 
-public void RelationerLinea (int p_LineaPedido_OID, int p_pedido_OID)
+public void RelationerLineaPedido (int p_LineaPedido_OID, int p_pedido_OID)
 {
         IManagerGenNHibernate.EN.IManager.LineaPedidoEN lineaPedidoEN = null;
         try

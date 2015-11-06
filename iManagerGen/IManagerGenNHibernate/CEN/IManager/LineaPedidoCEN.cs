@@ -59,11 +59,11 @@ public int CrearLineaPedido (int p_cantidad, int p_producto)
         return oid;
 }
 
-public void RelationerLinea (int p_LineaPedido_OID, int p_pedido_OID)
+public void RelationerLineaPedido (int p_LineaPedido_OID, int p_pedido_OID)
 {
         //Call to LineaPedidoCAD
 
-        _ILineaPedidoCAD.RelationerLinea (p_LineaPedido_OID, p_pedido_OID);
+        _ILineaPedidoCAD.RelationerLineaPedido (p_LineaPedido_OID, p_pedido_OID);
 }
 }
 }

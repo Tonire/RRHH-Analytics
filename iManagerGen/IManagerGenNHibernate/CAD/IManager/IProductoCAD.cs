@@ -16,8 +16,6 @@ void Modify (ProductoEN producto);
 void Destroy (int referencia);
 
 
-
-
 System.Collections.Generic.IList<ProductoEN> GetAllProductos (int first, int size);
 
 

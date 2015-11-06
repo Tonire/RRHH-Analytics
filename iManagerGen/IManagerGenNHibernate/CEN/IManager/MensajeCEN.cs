@@ -76,5 +76,14 @@ public MensajeEN GetMensaje (int id)
         mensajeEN = _IMensajeCAD.GetMensaje (id);
         return mensajeEN;
 }
+
+public System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.MensajeEN> GetMensajesByRemitente (string p_email)
+{
+        return _IMensajeCAD.GetMensajesByRemitente (p_email);
+}
+public System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.MensajeEN> GetMensajesByDestinatario (string p_email)
+{
+        return _IMensajeCAD.GetMensajesByDestinatario (p_email);
+}
 }
 }
