@@ -142,9 +142,9 @@ public string CreaHorario (HorarioEN horario)
                         }
                 }
                 if (horario.Turno != null) {
-                        for (int i = 0; i < horario.Turno.Count; i++) {
-                                horario.Turno [i] = (IManagerGenNHibernate.EN.IManager.TurnoEN)session.Load (typeof(IManagerGenNHibernate.EN.IManager.TurnoEN), horario.Turno [i].Id);
-                                horario.Turno [i].Horario = horario;
+                        foreach (IManagerGenNHibernate.EN.IManager.TurnoEN item in horario.Turno) {
+                                item.Horario = horario;
+                                session.Save (item);
                         }
                 }
 
@@ -168,7 +168,7 @@ public string CreaHorario (HorarioEN horario)
         return horario.Titulo;
 }
 
-public void AsignarDias (string p_Horario_OID, System.Collections.Generic.IList<IManagerGenNHibernate.Enumerated.IManager.DiasSemanaEnum> p_dia_OIDs)
+public void AsignarDias (string p_Horario_OID, System.Collections.Generic.IList<int> p_dia_OIDs)
 {
         IManagerGenNHibernate.EN.IManager.HorarioEN horarioEN = null;
         try
@@ -180,7 +180,7 @@ public void AsignarDias (string p_Horario_OID, System.Collections.Generic.IList<
                         horarioEN.Dia = new System.Collections.Generic.List<IManagerGenNHibernate.EN.IManager.DiaEN>();
                 }
 
-                foreach (IManagerGenNHibernate.Enumerated.IManager.DiasSemanaEnum item in p_dia_OIDs) {
+                foreach (int item in p_dia_OIDs) {
                         diaENAux = new IManagerGenNHibernate.EN.IManager.DiaEN ();
                         diaENAux = (IManagerGenNHibernate.EN.IManager.DiaEN)session.Load (typeof(IManagerGenNHibernate.EN.IManager.DiaEN), item);
                         diaENAux.Horario = horarioEN;
@@ -205,6 +205,38 @@ public void AsignarDias (string p_Horario_OID, System.Collections.Generic.IList<
         {
                 SessionClose ();
         }
+}
+
+public IManagerGenNHibernate.EN.IManager.HorarioEN GetHorarioByUsuario (string p_usuario)
+{
+        IManagerGenNHibernate.EN.IManager.HorarioEN result;
+        try
+        {
+                SessionInitializeTransaction ();
+                //String sql = @"FROM HorarioEN self where FROM HorarioEN where usuario.Email=:p_usuario";
+                //IQuery query = session.CreateQuery(sql);
+                IQuery query = (IQuery)session.GetNamedQuery ("HorarioENgetHorarioByUsuarioHQL");
+                query.SetParameter ("p_usuario", p_usuario);
+
+
+                result = query.UniqueResult<IManagerGenNHibernate.EN.IManager.HorarioEN>();
+                SessionCommit ();
+        }
+
+        catch (Exception ex) {
+                SessionRollBack ();
+                if (ex is IManagerGenNHibernate.Exceptions.ModelException)
+                        throw ex;
+                throw new IManagerGenNHibernate.Exceptions.DataLayerException ("Error in HorarioCAD.", ex);
+        }
+
+
+        finally
+        {
+                SessionClose ();
+        }
+
+        return result;
 }
 }
 }

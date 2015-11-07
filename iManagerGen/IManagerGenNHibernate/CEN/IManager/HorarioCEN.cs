@@ -54,7 +54,7 @@ public void Destroy (string titulo)
         _IHorarioCAD.Destroy (titulo);
 }
 
-public string CreaHorario (string p_titulo, int p_anyo, System.Collections.Generic.IList<string> p_usuario, System.Collections.Generic.IList<int> p_turno)
+public string CreaHorario (string p_titulo, int p_anyo, System.Collections.Generic.IList<string> p_usuario, System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.TurnoEN> p_turno)
 {
         HorarioEN horarioEN = null;
         string oid;
@@ -79,19 +79,7 @@ public string CreaHorario (string p_titulo, int p_anyo, System.Collections.Gener
                 horarioEN.Usuario = new System.Collections.Generic.List<IManagerGenNHibernate.EN.IManager.UsuarioEN>();
         }
 
-
-        horarioEN.Turno = new System.Collections.Generic.List<IManagerGenNHibernate.EN.IManager.TurnoEN>();
-        if (p_turno != null) {
-                foreach (int item in p_turno) {
-                        IManagerGenNHibernate.EN.IManager.TurnoEN en = new IManagerGenNHibernate.EN.IManager.TurnoEN ();
-                        en.Id = item;
-                        horarioEN.Turno.Add (en);
-                }
-        }
-
-        else{
-                horarioEN.Turno = new System.Collections.Generic.List<IManagerGenNHibernate.EN.IManager.TurnoEN>();
-        }
+        horarioEN.Turno = p_turno;
 
         //Call to HorarioCAD
 
@@ -99,11 +87,15 @@ public string CreaHorario (string p_titulo, int p_anyo, System.Collections.Gener
         return oid;
 }
 
-public void AsignarDias (string p_Horario_OID, System.Collections.Generic.IList<IManagerGenNHibernate.Enumerated.IManager.DiasSemanaEnum> p_dia_OIDs)
+public void AsignarDias (string p_Horario_OID, System.Collections.Generic.IList<int> p_dia_OIDs)
 {
         //Call to HorarioCAD
 
         _IHorarioCAD.AsignarDias (p_Horario_OID, p_dia_OIDs);
+}
+public IManagerGenNHibernate.EN.IManager.HorarioEN GetHorarioByUsuario (string p_usuario)
+{
+        return _IHorarioCAD.GetHorarioByUsuario (p_usuario);
 }
 }
 }

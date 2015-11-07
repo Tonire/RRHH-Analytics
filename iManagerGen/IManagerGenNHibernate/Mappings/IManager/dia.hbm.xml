@@ -6,9 +6,16 @@
 		    
 			
 				<class name="DiaEN" table="Dia"> 
-						<id name="Dia" column="fecha"/> 
+				  	
+						<id name="Id" column="id" type="integer"> 
+							<generator class="identity"/>
+						</id>
 			
 					
+					<property name="Dia" > 
+						<column name="fecha"  unique="true" not-null="true"/>
+					</property>
+			
 			
 			
 			
@@ -23,6 +30,7 @@
 								<column name="FK_titulo_idHorario"/> 
 						</many-to-one>
 											 					
+					
 					
 					
 					

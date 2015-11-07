@@ -122,6 +122,8 @@ public static void InitializeData ()
                 UsuarioCEN usuarioCEN = new UsuarioCEN (_IUsuarioCAD);
                 IMensajeCAD _IMensajeCAD = new MensajeCAD ();
                 MensajeCEN mensajeCEN = new MensajeCEN (_IMensajeCAD);
+                IHorarioCAD _IHorarioCAD = new HorarioCAD();
+                HorarioCEN horarioCEN = new HorarioCEN(_IHorarioCAD);
                 UsuarioEN toni = new UsuarioEN ();
                 UsuarioEN julio = new UsuarioEN ();
                 toni.Email = "toni.rb.rebollo.el.mas.xulo@hotmail.com";
@@ -139,11 +141,46 @@ public static void InitializeData ()
                 mensajeCEN.CreaMensaje (julio.Email, toni.Email, mensaje1.Asunto, mensaje1.Contenido);
                 IList<MensajeEN> listaMensajes = mensajeCEN.GetMensajesByRemitente (julio.Email);
                 //MensajeEN mensaje = mensajeCEN.GetMensajesByRemitente (julio.Email);
-                MessageBox.Show ("El asunto es: " + listaMensajes[0].Asunto);
+                //MessageBox.Show ("El asunto es: " + listaMensajes [0].Asunto);
 
+                //Creamos Turnos
+                List<TurnoEN> turnos = new List<TurnoEN>();
+                TurnoEN turno = new TurnoEN();
+                turno.Nombre = "tarde";
+                turnos.Add(turno);
+                turno.Nombre = "mañana";
+                turnos.Add(turno);
+                turno.Nombre = "especial";
+                turnos.Add(turno);
+
+                //Creamos Dias
+                List<DiaEN> dias = new List<DiaEN>();
+                DiaEN dia = new DiaEN();
+
+                dia.Dia =IManagerGenNHibernate.Enumerated.IManager.DiasSemanaEnum.lunes;
+                dias.Add(dia);
+                dia.Dia = IManagerGenNHibernate.Enumerated.IManager.DiasSemanaEnum.martes;
+                dias.Add(dia);
+                dia.Dia = IManagerGenNHibernate.Enumerated.IManager.DiasSemanaEnum.miercoles;
+                dias.Add(dia);
+                dia.Dia = IManagerGenNHibernate.Enumerated.IManager.DiasSemanaEnum.jueves;
+                dias.Add(dia);
+                dia.Dia = IManagerGenNHibernate.Enumerated.IManager.DiasSemanaEnum.viernes;
+                dias.Add(dia);
+                dia.Dia = IManagerGenNHibernate.Enumerated.IManager.DiasSemanaEnum.sabado;
+                dias.Add(dia);
+                dia.Dia = IManagerGenNHibernate.Enumerated.IManager.DiasSemanaEnum.domingo;
+                dias.Add(dia);
+
+                //UsuarioEN usuario = new UsuarioEN();
+                System.Collections.Generic.IList<UsuarioEN> usuarios;
+                usuarios.Add(usuarioCEN.GetUsuarioByEmail("toni.rb.rebollo.el.mas.xulo@hotmail.com"));
+                usuarios.Add(usuarioCEN.GetUsuarioByEmail("julio.el.pro@hotmail.com"));
+
+                horarioCEN.CreaHorario("horario semanal 1",2015,usuarios,turnos);
                 #endregion
                 /*PROTECTED REGION END*/
-        }
+            }
         catch (Exception ex)
         {
                 System.Console.WriteLine (ex.InnerException);

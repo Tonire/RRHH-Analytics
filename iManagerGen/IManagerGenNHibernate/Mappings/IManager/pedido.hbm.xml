@@ -63,8 +63,8 @@
 		 </class>	
 		  
 		  <query name="PedidoENReadAllHQL">from PedidoEN</query>
-		  <query name="PedidoENgetPedidosRealizadosHQL"><![CDATA[FROM PedidoEN]]></query>
-		  <query name="PedidoENgetPedidosConfirmadosHQL"><![CDATA[FROM PedidoEN]]></query>
-		  <query name="PedidoENgetPedidosCanceladosHQL"><![CDATA[FROM PedidoEN]]></query>
+		  <query name="PedidoENgetPedidosPendientesHQL"><![CDATA[FROM PedidoEN where estado=1]]></query>
+		  <query name="PedidoENgetPedidosConfirmadosHQL"><![CDATA[FROM PedidoEN where estado=2]]></query>
+		  <query name="PedidoENgetPedidosCanceladosHQL"><![CDATA[FROM PedidoEN where estado=3]]></query>
 		</hibernate-mapping>
 	

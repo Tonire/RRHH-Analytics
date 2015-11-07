@@ -181,15 +181,15 @@ public void Destroy (int id)
         }
 }
 
-public System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.PedidoEN> GetPedidosRealizados ()
+public System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.PedidoEN> GetPedidosPendientes ()
 {
         System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.PedidoEN> result;
         try
         {
                 SessionInitializeTransaction ();
-                //String sql = @"FROM PedidoEN self where FROM PedidoEN";
+                //String sql = @"FROM PedidoEN self where FROM PedidoEN where estado=1";
                 //IQuery query = session.CreateQuery(sql);
-                IQuery query = (IQuery)session.GetNamedQuery ("PedidoENgetPedidosRealizadosHQL");
+                IQuery query = (IQuery)session.GetNamedQuery ("PedidoENgetPedidosPendientesHQL");
 
                 result = query.List<IManagerGenNHibernate.EN.IManager.PedidoEN>();
                 SessionCommit ();
@@ -216,7 +216,7 @@ public System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.Pedido
         try
         {
                 SessionInitializeTransaction ();
-                //String sql = @"FROM PedidoEN self where FROM PedidoEN";
+                //String sql = @"FROM PedidoEN self where FROM PedidoEN where estado=2";
                 //IQuery query = session.CreateQuery(sql);
                 IQuery query = (IQuery)session.GetNamedQuery ("PedidoENgetPedidosConfirmadosHQL");
 
@@ -245,7 +245,7 @@ public System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.Pedido
         try
         {
                 SessionInitializeTransaction ();
-                //String sql = @"FROM PedidoEN self where FROM PedidoEN";
+                //String sql = @"FROM PedidoEN self where FROM PedidoEN where estado=3";
                 //IQuery query = session.CreateQuery(sql);
                 IQuery query = (IQuery)session.GetNamedQuery ("PedidoENgetPedidosCanceladosHQL");
 

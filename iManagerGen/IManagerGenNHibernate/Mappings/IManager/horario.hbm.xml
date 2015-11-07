@@ -28,24 +28,24 @@
     					</bag>
 			
 		  			
-						<bag name="Turno" >
-							<key>
-							
-								
-								<column name="FK_titulo_idHorario"/>
-					      	</key>
-							<one-to-many class="IManagerGenNHibernate.EN.IManager.TurnoEN"/>
-					    </bag>
-					
-			
-		  			
-						<bag name="Dia" >
+						<bag name="Dia" cascade="delete">
 							<key>
 							
 								
 								<column name="FK_titulo_idHorario"/>
 					      	</key>
 							<one-to-many class="IManagerGenNHibernate.EN.IManager.DiaEN"/>
+					    </bag>
+					
+			
+		  			
+						<bag name="Turno" cascade="delete">
+							<key>
+							
+								
+								<column name="FK_titulo_idHorario"/>
+					      	</key>
+							<one-to-many class="IManagerGenNHibernate.EN.IManager.TurnoEN"/>
 					    </bag>
 					
 					
@@ -57,5 +57,6 @@
 		 </class>	
 		  
 		  <query name="HorarioENReadAllHQL">from HorarioEN</query>
+		  <query name="HorarioENgetHorarioByUsuarioHQL"><![CDATA[FROM HorarioEN where usuario.Email=:p_usuario]]></query>
 		</hibernate-mapping>
 	

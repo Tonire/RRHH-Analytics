@@ -6,6 +6,13 @@ namespace IManagerGenNHibernate.EN.IManager
 public partial class DiaEN
 {
 /**
+ *	Atributo id
+ */
+private int id;
+
+
+
+/**
  *	Atributo dia
  */
 private IManagerGenNHibernate.Enumerated.IManager.DiasSemanaEnum dia;
@@ -26,6 +33,12 @@ private IManagerGenNHibernate.EN.IManager.HorarioEN horario;
 
 
 
+
+
+
+public virtual int Id {
+        get { return id; } set { id = value;  }
+}
 
 
 
@@ -55,22 +68,24 @@ public DiaEN()
 
 
 
-public DiaEN(IManagerGenNHibernate.Enumerated.IManager.DiasSemanaEnum dia, IManagerGenNHibernate.EN.IManager.TurnoEN turno, IManagerGenNHibernate.EN.IManager.HorarioEN horario
+public DiaEN(int id, IManagerGenNHibernate.Enumerated.IManager.DiasSemanaEnum dia, IManagerGenNHibernate.EN.IManager.TurnoEN turno, IManagerGenNHibernate.EN.IManager.HorarioEN horario
              )
 {
-        this.init (Dia, turno, horario);
+        this.init (Id, dia, turno, horario);
 }
 
 
 public DiaEN(DiaEN dia)
 {
-        this.init (Dia, dia.Turno, dia.Horario);
+        this.init (Id, dia.Dia, dia.Turno, dia.Horario);
 }
 
-private void init (IManagerGenNHibernate.Enumerated.IManager.DiasSemanaEnum dia, IManagerGenNHibernate.EN.IManager.TurnoEN turno, IManagerGenNHibernate.EN.IManager.HorarioEN horario)
+private void init (int id, IManagerGenNHibernate.Enumerated.IManager.DiasSemanaEnum dia, IManagerGenNHibernate.EN.IManager.TurnoEN turno, IManagerGenNHibernate.EN.IManager.HorarioEN horario)
 {
-        this.Dia = dia;
+        this.Id = id;
 
+
+        this.Dia = dia;
 
         this.Turno = turno;
 
@@ -84,7 +99,7 @@ public override bool Equals (object obj)
         DiaEN t = obj as DiaEN;
         if (t == null)
                 return false;
-        if (Dia.Equals (t.Dia))
+        if (Id.Equals (t.Id))
                 return true;
         else
                 return false;
@@ -94,7 +109,7 @@ public override int GetHashCode ()
 {
         int hash = 13;
 
-        hash += this.Dia.GetHashCode ();
+        hash += this.Id.GetHashCode ();
         return hash;
 }
 }

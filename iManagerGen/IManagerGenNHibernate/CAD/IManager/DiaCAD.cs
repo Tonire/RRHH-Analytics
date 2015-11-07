@@ -28,14 +28,14 @@ public DiaCAD(ISession sessionAux) : base (sessionAux)
 
 
 
-public DiaEN ReadOIDDefault (IManagerGenNHibernate.Enumerated.IManager.DiasSemanaEnum dia)
+public DiaEN ReadOIDDefault (int id)
 {
         DiaEN diaEN = null;
 
         try
         {
                 SessionInitializeTransaction ();
-                diaEN = (DiaEN)session.Get (typeof(DiaEN), dia);
+                diaEN = (DiaEN)session.Get (typeof(DiaEN), id);
                 SessionCommit ();
         }
 
@@ -80,7 +80,7 @@ public System.Collections.Generic.IList<DiaEN> ReadAllDefault (int first, int si
         return result;
 }
 
-public IManagerGenNHibernate.Enumerated.IManager.DiasSemanaEnum CrearDia (DiaEN dia)
+public int CrearDia (DiaEN dia)
 {
         try
         {
@@ -103,15 +103,15 @@ public IManagerGenNHibernate.Enumerated.IManager.DiasSemanaEnum CrearDia (DiaEN 
                 SessionClose ();
         }
 
-        return dia.Dia;
+        return dia.Id;
 }
 
-public void Destroy (IManagerGenNHibernate.Enumerated.IManager.DiasSemanaEnum dia)
+public void Destroy (int id)
 {
         try
         {
                 SessionInitializeTransaction ();
-                DiaEN diaEN = (DiaEN)session.Load (typeof(DiaEN), dia);
+                DiaEN diaEN = (DiaEN)session.Load (typeof(DiaEN), id);
                 session.Delete (diaEN);
                 SessionCommit ();
         }
@@ -130,7 +130,7 @@ public void Destroy (IManagerGenNHibernate.Enumerated.IManager.DiasSemanaEnum di
         }
 }
 
-public void AsignarTurno (IManagerGenNHibernate.Enumerated.IManager.DiasSemanaEnum p_Dia_OID, int p_turno_OID)
+public void AsignarTurno (int p_Dia_OID, int p_turno_OID)
 {
         IManagerGenNHibernate.EN.IManager.DiaEN diaEN = null;
         try
@@ -159,6 +159,36 @@ public void AsignarTurno (IManagerGenNHibernate.Enumerated.IManager.DiasSemanaEn
         {
                 SessionClose ();
         }
+}
+
+public System.Collections.Generic.IList<DiaEN> GetAllDias (int first, int size)
+{
+        System.Collections.Generic.IList<DiaEN> result = null;
+        try
+        {
+                SessionInitializeTransaction ();
+                if (size > 0)
+                        result = session.CreateCriteria (typeof(DiaEN)).
+                                 SetFirstResult (first).SetMaxResults (size).List<DiaEN>();
+                else
+                        result = session.CreateCriteria (typeof(DiaEN)).List<DiaEN>();
+                SessionCommit ();
+        }
+
+        catch (Exception ex) {
+                SessionRollBack ();
+                if (ex is IManagerGenNHibernate.Exceptions.ModelException)
+                        throw ex;
+                throw new IManagerGenNHibernate.Exceptions.DataLayerException ("Error in DiaCAD.", ex);
+        }
+
+
+        finally
+        {
+                SessionClose ();
+        }
+
+        return result;
 }
 }
 }

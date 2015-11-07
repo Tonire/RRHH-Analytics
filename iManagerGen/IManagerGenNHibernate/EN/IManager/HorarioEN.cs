@@ -27,16 +27,16 @@ private System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.Usuar
 
 
 /**
- *	Atributo turno
+ *	Atributo dia
  */
-private System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.TurnoEN> turno;
+private System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.DiaEN> dia;
 
 
 
 /**
- *	Atributo dia
+ *	Atributo turno
  */
-private System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.DiaEN> dia;
+private System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.TurnoEN> turno;
 
 
 
@@ -61,14 +61,14 @@ public virtual System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManage
 
 
 
-public virtual System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.TurnoEN> Turno {
-        get { return turno; } set { turno = value;  }
+public virtual System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.DiaEN> Dia {
+        get { return dia; } set { dia = value;  }
 }
 
 
 
-public virtual System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.DiaEN> Dia {
-        get { return dia; } set { dia = value;  }
+public virtual System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.TurnoEN> Turno {
+        get { return turno; } set { turno = value;  }
 }
 
 
@@ -78,25 +78,25 @@ public virtual System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManage
 public HorarioEN()
 {
         usuario = new System.Collections.Generic.List<IManagerGenNHibernate.EN.IManager.UsuarioEN>();
-        turno = new System.Collections.Generic.List<IManagerGenNHibernate.EN.IManager.TurnoEN>();
         dia = new System.Collections.Generic.List<IManagerGenNHibernate.EN.IManager.DiaEN>();
+        turno = new System.Collections.Generic.List<IManagerGenNHibernate.EN.IManager.TurnoEN>();
 }
 
 
 
-public HorarioEN(string titulo, int anyo, System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.UsuarioEN> usuario, System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.TurnoEN> turno, System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.DiaEN> dia
+public HorarioEN(string titulo, int anyo, System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.UsuarioEN> usuario, System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.DiaEN> dia, System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.TurnoEN> turno
                  )
 {
-        this.init (Titulo, anyo, usuario, turno, dia);
+        this.init (Titulo, anyo, usuario, dia, turno);
 }
 
 
 public HorarioEN(HorarioEN horario)
 {
-        this.init (Titulo, horario.Anyo, horario.Usuario, horario.Turno, horario.Dia);
+        this.init (Titulo, horario.Anyo, horario.Usuario, horario.Dia, horario.Turno);
 }
 
-private void init (string titulo, int anyo, System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.UsuarioEN> usuario, System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.TurnoEN> turno, System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.DiaEN> dia)
+private void init (string titulo, int anyo, System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.UsuarioEN> usuario, System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.DiaEN> dia, System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.TurnoEN> turno)
 {
         this.Titulo = titulo;
 
@@ -105,9 +105,9 @@ private void init (string titulo, int anyo, System.Collections.Generic.IList<IMa
 
         this.Usuario = usuario;
 
-        this.Turno = turno;
-
         this.Dia = dia;
+
+        this.Turno = turno;
 }
 
 public override bool Equals (object obj)

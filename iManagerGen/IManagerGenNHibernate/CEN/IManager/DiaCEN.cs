@@ -36,11 +36,11 @@ public IDiaCAD get_IDiaCAD ()
         return this._IDiaCAD;
 }
 
-public IManagerGenNHibernate.Enumerated.IManager.DiasSemanaEnum CrearDia (IManagerGenNHibernate.Enumerated.IManager.DiasSemanaEnum p_dia)
+public int CrearDia (IManagerGenNHibernate.Enumerated.IManager.DiasSemanaEnum p_dia)
 {
         DiaEN diaEN = null;
+        int oid;
 
-        IManagerGenNHibernate.Enumerated.IManager.DiasSemanaEnum oid;
         //Initialized DiaEN
         diaEN = new DiaEN ();
         diaEN.Dia = p_dia;
@@ -51,16 +51,23 @@ public IManagerGenNHibernate.Enumerated.IManager.DiasSemanaEnum CrearDia (IManag
         return oid;
 }
 
-public void Destroy (IManagerGenNHibernate.Enumerated.IManager.DiasSemanaEnum dia)
+public void Destroy (int id)
 {
-        _IDiaCAD.Destroy (dia);
+        _IDiaCAD.Destroy (id);
 }
 
-public void AsignarTurno (IManagerGenNHibernate.Enumerated.IManager.DiasSemanaEnum p_Dia_OID, int p_turno_OID)
+public void AsignarTurno (int p_Dia_OID, int p_turno_OID)
 {
         //Call to DiaCAD
 
         _IDiaCAD.AsignarTurno (p_Dia_OID, p_turno_OID);
+}
+public System.Collections.Generic.IList<DiaEN> GetAllDias (int first, int size)
+{
+        System.Collections.Generic.IList<DiaEN> list = null;
+
+        list = _IDiaCAD.GetAllDias (first, size);
+        return list;
 }
 }
 }

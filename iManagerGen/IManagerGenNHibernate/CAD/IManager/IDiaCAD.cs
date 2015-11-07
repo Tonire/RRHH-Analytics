@@ -6,13 +6,15 @@ namespace IManagerGenNHibernate.CAD.IManager
 {
 public partial interface IDiaCAD
 {
-DiaEN ReadOIDDefault (IManagerGenNHibernate.Enumerated.IManager.DiasSemanaEnum dia);
+DiaEN ReadOIDDefault (int id);
 
-IManagerGenNHibernate.Enumerated.IManager.DiasSemanaEnum CrearDia (DiaEN dia);
+int CrearDia (DiaEN dia);
 
-void Destroy (IManagerGenNHibernate.Enumerated.IManager.DiasSemanaEnum dia);
+void Destroy (int id);
 
 
-void AsignarTurno (IManagerGenNHibernate.Enumerated.IManager.DiasSemanaEnum p_Dia_OID, int p_turno_OID);
+void AsignarTurno (int p_Dia_OID, int p_turno_OID);
+
+System.Collections.Generic.IList<DiaEN> GetAllDias (int first, int size);
 }
 }

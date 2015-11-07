@@ -91,9 +91,9 @@ public void Destroy (int id)
         _IPedidoCAD.Destroy (id);
 }
 
-public System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.PedidoEN> GetPedidosRealizados ()
+public System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.PedidoEN> GetPedidosPendientes ()
 {
-        return _IPedidoCAD.GetPedidosRealizados ();
+        return _IPedidoCAD.GetPedidosPendientes ();
 }
 public System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.PedidoEN> GetPedidosConfirmados ()
 {
