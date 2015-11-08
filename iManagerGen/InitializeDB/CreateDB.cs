@@ -173,9 +173,9 @@ public static void InitializeData ()
                 dias.Add(dia);
 
                 //UsuarioEN usuario = new UsuarioEN();
-                System.Collections.Generic.IList<UsuarioEN> usuarios;
-                usuarios.Add(usuarioCEN.GetUsuarioByEmail("toni.rb.rebollo.el.mas.xulo@hotmail.com"));
-                usuarios.Add(usuarioCEN.GetUsuarioByEmail("julio.el.pro@hotmail.com"));
+                System.Collections.Generic.IList<string> usuarios = null;
+                usuarios.Add(usuarioCEN.GetUsuarioByEmail("toni.rb.rebollo.el.mas.xulo@hotmail.com").Email);
+                usuarios.Add(usuarioCEN.GetUsuarioByEmail("julio.el.pro@hotmail.com").Email);
 
                 horarioCEN.CreaHorario("horario semanal 1",2015,usuarios,turnos);
                 #endregion
