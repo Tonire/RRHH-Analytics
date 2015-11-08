@@ -206,37 +206,5 @@ public void AsignarDias (string p_Horario_OID, System.Collections.Generic.IList<
                 SessionClose ();
         }
 }
-
-public IManagerGenNHibernate.EN.IManager.HorarioEN GetHorarioByUsuario (string p_usuario)
-{
-        IManagerGenNHibernate.EN.IManager.HorarioEN result;
-        try
-        {
-                SessionInitializeTransaction ();
-                //String sql = @"FROM HorarioEN self where FROM HorarioEN where usuario.Email=:p_usuario";
-                //IQuery query = session.CreateQuery(sql);
-                IQuery query = (IQuery)session.GetNamedQuery ("HorarioENgetHorarioByUsuarioHQL");
-                query.SetParameter ("p_usuario", p_usuario);
-
-
-                result = query.UniqueResult<IManagerGenNHibernate.EN.IManager.HorarioEN>();
-                SessionCommit ();
-        }
-
-        catch (Exception ex) {
-                SessionRollBack ();
-                if (ex is IManagerGenNHibernate.Exceptions.ModelException)
-                        throw ex;
-                throw new IManagerGenNHibernate.Exceptions.DataLayerException ("Error in HorarioCAD.", ex);
-        }
-
-
-        finally
-        {
-                SessionClose ();
-        }
-
-        return result;
-}
 }
 }

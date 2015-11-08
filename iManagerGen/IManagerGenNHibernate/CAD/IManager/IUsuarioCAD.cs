@@ -18,5 +18,8 @@ void Destroy (string email);
 
 
 UsuarioEN GetUsuarioByEmail (string email);
+
+
+System.Collections.Generic.IList<UsuarioEN> DameTodos (int first, int size);
 }
 }

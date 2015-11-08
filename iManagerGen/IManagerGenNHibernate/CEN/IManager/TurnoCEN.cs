@@ -36,7 +36,7 @@ public ITurnoCAD get_ITurnoCAD ()
         return this._ITurnoCAD;
 }
 
-public int CrearTurno (string p_nombre, Nullable<DateTime> p_desde, Nullable<DateTime> p_hasta)
+public int CrearTurno (string p_nombre, string p_desde, string p_hasta)
 {
         TurnoEN turnoEN = null;
         int oid;
@@ -55,7 +55,7 @@ public int CrearTurno (string p_nombre, Nullable<DateTime> p_desde, Nullable<Dat
         return oid;
 }
 
-public void Modify (int p_Turno_OID, string p_nombre, Nullable<DateTime> p_desde, Nullable<DateTime> p_hasta)
+public void Modify (int p_Turno_OID, string p_nombre, string p_desde, string p_hasta)
 {
         TurnoEN turnoEN = null;
 

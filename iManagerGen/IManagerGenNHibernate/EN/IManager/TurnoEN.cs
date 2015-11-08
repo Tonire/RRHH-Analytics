@@ -22,14 +22,14 @@ private string nombre;
 /**
  *	Atributo desde
  */
-private Nullable<DateTime> desde;
+private string desde;
 
 
 
 /**
  *	Atributo hasta
  */
-private Nullable<DateTime> hasta;
+private string hasta;
 
 
 
@@ -62,13 +62,13 @@ public virtual string Nombre {
 
 
 
-public virtual Nullable<DateTime> Desde {
+public virtual string Desde {
         get { return desde; } set { desde = value;  }
 }
 
 
 
-public virtual Nullable<DateTime> Hasta {
+public virtual string Hasta {
         get { return hasta; } set { hasta = value;  }
 }
 
@@ -95,7 +95,7 @@ public TurnoEN()
 
 
 
-public TurnoEN(int id, string nombre, Nullable<DateTime> desde, Nullable<DateTime> hasta, System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.DiaEN> fecha, IManagerGenNHibernate.EN.IManager.HorarioEN horario
+public TurnoEN(int id, string nombre, string desde, string hasta, System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.DiaEN> fecha, IManagerGenNHibernate.EN.IManager.HorarioEN horario
                )
 {
         this.init (Id, nombre, desde, hasta, fecha, horario);
@@ -107,7 +107,7 @@ public TurnoEN(TurnoEN turno)
         this.init (Id, turno.Nombre, turno.Desde, turno.Hasta, turno.Fecha, turno.Horario);
 }
 
-private void init (int id, string nombre, Nullable<DateTime> desde, Nullable<DateTime> hasta, System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.DiaEN> fecha, IManagerGenNHibernate.EN.IManager.HorarioEN horario)
+private void init (int id, string nombre, string desde, string hasta, System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.DiaEN> fecha, IManagerGenNHibernate.EN.IManager.HorarioEN horario)
 {
         this.Id = id;
 

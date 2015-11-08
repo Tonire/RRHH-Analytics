@@ -81,5 +81,13 @@ public UsuarioEN GetUsuarioByEmail (string email)
         usuarioEN = _IUsuarioCAD.GetUsuarioByEmail (email);
         return usuarioEN;
 }
+
+public System.Collections.Generic.IList<UsuarioEN> DameTodos (int first, int size)
+{
+        System.Collections.Generic.IList<UsuarioEN> list = null;
+
+        list = _IUsuarioCAD.DameTodos (first, size);
+        return list;
+}
 }
 }
