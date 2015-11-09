@@ -146,24 +146,20 @@
     <elements xmi:type="es.ua.dlsi.ooh:Association" xmi:id="_vWNgUHwHEeW-XJNIUeA2IA" name="fecha_turno" alias="fecha_turno" rolOrigin="_vWNgUXwHEeW-XJNIUeA2IA" rolTarget="_vWNgUnwHEeW-XJNIUeA2IA" classTarget="_8AfFcHwFEeW-XJNIUeA2IA" classOrigin="_fVMTwHwHEeW-XJNIUeA2IA" rolOriginName="fecha" rolTargetName="turno" rolOriginMultiplicity="0..*" rolTargetMultiplicity="0..1"/>
     <elements xmi:type="es.ua.dlsi.ooh:Class" xmi:id="_96vgwHwHEeW-XJNIUeA2IA" name="Pedido" alias="Pedido" asociationTarget="_fP_OMHwIEeW-XJNIUeA2IA" associationOrigin="_ToVZIHwJEeW-XJNIUeA2IA">
       <operations xmi:type="es.ua.dlsi.ooh:Operation" xmi:id="_MryTMHwIEeW-XJNIUeA2IA" name="crearPedido" operationType="New" type="Object" typeObject="_96vgwHwHEeW-XJNIUeA2IA">
-        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_Ft3zQIR2EeWmgMPv04z-xw" name="p_descripcion"/>
-        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_Ft4aUIR2EeWmgMPv04z-xw" name="p_estado" type="Enum" typeEnum="_E55rQHwIEeW-XJNIUeA2IA"/>
-        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_Ft4aUYR2EeWmgMPv04z-xw" name="p_fechaRealizacion" type="Date"/>
-        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_Ft4aUoR2EeWmgMPv04z-xw" name="p_usuario" type="OID" typeObject="_FkwKoHv-EeWyGcqmZGlzvA"/>
-        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_Ft4aU4R2EeWmgMPv04z-xw" name="p_lineaPedido" type="Object" collectionType="List" typeObject="_HNgQIHwJEeW-XJNIUeA2IA"/>
-        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_Ft4aVIR2EeWmgMPv04z-xw" name="p_fechaConfirmacion"/>
-        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_Ft4aVYR2EeWmgMPv04z-xw" name="p_fechaCancelacion"/>
+        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_eKyWcIbZEeWrkL5fX1AtRg" name="p_descripcion"/>
+        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_eKyWcYbZEeWrkL5fX1AtRg" name="p_estado" type="Enum" typeEnum="_E55rQHwIEeW-XJNIUeA2IA"/>
+        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_eKyWcobZEeWrkL5fX1AtRg" name="p_fechaRealizacion" type="Date"/>
+        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_eKyWc4bZEeWrkL5fX1AtRg" name="p_usuario" type="OID" typeObject="_FkwKoHv-EeWyGcqmZGlzvA"/>
+        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_eKyWdIbZEeWrkL5fX1AtRg" name="p_lineaPedido" type="Object" collectionType="List" typeObject="_HNgQIHwJEeW-XJNIUeA2IA"/>
       </operations>
       <operations xmi:type="es.ua.dlsi.ooh:Operation" xmi:id="_N605MHwIEeW-XJNIUeA2IA" name="modify" operationType="Modifier" type="Void">
-        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_Ft4aVoR2EeWmgMPv04z-xw" name="p_Pedido_OID" type="OID" typeObject="_96vgwHwHEeW-XJNIUeA2IA"/>
-        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_Ft4aV4R2EeWmgMPv04z-xw" name="p_descripcion"/>
-        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_Ft4aWIR2EeWmgMPv04z-xw" name="p_estado" type="Enum" typeEnum="_E55rQHwIEeW-XJNIUeA2IA"/>
-        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_Ft4aWYR2EeWmgMPv04z-xw" name="p_fechaRealizacion" type="Date"/>
-        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_Ft4aWoR2EeWmgMPv04z-xw" name="p_fechaConfirmacion"/>
-        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_Ft4aW4R2EeWmgMPv04z-xw" name="p_fechaCancelacion"/>
+        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_eKyWdYbZEeWrkL5fX1AtRg" name="p_Pedido_OID" type="OID" typeObject="_96vgwHwHEeW-XJNIUeA2IA"/>
+        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_eKyWdobZEeWrkL5fX1AtRg" name="p_descripcion"/>
+        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_eKyWd4bZEeWrkL5fX1AtRg" name="p_estado" type="Enum" typeEnum="_E55rQHwIEeW-XJNIUeA2IA"/>
+        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_eKyWeIbZEeWrkL5fX1AtRg" name="p_fechaRealizacion" type="Date"/>
       </operations>
       <operations xmi:type="es.ua.dlsi.ooh:Operation" xmi:id="_PEFAQHwIEeW-XJNIUeA2IA" name="destroy" operationType="Destroy" type="Void">
-        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_Ft4aXIR2EeWmgMPv04z-xw" name="p_Pedido_OID" type="OID" typeObject="_96vgwHwHEeW-XJNIUeA2IA"/>
+        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_eKyWeYbZEeWrkL5fX1AtRg" name="p_Pedido_OID" type="OID" typeObject="_96vgwHwHEeW-XJNIUeA2IA"/>
       </operations>
       <operations xmi:type="es.ua.dlsi.ooh:Operation" xmi:id="_ShQRwHwIEeW-XJNIUeA2IA" name="cancelarPedido" type="Void">
         <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_ShQRwXwIEeW-XJNIUeA2IA" name="p_oid" type="OID" typeObject="_96vgwHwHEeW-XJNIUeA2IA"/>
@@ -177,8 +173,8 @@
       <attributes xmi:type="es.ua.dlsi.ooh:Attribute" xmi:id="_dI4bQIRtEeWmgMPv04z-xw" alias="fechaRealizacion" name="fechaRealizacion" type="Date"/>
       <attributes xmi:type="es.ua.dlsi.ooh:Attribute" xmi:id="_fP_1QXwIEeW-XJNIUeA2IA" alias="idUsuario" associationTarget="_fP_OMHwIEeW-XJNIUeA2IA" name="usuario" type="Object"/>
       <attributes xmi:type="es.ua.dlsi.ooh:Attribute" xmi:id="_ToVZIXwJEeW-XJNIUeA2IA" alias="idLineaPedido" aggregation="Composite" upper="*" associationOrigin="_ToVZIHwJEeW-XJNIUeA2IA" name="lineaPedido" type="Object" collectionType="List"/>
-      <attributes xmi:type="es.ua.dlsi.ooh:Attribute" xmi:id="_PMc1QIRwEeWmgMPv04z-xw" alias="fechaConfirmacion" name="fechaConfirmacion"/>
-      <attributes xmi:type="es.ua.dlsi.ooh:Attribute" xmi:id="_QjlAQIRwEeWmgMPv04z-xw" alias="fechaCancelacion" name="fechaCancelacion"/>
+      <attributes xmi:type="es.ua.dlsi.ooh:Attribute" xmi:id="_PMc1QIRwEeWmgMPv04z-xw" alias="fechaConfirmacion" lower="0" name="fechaConfirmacion" type="Date"/>
+      <attributes xmi:type="es.ua.dlsi.ooh:Attribute" xmi:id="_QjlAQIRwEeWmgMPv04z-xw" alias="fechaCancelacion" lower="0" name="fechaCancelacion" type="Date"/>
     </elements>
     <elements xmi:type="es.ua.dlsi.ooh:Enumeration" xmi:id="_E55rQHwIEeW-XJNIUeA2IA" name="estadoPedido">
       <enumerationLiterals xmi:type="es.ua.dlsi.ooh:EnumerationLiteral" xmi:id="_GcF2wHwIEeW-XJNIUeA2IA" name="pendiente" value="1"/>

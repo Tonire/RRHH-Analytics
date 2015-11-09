@@ -50,14 +50,14 @@ private System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.Linea
 /**
  *	Atributo fechaConfirmacion
  */
-private string fechaConfirmacion;
+private Nullable<DateTime> fechaConfirmacion;
 
 
 
 /**
  *	Atributo fechaCancelacion
  */
-private string fechaCancelacion;
+private Nullable<DateTime> fechaCancelacion;
 
 
 
@@ -100,13 +100,13 @@ public virtual System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManage
 
 
 
-public virtual string FechaConfirmacion {
+public virtual Nullable<DateTime> FechaConfirmacion {
         get { return fechaConfirmacion; } set { fechaConfirmacion = value;  }
 }
 
 
 
-public virtual string FechaCancelacion {
+public virtual Nullable<DateTime> FechaCancelacion {
         get { return fechaCancelacion; } set { fechaCancelacion = value;  }
 }
 
@@ -121,7 +121,7 @@ public PedidoEN()
 
 
 
-public PedidoEN(int id, string descripcion, IManagerGenNHibernate.Enumerated.IManager.EstadoPedidoEnum estado, Nullable<DateTime> fechaRealizacion, IManagerGenNHibernate.EN.IManager.UsuarioEN usuario, System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.LineaPedidoEN> lineaPedido, string fechaConfirmacion, string fechaCancelacion
+public PedidoEN(int id, string descripcion, IManagerGenNHibernate.Enumerated.IManager.EstadoPedidoEnum estado, Nullable<DateTime> fechaRealizacion, IManagerGenNHibernate.EN.IManager.UsuarioEN usuario, System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.LineaPedidoEN> lineaPedido, Nullable<DateTime> fechaConfirmacion, Nullable<DateTime> fechaCancelacion
                 )
 {
         this.init (Id, descripcion, estado, fechaRealizacion, usuario, lineaPedido, fechaConfirmacion, fechaCancelacion);
@@ -133,7 +133,7 @@ public PedidoEN(PedidoEN pedido)
         this.init (Id, pedido.Descripcion, pedido.Estado, pedido.FechaRealizacion, pedido.Usuario, pedido.LineaPedido, pedido.FechaConfirmacion, pedido.FechaCancelacion);
 }
 
-private void init (int id, string descripcion, IManagerGenNHibernate.Enumerated.IManager.EstadoPedidoEnum estado, Nullable<DateTime> fechaRealizacion, IManagerGenNHibernate.EN.IManager.UsuarioEN usuario, System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.LineaPedidoEN> lineaPedido, string fechaConfirmacion, string fechaCancelacion)
+private void init (int id, string descripcion, IManagerGenNHibernate.Enumerated.IManager.EstadoPedidoEnum estado, Nullable<DateTime> fechaRealizacion, IManagerGenNHibernate.EN.IManager.UsuarioEN usuario, System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.LineaPedidoEN> lineaPedido, Nullable<DateTime> fechaConfirmacion, Nullable<DateTime> fechaCancelacion)
 {
         this.Id = id;
 

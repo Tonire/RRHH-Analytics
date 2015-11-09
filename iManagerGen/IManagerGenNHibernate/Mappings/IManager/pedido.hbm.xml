@@ -21,11 +21,11 @@
 					<property name="FechaRealizacion" type="date"> 
 						<column name="fechaRealizacion"  not-null="true"/>
 					</property>
-					<property name="FechaConfirmacion" type="string"> 
-						<column name="fechaConfirmacion"  not-null="true"/>
+					<property name="FechaConfirmacion" type="date"> 
+						<column name="fechaConfirmacion" />
 					</property>
-					<property name="FechaCancelacion" type="string"> 
-						<column name="fechaCancelacion"  not-null="true"/>
+					<property name="FechaCancelacion" type="date"> 
+						<column name="fechaCancelacion" />
 					</property>
 			
 			
