@@ -115,17 +115,24 @@ public static void InitializeData ()
                  * //Define Album
                  * //IManagerGenNHibernate.CEN.Mediaplayer.AlbumCEN albumCEN = new IManagerGenNHibernate.CEN.Mediaplayer.AlbumCEN();
                  * //albumCEN.New_("Album 1", "This is a Album 1", artists, musicTracks);*/
+                IUsuarioCAD _IUsuarioCAD = new UsuarioCAD();
+                UsuarioCEN usuarioCEN = new UsuarioCEN(_IUsuarioCAD);
+                IMensajeCAD _IMensajeCAD = new MensajeCAD();
+                MensajeCEN mensajeCEN = new MensajeCEN(_IMensajeCAD);
+                IHorarioCAD _IHorarioCAD = new HorarioCAD();
+                HorarioCEN horarioCEN = new HorarioCEN(_IHorarioCAD);
+                IPedidoCAD _IPedidoCAD = new PedidoCAD();
+                PedidoCEN pedidoCEN = new PedidoCEN(_IPedidoCAD);
+                IProductoCAD _IProductoCAD = new ProductoCAD();
+                ProductoCEN productoCEN = new ProductoCEN(_IProductoCAD);
+                
+
+                UsuarioEN toni = new UsuarioEN();
+                UsuarioEN julio = new UsuarioEN();
+
                 #region Cliente
                 //Cliente 1
                 //MessageBox.Show ("Cago en dios!");
-                IUsuarioCAD _IUsuarioCAD = new UsuarioCAD ();
-                UsuarioCEN usuarioCEN = new UsuarioCEN (_IUsuarioCAD);
-                IMensajeCAD _IMensajeCAD = new MensajeCAD ();
-                MensajeCEN mensajeCEN = new MensajeCEN (_IMensajeCAD);
-                IHorarioCAD _IHorarioCAD = new HorarioCAD ();
-                HorarioCEN horarioCEN = new HorarioCEN (_IHorarioCAD);
-                UsuarioEN toni = new UsuarioEN ();
-                UsuarioEN julio = new UsuarioEN ();
                 toni.Email = "toni.rb.rebollo.el.mas.xulo@hotmail.com";
                 toni.DNI = "48730721h";
                 toni.Password = "tonireasdf";
@@ -195,9 +202,49 @@ public static void InitializeData ()
                 usu.Add(new UsuarioEN());
                 //MessageBox.Show(horario[0].);
                 #endregion
+                #region Producto
+                ProductoEN producto1 = new ProductoEN();
+                producto1.Referencia = 1;
+                producto1.Nombre = "Producto de prueba";
+                producto1.Marca = "Marca 1";
+                producto1.PrecioCompra = 10;
+                producto1.PrecioVenta = 15;
+                producto1.Stock = 0;
+                productoCEN.CrearProducto(producto1.Referencia,producto1.Nombre,producto1.Marca,producto1.PrecioCompra,producto1.PrecioVenta,producto1.Stock);
+
+                LineaPedidoEN lp1 = new LineaPedidoEN();
+                LineaPedidoEN lp2 = new LineaPedidoEN();
+                lp1.Cantidad = 5;
+                lp1.Producto = producto1;
+                lp2.Cantidad = 2;
+                lp2.Producto = producto1;
+                IList<LineaPedidoEN> listaLineas = new List<LineaPedidoEN>();
+                listaLineas.Add(lp1);
+                listaLineas.Add(lp2);
+                PedidoEN pedido1 = new PedidoEN();
+                pedido1.Descripcion = "Pedido de prueba";
+                pedido1.Estado = IManagerGenNHibernate.Enumerated.IManager.EstadoPedidoEnum.pendiente;
+                pedido1.FechaRealizacion = DateTime.Today;
+                pedido1.FechaConfirmacion = null;
+                pedido1.FechaCancelacion = null;
+
+                pedidoCEN.CrearPedido(pedido1.Descripcion,pedido1.Estado,pedido1.FechaRealizacion,julio.Email,listaLineas,pedido1.FechaConfirmacion,pedido1.FechaCancelacion);
+
+                IList<PedidoEN> listaPedidos = pedidoCEN.GetPedidosPendientes();
+                string Hola = "quetal";
+                #endregion
+
+                #region Pedido
+
+                #endregion
+
+
+
+
+
+
                 /*PROTECTED REGION END*/
-        }
-        catch (Exception ex)
+            } catch (Exception ex)
         {
                 System.Console.WriteLine (ex.InnerException);
                 throw ex;
