@@ -36,7 +36,7 @@ public IProductoCAD get_IProductoCAD ()
         return this._IProductoCAD;
 }
 
-public int CrearProducto (int p_referencia, string p_nombre, string p_marca, int p_precioCompra, int p_precioVenta, int p_stock)
+public int CrearProducto (int p_referencia, string p_nombre, string p_marca, int p_precioCompra, int p_precioVenta, int p_stock, System.Collections.Generic.IList<string> p_proveedor)
 {
         ProductoEN productoEN = null;
         int oid;
@@ -54,6 +54,20 @@ public int CrearProducto (int p_referencia, string p_nombre, string p_marca, int
         productoEN.PrecioVenta = p_precioVenta;
 
         productoEN.Stock = p_stock;
+
+
+        productoEN.Proveedor = new System.Collections.Generic.List<IManagerGenNHibernate.EN.IManager.ProveedorEN>();
+        if (p_proveedor != null) {
+                foreach (string item in p_proveedor) {
+                        IManagerGenNHibernate.EN.IManager.ProveedorEN en = new IManagerGenNHibernate.EN.IManager.ProveedorEN ();
+                        en.Email = item;
+                        productoEN.Proveedor.Add (en);
+                }
+        }
+
+        else{
+                productoEN.Proveedor = new System.Collections.Generic.List<IManagerGenNHibernate.EN.IManager.ProveedorEN>();
+        }
 
         //Call to ProductoCAD
 

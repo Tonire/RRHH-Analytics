@@ -125,6 +125,8 @@ public static void InitializeData ()
                 PedidoCEN pedidoCEN = new PedidoCEN (_IPedidoCAD);
                 IProductoCAD _IProductoCAD = new ProductoCAD ();
                 ProductoCEN productoCEN = new ProductoCEN (_IProductoCAD);
+                IProveedorCAD _IProveedorCAD = new ProveedorCAD ();
+                ProveedorCEN proveedorCEN = new ProveedorCEN (_IProveedorCAD);
 
 
                 UsuarioEN toni = new UsuarioEN ();
@@ -133,18 +135,18 @@ public static void InitializeData ()
                 #region Cliente
                 //Cliente 1
                 //MessageBox.Show ("Cago en dios!");
-                toni.Email = "toni.rb.rebollo.el.mas.xulo@hotmail.com";
+                toni.Email = "tonire@hotmail.com";
                 toni.DNI = "48730721h";
                 toni.Password = "tonireasdf";
                 usuarioCEN.Registrar (toni.Email, toni.DNI, toni.Password);
                 //CLiente 2
-                julio.Email = "julio.el.pro@hotmail.com";
+                julio.Email = "julio17@hotmail.com";
                 julio.DNI = "48730721T";
                 julio.Password = "julioasdf";
                 usuarioCEN.Registrar (julio.Email, julio.DNI, julio.Password);
                 MensajeEN mensaje1 = new MensajeEN ();
-                mensaje1.Asunto = "Te reviento";
-                mensaje1.Contenido = "Te voy a reventar un dia de estos.";
+                mensaje1.Asunto = "Esto es un mensaje de prueba";
+                mensaje1.Contenido = "Hola esto es un mensaje para probar que los mensajes se envian.";
                 mensajeCEN.CreaMensaje (julio.Email, toni.Email, mensaje1.Asunto, mensaje1.Contenido);
                 IList<MensajeEN> listaMensajes = mensajeCEN.GetMensajesByRemitente (julio.Email);
                 //MensajeEN mensaje = mensajeCEN.GetMensajesByRemitente (julio.Email);
@@ -202,6 +204,16 @@ public static void InitializeData ()
                 usu.Add (new UsuarioEN ());
                 //MessageBox.Show(horario[0].);
                 #endregion
+                #region Proovedor
+                ProveedorEN proveedor1 = new ProveedorEN ();
+                proveedor1.Email = "alibaba@china.com";
+                proveedor1.Nombre = "Alibaba GROUP";
+                proveedor1.Telefono = "0213-02546-23354";
+                proveedorCEN.CrearProveedor (proveedor1.Email, proveedor1.Nombre, proveedor1.Telefono);
+                IList<string> proveedores = new List<string>();
+                proveedores.Add (proveedor1.Email);
+                #endregion
+
                 #region Producto
                 ProductoEN producto1 = new ProductoEN ();
                 producto1.Referencia = 1;
@@ -210,7 +222,7 @@ public static void InitializeData ()
                 producto1.PrecioCompra = 10;
                 producto1.PrecioVenta = 15;
                 producto1.Stock = 0;
-                productoCEN.CrearProducto (producto1.Referencia, producto1.Nombre, producto1.Marca, producto1.PrecioCompra, producto1.PrecioVenta, producto1.Stock);
+                productoCEN.CrearProducto (producto1.Referencia, producto1.Nombre, producto1.Marca, producto1.PrecioCompra, producto1.PrecioVenta, producto1.Stock, proveedores);
 
                 LineaPedidoEN lp1 = new LineaPedidoEN ();
                 LineaPedidoEN lp2 = new LineaPedidoEN ();

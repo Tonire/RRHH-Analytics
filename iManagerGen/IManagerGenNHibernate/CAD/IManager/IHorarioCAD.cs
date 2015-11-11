@@ -17,5 +17,7 @@ void Destroy (string titulo);
 string CreaHorario (HorarioEN horario);
 
 void AsignarDias (string p_Horario_OID, System.Collections.Generic.IList<int> p_dia_OIDs);
+
+System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.HorarioEN> GetHorarioByUsuario (string p_usuario);
 }
 }

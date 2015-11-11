@@ -93,5 +93,9 @@ public void AsignarDias (string p_Horario_OID, System.Collections.Generic.IList<
 
         _IHorarioCAD.AsignarDias (p_Horario_OID, p_dia_OIDs);
 }
+public System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.HorarioEN> GetHorarioByUsuario (string p_usuario)
+{
+        return _IHorarioCAD.GetHorarioByUsuario (p_usuario);
+}
 }
 }

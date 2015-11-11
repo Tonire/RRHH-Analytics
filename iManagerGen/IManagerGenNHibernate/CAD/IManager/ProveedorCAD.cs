@@ -85,12 +85,6 @@ public string CrearProveedor (ProveedorEN proveedor)
         try
         {
                 SessionInitializeTransaction ();
-                if (proveedor.Producto != null) {
-                        for (int i = 0; i < proveedor.Producto.Count; i++) {
-                                proveedor.Producto [i] = (IManagerGenNHibernate.EN.IManager.ProductoEN)session.Load (typeof(IManagerGenNHibernate.EN.IManager.ProductoEN), proveedor.Producto [i].Referencia);
-                                proveedor.Producto [i].Proveedor.Add (proveedor);
-                        }
-                }
 
                 session.Save (proveedor);
                 SessionCommit ();

@@ -85,6 +85,12 @@ public int CrearProducto (ProductoEN producto)
         try
         {
                 SessionInitializeTransaction ();
+                if (producto.Proveedor != null) {
+                        for (int i = 0; i < producto.Proveedor.Count; i++) {
+                                producto.Proveedor [i] = (IManagerGenNHibernate.EN.IManager.ProveedorEN)session.Load (typeof(IManagerGenNHibernate.EN.IManager.ProveedorEN), producto.Proveedor [i].Email);
+                                producto.Proveedor [i].Producto.Add (producto);
+                        }
+                }
 
                 session.Save (producto);
                 SessionCommit ();
