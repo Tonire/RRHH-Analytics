@@ -118,6 +118,12 @@ public void Modify (UsuarioEN usuario)
 
                 usuarioEN.Password = usuario.Password;
 
+
+                usuarioEN.Nombre = usuario.Nombre;
+
+
+                usuarioEN.Apellidos = usuario.Apellidos;
+
                 session.Update (usuarioEN);
                 SessionCommit ();
         }

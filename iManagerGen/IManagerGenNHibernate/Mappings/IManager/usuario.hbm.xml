@@ -15,6 +15,12 @@
 					<property name="Password" type="string"> 
 						<column name="password"  not-null="true"/>
 					</property>
+					<property name="Nombre" type="string"> 
+						<column name="nombre"  not-null="true"/>
+					</property>
+					<property name="Apellidos" type="string"> 
+						<column name="apellidos"  not-null="true"/>
+					</property>
 			
 			
 			
@@ -73,6 +79,10 @@
 					      	</key>
 							<one-to-many class="IManagerGenNHibernate.EN.IManager.VentaEN"/>
 					    </bag>
+					
+			
+			
+					
 					
 					
 					

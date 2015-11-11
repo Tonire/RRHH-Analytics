@@ -36,7 +36,7 @@ public IEmpleadoCAD get_IEmpleadoCAD ()
         return this._IEmpleadoCAD;
 }
 
-public string New_ (string p_email, string p_DNI, String p_password)
+public string New_ (string p_email, string p_DNI, String p_password, string p_nombre, string p_apellidos)
 {
         EmpleadoEN empleadoEN = null;
         string oid;
@@ -48,6 +48,10 @@ public string New_ (string p_email, string p_DNI, String p_password)
         empleadoEN.DNI = p_DNI;
 
         empleadoEN.Password = Utils.Util.GetEncondeMD5 (p_password);
+
+        empleadoEN.Nombre = p_nombre;
+
+        empleadoEN.Apellidos = p_apellidos;
 
         //Call to EmpleadoCAD
 

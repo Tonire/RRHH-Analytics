@@ -36,7 +36,7 @@ public IUsuarioCAD get_IUsuarioCAD ()
         return this._IUsuarioCAD;
 }
 
-public string Registrar (string p_email, string p_DNI, String p_password)
+public string Registrar (string p_email, string p_DNI, String p_password, string p_nombre, string p_apellidos)
 {
         UsuarioEN usuarioEN = null;
         string oid;
@@ -49,13 +49,17 @@ public string Registrar (string p_email, string p_DNI, String p_password)
 
         usuarioEN.Password = Utils.Util.GetEncondeMD5 (p_password);
 
+        usuarioEN.Nombre = p_nombre;
+
+        usuarioEN.Apellidos = p_apellidos;
+
         //Call to UsuarioCAD
 
         oid = _IUsuarioCAD.Registrar (usuarioEN);
         return oid;
 }
 
-public void Modify (string p_Usuario_OID, string p_DNI, String p_password)
+public void Modify (string p_Usuario_OID, string p_DNI, String p_password, string p_nombre, string p_apellidos)
 {
         UsuarioEN usuarioEN = null;
 
@@ -64,6 +68,8 @@ public void Modify (string p_Usuario_OID, string p_DNI, String p_password)
         usuarioEN.Email = p_Usuario_OID;
         usuarioEN.DNI = p_DNI;
         usuarioEN.Password = Utils.Util.GetEncondeMD5 (p_password);
+        usuarioEN.Nombre = p_nombre;
+        usuarioEN.Apellidos = p_apellidos;
         //Call to UsuarioCAD
 
         _IUsuarioCAD.Modify (usuarioEN);

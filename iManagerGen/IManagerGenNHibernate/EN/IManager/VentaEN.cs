@@ -33,6 +33,13 @@ private string fechaVenta;
 
 
 
+/**
+ *	Atributo movimientos
+ */
+private System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.MovimientosEN> movimientos;
+
+
+
 
 
 
@@ -60,28 +67,35 @@ public virtual string FechaVenta {
 
 
 
+public virtual System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.MovimientosEN> Movimientos {
+        get { return movimientos; } set { movimientos = value;  }
+}
+
+
+
 
 
 public VentaEN()
 {
         lineaVenta = new System.Collections.Generic.List<IManagerGenNHibernate.EN.IManager.LineaVentaEN>();
+        movimientos = new System.Collections.Generic.List<IManagerGenNHibernate.EN.IManager.MovimientosEN>();
 }
 
 
 
-public VentaEN(int id, IManagerGenNHibernate.EN.IManager.UsuarioEN usuario, System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.LineaVentaEN> lineaVenta, string fechaVenta
+public VentaEN(int id, IManagerGenNHibernate.EN.IManager.UsuarioEN usuario, System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.LineaVentaEN> lineaVenta, string fechaVenta, System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.MovimientosEN> movimientos
                )
 {
-        this.init (Id, usuario, lineaVenta, fechaVenta);
+        this.init (Id, usuario, lineaVenta, fechaVenta, movimientos);
 }
 
 
 public VentaEN(VentaEN venta)
 {
-        this.init (Id, venta.Usuario, venta.LineaVenta, venta.FechaVenta);
+        this.init (Id, venta.Usuario, venta.LineaVenta, venta.FechaVenta, venta.Movimientos);
 }
 
-private void init (int id, IManagerGenNHibernate.EN.IManager.UsuarioEN usuario, System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.LineaVentaEN> lineaVenta, string fechaVenta)
+private void init (int id, IManagerGenNHibernate.EN.IManager.UsuarioEN usuario, System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.LineaVentaEN> lineaVenta, string fechaVenta, System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.MovimientosEN> movimientos)
 {
         this.Id = id;
 
@@ -91,6 +105,8 @@ private void init (int id, IManagerGenNHibernate.EN.IManager.UsuarioEN usuario, 
         this.LineaVenta = lineaVenta;
 
         this.FechaVenta = fechaVenta;
+
+        this.Movimientos = movimientos;
 }
 
 public override bool Equals (object obj)

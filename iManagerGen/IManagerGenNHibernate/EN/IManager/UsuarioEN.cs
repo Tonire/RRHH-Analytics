@@ -61,6 +61,20 @@ private System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.Venta
 
 
 
+/**
+ *	Atributo nombre
+ */
+private string nombre;
+
+
+
+/**
+ *	Atributo apellidos
+ */
+private string apellidos;
+
+
+
 
 
 
@@ -112,12 +126,24 @@ public virtual System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManage
 
 
 
+public virtual string Nombre {
+        get { return nombre; } set { nombre = value;  }
+}
+
+
+
+public virtual string Apellidos {
+        get { return apellidos; } set { apellidos = value;  }
+}
+
+
+
 
 
 public UsuarioEN()
 {
-        MensajesEnviados = new System.Collections.Generic.List<IManagerGenNHibernate.EN.IManager.MensajeEN>();
-        MensajesRecibidos = new System.Collections.Generic.List<IManagerGenNHibernate.EN.IManager.MensajeEN>();
+        mensajesEnviados = new System.Collections.Generic.List<IManagerGenNHibernate.EN.IManager.MensajeEN>();
+        mensajesRecibidos = new System.Collections.Generic.List<IManagerGenNHibernate.EN.IManager.MensajeEN>();
         horario = new System.Collections.Generic.List<IManagerGenNHibernate.EN.IManager.HorarioEN>();
         pedido = new System.Collections.Generic.List<IManagerGenNHibernate.EN.IManager.PedidoEN>();
         ventas = new System.Collections.Generic.List<IManagerGenNHibernate.EN.IManager.VentaEN>();
@@ -125,19 +151,19 @@ public UsuarioEN()
 
 
 
-public UsuarioEN(string email, string dNI, String password, System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.MensajeEN> mensajesEnviados, System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.MensajeEN> mensajesRecibidos, System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.HorarioEN> horario, System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.PedidoEN> pedido, System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.VentaEN> ventas
+public UsuarioEN(string email, string dNI, String password, System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.MensajeEN> mensajesEnviados, System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.MensajeEN> mensajesRecibidos, System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.HorarioEN> horario, System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.PedidoEN> pedido, System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.VentaEN> ventas, string nombre, string apellidos
                  )
 {
-        this.init (Email, dNI, password, mensajesEnviados, mensajesRecibidos, horario, pedido, ventas);
+        this.init (Email, dNI, password, mensajesEnviados, mensajesRecibidos, horario, pedido, ventas, nombre, apellidos);
 }
 
 
 public UsuarioEN(UsuarioEN usuario)
 {
-        this.init (Email, usuario.DNI, usuario.Password, usuario.MensajesEnviados, usuario.MensajesRecibidos, usuario.Horario, usuario.Pedido, usuario.Ventas);
+        this.init (Email, usuario.DNI, usuario.Password, usuario.MensajesEnviados, usuario.MensajesRecibidos, usuario.Horario, usuario.Pedido, usuario.Ventas, usuario.Nombre, usuario.Apellidos);
 }
 
-private void init (string email, string dNI, String password, System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.MensajeEN> mensajesEnviados, System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.MensajeEN> mensajesRecibidos, System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.HorarioEN> horario, System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.PedidoEN> pedido, System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.VentaEN> ventas)
+private void init (string email, string dNI, String password, System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.MensajeEN> mensajesEnviados, System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.MensajeEN> mensajesRecibidos, System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.HorarioEN> horario, System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.PedidoEN> pedido, System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.VentaEN> ventas, string nombre, string apellidos)
 {
         this.Email = email;
 
@@ -155,6 +181,10 @@ private void init (string email, string dNI, String password, System.Collections
         this.Pedido = pedido;
 
         this.Ventas = ventas;
+
+        this.Nombre = nombre;
+
+        this.Apellidos = apellidos;
 }
 
 public override bool Equals (object obj)

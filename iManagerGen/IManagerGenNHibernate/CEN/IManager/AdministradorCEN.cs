@@ -36,7 +36,7 @@ public IAdministradorCAD get_IAdministradorCAD ()
         return this._IAdministradorCAD;
 }
 
-public string New_ (string p_email, string p_DNI, String p_password)
+public string New_ (string p_email, string p_DNI, String p_password, string p_nombre, string p_apellidos)
 {
         AdministradorEN administradorEN = null;
         string oid;
@@ -48,6 +48,10 @@ public string New_ (string p_email, string p_DNI, String p_password)
         administradorEN.DNI = p_DNI;
 
         administradorEN.Password = Utils.Util.GetEncondeMD5 (p_password);
+
+        administradorEN.Nombre = p_nombre;
+
+        administradorEN.Apellidos = p_apellidos;
 
         //Call to AdministradorCAD
 

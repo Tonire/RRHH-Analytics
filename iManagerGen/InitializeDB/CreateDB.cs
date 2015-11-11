@@ -127,23 +127,39 @@ public static void InitializeData ()
                 ProductoCEN productoCEN = new ProductoCEN (_IProductoCAD);
                 IProveedorCAD _IProveedorCAD = new ProveedorCAD ();
                 ProveedorCEN proveedorCEN = new ProveedorCEN (_IProveedorCAD);
+                ISuperAdministradorCAD _ISuperAdministradorCAD = new SuperAdministradorCAD ();
+                SuperAdministradorCEN superCEN = new SuperAdministradorCEN ();
 
 
                 UsuarioEN toni = new UsuarioEN ();
                 UsuarioEN julio = new UsuarioEN ();
-
+                SuperAdministradorEN jefe = new SuperAdministradorEN ();
                 #region Cliente
                 //Cliente 1
                 //MessageBox.Show ("Cago en dios!");
                 toni.Email = "tonire@hotmail.com";
                 toni.DNI = "48730721h";
                 toni.Password = "tonireasdf";
-                usuarioCEN.Registrar (toni.Email, toni.DNI, toni.Password);
+                toni.Nombre = "Toni";
+                toni.Apellidos = "Rebollo";
+                usuarioCEN.Registrar (toni.Email, toni.DNI, toni.Password,toni.Nombre,toni.Apellidos);
                 //CLiente 2
                 julio.Email = "julio17@hotmail.com";
                 julio.DNI = "48730721T";
                 julio.Password = "julioasdf";
-                usuarioCEN.Registrar (julio.Email, julio.DNI, julio.Password);
+                julio.Nombre = "Toni";
+                julio.Apellidos = "Rebollo";
+                usuarioCEN.Registrar (julio.Email, julio.DNI, julio.Password,julio.Nombre,julio.Apellidos);
+                //Jefe
+                jefe.Email = "adri@hotmail.com";
+                jefe.DNI = "15145454145N";
+                jefe.Password = "123";
+                jefe.Nombre = "Toni";
+                jefe.Apellidos = "Rebollo";
+                superCEN.New_ (jefe.Email, jefe.DNI, jefe.Password,jefe.Nombre,jefe.Apellidos);
+                UsuarioEN prueba=usuarioCEN.IniciarSesion(jefe.Email,"123");
+                
+                Console.WriteLine("\n\n\n------------------------"+prueba.GetType()+"------------------------");
                 MensajeEN mensaje1 = new MensajeEN ();
                 mensaje1.Asunto = "Esto es un mensaje de prueba";
                 mensaje1.Contenido = "Hola esto es un mensaje para probar que los mensajes se envian.";
@@ -191,8 +207,8 @@ public static void InitializeData ()
 
                 //UsuarioEN usuario = new UsuarioEN();
                 System.Collections.Generic.List<string> usuarios = new List<string>();
-                usuarios.Add ("toni.rb.rebollo.el.mas.xulo@hotmail.com");
-                usuarios.Add ("julio.el.pro@hotmail.com");
+                usuarios.Add ("tonire@hotmail.com");
+                usuarios.Add ("julio17@hotmail.com");
                 //UsuarioEN us = new UsuarioEN();
                 //us=_IUsuarioCAD.GetUsuarioByEmail("julio.el.pro@hotmail.com");
 

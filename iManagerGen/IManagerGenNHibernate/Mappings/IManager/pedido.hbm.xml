@@ -51,6 +51,18 @@
 					
 			
 			
+			
+		  			
+						<bag name="Movimientos" >
+							<key>
+							
+								
+								<column name="FK_id_idPedido"/>
+					      	</key>
+							<one-to-many class="IManagerGenNHibernate.EN.IManager.MovimientosEN"/>
+					    </bag>
+					
+					
 					
 					
 					

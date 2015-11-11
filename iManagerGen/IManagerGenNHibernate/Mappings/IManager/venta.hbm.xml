@@ -35,6 +35,18 @@
       						</many-to-many>
     					</bag>
 			
+			
+		  			
+						<bag name="Movimientos" >
+							<key>
+							
+								
+								<column name="FK_id_idVenta"/>
+					      	</key>
+							<one-to-many class="IManagerGenNHibernate.EN.IManager.MovimientosEN"/>
+					    </bag>
+					
+					
 					
 					
 					

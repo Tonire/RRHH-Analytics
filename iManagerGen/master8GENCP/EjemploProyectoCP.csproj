@@ -32,34 +32,34 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Antlr3.Runtime">
-      <HintPath>..\master8GenNHibernate\AppLib\Antlr3.Runtime.dll</HintPath>
+      <HintPath>..\IManagerGenNHibernate\AppLib\Antlr3.Runtime.dll</HintPath>
     </Reference>
     <Reference Include="Castle.DynamicProxy2">
-      <HintPath>..\master8GenNHibernate\AppLib\Castle.DynamicProxy2.dll</HintPath>
+      <HintPath>..\IManagerGenNHibernate\AppLib\Castle.DynamicProxy2.dll</HintPath>
     </Reference>
     <Reference Include="Iesi.Collections">
-      <HintPath>..\master8GenNHibernate\AppLib\Iesi.Collections.dll</HintPath>
+      <HintPath>..\IManagerGenNHibernate\AppLib\Iesi.Collections.dll</HintPath>
     </Reference>
     <Reference Include="LinFu.DynamicProxy">
-      <HintPath>..\master8GenNHibernate\AppLib\LinFu.DynamicProxy.dll</HintPath>
+      <HintPath>..\IManagerGenNHibernate\AppLib\LinFu.DynamicProxy.dll</HintPath>
     </Reference>
     <Reference Include="log4net">
-      <HintPath>..\master8GenNHibernate\AppLib\log4net.dll</HintPath>
+      <HintPath>..\IManagerGenNHibernate\AppLib\log4net.dll</HintPath>
     </Reference>
     <Reference Include="NHibernate">
-      <HintPath>..\master8GenNHibernate\AppLib\NHibernate.dll</HintPath>
+      <HintPath>..\IManagerGenNHibernate\AppLib\NHibernate.dll</HintPath>
     </Reference>
     <Reference Include="NHibernate.ByteCode.Castle">
-      <HintPath>..\master8GenNHibernate\AppLib\NHibernate.ByteCode.Castle.dll</HintPath>
+      <HintPath>..\IManagerGenNHibernate\AppLib\NHibernate.ByteCode.Castle.dll</HintPath>
     </Reference>
     <Reference Include="NHibernate.ByteCode.LinFu">
-      <HintPath>..\master8GenNHibernate\AppLib\NHibernate.ByteCode.LinFu.dll</HintPath>
+      <HintPath>..\IManagerGenNHibernate\AppLib\NHibernate.ByteCode.LinFu.dll</HintPath>
     </Reference>
     <Reference Include="nunit.core">
-      <HintPath>..\master8GenNHibernate\AppLib\nunit.core.dll</HintPath>
+      <HintPath>..\IManagerGenNHibernate\AppLib\nunit.core.dll</HintPath>
     </Reference>
     <Reference Include="nunit.framework">
-      <HintPath>..\master8GenNHibernate\AppLib\nunit.framework.dll</HintPath>
+      <HintPath>..\IManagerGenNHibernate\AppLib\nunit.framework.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -77,8 +77,8 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\IManagerGenNHibernate\IManagerGenNHibernate.csproj">
-      <Project>{66C66636-FD6A-4A3F-A7C5-FE88BBA117AF}</Project>
-      <Name>master8GenNHibernate</Name>
+      <Project>{66c66636-fd6a-4a3f-a7c5-fe88bba117af}</Project>
+      <Name>IManagerGenNHibernate</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

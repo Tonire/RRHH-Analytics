@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8" ?>
+		<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+		                   assembly="IManagerGenNHibernate"
+		                   namespace="IManagerGenNHibernate.EN.IManager">
+		    
+		    
+			
+				<class name="MovimientosEN" table="Movimientos"> 
+				  	
+						<id name="Id" column="id" type="integer"> 
+							<generator class="identity"/>
+						</id>
+			
+					
+					<property name="Anyo" type="integer"> 
+						<column name="anyo"  not-null="true"/>
+					</property>
+					<property name="Mes" type="integer"> 
+						<column name="mes"  not-null="true"/>
+					</property>
+					<property name="Tipo" type="string"> 
+						<column name="tipo"  not-null="true"/>
+					</property>
+					<property name="Cantidad" type="double"> 
+						<column name="cantidad"  not-null="true"/>
+					</property>
+			
+			
+			
+			
+			
+			
+			
+		  			
+						<many-to-one name="Pedido" class="IManagerGenNHibernate.EN.IManager.PedidoEN" >	
+								<column name="FK_id_idPedido"/> 
+						</many-to-one>
+											 					
+			
+		  			
+						<many-to-one name="Venta" class="IManagerGenNHibernate.EN.IManager.VentaEN" >	
+								<column name="FK_id_idVenta"/> 
+						</many-to-one>
+											 					
+					
+					
+					
+					
+					
+					
+					
+		
+		 </class>	
+		  
+		  <query name="MovimientosENReadAllHQL">from MovimientosEN</query>
+		</hibernate-mapping>
+	

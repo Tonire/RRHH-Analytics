@@ -61,6 +61,13 @@ private Nullable<DateTime> fechaCancelacion;
 
 
 
+/**
+ *	Atributo movimientos
+ */
+private System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.MovimientosEN> movimientos;
+
+
+
 
 
 
@@ -112,28 +119,35 @@ public virtual Nullable<DateTime> FechaCancelacion {
 
 
 
+public virtual System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.MovimientosEN> Movimientos {
+        get { return movimientos; } set { movimientos = value;  }
+}
+
+
+
 
 
 public PedidoEN()
 {
         lineaPedido = new System.Collections.Generic.List<IManagerGenNHibernate.EN.IManager.LineaPedidoEN>();
+        movimientos = new System.Collections.Generic.List<IManagerGenNHibernate.EN.IManager.MovimientosEN>();
 }
 
 
 
-public PedidoEN(int id, string descripcion, IManagerGenNHibernate.Enumerated.IManager.EstadoPedidoEnum estado, Nullable<DateTime> fechaRealizacion, IManagerGenNHibernate.EN.IManager.UsuarioEN usuario, System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.LineaPedidoEN> lineaPedido, Nullable<DateTime> fechaConfirmacion, Nullable<DateTime> fechaCancelacion
+public PedidoEN(int id, string descripcion, IManagerGenNHibernate.Enumerated.IManager.EstadoPedidoEnum estado, Nullable<DateTime> fechaRealizacion, IManagerGenNHibernate.EN.IManager.UsuarioEN usuario, System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.LineaPedidoEN> lineaPedido, Nullable<DateTime> fechaConfirmacion, Nullable<DateTime> fechaCancelacion, System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.MovimientosEN> movimientos
                 )
 {
-        this.init (Id, descripcion, estado, fechaRealizacion, usuario, lineaPedido, fechaConfirmacion, fechaCancelacion);
+        this.init (Id, descripcion, estado, fechaRealizacion, usuario, lineaPedido, fechaConfirmacion, fechaCancelacion, movimientos);
 }
 
 
 public PedidoEN(PedidoEN pedido)
 {
-        this.init (Id, pedido.Descripcion, pedido.Estado, pedido.FechaRealizacion, pedido.Usuario, pedido.LineaPedido, pedido.FechaConfirmacion, pedido.FechaCancelacion);
+        this.init (Id, pedido.Descripcion, pedido.Estado, pedido.FechaRealizacion, pedido.Usuario, pedido.LineaPedido, pedido.FechaConfirmacion, pedido.FechaCancelacion, pedido.Movimientos);
 }
 
-private void init (int id, string descripcion, IManagerGenNHibernate.Enumerated.IManager.EstadoPedidoEnum estado, Nullable<DateTime> fechaRealizacion, IManagerGenNHibernate.EN.IManager.UsuarioEN usuario, System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.LineaPedidoEN> lineaPedido, Nullable<DateTime> fechaConfirmacion, Nullable<DateTime> fechaCancelacion)
+private void init (int id, string descripcion, IManagerGenNHibernate.Enumerated.IManager.EstadoPedidoEnum estado, Nullable<DateTime> fechaRealizacion, IManagerGenNHibernate.EN.IManager.UsuarioEN usuario, System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.LineaPedidoEN> lineaPedido, Nullable<DateTime> fechaConfirmacion, Nullable<DateTime> fechaCancelacion, System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.MovimientosEN> movimientos)
 {
         this.Id = id;
 
@@ -151,6 +165,8 @@ private void init (int id, string descripcion, IManagerGenNHibernate.Enumerated.
         this.FechaConfirmacion = fechaConfirmacion;
 
         this.FechaCancelacion = fechaCancelacion;
+
+        this.Movimientos = movimientos;
 }
 
 public override bool Equals (object obj)

@@ -36,7 +36,7 @@ public IMensajeCAD get_IMensajeCAD ()
         return this._IMensajeCAD;
 }
 
-public int CreaMensaje (string p_Remitente, string p_Destinatario, string p_asunto, string p_contenido)
+public int CreaMensaje (string p_remitente, string p_destinatario, string p_asunto, string p_contenido)
 {
         MensajeEN mensajeEN = null;
         int oid;
@@ -44,19 +44,19 @@ public int CreaMensaje (string p_Remitente, string p_Destinatario, string p_asun
         //Initialized MensajeEN
         mensajeEN = new MensajeEN ();
 
-        if (p_Remitente != null) {
-                // El argumento p_Remitente -> Property Remitente es oid = false
+        if (p_remitente != null) {
+                // El argumento p_remitente -> Property remitente es oid = false
                 // Lista de oids id
                 mensajeEN.Remitente = new IManagerGenNHibernate.EN.IManager.UsuarioEN ();
-                mensajeEN.Remitente.Email = p_Remitente;
+                mensajeEN.Remitente.Email = p_remitente;
         }
 
 
-        if (p_Destinatario != null) {
-                // El argumento p_Destinatario -> Property Destinatario es oid = false
+        if (p_destinatario != null) {
+                // El argumento p_destinatario -> Property destinatario es oid = false
                 // Lista de oids id
                 mensajeEN.Destinatario = new IManagerGenNHibernate.EN.IManager.UsuarioEN ();
-                mensajeEN.Destinatario.Email = p_Destinatario;
+                mensajeEN.Destinatario.Email = p_destinatario;
         }
 
         mensajeEN.Asunto = p_asunto;

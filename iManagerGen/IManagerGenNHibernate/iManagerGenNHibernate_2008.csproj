@@ -152,16 +152,10 @@
 	<Compile Include="CAD\IManager\ILineaVentaCAD.cs" />
 	<Compile Include="CAD\IManager\LineaVentaCAD.cs" />
 			<Compile Include="CEN\IManager\LineaVentaCEN_RelationerLineaVenta.cs" />
-	<Compile Include="OID\IManager\IngresosEN_OID.cs" />
-	<Compile Include="EN\IManager\IngresosEN.cs" />
-	<Compile Include="CEN\IManager\IngresosCEN.cs" />
-	<Compile Include="CAD\IManager\IIngresosCAD.cs" />
-	<Compile Include="CAD\IManager\IngresosCAD.cs" />
-	<Compile Include="OID\IManager\GastosEN_OID.cs" />
-	<Compile Include="EN\IManager\GastosEN.cs" />
-	<Compile Include="CEN\IManager\GastosCEN.cs" />
-	<Compile Include="CAD\IManager\IGastosCAD.cs" />
-	<Compile Include="CAD\IManager\GastosCAD.cs" />
+	<Compile Include="EN\IManager\MovimientosEN.cs" />
+	<Compile Include="CEN\IManager\MovimientosCEN.cs" />
+	<Compile Include="CAD\IManager\IMovimientosCAD.cs" />
+	<Compile Include="CAD\IManager\MovimientosCAD.cs" />
 	<Compile Include="Enumerated\IManager\EstadoPedidoEnum.cs" />
 	<Compile Include="Enumerated\IManager\DiasSemanaEnum.cs" />
 	
@@ -194,8 +188,7 @@
 	<EmbeddedResource Include="Mappings\IManager\apariencia.hbm.xml" />
 	<EmbeddedResource Include="Mappings\IManager\venta.hbm.xml" />
 	<EmbeddedResource Include="Mappings\IManager\lineaventa.hbm.xml" />
-	<EmbeddedResource Include="Mappings\IManager\ingresos.hbm.xml" />
-	<EmbeddedResource Include="Mappings\IManager\gastos.hbm.xml" />
+	<EmbeddedResource Include="Mappings\IManager\movimientos.hbm.xml" />
 	
 	
 
