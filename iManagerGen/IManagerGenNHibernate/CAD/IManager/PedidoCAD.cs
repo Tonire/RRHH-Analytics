@@ -134,6 +134,12 @@ public void Modify (PedidoEN pedido)
 
                 pedidoEN.FechaRealizacion = pedido.FechaRealizacion;
 
+
+                pedidoEN.FechaConfirmacion = pedido.FechaConfirmacion;
+
+
+                pedidoEN.FechaCancelacion = pedido.FechaCancelacion;
+
                 session.Update (pedidoEN);
                 SessionCommit ();
         }

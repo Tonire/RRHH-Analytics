@@ -9,30 +9,38 @@ using IManagerGenNHibernate.CEN.IManager;
 //using master8GenNHibernate.CAD.Petstore3;
 //using master8GenNHibernate.CEN.Petstore3;
 using NHibernate;
+using IManagerGenNHibernate.Enumerated.IManager;
+
 
 namespace EjemploProyectoCP.CPs
 {
-    public class ClienteCP : BasicCP
+    public class PedidoCP : BasicCP
     {
 
-        public ClienteCP() : base() { }
+        public PedidoCP() : base() { }
 
-        public ClienteCP(ISession sessionAux)
-            : base(sessionAux)
+        public PedidoCP(ISession sessionAux) : base(sessionAux)
         {
         }
 
-        public int EjemploOperacionCP()
+        public void AumentarStockConfirmarPedidoHacerMovimiento(int p_oid_pedido,DateTime p_fechaConfirmacion,EstadoPedidoEnum estado)
         {
-            //IPedidoCAD _IPedidoCAD = null;
-            //PedidoCEN pedidoCEN = null;
-            //ArticuloCP articuloCP = null;
-            int oid = -1;
+            IPedidoCAD _IPedidoCAD = null;
+            PedidoCEN pedidoCEN = null;
+            PedidoEN pedidoEN = null;
+
+            ProductoCP productoCP = null;
 
             try
             {
                 SessionInitializeTransaction();
-               
+                _IPedidoCAD = new PedidoCAD(session);
+                pedidoCEN = new PedidoCEN(_IPedidoCAD);
+                pedidoEN = _IPedidoCAD.ReadOIDDefault(p_oid_pedido);
+                productoCP = new ProductoCP(session);
+                productoCP.SumarStock(pedidoEN.LineaPedido);
+                
+                //pedidoCEN.Modify();
                 SessionCommit();
 
             }
@@ -46,7 +54,7 @@ namespace EjemploProyectoCP.CPs
                 SessionClose();
             }
 
-            return oid;
+           // return oid;
         }
        
     }

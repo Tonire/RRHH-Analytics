@@ -1,6 +1,6 @@
-dataSourceHost=mve21c71ov.database.windows.net
-dataSourcePassword=Toni123456
-dataSourcePort=1433
+dataSourceHost=(local)\\\\sqlexpress
+dataSourcePassword=nhibernatePass
+dataSourcePort=3306
 dataSourceUser=nhibernateUser
 eclipse.preferences.version=1
 platform=Silverlight
