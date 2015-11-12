@@ -22,7 +22,7 @@ static void Main (string[] args)
         try
         {
                 if (ans.ToLower () == "y") {
-                        CreateDB.Create ("IManagerGenNHibernate", "nhibernateUser", "nhibernatePass");
+                        //CreateDB.Create ("IManagerGenNHibernate", "nhibernateUser", "nhibernatePass");
                         var cfg = new Configuration ();
                         cfg.Configure ();
                         cfg.AddAssembly (typeof(UsuarioEN).Assembly);

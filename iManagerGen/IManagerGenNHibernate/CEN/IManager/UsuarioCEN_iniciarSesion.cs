@@ -9,7 +9,6 @@ using NHibernate.Exceptions;
 
 using IManagerGenNHibernate.EN.IManager;
 using IManagerGenNHibernate.CAD.IManager;
-using System.Security.Cryptography;
 
 namespace IManagerGenNHibernate.CEN.IManager
 {
@@ -24,21 +23,17 @@ public IManagerGenNHibernate.EN.IManager.UsuarioEN IniciarSesion (string p_oid, 
 
         if (p_oid != null && pass != null) {
                 usuarioEN = _IUsuarioCAD.GetUsuarioByEmail (p_oid);
-                if(usuarioEN != null)
-                {
-                    if (usuarioEN.Password.CompareTo(Utils.Util.GetEncondeMD5(pass)) == 0)
-                    {
-                        login = true;
-                    }
+                if (usuarioEN != null) {
+                        if (usuarioEN.Password.CompareTo (Utils.Util.GetEncondeMD5 (pass)) == 0) {
+                                login = true;
+                        }
                 }
-                
         }
-        if(!login)
-            {
+        if (!login) {
                 usuarioEN = null;
-            }
-            //return login;
-            return usuarioEN;
+        }
+        //return login;
+        return usuarioEN;
         /*PROTECTED REGION END*/
 }
 }

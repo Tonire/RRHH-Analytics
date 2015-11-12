@@ -23,7 +23,7 @@ public static void Create (string databaseArg, string userArg, string passArg)
         String pass = passArg;
 
         // Conex DB
-        SqlConnection cnn = new SqlConnection (@"Server=(local)\sqlexpress; database=master; integrated security=yes");
+        SqlConnection cnn = new SqlConnection (@"Server=mve21c71ov.database.windows.net; database=master; integrated security=yes");
 
         // Order T-SQL create user
         String createUser = @"IF NOT EXISTS(SELECT name FROM master.dbo.syslogins WHERE name = '" + user + @"')
@@ -142,24 +142,24 @@ public static void InitializeData ()
                 toni.Password = "tonireasdf";
                 toni.Nombre = "Toni";
                 toni.Apellidos = "Rebollo";
-                usuarioCEN.Registrar (toni.Email, toni.DNI, toni.Password,toni.Nombre,toni.Apellidos);
+                usuarioCEN.Registrar (toni.Email, toni.DNI, toni.Password, toni.Nombre, toni.Apellidos);
                 //CLiente 2
                 julio.Email = "julio17@hotmail.com";
                 julio.DNI = "48730721T";
                 julio.Password = "julioasdf";
                 julio.Nombre = "Toni";
                 julio.Apellidos = "Rebollo";
-                usuarioCEN.Registrar (julio.Email, julio.DNI, julio.Password,julio.Nombre,julio.Apellidos);
+                usuarioCEN.Registrar (julio.Email, julio.DNI, julio.Password, julio.Nombre, julio.Apellidos);
                 //Jefe
                 jefe.Email = "adri@hotmail.com";
                 jefe.DNI = "15145454145N";
                 jefe.Password = "123";
                 jefe.Nombre = "Toni";
                 jefe.Apellidos = "Rebollo";
-                superCEN.New_ (jefe.Email, jefe.DNI, jefe.Password,jefe.Nombre,jefe.Apellidos);
-                UsuarioEN prueba=usuarioCEN.IniciarSesion(jefe.Email,"123");
-                
-                Console.WriteLine("\n\n\n------------------------"+prueba.GetType()+"------------------------");
+                superCEN.New_ (jefe.Email, jefe.DNI, jefe.Password, jefe.Nombre, jefe.Apellidos);
+                UsuarioEN prueba = usuarioCEN.IniciarSesion (jefe.Email, "123");
+
+                Console.WriteLine ("\n\n\n------------------------" + prueba.GetType () + "------------------------");
                 MensajeEN mensaje1 = new MensajeEN ();
                 mensaje1.Asunto = "Esto es un mensaje de prueba";
                 mensaje1.Contenido = "Hola esto es un mensaje para probar que los mensajes se envian.";
