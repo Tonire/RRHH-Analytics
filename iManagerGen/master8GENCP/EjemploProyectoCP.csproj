@@ -71,10 +71,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BasicCP.cs" />
+    <Compile Include="CPs\MovimientoCP.cs" />
     <Compile Include="CPs\PedidoCP.cs" />
     <Compile Include="CPs\ProductoCP.cs" />
     <Compile Include="CPs\RealizarHorarioCP.cs" />
     <Compile Include="CPs\VacioCP.cs" />
+    <Compile Include="CPs\VentaCP.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -143,6 +143,7 @@ public static void InitializeData ()
                 toni.Nombre = "Toni";
                 toni.Apellidos = "Rebollo";
                 usuarioCEN.Registrar (toni.Email, toni.DNI, toni.Password, toni.Nombre, toni.Apellidos, DateTime.Today);
+                usuarioCEN.IniciarSesion(toni.Email,"tonireasdf");
                 //CLiente 2
                 julio.Email = "julio17@hotmail.com";
                 julio.DNI = "48730721T";
@@ -150,6 +151,7 @@ public static void InitializeData ()
                 julio.Nombre = "Toni";
                 julio.Apellidos = "Rebollo";
                 usuarioCEN.Registrar (julio.Email, julio.DNI, julio.Password, julio.Nombre, julio.Apellidos, DateTime.Today);
+                usuarioCEN.IniciarSesion(julio.Email, "julioasdf");
                 //Jefe
                 jefe.Email = "adri@hotmail.com";
                 jefe.DNI = "15145454145N";

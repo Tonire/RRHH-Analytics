@@ -177,7 +177,7 @@ public System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.Movimi
                 //String sql = @"FROM MovimientosEN self where FROM MovimientosEN";
                 //IQuery query = session.CreateQuery(sql);
                 IQuery query = (IQuery)session.GetNamedQuery ("MovimientosENGetGastosByAnyoHQL");
-                query.SetParameter ("FechaPedido", FechaPedido);
+                //query.SetParameter ("FechaPedido", FechaPedido);
 
                 result = query.List<IManagerGenNHibernate.EN.IManager.MovimientosEN>();
                 SessionCommit ();
