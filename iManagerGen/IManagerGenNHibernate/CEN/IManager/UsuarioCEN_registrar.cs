@@ -25,7 +25,6 @@ public string Registrar (string p_email, string p_DNI, String p_password, string
         string oid;
         pass = p_fechaRegistro.ToString() + nonce + p_password;
         
-
         using (SHA512 shaM = new SHA512Managed()) {
                 hash = shaM.ComputeHash(Encoding.UTF8.GetBytes(pass));
         }
