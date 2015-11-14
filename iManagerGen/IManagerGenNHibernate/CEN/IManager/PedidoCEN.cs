@@ -36,7 +36,7 @@ public IPedidoCAD get_IPedidoCAD ()
         return this._IPedidoCAD;
 }
 
-public int CrearPedido (string p_descripcion, IManagerGenNHibernate.Enumerated.IManager.EstadoPedidoEnum p_estado, Nullable<DateTime> p_fechaRealizacion, string p_usuario, System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.LineaPedidoEN> p_lineaPedido, Nullable<DateTime> p_fechaCancelacion)
+public int CrearPedido (string p_descripcion, IManagerGenNHibernate.Enumerated.IManager.EstadoPedidoEnum p_estado, Nullable<DateTime> p_fechaRealizacion, string p_usuario, System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.LineaPedidoEN> p_lineaPedido, Nullable<DateTime> p_fechaConfirmacion, Nullable<DateTime> p_fechaCancelacion)
 {
         PedidoEN pedidoEN = null;
         int oid;
@@ -59,6 +59,8 @@ public int CrearPedido (string p_descripcion, IManagerGenNHibernate.Enumerated.I
 
         pedidoEN.LineaPedido = p_lineaPedido;
 
+        pedidoEN.FechaConfirmacion = p_fechaConfirmacion;
+
         pedidoEN.FechaCancelacion = p_fechaCancelacion;
 
         //Call to PedidoCAD
@@ -67,7 +69,7 @@ public int CrearPedido (string p_descripcion, IManagerGenNHibernate.Enumerated.I
         return oid;
 }
 
-public void Modify (int p_Pedido_OID, string p_descripcion, IManagerGenNHibernate.Enumerated.IManager.EstadoPedidoEnum p_estado, Nullable<DateTime> p_fechaRealizacion, Nullable<DateTime> p_fechaCancelacion)
+public void Modify (int p_Pedido_OID, string p_descripcion, IManagerGenNHibernate.Enumerated.IManager.EstadoPedidoEnum p_estado, Nullable<DateTime> p_fechaRealizacion, Nullable<DateTime> p_fechaConfirmacion, Nullable<DateTime> p_fechaCancelacion)
 {
         PedidoEN pedidoEN = null;
 
@@ -77,6 +79,7 @@ public void Modify (int p_Pedido_OID, string p_descripcion, IManagerGenNHibernat
         pedidoEN.Descripcion = p_descripcion;
         pedidoEN.Estado = p_estado;
         pedidoEN.FechaRealizacion = p_fechaRealizacion;
+        pedidoEN.FechaConfirmacion = p_fechaConfirmacion;
         pedidoEN.FechaCancelacion = p_fechaCancelacion;
         //Call to PedidoCAD
 

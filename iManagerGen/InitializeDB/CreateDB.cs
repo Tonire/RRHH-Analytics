@@ -142,21 +142,21 @@ public static void InitializeData ()
                 toni.Password = "tonireasdf";
                 toni.Nombre = "Toni";
                 toni.Apellidos = "Rebollo";
-                usuarioCEN.Registrar (toni.Email, toni.DNI, toni.Password, toni.Nombre, toni.Apellidos);
+                usuarioCEN.Registrar (toni.Email, toni.DNI, toni.Password, toni.Nombre, toni.Apellidos, DateTime.Today);
                 //CLiente 2
                 julio.Email = "julio17@hotmail.com";
                 julio.DNI = "48730721T";
                 julio.Password = "julioasdf";
                 julio.Nombre = "Toni";
                 julio.Apellidos = "Rebollo";
-                usuarioCEN.Registrar (julio.Email, julio.DNI, julio.Password, julio.Nombre, julio.Apellidos);
+                usuarioCEN.Registrar (julio.Email, julio.DNI, julio.Password, julio.Nombre, julio.Apellidos, DateTime.Today);
                 //Jefe
                 jefe.Email = "adri@hotmail.com";
                 jefe.DNI = "15145454145N";
                 jefe.Password = "123";
                 jefe.Nombre = "Toni";
                 jefe.Apellidos = "Rebollo";
-                superCEN.New_ (jefe.Email, jefe.DNI, jefe.Password, jefe.Nombre, jefe.Apellidos);
+                superCEN.New_ (jefe.Email, jefe.DNI, jefe.Password, jefe.Nombre, jefe.Apellidos, DateTime.Today);
                 UsuarioEN prueba = usuarioCEN.IniciarSesion (jefe.Email, "123");
 
                 Console.WriteLine ("\n\n\n------------------------" + prueba.GetType () + "------------------------");
@@ -165,8 +165,6 @@ public static void InitializeData ()
                 mensaje1.Contenido = "Hola esto es un mensaje para probar que los mensajes se envian.";
                 mensajeCEN.CreaMensaje (julio.Email, toni.Email, mensaje1.Asunto, mensaje1.Contenido);
                 IList<MensajeEN> listaMensajes = mensajeCEN.GetMensajesByRemitente (julio.Email);
-                //MensajeEN mensaje = mensajeCEN.GetMensajesByRemitente (julio.Email);
-                //MessageBox.Show ("El asunto es: " + listaMensajes [0].Asunto);
 
                 //Creamos Turnos
                 List<TurnoEN> turnos = new List<TurnoEN>();
@@ -253,23 +251,18 @@ public static void InitializeData ()
                 pedido1.Descripcion = "Pedido de prueba";
                 pedido1.Estado = IManagerGenNHibernate.Enumerated.IManager.EstadoPedidoEnum.pendiente;
                 pedido1.FechaRealizacion = DateTime.Today;
-                pedido1.FechaConfirmacion = null;
-                pedido1.FechaCancelacion = null;
+                pedido1.FechaConfirmacion = DateTime.Today;
+                pedido1.FechaCancelacion = DateTime.Today;
 
-                pedidoCEN.CrearPedido (pedido1.Descripcion, pedido1.Estado, pedido1.FechaRealizacion, julio.Email, listaLineas, null, null);
+                pedidoCEN.CrearPedido (pedido1.Descripcion, pedido1.Estado, pedido1.FechaRealizacion, julio.Email, listaLineas, pedido1.FechaConfirmacion,pedido1.FechaCancelacion);
 
                 IList<PedidoEN> listaPedidos = pedidoCEN.GetPedidosPendientes ();
-                string Hola = "quetal";
+                //string Hola = "quetal";
                 #endregion
 
                 #region Pedido
 
                 #endregion
-
-
-
-
-
 
                 /*PROTECTED REGION END*/
         }
