@@ -23,7 +23,7 @@ namespace EjemploProyectoCP.CPs
         {
         }
 
-        public int RestarStockConfirmarVentaHacerMovimiento(int p_oid_pedido, DateTime p_fechaVenta)
+        public void RestarStockConfirmarVentaHacerMovimiento(int p_oid_pedido, DateTime p_fechaVenta)
         {
             IVentaCAD _IVentaCAD = null;
             VentaCEN ventaCEN = null;
@@ -59,7 +59,6 @@ namespace EjemploProyectoCP.CPs
                 SessionClose();
             }
 
-            return oid;
         }
 
     }

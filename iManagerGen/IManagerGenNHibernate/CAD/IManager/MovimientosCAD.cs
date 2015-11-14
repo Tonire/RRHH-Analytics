@@ -335,6 +335,7 @@ public System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.Movimi
                 IQuery query = (IQuery)session.GetNamedQuery ("MovimientosENgetMovimientoTotalAnyoHQL");
                 query.SetParameter ("TipoMovimiento", TipoMovimiento);
                 query.SetParameter ("AnyoMovimiento", AnyoMovimiento);
+                IQuery query = (IQuery)session.GetNamedQuery ("MovimientosENGetGastosByAnyoHQL");
 
                 result = query.List<IManagerGenNHibernate.EN.IManager.MovimientosEN>();
                 SessionCommit ();

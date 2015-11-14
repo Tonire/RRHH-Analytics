@@ -46,12 +46,13 @@ namespace EjemploProyectoCP.CPs
                     case "INGRESO":
                         _IVentaCAD = new VentaCAD(session);
                         ventaCEN = new VentaCEN(_IVentaCAD);
-                        anyo = pedidoEN.FechaConfirmacion.Value.Year; ;
-                        mes = pedidoEN.FechaConfirmacion.Value.Month;
+                        ventaEN = _IVentaCAD.ReadOIDDefault(p_oid);
+                        anyo = ventaEN.FechaVenta.Value.Year;
+                        mes = ventaEN.FechaVenta.Value.Month;
                         ventaEN = _IVentaCAD.ReadOIDDefault(p_oid);
                         foreach (LineaPedidoEN lp in pedidoEN.LineaPedido)
                         {
-                            total = lp.Producto.PrecioCompra * lp.Cantidad;
+                            total = total+(lp.Producto.PrecioVenta * lp.Cantidad);
                         }
                         //Creamos el movimiento con el anyo y mes de la venta, tipo y el total calculado
                         movimiento = movimientosCEN.CrearMovimiento(anyo,mes,tipo,total);
@@ -61,15 +62,16 @@ namespace EjemploProyectoCP.CPs
                     case "GASTO":
                         _IPedidoCAD = new PedidoCAD(session);
                         pedidoCEN = new PedidoCEN(_IPedidoCAD);
-                        anyo = pedidoEN.FechaConfirmacion.Value.Year; ;
+                        pedidoEN=_IPedidoCAD.ReadOIDDefault(p_oid);
+                        anyo = pedidoEN.FechaConfirmacion.Value.Year;
                         mes = pedidoEN.FechaConfirmacion.Value.Month;
                         pedidoEN = _IPedidoCAD.ReadOIDDefault(p_oid);
                         foreach (LineaPedidoEN lp in pedidoEN.LineaPedido)
                         {
-                            total = lp.Producto.PrecioCompra * lp.Cantidad;
+                            total = total+(lp.Producto.PrecioCompra * lp.Cantidad);
                         }
                         movimiento = movimientosCEN.CrearMovimiento(anyo, mes, tipo, total);
-                        movimientosCEN.RelationerVenta(movimiento, p_oid);
+                        movimientosCEN.RelationerPedido(movimiento, p_oid);
                         break;
                     
                 }
