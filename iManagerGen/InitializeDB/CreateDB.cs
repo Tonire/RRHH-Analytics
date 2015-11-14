@@ -8,6 +8,7 @@ using System.Data;
 using IManagerGenNHibernate.EN.IManager;
 using IManagerGenNHibernate.CEN.IManager;
 using IManagerGenNHibernate.CAD.IManager;
+using EjemploProyectoCP.CPs;
 //using System.Windows.Forms;
 //using EjemploProyectoCP.CPs;
 
@@ -129,7 +130,7 @@ public static void InitializeData ()
                 ProveedorCEN proveedorCEN = new ProveedorCEN (_IProveedorCAD);
                 ISuperAdministradorCAD _ISuperAdministradorCAD = new SuperAdministradorCAD ();
                 SuperAdministradorCEN superCEN = new SuperAdministradorCEN ();
-
+                PedidoCP pedidoCP = new PedidoCP();
 
                 UsuarioEN toni = new UsuarioEN ();
                 UsuarioEN julio = new UsuarioEN ();
@@ -161,7 +162,7 @@ public static void InitializeData ()
                 superCEN.New_ (jefe.Email, jefe.DNI, jefe.Password, jefe.Nombre, jefe.Apellidos, DateTime.Today);
                 UsuarioEN prueba = usuarioCEN.IniciarSesion (jefe.Email, "123");
 
-                Console.WriteLine ("\n\n\n------------------------" + prueba.GetType () + "------------------------");
+                //Console.WriteLine ("\n\n\n------------------------" + prueba.GetType () + "------------------------");
                 MensajeEN mensaje1 = new MensajeEN ();
                 mensaje1.Asunto = "Esto es un mensaje de prueba";
                 mensaje1.Contenido = "Hola esto es un mensaje para probar que los mensajes se envian.";
@@ -256,7 +257,8 @@ public static void InitializeData ()
                 pedido1.FechaConfirmacion = DateTime.Today;
                 pedido1.FechaCancelacion = DateTime.Today;
 
-                pedidoCEN.CrearPedido (pedido1.Descripcion, pedido1.Estado, pedido1.FechaRealizacion, julio.Email, listaLineas, pedido1.FechaConfirmacion, pedido1.FechaCancelacion);
+                int pedido=pedidoCEN.CrearPedido (pedido1.Descripcion, pedido1.Estado, pedido1.FechaRealizacion, julio.Email, listaLineas, pedido1.FechaConfirmacion, pedido1.FechaCancelacion);
+                pedidoCP.AumentarStockConfirmarPedidoHacerMovimiento(pedido,DateTime.Today);
 
                 IList<PedidoEN> listaPedidos = pedidoCEN.GetPedidosPendientes ();
                 //string Hola = "quetal";
