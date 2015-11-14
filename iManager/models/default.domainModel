@@ -373,17 +373,30 @@
         <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_wpe-EIsFEeWSEuYgsQDi4g" name="p_Movimientos_OID" type="OID" typeObject="_YLo_sIhTEeWRCsDwnmZ22g"/>
         <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_wpflIIsFEeWSEuYgsQDi4g" name="p_venta_OID" type="OID" typeObject="_O3TWQHwNEeW-XJNIUeA2IA"/>
       </operations>
-      <operations xmi:type="es.ua.dlsi.ooh:Operation" xmi:id="_WfjJUIscEeWDC81MA60MOg" name="GetIngresosByAnyoMes" type="Void">
-        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_Wfs6UIscEeWDC81MA60MOg" name="p_oid" type="OID" typeObject="_YLo_sIhTEeWRCsDwnmZ22g"/>
+      <operations xmi:type="es.ua.dlsi.ooh:Operation" xmi:id="_WfjJUIscEeWDC81MA60MOg" name="getMovimientosByAnyoMes" operationType="ReadFilter" type="Object" collectionType="List" typeObject="_YLo_sIhTEeWRCsDwnmZ22g" filter="FROM Movimientos WHERE mes=:MesMovimiento AND anyo=:AnyoMovimiento AND tipo=:TipoMovimiento" automaticSynchronize="false">
+        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_lIN0IIsiEeWDC81MA60MOg" name="TipoMovimiento"/>
+        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_m3JbIIsiEeWDC81MA60MOg" name="AnyoMovimiento" type="Integer"/>
+        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_m4v9oIsiEeWDC81MA60MOg" name="MesMovimiento" type="Integer"/>
       </operations>
-      <operations xmi:type="es.ua.dlsi.ooh:Operation" xmi:id="_lBK_sIscEeWDC81MA60MOg" name="GetIngresosByAnyo" type="Void">
-        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_lBK_sYscEeWDC81MA60MOg" name="p_oid" type="OID" typeObject="_YLo_sIhTEeWRCsDwnmZ22g"/>
+      <operations xmi:type="es.ua.dlsi.ooh:Operation" xmi:id="_lBK_sIscEeWDC81MA60MOg" name="getMovimientosByAnyo" operationType="ReadFilter" type="Object" collectionType="List" typeObject="_YLo_sIhTEeWRCsDwnmZ22g" filter="FROM Movimientos WHERE anyo=:AnyoMovimiento AND tipo=:TipoMovimiento" automaticSynchronize="false">
+        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_2V1MIIshEeWDC81MA60MOg" name="TipoMovimiento"/>
+        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_2kzcQIshEeWDC81MA60MOg" name="AnyoMovimiento" type="Integer"/>
       </operations>
-      <operations xmi:type="es.ua.dlsi.ooh:Operation" xmi:id="_phEScIscEeWDC81MA60MOg" name="GetGastosByAnyoMes" type="Void">
-        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_phEScYscEeWDC81MA60MOg" name="p_oid" type="OID" typeObject="_YLo_sIhTEeWRCsDwnmZ22g"/>
+      <operations xmi:type="es.ua.dlsi.ooh:Operation" xmi:id="_qrKp4IsjEeWDC81MA60MOg" name="getBalanceByMesAnyo" operationType="ReadFilter" type="Object" collectionType="List" typeObject="_YLo_sIhTEeWRCsDwnmZ22g" filter="FROM MovimientosEN" automaticSynchronize="false">
+        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_v7JgUIskEeWDC81MA60MOg" name="arg0"/>
+        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_wAn2MIskEeWDC81MA60MOg" name="arg1"/>
       </operations>
-      <operations xmi:type="es.ua.dlsi.ooh:Operation" xmi:id="_rq1bUIscEeWDC81MA60MOg" name="GetGastosByAnyo" operationType="ReadFilter" type="Object" collectionType="List" typeObject="_YLo_sIhTEeWRCsDwnmZ22g" filter="FROM MovimientosEN" automaticSynchronize="false">
-        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_k1BkoIsdEeWDC81MA60MOg" name="FechaPedido" type="Date"/>
+      <operations xmi:type="es.ua.dlsi.ooh:Operation" xmi:id="_97PMYIsjEeWDC81MA60MOg" name="getBalanceByAnyo" operationType="ReadFilter" type="Object" collectionType="List" typeObject="_YLo_sIhTEeWRCsDwnmZ22g" filter="FROM MovimientosEN" automaticSynchronize="false">
+        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_yTt6MIskEeWDC81MA60MOg" name="arg0"/>
+      </operations>
+      <operations xmi:type="es.ua.dlsi.ooh:Operation" xmi:id="_H_22gIslEeWDC81MA60MOg" name="getMovimientoTotalMesAnyo" operationType="ReadFilter" type="Object" collectionType="List" typeObject="_YLo_sIhTEeWRCsDwnmZ22g" filter="FROM Movimientos WHERE tipo=:TipoMovimiento AND mes=:MesMovimiento AND anyo=:AnyoMovimiento AND sum(cantidad)" automaticSynchronize="false">
+        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_VP0bQIsmEeWDC81MA60MOg" name="MesMovimiento" type="Integer"/>
+        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_VRU3IIsmEeWDC81MA60MOg" name="AnyoMovimiento" type="Integer"/>
+        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_gF0UcIsmEeWDC81MA60MOg" name="TipoMovimiento"/>
+      </operations>
+      <operations xmi:type="es.ua.dlsi.ooh:Operation" xmi:id="_PN0SAIslEeWDC81MA60MOg" name="getMovimientoTotalAnyo" operationType="ReadFilter" type="Object" collectionType="List" typeObject="_YLo_sIhTEeWRCsDwnmZ22g" filter="FROM Movimientos WHERE tipo=:TipoMovimiento AND anyo=:AnyoMovimiento AND sum(cantidad)" automaticSynchronize="false">
+        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_h9uRQIsmEeWDC81MA60MOg" name="TipoMovimiento"/>
+        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_jCKw0IsmEeWDC81MA60MOg" name="AnyoMovimiento" type="Integer"/>
       </operations>
       <attributes xmi:type="es.ua.dlsi.ooh:Attribute" xmi:id="_c1VHoIhTEeWRCsDwnmZ22g" alias="id" name="id" type="Autogenerated" isOID="true" unique="true"/>
       <attributes xmi:type="es.ua.dlsi.ooh:Attribute" xmi:id="_f9rYoIhTEeWRCsDwnmZ22g" alias="anyo" name="anyo" type="Integer"/>
@@ -1364,19 +1377,33 @@
           <styles xmi:type="notation:FillStyle" xmi:id="_lBK_tYscEeWDC81MA60MOg"/>
           <layoutConstraint xmi:type="notation:Bounds" xmi:id="_lBK_toscEeWDC81MA60MOg"/>
         </children>
-        <children xmi:type="notation:Node" xmi:id="_phEScoscEeWDC81MA60MOg" type="3004" element="_phEScIscEeWDC81MA60MOg">
-          <children xmi:type="notation:DecorationNode" xmi:id="_phESd4scEeWDC81MA60MOg" type="5004"/>
-          <styles xmi:type="notation:DescriptionStyle" xmi:id="_phESc4scEeWDC81MA60MOg"/>
-          <styles xmi:type="notation:FontStyle" xmi:id="_phESdIscEeWDC81MA60MOg" fontName="Segoe UI"/>
-          <styles xmi:type="notation:FillStyle" xmi:id="_phESdYscEeWDC81MA60MOg"/>
-          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_phESdoscEeWDC81MA60MOg"/>
+        <children xmi:type="notation:Node" xmi:id="_qrKp4osjEeWDC81MA60MOg" type="3004" element="_qrKp4IsjEeWDC81MA60MOg">
+          <children xmi:type="notation:DecorationNode" xmi:id="_qrKp54sjEeWDC81MA60MOg" type="5004"/>
+          <styles xmi:type="notation:DescriptionStyle" xmi:id="_qrKp44sjEeWDC81MA60MOg"/>
+          <styles xmi:type="notation:FontStyle" xmi:id="_qrKp5IsjEeWDC81MA60MOg" fontName="Segoe UI"/>
+          <styles xmi:type="notation:FillStyle" xmi:id="_qrKp5YsjEeWDC81MA60MOg"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_qrKp5osjEeWDC81MA60MOg"/>
         </children>
-        <children xmi:type="notation:Node" xmi:id="_rq1bUoscEeWDC81MA60MOg" type="3004" element="_rq1bUIscEeWDC81MA60MOg">
-          <children xmi:type="notation:DecorationNode" xmi:id="_rq1bV4scEeWDC81MA60MOg" type="5004"/>
-          <styles xmi:type="notation:DescriptionStyle" xmi:id="_rq1bU4scEeWDC81MA60MOg"/>
-          <styles xmi:type="notation:FontStyle" xmi:id="_rq1bVIscEeWDC81MA60MOg" fontName="Segoe UI"/>
-          <styles xmi:type="notation:FillStyle" xmi:id="_rq1bVYscEeWDC81MA60MOg"/>
-          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_rq1bVoscEeWDC81MA60MOg"/>
+        <children xmi:type="notation:Node" xmi:id="_97PMYosjEeWDC81MA60MOg" type="3004" element="_97PMYIsjEeWDC81MA60MOg">
+          <children xmi:type="notation:DecorationNode" xmi:id="_97PMZ4sjEeWDC81MA60MOg" type="5004"/>
+          <styles xmi:type="notation:DescriptionStyle" xmi:id="_97PMY4sjEeWDC81MA60MOg"/>
+          <styles xmi:type="notation:FontStyle" xmi:id="_97PMZIsjEeWDC81MA60MOg" fontName="Segoe UI"/>
+          <styles xmi:type="notation:FillStyle" xmi:id="_97PMZYsjEeWDC81MA60MOg"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_97PMZosjEeWDC81MA60MOg"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_H_4rsIslEeWDC81MA60MOg" type="3004" element="_H_22gIslEeWDC81MA60MOg">
+          <children xmi:type="notation:DecorationNode" xmi:id="_H_4rtYslEeWDC81MA60MOg" type="5004"/>
+          <styles xmi:type="notation:DescriptionStyle" xmi:id="_H_4rsYslEeWDC81MA60MOg"/>
+          <styles xmi:type="notation:FontStyle" xmi:id="_H_4rsoslEeWDC81MA60MOg" fontName="Segoe UI"/>
+          <styles xmi:type="notation:FillStyle" xmi:id="_H_4rs4slEeWDC81MA60MOg"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_H_4rtIslEeWDC81MA60MOg"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_PN-DAYslEeWDC81MA60MOg" type="3004" element="_PN0SAIslEeWDC81MA60MOg">
+          <children xmi:type="notation:DecorationNode" xmi:id="_PN-DBoslEeWDC81MA60MOg" type="5004"/>
+          <styles xmi:type="notation:DescriptionStyle" xmi:id="_PN-DAoslEeWDC81MA60MOg"/>
+          <styles xmi:type="notation:FontStyle" xmi:id="_PN-DA4slEeWDC81MA60MOg" fontName="Segoe UI"/>
+          <styles xmi:type="notation:FillStyle" xmi:id="_PN-DBIslEeWDC81MA60MOg"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_PN-DBYslEeWDC81MA60MOg"/>
         </children>
         <styles xmi:type="notation:SortingStyle" xmi:id="_YMkz1IhTEeWRCsDwnmZ22g"/>
         <styles xmi:type="notation:FilteringStyle" xmi:id="_YMkz1YhTEeWRCsDwnmZ22g"/>

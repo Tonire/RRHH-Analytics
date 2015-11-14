@@ -53,6 +53,11 @@
 		 </class>	
 		  
 		  <query name="MovimientosENReadAllHQL">from MovimientosEN</query>
-		  <query name="MovimientosENGetGastosByAnyoHQL"><![CDATA[FROM MovimientosEN]]></query>
+		  <query name="MovimientosENgetMovimientosByAnyoMesHQL"><![CDATA[FROM Movimientos WHERE mes=:MesMovimiento AND anyo=:AnyoMovimiento AND tipo=:TipoMovimiento]]></query>
+		  <query name="MovimientosENgetMovimientosByAnyoHQL"><![CDATA[FROM Movimientos WHERE anyo=:AnyoMovimiento AND tipo=:TipoMovimiento]]></query>
+		  <query name="MovimientosENgetBalanceByMesAnyoHQL"><![CDATA[FROM MovimientosEN]]></query>
+		  <query name="MovimientosENgetBalanceByAnyoHQL"><![CDATA[FROM MovimientosEN]]></query>
+		  <query name="MovimientosENgetMovimientoTotalMesAnyoHQL"><![CDATA[FROM Movimientos WHERE tipo=:TipoMovimiento AND mes=:MesMovimiento AND anyo=:AnyoMovimiento AND sum(cantidad)]]></query>
+		  <query name="MovimientosENgetMovimientoTotalAnyoHQL"><![CDATA[FROM Movimientos WHERE tipo=:TipoMovimiento AND anyo=:AnyoMovimiento AND sum(cantidad)]]></query>
 		</hibernate-mapping>
 	

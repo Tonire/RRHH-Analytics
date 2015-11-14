@@ -168,7 +168,70 @@ public void RelationerVenta (int p_Movimientos_OID, int p_venta_OID)
         }
 }
 
-public System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.MovimientosEN> GetGastosByAnyo (Nullable<DateTime> fechaPedido)
+public System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.MovimientosEN> GetMovimientosByAnyoMes (string tipoMovimiento, int anyoMovimiento, int mesMovimiento)
+{
+        System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.MovimientosEN> result;
+        try
+        {
+                SessionInitializeTransaction ();
+                //String sql = @"FROM MovimientosEN self where FROM Movimientos WHERE mes=:MesMovimiento AND anyo=:AnyoMovimiento AND tipo=:TipoMovimiento";
+                //IQuery query = session.CreateQuery(sql);
+                IQuery query = (IQuery)session.GetNamedQuery ("MovimientosENgetMovimientosByAnyoMesHQL");
+                query.SetParameter ("TipoMovimiento", TipoMovimiento);
+                query.SetParameter ("AnyoMovimiento", AnyoMovimiento);
+                query.SetParameter ("MesMovimiento", MesMovimiento);
+
+                result = query.List<IManagerGenNHibernate.EN.IManager.MovimientosEN>();
+                SessionCommit ();
+        }
+
+        catch (Exception ex) {
+                SessionRollBack ();
+                if (ex is IManagerGenNHibernate.Exceptions.ModelException)
+                        throw ex;
+                throw new IManagerGenNHibernate.Exceptions.DataLayerException ("Error in MovimientosCAD.", ex);
+        }
+
+
+        finally
+        {
+                SessionClose ();
+        }
+
+        return result;
+}
+public System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.MovimientosEN> GetMovimientosByAnyo (string tipoMovimiento, int anyoMovimiento)
+{
+        System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.MovimientosEN> result;
+        try
+        {
+                SessionInitializeTransaction ();
+                //String sql = @"FROM MovimientosEN self where FROM Movimientos WHERE anyo=:AnyoMovimiento AND tipo=:TipoMovimiento";
+                //IQuery query = session.CreateQuery(sql);
+                IQuery query = (IQuery)session.GetNamedQuery ("MovimientosENgetMovimientosByAnyoHQL");
+                query.SetParameter ("TipoMovimiento", TipoMovimiento);
+                query.SetParameter ("AnyoMovimiento", AnyoMovimiento);
+
+                result = query.List<IManagerGenNHibernate.EN.IManager.MovimientosEN>();
+                SessionCommit ();
+        }
+
+        catch (Exception ex) {
+                SessionRollBack ();
+                if (ex is IManagerGenNHibernate.Exceptions.ModelException)
+                        throw ex;
+                throw new IManagerGenNHibernate.Exceptions.DataLayerException ("Error in MovimientosCAD.", ex);
+        }
+
+
+        finally
+        {
+                SessionClose ();
+        }
+
+        return result;
+}
+public System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.MovimientosEN> GetBalanceByMesAnyo (string arg0, string arg1)
 {
         System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.MovimientosEN> result;
         try
@@ -176,8 +239,102 @@ public System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.Movimi
                 SessionInitializeTransaction ();
                 //String sql = @"FROM MovimientosEN self where FROM MovimientosEN";
                 //IQuery query = session.CreateQuery(sql);
-                IQuery query = (IQuery)session.GetNamedQuery ("MovimientosENGetGastosByAnyoHQL");
-                query.SetParameter ("FechaPedido", FechaPedido);
+                IQuery query = (IQuery)session.GetNamedQuery ("MovimientosENgetBalanceByMesAnyoHQL");
+                query.SetParameter ("arg0", arg0);
+                query.SetParameter ("arg1", arg1);
+
+                result = query.List<IManagerGenNHibernate.EN.IManager.MovimientosEN>();
+                SessionCommit ();
+        }
+
+        catch (Exception ex) {
+                SessionRollBack ();
+                if (ex is IManagerGenNHibernate.Exceptions.ModelException)
+                        throw ex;
+                throw new IManagerGenNHibernate.Exceptions.DataLayerException ("Error in MovimientosCAD.", ex);
+        }
+
+
+        finally
+        {
+                SessionClose ();
+        }
+
+        return result;
+}
+public System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.MovimientosEN> GetBalanceByAnyo (string arg0)
+{
+        System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.MovimientosEN> result;
+        try
+        {
+                SessionInitializeTransaction ();
+                //String sql = @"FROM MovimientosEN self where FROM MovimientosEN";
+                //IQuery query = session.CreateQuery(sql);
+                IQuery query = (IQuery)session.GetNamedQuery ("MovimientosENgetBalanceByAnyoHQL");
+                query.SetParameter ("arg0", arg0);
+
+                result = query.List<IManagerGenNHibernate.EN.IManager.MovimientosEN>();
+                SessionCommit ();
+        }
+
+        catch (Exception ex) {
+                SessionRollBack ();
+                if (ex is IManagerGenNHibernate.Exceptions.ModelException)
+                        throw ex;
+                throw new IManagerGenNHibernate.Exceptions.DataLayerException ("Error in MovimientosCAD.", ex);
+        }
+
+
+        finally
+        {
+                SessionClose ();
+        }
+
+        return result;
+}
+public System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.MovimientosEN> GetMovimientoTotalMesAnyo (int mesMovimiento, int anyoMovimiento, string tipoMovimiento)
+{
+        System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.MovimientosEN> result;
+        try
+        {
+                SessionInitializeTransaction ();
+                //String sql = @"FROM MovimientosEN self where FROM Movimientos WHERE tipo=:TipoMovimiento AND mes=:MesMovimiento AND anyo=:AnyoMovimiento AND sum(cantidad)";
+                //IQuery query = session.CreateQuery(sql);
+                IQuery query = (IQuery)session.GetNamedQuery ("MovimientosENgetMovimientoTotalMesAnyoHQL");
+                query.SetParameter ("MesMovimiento", MesMovimiento);
+                query.SetParameter ("AnyoMovimiento", AnyoMovimiento);
+                query.SetParameter ("TipoMovimiento", TipoMovimiento);
+
+                result = query.List<IManagerGenNHibernate.EN.IManager.MovimientosEN>();
+                SessionCommit ();
+        }
+
+        catch (Exception ex) {
+                SessionRollBack ();
+                if (ex is IManagerGenNHibernate.Exceptions.ModelException)
+                        throw ex;
+                throw new IManagerGenNHibernate.Exceptions.DataLayerException ("Error in MovimientosCAD.", ex);
+        }
+
+
+        finally
+        {
+                SessionClose ();
+        }
+
+        return result;
+}
+public System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.MovimientosEN> GetMovimientoTotalAnyo (string tipoMovimiento, int anyoMovimiento)
+{
+        System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.MovimientosEN> result;
+        try
+        {
+                SessionInitializeTransaction ();
+                //String sql = @"FROM MovimientosEN self where FROM Movimientos WHERE tipo=:TipoMovimiento AND anyo=:AnyoMovimiento AND sum(cantidad)";
+                //IQuery query = session.CreateQuery(sql);
+                IQuery query = (IQuery)session.GetNamedQuery ("MovimientosENgetMovimientoTotalAnyoHQL");
+                query.SetParameter ("TipoMovimiento", TipoMovimiento);
+                query.SetParameter ("AnyoMovimiento", AnyoMovimiento);
 
                 result = query.List<IManagerGenNHibernate.EN.IManager.MovimientosEN>();
                 SessionCommit ();
