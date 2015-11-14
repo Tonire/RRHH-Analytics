@@ -22,7 +22,7 @@
 						<column name="fechaRealizacion"  not-null="true"/>
 					</property>
 					<property name="FechaConfirmacion" type="date"> 
-						<column name="fechaConfirmacion"  not-null="true"/>
+						<column name="fechaConfirmacion" />
 					</property>
 					<property name="FechaCancelacion" type="date"> 
 						<column name="fechaCancelacion"  not-null="true"/>

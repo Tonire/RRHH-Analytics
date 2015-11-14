@@ -36,7 +36,7 @@ public IEmpleadoCAD get_IEmpleadoCAD ()
         return this._IEmpleadoCAD;
 }
 
-public string New_ (string p_email, string p_DNI, String p_password, string p_nombre, string p_apellidos)
+public string New_ (string p_email, string p_DNI, String p_password, string p_nombre, string p_apellidos, Nullable<DateTime> p_fechaRegistro)
 {
         EmpleadoEN empleadoEN = null;
         string oid;
@@ -52,6 +52,8 @@ public string New_ (string p_email, string p_DNI, String p_password, string p_no
         empleadoEN.Nombre = p_nombre;
 
         empleadoEN.Apellidos = p_apellidos;
+
+        empleadoEN.FechaRegistro = p_fechaRegistro;
 
         //Call to EmpleadoCAD
 

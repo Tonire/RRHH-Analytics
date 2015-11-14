@@ -75,6 +75,13 @@ private string apellidos;
 
 
 
+/**
+ *	Atributo fechaRegistro
+ */
+private Nullable<DateTime> fechaRegistro;
+
+
+
 
 
 
@@ -138,6 +145,12 @@ public virtual string Apellidos {
 
 
 
+public virtual Nullable<DateTime> FechaRegistro {
+        get { return fechaRegistro; } set { fechaRegistro = value;  }
+}
+
+
+
 
 
 public UsuarioEN()
@@ -151,19 +164,19 @@ public UsuarioEN()
 
 
 
-public UsuarioEN(string email, string dNI, String password, System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.MensajeEN> mensajesEnviados, System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.MensajeEN> mensajesRecibidos, System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.HorarioEN> horario, System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.PedidoEN> pedido, System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.VentaEN> ventas, string nombre, string apellidos
+public UsuarioEN(string email, string dNI, String password, System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.MensajeEN> mensajesEnviados, System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.MensajeEN> mensajesRecibidos, System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.HorarioEN> horario, System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.PedidoEN> pedido, System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.VentaEN> ventas, string nombre, string apellidos, Nullable<DateTime> fechaRegistro
                  )
 {
-        this.init (Email, dNI, password, mensajesEnviados, mensajesRecibidos, horario, pedido, ventas, nombre, apellidos);
+        this.init (Email, dNI, password, mensajesEnviados, mensajesRecibidos, horario, pedido, ventas, nombre, apellidos, fechaRegistro);
 }
 
 
 public UsuarioEN(UsuarioEN usuario)
 {
-        this.init (Email, usuario.DNI, usuario.Password, usuario.MensajesEnviados, usuario.MensajesRecibidos, usuario.Horario, usuario.Pedido, usuario.Ventas, usuario.Nombre, usuario.Apellidos);
+        this.init (Email, usuario.DNI, usuario.Password, usuario.MensajesEnviados, usuario.MensajesRecibidos, usuario.Horario, usuario.Pedido, usuario.Ventas, usuario.Nombre, usuario.Apellidos, usuario.FechaRegistro);
 }
 
-private void init (string email, string dNI, String password, System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.MensajeEN> mensajesEnviados, System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.MensajeEN> mensajesRecibidos, System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.HorarioEN> horario, System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.PedidoEN> pedido, System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.VentaEN> ventas, string nombre, string apellidos)
+private void init (string email, string dNI, String password, System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.MensajeEN> mensajesEnviados, System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.MensajeEN> mensajesRecibidos, System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.HorarioEN> horario, System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.PedidoEN> pedido, System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.VentaEN> ventas, string nombre, string apellidos, Nullable<DateTime> fechaRegistro)
 {
         this.Email = email;
 
@@ -185,6 +198,8 @@ private void init (string email, string dNI, String password, System.Collections
         this.Nombre = nombre;
 
         this.Apellidos = apellidos;
+
+        this.FechaRegistro = fechaRegistro;
 }
 
 public override bool Equals (object obj)

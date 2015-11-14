@@ -124,6 +124,9 @@ public void Modify (UsuarioEN usuario)
 
                 usuarioEN.Apellidos = usuario.Apellidos;
 
+
+                usuarioEN.FechaRegistro = usuario.FechaRegistro;
+
                 session.Update (usuarioEN);
                 SessionCommit ();
         }
