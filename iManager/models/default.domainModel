@@ -167,22 +167,24 @@
     <elements xmi:type="es.ua.dlsi.ooh:Association" xmi:id="_vWNgUHwHEeW-XJNIUeA2IA" name="fecha_turno" alias="fecha_turno" rolOrigin="_vWNgUXwHEeW-XJNIUeA2IA" rolTarget="_vWNgUnwHEeW-XJNIUeA2IA" classTarget="_8AfFcHwFEeW-XJNIUeA2IA" classOrigin="_fVMTwHwHEeW-XJNIUeA2IA" rolOriginName="fecha" rolTargetName="turno" rolOriginMultiplicity="0..*" rolTargetMultiplicity="0..1"/>
     <elements xmi:type="es.ua.dlsi.ooh:Class" xmi:id="_96vgwHwHEeW-XJNIUeA2IA" name="Pedido" alias="Pedido" asociationTarget="_fP_OMHwIEeW-XJNIUeA2IA" associationOrigin="_ToVZIHwJEeW-XJNIUeA2IA _9OKQIIhTEeWRCsDwnmZ22g">
       <operations xmi:type="es.ua.dlsi.ooh:Operation" xmi:id="_MryTMHwIEeW-XJNIUeA2IA" name="crearPedido" operationType="New" type="Object" typeObject="_96vgwHwHEeW-XJNIUeA2IA">
-        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_NhyAMIlzEeWWrp2FZvhzkA" name="p_descripcion"/>
-        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_NhyAMYlzEeWWrp2FZvhzkA" name="p_estado" type="Enum" typeEnum="_E55rQHwIEeW-XJNIUeA2IA"/>
-        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_NhyAMolzEeWWrp2FZvhzkA" name="p_fechaRealizacion" type="Date"/>
-        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_NhyAM4lzEeWWrp2FZvhzkA" name="p_usuario" type="OID" typeObject="_FkwKoHv-EeWyGcqmZGlzvA"/>
-        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_NhyANIlzEeWWrp2FZvhzkA" name="p_lineaPedido" type="Object" collectionType="List" typeObject="_HNgQIHwJEeW-XJNIUeA2IA"/>
-        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_NhyANYlzEeWWrp2FZvhzkA" name="p_fechaCancelacion" type="Date"/>
+        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_9TJ_4Ir7EeWqCKCTLCU_Xw" name="p_descripcion"/>
+        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_9TJ_4Yr7EeWqCKCTLCU_Xw" name="p_estado" type="Enum" typeEnum="_E55rQHwIEeW-XJNIUeA2IA"/>
+        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_9TJ_4or7EeWqCKCTLCU_Xw" name="p_fechaRealizacion" type="Date"/>
+        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_9TJ_44r7EeWqCKCTLCU_Xw" name="p_usuario" type="OID" typeObject="_FkwKoHv-EeWyGcqmZGlzvA"/>
+        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_9TJ_5Ir7EeWqCKCTLCU_Xw" name="p_lineaPedido" type="Object" collectionType="List" typeObject="_HNgQIHwJEeW-XJNIUeA2IA"/>
+        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_9TJ_5Yr7EeWqCKCTLCU_Xw" name="p_fechaConfirmacion" type="Date"/>
+        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_9TJ_5or7EeWqCKCTLCU_Xw" name="p_fechaCancelacion" type="Date"/>
       </operations>
       <operations xmi:type="es.ua.dlsi.ooh:Operation" xmi:id="_N605MHwIEeW-XJNIUeA2IA" name="modify" operationType="Modifier" type="Void">
-        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_I8IDtolzEeWWrp2FZvhzkA" name="p_Pedido_OID" type="OID" typeObject="_96vgwHwHEeW-XJNIUeA2IA"/>
-        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_I8IDt4lzEeWWrp2FZvhzkA" name="p_descripcion"/>
-        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_I8IDuIlzEeWWrp2FZvhzkA" name="p_estado" type="Enum" typeEnum="_E55rQHwIEeW-XJNIUeA2IA"/>
-        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_I8IDuYlzEeWWrp2FZvhzkA" name="p_fechaRealizacion" type="Date"/>
-        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_I8IDuolzEeWWrp2FZvhzkA" name="p_fechaCancelacion" type="Date"/>
+        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_9TKm8Ir7EeWqCKCTLCU_Xw" name="p_Pedido_OID" type="OID" typeObject="_96vgwHwHEeW-XJNIUeA2IA"/>
+        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_9TKm8Yr7EeWqCKCTLCU_Xw" name="p_descripcion"/>
+        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_9TKm8or7EeWqCKCTLCU_Xw" name="p_estado" type="Enum" typeEnum="_E55rQHwIEeW-XJNIUeA2IA"/>
+        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_9TKm84r7EeWqCKCTLCU_Xw" name="p_fechaRealizacion" type="Date"/>
+        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_9TKm9Ir7EeWqCKCTLCU_Xw" name="p_fechaConfirmacion" type="Date"/>
+        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_9TKm9Yr7EeWqCKCTLCU_Xw" name="p_fechaCancelacion" type="Date"/>
       </operations>
       <operations xmi:type="es.ua.dlsi.ooh:Operation" xmi:id="_PEFAQHwIEeW-XJNIUeA2IA" name="destroy" operationType="Destroy" type="Void">
-        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_I8IDu4lzEeWWrp2FZvhzkA" name="p_Pedido_OID" type="OID" typeObject="_96vgwHwHEeW-XJNIUeA2IA"/>
+        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_9TKm9or7EeWqCKCTLCU_Xw" name="p_Pedido_OID" type="OID" typeObject="_96vgwHwHEeW-XJNIUeA2IA"/>
       </operations>
       <operations xmi:type="es.ua.dlsi.ooh:Operation" xmi:id="_ShQRwHwIEeW-XJNIUeA2IA" name="cancelarPedido" type="Void">
         <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_ShQRwXwIEeW-XJNIUeA2IA" name="p_oid" type="OID" typeObject="_96vgwHwHEeW-XJNIUeA2IA"/>
@@ -196,7 +198,7 @@
       <attributes xmi:type="es.ua.dlsi.ooh:Attribute" xmi:id="_dI4bQIRtEeWmgMPv04z-xw" alias="fechaRealizacion" name="fechaRealizacion" type="Date"/>
       <attributes xmi:type="es.ua.dlsi.ooh:Attribute" xmi:id="_fP_1QXwIEeW-XJNIUeA2IA" alias="idUsuario" associationTarget="_fP_OMHwIEeW-XJNIUeA2IA" name="usuario" type="Object"/>
       <attributes xmi:type="es.ua.dlsi.ooh:Attribute" xmi:id="_ToVZIXwJEeW-XJNIUeA2IA" alias="idLineaPedido" aggregation="Composite" upper="*" associationOrigin="_ToVZIHwJEeW-XJNIUeA2IA" name="lineaPedido" type="Object" collectionType="List"/>
-      <attributes xmi:type="es.ua.dlsi.ooh:Attribute" xmi:id="_PMc1QIRwEeWmgMPv04z-xw" alias="fechaConfirmacion" lower="0" name="fechaConfirmacion" type="Date"/>
+      <attributes xmi:type="es.ua.dlsi.ooh:Attribute" xmi:id="_PMc1QIRwEeWmgMPv04z-xw" alias="fechaConfirmacion" name="fechaConfirmacion" type="Date"/>
       <attributes xmi:type="es.ua.dlsi.ooh:Attribute" xmi:id="_QjlAQIRwEeWmgMPv04z-xw" alias="fechaCancelacion" name="fechaCancelacion" type="Date"/>
       <attributes xmi:type="es.ua.dlsi.ooh:Attribute" xmi:id="_9OeZMIhTEeWRCsDwnmZ22g" alias="idMovimientos" lower="0" upper="*" associationOrigin="_9OKQIIhTEeWRCsDwnmZ22g" name="movimientos" type="Object"/>
     </elements>
