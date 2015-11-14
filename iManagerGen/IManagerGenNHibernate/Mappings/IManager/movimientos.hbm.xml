@@ -53,5 +53,6 @@
 		 </class>	
 		  
 		  <query name="MovimientosENReadAllHQL">from MovimientosEN</query>
+		  <query name="MovimientosENGetGastosByAnyoHQL"><![CDATA[FROM MovimientosEN]]></query>
 		</hibernate-mapping>
 	

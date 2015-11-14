@@ -36,7 +36,7 @@ public IVentaCAD get_IVentaCAD ()
         return this._IVentaCAD;
 }
 
-public int NuevaVenta (string p_usuario, System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.LineaVentaEN> p_lineaVenta, string p_fechaVenta)
+public int NuevaVenta (string p_usuario, System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.LineaVentaEN> p_lineaVenta, Nullable<DateTime> p_fechaVenta)
 {
         VentaEN ventaEN = null;
         int oid;
@@ -66,7 +66,7 @@ public void Destroy (int id)
         _IVentaCAD.Destroy (id);
 }
 
-public void Modify (int p_Venta_OID, string p_fechaVenta)
+public void Modify (int p_Venta_OID, Nullable<DateTime> p_fechaVenta)
 {
         VentaEN ventaEN = null;
 

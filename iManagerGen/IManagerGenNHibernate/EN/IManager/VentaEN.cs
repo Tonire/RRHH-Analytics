@@ -29,7 +29,7 @@ private System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.Linea
 /**
  *	Atributo fechaVenta
  */
-private string fechaVenta;
+private Nullable<DateTime> fechaVenta;
 
 
 
@@ -61,7 +61,7 @@ public virtual System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManage
 
 
 
-public virtual string FechaVenta {
+public virtual Nullable<DateTime> FechaVenta {
         get { return fechaVenta; } set { fechaVenta = value;  }
 }
 
@@ -83,7 +83,7 @@ public VentaEN()
 
 
 
-public VentaEN(int id, IManagerGenNHibernate.EN.IManager.UsuarioEN usuario, System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.LineaVentaEN> lineaVenta, string fechaVenta, System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.MovimientosEN> movimientos
+public VentaEN(int id, IManagerGenNHibernate.EN.IManager.UsuarioEN usuario, System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.LineaVentaEN> lineaVenta, Nullable<DateTime> fechaVenta, System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.MovimientosEN> movimientos
                )
 {
         this.init (Id, usuario, lineaVenta, fechaVenta, movimientos);
@@ -95,7 +95,7 @@ public VentaEN(VentaEN venta)
         this.init (Id, venta.Usuario, venta.LineaVenta, venta.FechaVenta, venta.Movimientos);
 }
 
-private void init (int id, IManagerGenNHibernate.EN.IManager.UsuarioEN usuario, System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.LineaVentaEN> lineaVenta, string fechaVenta, System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.MovimientosEN> movimientos)
+private void init (int id, IManagerGenNHibernate.EN.IManager.UsuarioEN usuario, System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.LineaVentaEN> lineaVenta, Nullable<DateTime> fechaVenta, System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.MovimientosEN> movimientos)
 {
         this.Id = id;
 

@@ -167,5 +167,36 @@ public void RelationerVenta (int p_Movimientos_OID, int p_venta_OID)
                 SessionClose ();
         }
 }
+
+public System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.MovimientosEN> GetGastosByAnyo (Nullable<DateTime> fechaPedido)
+{
+        System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.MovimientosEN> result;
+        try
+        {
+                SessionInitializeTransaction ();
+                //String sql = @"FROM MovimientosEN self where FROM MovimientosEN";
+                //IQuery query = session.CreateQuery(sql);
+                IQuery query = (IQuery)session.GetNamedQuery ("MovimientosENGetGastosByAnyoHQL");
+                query.SetParameter ("FechaPedido", FechaPedido);
+
+                result = query.List<IManagerGenNHibernate.EN.IManager.MovimientosEN>();
+                SessionCommit ();
+        }
+
+        catch (Exception ex) {
+                SessionRollBack ();
+                if (ex is IManagerGenNHibernate.Exceptions.ModelException)
+                        throw ex;
+                throw new IManagerGenNHibernate.Exceptions.DataLayerException ("Error in MovimientosCAD.", ex);
+        }
+
+
+        finally
+        {
+                SessionClose ();
+        }
+
+        return result;
+}
 }
 }

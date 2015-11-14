@@ -12,7 +12,7 @@
 						</id>
 			
 					
-					<property name="FechaVenta" type="string"> 
+					<property name="FechaVenta" type="date"> 
 						<column name="fechaVenta"  not-null="true"/>
 					</property>
 			

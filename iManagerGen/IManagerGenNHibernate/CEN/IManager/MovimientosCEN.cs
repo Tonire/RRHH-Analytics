@@ -69,5 +69,9 @@ public void RelationerVenta (int p_Movimientos_OID, int p_venta_OID)
 
         _IMovimientosCAD.RelationerVenta (p_Movimientos_OID, p_venta_OID);
 }
+public System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.MovimientosEN> GetGastosByAnyo (Nullable<DateTime> fechaPedido)
+{
+        return _IMovimientosCAD.GetGastosByAnyo (fechaPedido);
+}
 }
 }
