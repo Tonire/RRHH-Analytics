@@ -36,7 +36,7 @@ public IMovimientosCAD get_IMovimientosCAD ()
         return this._IMovimientosCAD;
 }
 
-public int CrearMovimiento (int p_anyo, int p_mes, string p_tipo, double p_cantidad, int p_pedido, int p_venta)
+public int CrearMovimiento (int p_anyo, int p_mes, string p_tipo, double p_cantidad)
 {
         MovimientosEN movimientosEN = null;
         int oid;
@@ -51,26 +51,23 @@ public int CrearMovimiento (int p_anyo, int p_mes, string p_tipo, double p_canti
 
         movimientosEN.Cantidad = p_cantidad;
 
-
-        if (p_pedido != -1) {
-                // El argumento p_pedido -> Property pedido es oid = false
-                // Lista de oids id
-                movimientosEN.Pedido = new IManagerGenNHibernate.EN.IManager.PedidoEN ();
-                movimientosEN.Pedido.Id = p_pedido;
-        }
-
-
-        if (p_venta != -1) {
-                // El argumento p_venta -> Property venta es oid = false
-                // Lista de oids id
-                movimientosEN.Venta = new IManagerGenNHibernate.EN.IManager.VentaEN ();
-                movimientosEN.Venta.Id = p_venta;
-        }
-
         //Call to MovimientosCAD
 
         oid = _IMovimientosCAD.CrearMovimiento (movimientosEN);
         return oid;
+}
+
+public void RelationerPedido (int p_Movimientos_OID, int p_pedido_OID)
+{
+        //Call to MovimientosCAD
+
+        _IMovimientosCAD.RelationerPedido (p_Movimientos_OID, p_pedido_OID);
+}
+public void RelationerVenta (int p_Movimientos_OID, int p_venta_OID)
+{
+        //Call to MovimientosCAD
+
+        _IMovimientosCAD.RelationerVenta (p_Movimientos_OID, p_venta_OID);
 }
 }
 }

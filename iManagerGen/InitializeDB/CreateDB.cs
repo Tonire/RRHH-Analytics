@@ -254,7 +254,7 @@ public static void InitializeData ()
                 pedido1.FechaConfirmacion = DateTime.Today;
                 pedido1.FechaCancelacion = DateTime.Today;
 
-                pedidoCEN.CrearPedido (pedido1.Descripcion, pedido1.Estado, pedido1.FechaRealizacion, julio.Email, listaLineas, pedido1.FechaConfirmacion,pedido1.FechaCancelacion);
+                pedidoCEN.CrearPedido (pedido1.Descripcion, pedido1.Estado, pedido1.FechaRealizacion, julio.Email, listaLineas, pedido1.FechaConfirmacion, pedido1.FechaCancelacion);
 
                 IList<PedidoEN> listaPedidos = pedidoCEN.GetPedidosPendientes ();
                 //string Hola = "quetal";

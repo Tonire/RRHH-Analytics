@@ -85,20 +85,6 @@ public int CrearMovimiento (MovimientosEN movimientos)
         try
         {
                 SessionInitializeTransaction ();
-                if (movimientos.Pedido != null) {
-                        // Argumento OID y no colección.
-                        movimientos.Pedido = (IManagerGenNHibernate.EN.IManager.PedidoEN)session.Load (typeof(IManagerGenNHibernate.EN.IManager.PedidoEN), movimientos.Pedido.Id);
-
-                        movimientos.Pedido.Movimientos
-                        .Add (movimientos);
-                }
-                if (movimientos.Venta != null) {
-                        // Argumento OID y no colección.
-                        movimientos.Venta = (IManagerGenNHibernate.EN.IManager.VentaEN)session.Load (typeof(IManagerGenNHibernate.EN.IManager.VentaEN), movimientos.Venta.Id);
-
-                        movimientos.Venta.Movimientos
-                        .Add (movimientos);
-                }
 
                 session.Save (movimientos);
                 SessionCommit ();
@@ -118,6 +104,68 @@ public int CrearMovimiento (MovimientosEN movimientos)
         }
 
         return movimientos.Id;
+}
+
+public void RelationerPedido (int p_Movimientos_OID, int p_pedido_OID)
+{
+        IManagerGenNHibernate.EN.IManager.MovimientosEN movimientosEN = null;
+        try
+        {
+                SessionInitializeTransaction ();
+                movimientosEN = (MovimientosEN)session.Load (typeof(MovimientosEN), p_Movimientos_OID);
+                movimientosEN.Pedido = (IManagerGenNHibernate.EN.IManager.PedidoEN)session.Load (typeof(IManagerGenNHibernate.EN.IManager.PedidoEN), p_pedido_OID);
+
+                movimientosEN.Pedido.Movimientos.Add (movimientosEN);
+
+
+
+                session.Update (movimientosEN);
+                SessionCommit ();
+        }
+
+        catch (Exception ex) {
+                SessionRollBack ();
+                if (ex is IManagerGenNHibernate.Exceptions.ModelException)
+                        throw ex;
+                throw new IManagerGenNHibernate.Exceptions.DataLayerException ("Error in MovimientosCAD.", ex);
+        }
+
+
+        finally
+        {
+                SessionClose ();
+        }
+}
+
+public void RelationerVenta (int p_Movimientos_OID, int p_venta_OID)
+{
+        IManagerGenNHibernate.EN.IManager.MovimientosEN movimientosEN = null;
+        try
+        {
+                SessionInitializeTransaction ();
+                movimientosEN = (MovimientosEN)session.Load (typeof(MovimientosEN), p_Movimientos_OID);
+                movimientosEN.Venta = (IManagerGenNHibernate.EN.IManager.VentaEN)session.Load (typeof(IManagerGenNHibernate.EN.IManager.VentaEN), p_venta_OID);
+
+                movimientosEN.Venta.Movimientos.Add (movimientosEN);
+
+
+
+                session.Update (movimientosEN);
+                SessionCommit ();
+        }
+
+        catch (Exception ex) {
+                SessionRollBack ();
+                if (ex is IManagerGenNHibernate.Exceptions.ModelException)
+                        throw ex;
+                throw new IManagerGenNHibernate.Exceptions.DataLayerException ("Error in MovimientosCAD.", ex);
+        }
+
+
+        finally
+        {
+                SessionClose ();
+        }
 }
 }
 }
