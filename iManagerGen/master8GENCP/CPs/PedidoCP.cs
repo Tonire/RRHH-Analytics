@@ -31,6 +31,7 @@ namespace EjemploProyectoCP.CPs
             PedidoCEN pedidoCEN = null;
             PedidoEN pedidoEN = null;
             ProductoCP productoCP = null;
+            MovimientoCP movimientoCP = null;
 
             try
             {
@@ -45,7 +46,8 @@ namespace EjemploProyectoCP.CPs
                 productoCP.SumarStock(pedidoEN.LineaPedido);
                 //Modificamos los valores del pedido, cambiando su estado a confirmado y indicando la fecha de la confirmacion.
                 pedidoCEN.Modify(pedidoEN.Id,pedidoEN.Descripcion,EstadoPedidoEnum.confirmado,pedidoEN.FechaRealizacion,p_fechaConfirmacion,DateTime.Today);
-
+                movimientoCP = new MovimientoCP(session);
+                movimientoCP.CrearMovimiento(pedidoEN.Id,"GASTO");
 
                 SessionCommit();
 

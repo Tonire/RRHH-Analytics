@@ -14,7 +14,7 @@ namespace EjemploProyectoCP.CPs {
         public ProductoCP() : base() { }
         public ProductoCP(ISession sessionAux) : base(sessionAux) { }
 
-        public void RestarStock(IList<LineaPedidoEN> lineasPedidos) {
+        public void RestarStock(IList<LineaVentaEN> lineasPedidos) {
             IProductoCAD _IProductoCAD = null;
             ProductoCEN productoCEN = null;
             try {
@@ -23,7 +23,7 @@ namespace EjemploProyectoCP.CPs {
                 productoCEN = new ProductoCEN(_IProductoCAD);
                 int stock = 0;
 
-                foreach (LineaPedidoEN lp in lineasPedidos) {
+                foreach (LineaVentaEN lp in lineasPedidos) {
                     stock = lp.Producto.Stock - lp.Cantidad;
                     if (stock >= 0) {
                         productoCEN.Modify(lp.Producto.Referencia, lp.Producto.Nombre, lp.Producto.Marca, lp.Producto.PrecioCompra, lp.Producto.PrecioVenta, stock);
