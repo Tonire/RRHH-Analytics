@@ -36,9 +36,14 @@ namespace EjemploProyectoCP.CPs
                 SessionInitializeTransaction();
                 _IPedidoCAD = new PedidoCAD(session);
                 pedidoCEN = new PedidoCEN(_IPedidoCAD);
+                //Recuperamos el pedido del CAD
                 pedidoEN = _IPedidoCAD.ReadOIDDefault(p_oid_pedido);
+                //Creamos el CP de productos y le pasamos la sesion
                 productoCP = new ProductoCP(session);
+                //Llamamos a la funcion SumarStock
                 productoCP.SumarStock(pedidoEN.LineaPedido);
+
+
                 
                 //pedidoCEN.Modify();
                 SessionCommit();
