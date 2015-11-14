@@ -22,7 +22,7 @@ public string Registrar (string p_email, string p_DNI, String p_password, string
         UsuarioEN usuarioEN = null;
         String pass,nonce = "Etsjj8BGtdbT1kPm2FtivCp1SY52pMYTQSobeoQKsSYRGI08lG5D3KThCaBh0AUwf6GYJ9gp2uDfd0jL";
         byte[] hash;
-        string oid;
+        string oid; 
         pass = p_fechaRegistro.ToString() + nonce + p_password;
         
         using (SHA512 shaM = new SHA512Managed()) {
@@ -32,7 +32,7 @@ public string Registrar (string p_email, string p_DNI, String p_password, string
         usuarioEN = new UsuarioEN ();
 
         usuarioEN.Email = p_email;
-
+             
         usuarioEN.DNI = p_DNI;
 
         usuarioEN.Password = Utils.Util.GetEncondeMD5 (hash.ToString());
