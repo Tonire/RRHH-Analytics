@@ -85,6 +85,13 @@ public int CrearTurno (TurnoEN turno)
         try
         {
                 SessionInitializeTransaction ();
+                if (turno.Horario != null) {
+                        // Argumento OID y no colección.
+                        turno.Horario = (IManagerGenNHibernate.EN.IManager.HorarioEN)session.Load (typeof(IManagerGenNHibernate.EN.IManager.HorarioEN), turno.Horario.Titulo);
+
+                        turno.Horario.Turno
+                        .Add (turno);
+                }
 
                 session.Save (turno);
                 SessionCommit ();
@@ -160,6 +167,37 @@ public void Destroy (int id)
         {
                 SessionClose ();
         }
+}
+
+public System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.TurnoEN> GetTurnosByHorario (string horario)
+{
+        System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.TurnoEN> result;
+        try
+        {
+                SessionInitializeTransaction ();
+                //String sql = @"FROM TurnoEN self where FROM TurnoEN where horario=:p_horario";
+                //IQuery query = session.CreateQuery(sql);
+                IQuery query = (IQuery)session.GetNamedQuery ("TurnoENgetTurnosByHorarioHQL");
+                query.SetParameter ("horario", horario);
+
+                result = query.List<IManagerGenNHibernate.EN.IManager.TurnoEN>();
+                SessionCommit ();
+        }
+
+        catch (Exception ex) {
+                SessionRollBack ();
+                if (ex is IManagerGenNHibernate.Exceptions.ModelException)
+                        throw ex;
+                throw new IManagerGenNHibernate.Exceptions.DataLayerException ("Error in TurnoCAD.", ex);
+        }
+
+
+        finally
+        {
+                SessionClose ();
+        }
+
+        return result;
 }
 }
 }

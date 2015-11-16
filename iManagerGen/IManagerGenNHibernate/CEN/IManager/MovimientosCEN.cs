@@ -69,29 +69,29 @@ public void RelationerVenta (int p_Movimientos_OID, int p_venta_OID)
 
         _IMovimientosCAD.RelationerVenta (p_Movimientos_OID, p_venta_OID);
 }
-public System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.MovimientosEN> GetMovimientosByAnyoMes (string tipoMovimiento, int anyoMovimiento, int mesMovimiento)
+public System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.MovimientosEN> GetMovimientosByAnyoMes (string p_tipomovimiento, int p_anyomovimiento, int p_mesmovimiento)
 {
-        return _IMovimientosCAD.GetMovimientosByAnyoMes (tipoMovimiento, anyoMovimiento, mesMovimiento);
+        return _IMovimientosCAD.GetMovimientosByAnyoMes (p_tipomovimiento, p_anyomovimiento, p_mesmovimiento);
 }
-public System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.MovimientosEN> GetMovimientosByAnyo (string tipoMovimiento, int anyoMovimiento)
+public System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.MovimientosEN> GetMovimientosByAnyo (string p_tipomovimiento, int p_anyomovimiento)
 {
-        return _IMovimientosCAD.GetMovimientosByAnyo (tipoMovimiento, anyoMovimiento);
+        return _IMovimientosCAD.GetMovimientosByAnyo (p_tipomovimiento, p_anyomovimiento);
 }
-public System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.MovimientosEN> GetBalanceByMesAnyo (string arg0, string arg1)
+public System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.MovimientosEN> GetBalanceByMesAnyo ()
 {
-        return _IMovimientosCAD.GetBalanceByMesAnyo (arg0, arg1);
+        return _IMovimientosCAD.GetBalanceByMesAnyo ();
 }
-public System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.MovimientosEN> GetBalanceByAnyo (string arg0)
+public System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.MovimientosEN> GetBalanceByAnyo ()
 {
-        return _IMovimientosCAD.GetBalanceByAnyo (arg0);
+        return _IMovimientosCAD.GetBalanceByAnyo ();
 }
-public System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.MovimientosEN> GetMovimientoTotalMesAnyo (int mesMovimiento, int anyoMovimiento, string tipoMovimiento)
+public System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.MovimientosEN> GetMovimientoTotalMesAnyo (int p_mesmovimiento, int p_anyomovimiento, string p_tipomovimiento)
 {
-        return _IMovimientosCAD.GetMovimientoTotalMesAnyo (mesMovimiento, anyoMovimiento, tipoMovimiento);
+        return _IMovimientosCAD.GetMovimientoTotalMesAnyo (p_mesmovimiento, p_anyomovimiento, p_tipomovimiento);
 }
-public System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.MovimientosEN> GetMovimientoTotalAnyo (string tipoMovimiento, int anyoMovimiento)
+public System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.MovimientosEN> GetMovimientoTotalAnyo (string p_tipomovimiento, int p_anyomovimiento)
 {
-        return _IMovimientosCAD.GetMovimientoTotalAnyo (tipoMovimiento, anyoMovimiento);
+        return _IMovimientosCAD.GetMovimientoTotalAnyo (p_tipomovimiento, p_anyomovimiento);
 }
 }
 }

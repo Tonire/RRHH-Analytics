@@ -168,18 +168,18 @@ public void RelationerVenta (int p_Movimientos_OID, int p_venta_OID)
         }
 }
 
-public System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.MovimientosEN> GetMovimientosByAnyoMes (string tipoMovimiento, int anyoMovimiento, int mesMovimiento)
+public System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.MovimientosEN> GetMovimientosByAnyoMes (string p_tipomovimiento, int p_anyomovimiento, int p_mesmovimiento)
 {
         System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.MovimientosEN> result;
         try
         {
                 SessionInitializeTransaction ();
-                //String sql = @"FROM MovimientosEN self where FROM Movimientos WHERE mes=:MesMovimiento AND anyo=:AnyoMovimiento AND tipo=:TipoMovimiento";
+                //String sql = @"FROM MovimientosEN self where FROM Movimientos WHERE mes=p_mesmovimiento AND anyo=:p_anyomovimiento AND tipo=:p_tipomovimiento";
                 //IQuery query = session.CreateQuery(sql);
                 IQuery query = (IQuery)session.GetNamedQuery ("MovimientosENgetMovimientosByAnyoMesHQL");
-                query.SetParameter ("TipoMovimiento", TipoMovimiento);
-                query.SetParameter ("AnyoMovimiento", AnyoMovimiento);
-                query.SetParameter ("MesMovimiento", MesMovimiento);
+                query.SetParameter ("p_tipomovimiento", p_tipomovimiento);
+                query.SetParameter ("p_anyomovimiento", p_anyomovimiento);
+                query.SetParameter ("p_mesmovimiento", p_mesmovimiento);
 
                 result = query.List<IManagerGenNHibernate.EN.IManager.MovimientosEN>();
                 SessionCommit ();
@@ -200,17 +200,17 @@ public System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.Movimi
 
         return result;
 }
-public System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.MovimientosEN> GetMovimientosByAnyo (string tipoMovimiento, int anyoMovimiento)
+public System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.MovimientosEN> GetMovimientosByAnyo (string p_tipomovimiento, int p_anyomovimiento)
 {
         System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.MovimientosEN> result;
         try
         {
                 SessionInitializeTransaction ();
-                //String sql = @"FROM MovimientosEN self where FROM Movimientos WHERE anyo=:AnyoMovimiento AND tipo=:TipoMovimiento";
+                //String sql = @"FROM MovimientosEN self where FROM Movimientos WHERE anyo=:p_anyomovimiento AND tipo=:p_tipomovimiento";
                 //IQuery query = session.CreateQuery(sql);
                 IQuery query = (IQuery)session.GetNamedQuery ("MovimientosENgetMovimientosByAnyoHQL");
-                query.SetParameter ("TipoMovimiento", TipoMovimiento);
-                query.SetParameter ("AnyoMovimiento", AnyoMovimiento);
+                query.SetParameter ("p_tipomovimiento", p_tipomovimiento);
+                query.SetParameter ("p_anyomovimiento", p_anyomovimiento);
 
                 result = query.List<IManagerGenNHibernate.EN.IManager.MovimientosEN>();
                 SessionCommit ();
@@ -231,7 +231,7 @@ public System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.Movimi
 
         return result;
 }
-public System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.MovimientosEN> GetBalanceByMesAnyo (string arg0, string arg1)
+public System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.MovimientosEN> GetBalanceByMesAnyo ()
 {
         System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.MovimientosEN> result;
         try
@@ -240,8 +240,6 @@ public System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.Movimi
                 //String sql = @"FROM MovimientosEN self where FROM MovimientosEN";
                 //IQuery query = session.CreateQuery(sql);
                 IQuery query = (IQuery)session.GetNamedQuery ("MovimientosENgetBalanceByMesAnyoHQL");
-                query.SetParameter ("arg0", arg0);
-                query.SetParameter ("arg1", arg1);
 
                 result = query.List<IManagerGenNHibernate.EN.IManager.MovimientosEN>();
                 SessionCommit ();
@@ -262,7 +260,7 @@ public System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.Movimi
 
         return result;
 }
-public System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.MovimientosEN> GetBalanceByAnyo (string arg0)
+public System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.MovimientosEN> GetBalanceByAnyo ()
 {
         System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.MovimientosEN> result;
         try
@@ -271,7 +269,6 @@ public System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.Movimi
                 //String sql = @"FROM MovimientosEN self where FROM MovimientosEN";
                 //IQuery query = session.CreateQuery(sql);
                 IQuery query = (IQuery)session.GetNamedQuery ("MovimientosENgetBalanceByAnyoHQL");
-                query.SetParameter ("arg0", arg0);
 
                 result = query.List<IManagerGenNHibernate.EN.IManager.MovimientosEN>();
                 SessionCommit ();
@@ -292,18 +289,18 @@ public System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.Movimi
 
         return result;
 }
-public System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.MovimientosEN> GetMovimientoTotalMesAnyo (int mesMovimiento, int anyoMovimiento, string tipoMovimiento)
+public System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.MovimientosEN> GetMovimientoTotalMesAnyo (int p_mesmovimiento, int p_anyomovimiento, string p_tipomovimiento)
 {
         System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.MovimientosEN> result;
         try
         {
                 SessionInitializeTransaction ();
-                //String sql = @"FROM MovimientosEN self where FROM Movimientos WHERE tipo=:TipoMovimiento AND mes=:MesMovimiento AND anyo=:AnyoMovimiento AND sum(cantidad)";
+                //String sql = @"FROM MovimientosEN self where FROM Movimientos WHERE tipo=:p_tipomovimiento AND mes=:p_mesmovimiento AND anyo=:p_anyomovimiento AND sum(cantidad)";
                 //IQuery query = session.CreateQuery(sql);
                 IQuery query = (IQuery)session.GetNamedQuery ("MovimientosENgetMovimientoTotalMesAnyoHQL");
-                query.SetParameter ("MesMovimiento", MesMovimiento);
-                query.SetParameter ("AnyoMovimiento", AnyoMovimiento);
-                query.SetParameter ("TipoMovimiento", TipoMovimiento);
+                query.SetParameter ("p_mesmovimiento", p_mesmovimiento);
+                query.SetParameter ("p_anyomovimiento", p_anyomovimiento);
+                query.SetParameter ("p_tipomovimiento", p_tipomovimiento);
 
                 result = query.List<IManagerGenNHibernate.EN.IManager.MovimientosEN>();
                 SessionCommit ();
@@ -324,18 +321,17 @@ public System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.Movimi
 
         return result;
 }
-public System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.MovimientosEN> GetMovimientoTotalAnyo (string tipoMovimiento, int anyoMovimiento)
+public System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.MovimientosEN> GetMovimientoTotalAnyo (string p_tipomovimiento, int p_anyomovimiento)
 {
         System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.MovimientosEN> result;
         try
         {
                 SessionInitializeTransaction ();
-                //String sql = @"FROM MovimientosEN self where FROM Movimientos WHERE tipo=:TipoMovimiento AND anyo=:AnyoMovimiento AND sum(cantidad)";
+                //String sql = @"FROM MovimientosEN self where FROM Movimientos WHERE tipo=:p_tipomovimiento AND anyo=:p_anyomovimento AND sum(cantidad)";
                 //IQuery query = session.CreateQuery(sql);
                 IQuery query = (IQuery)session.GetNamedQuery ("MovimientosENgetMovimientoTotalAnyoHQL");
-                query.SetParameter ("TipoMovimiento", TipoMovimiento);
-                query.SetParameter ("AnyoMovimiento", AnyoMovimiento);
-                IQuery query = (IQuery)session.GetNamedQuery ("MovimientosENGetGastosByAnyoHQL");
+                query.SetParameter ("p_tipomovimiento", p_tipomovimiento);
+                query.SetParameter ("p_anyomovimiento", p_anyomovimiento);
 
                 result = query.List<IManagerGenNHibernate.EN.IManager.MovimientosEN>();
                 SessionCommit ();

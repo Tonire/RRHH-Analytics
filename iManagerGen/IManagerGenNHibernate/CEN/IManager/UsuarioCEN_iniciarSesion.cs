@@ -35,7 +35,7 @@ public IManagerGenNHibernate.EN.IManager.UsuarioEN IniciarSesion (string p_oid, 
                         using (SHA512 shaM = new SHA512Managed ()) {
                                 hash = shaM.ComputeHash (Encoding.UTF8.GetBytes (pass));
                         }
-                        String md5=Utils.Util.GetEncondeMD5(hash.ToString());
+                        String md5 = Utils.Util.GetEncondeMD5 (hash.ToString ());
                         if (usuarioEN.Password.CompareTo (md5) == 0) {
                                 login = true;
                                 Console.WriteLine ("-------------------------------------------Login Correcto-------------------------------------------");

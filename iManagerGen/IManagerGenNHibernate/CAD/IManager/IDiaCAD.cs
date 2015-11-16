@@ -16,5 +16,8 @@ void Destroy (int id);
 void AsignarTurno (int p_Dia_OID, int p_turno_OID);
 
 System.Collections.Generic.IList<DiaEN> GetAllDias (int first, int size);
+
+
+System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.DiaEN> GetDiasByHorario (string p_horario);
 }
 }

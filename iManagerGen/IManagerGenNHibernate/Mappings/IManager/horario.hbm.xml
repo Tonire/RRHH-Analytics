@@ -28,7 +28,7 @@
     					</bag>
 			
 		  			
-						<bag name="Dia" cascade="delete">
+						<bag name="Dia" >
 							<key>
 							
 								
@@ -39,7 +39,7 @@
 					
 			
 		  			
-						<bag name="Turno" cascade="delete">
+						<bag name="Turno" >
 							<key>
 							
 								

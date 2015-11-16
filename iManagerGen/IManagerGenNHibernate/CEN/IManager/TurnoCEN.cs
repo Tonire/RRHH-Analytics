@@ -36,7 +36,7 @@ public ITurnoCAD get_ITurnoCAD ()
         return this._ITurnoCAD;
 }
 
-public int CrearTurno (string p_nombre, string p_desde, string p_hasta)
+public int CrearTurno (string p_nombre, string p_desde, string p_hasta, string p_horario)
 {
         TurnoEN turnoEN = null;
         int oid;
@@ -48,6 +48,14 @@ public int CrearTurno (string p_nombre, string p_desde, string p_hasta)
         turnoEN.Desde = p_desde;
 
         turnoEN.Hasta = p_hasta;
+
+
+        if (p_horario != null) {
+                // El argumento p_horario -> Property horario es oid = false
+                // Lista de oids id
+                turnoEN.Horario = new IManagerGenNHibernate.EN.IManager.HorarioEN ();
+                turnoEN.Horario.Titulo = p_horario;
+        }
 
         //Call to TurnoCAD
 
@@ -73,6 +81,11 @@ public void Modify (int p_Turno_OID, string p_nombre, string p_desde, string p_h
 public void Destroy (int id)
 {
         _ITurnoCAD.Destroy (id);
+}
+
+public System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.TurnoEN> GetTurnosByHorario (string horario)
+{
+        return _ITurnoCAD.GetTurnosByHorario (horario);
 }
 }
 }

@@ -53,5 +53,6 @@
 		 </class>	
 		  
 		  <query name="TurnoENReadAllHQL">from TurnoEN</query>
+		  <query name="TurnoENgetTurnosByHorarioHQL"><![CDATA[FROM TurnoEN where horario=:p_horario]]></query>
 		</hibernate-mapping>
 	

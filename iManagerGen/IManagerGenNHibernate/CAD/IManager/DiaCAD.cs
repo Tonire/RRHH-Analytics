@@ -85,6 +85,13 @@ public int CrearDia (DiaEN dia)
         try
         {
                 SessionInitializeTransaction ();
+                if (dia.Turno != null) {
+                        // Argumento OID y no colección.
+                        dia.Turno = (IManagerGenNHibernate.EN.IManager.TurnoEN)session.Load (typeof(IManagerGenNHibernate.EN.IManager.TurnoEN), dia.Turno.Id);
+
+                        dia.Turno.Fecha
+                        .Add (dia);
+                }
 
                 session.Save (dia);
                 SessionCommit ();
@@ -172,6 +179,37 @@ public System.Collections.Generic.IList<DiaEN> GetAllDias (int first, int size)
                                  SetFirstResult (first).SetMaxResults (size).List<DiaEN>();
                 else
                         result = session.CreateCriteria (typeof(DiaEN)).List<DiaEN>();
+                SessionCommit ();
+        }
+
+        catch (Exception ex) {
+                SessionRollBack ();
+                if (ex is IManagerGenNHibernate.Exceptions.ModelException)
+                        throw ex;
+                throw new IManagerGenNHibernate.Exceptions.DataLayerException ("Error in DiaCAD.", ex);
+        }
+
+
+        finally
+        {
+                SessionClose ();
+        }
+
+        return result;
+}
+
+public System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.DiaEN> GetDiasByHorario (string p_horario)
+{
+        System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.DiaEN> result;
+        try
+        {
+                SessionInitializeTransaction ();
+                //String sql = @"FROM DiaEN self where FROM DiaEN where horario=:p_horario";
+                //IQuery query = session.CreateQuery(sql);
+                IQuery query = (IQuery)session.GetNamedQuery ("DiaENgetDiasByHorarioHQL");
+                query.SetParameter ("p_horario", p_horario);
+
+                result = query.List<IManagerGenNHibernate.EN.IManager.DiaEN>();
                 SessionCommit ();
         }
 

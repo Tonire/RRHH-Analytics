@@ -130,7 +130,8 @@ public static void InitializeData ()
                 ProveedorCEN proveedorCEN = new ProveedorCEN (_IProveedorCAD);
                 ISuperAdministradorCAD _ISuperAdministradorCAD = new SuperAdministradorCAD ();
                 SuperAdministradorCEN superCEN = new SuperAdministradorCEN ();
-                PedidoCP pedidoCP = new PedidoCP();
+                PedidoCP pedidoCP = new PedidoCP ();
+                HorarioCP horarioCP = new HorarioCP ();
 
                 UsuarioEN toni = new UsuarioEN ();
                 UsuarioEN julio = new UsuarioEN ();
@@ -144,7 +145,7 @@ public static void InitializeData ()
                 toni.Nombre = "Toni";
                 toni.Apellidos = "Rebollo";
                 usuarioCEN.Registrar (toni.Email, toni.DNI, toni.Password, toni.Nombre, toni.Apellidos, DateTime.Today);
-                usuarioCEN.IniciarSesion(toni.Email,"tonireasdf");
+                usuarioCEN.IniciarSesion (toni.Email, "tonireasdf");
                 //CLiente 2
                 julio.Email = "julio17@hotmail.com";
                 julio.DNI = "48730721T";
@@ -152,7 +153,7 @@ public static void InitializeData ()
                 julio.Nombre = "Toni";
                 julio.Apellidos = "Rebollo";
                 usuarioCEN.Registrar (julio.Email, julio.DNI, julio.Password, julio.Nombre, julio.Apellidos, DateTime.Today);
-                usuarioCEN.IniciarSesion(julio.Email, "julioasdf");
+                usuarioCEN.IniciarSesion (julio.Email, "julioasdf");
                 //Jefe
                 jefe.Email = "adri@hotmail.com";
                 jefe.DNI = "15145454145N";
@@ -168,54 +169,6 @@ public static void InitializeData ()
                 mensaje1.Contenido = "Hola esto es un mensaje para probar que los mensajes se envian.";
                 mensajeCEN.CreaMensaje (julio.Email, toni.Email, mensaje1.Asunto, mensaje1.Contenido);
                 IList<MensajeEN> listaMensajes = mensajeCEN.GetMensajesByRemitente (julio.Email);
-
-                //Creamos Turnos
-                List<TurnoEN> turnos = new List<TurnoEN>();
-                TurnoEN turno = new TurnoEN ();
-                TurnoEN turno1 = new TurnoEN ();
-                TurnoEN turno2 = new TurnoEN ();
-                turno.Nombre = "tarde";
-                turno.Desde = "15:00";
-                turno.Hasta = "19:00";
-                turnos.Add (turno);
-                turno1.Nombre = "manyana";
-                turno1.Desde = "09:00";
-                turno1.Hasta = "14:00";
-                turnos.Add (turno1);
-                turno2.Nombre = "especial";
-                turno2.Desde = "20:00";
-                turno2.Hasta = "00:00";
-                turnos.Add (turno2);
-
-                //Creamos Dias
-                List<DiaEN> dias = new List<DiaEN>();
-                DiaEN dia = new DiaEN ();
-
-                dia.Dia = IManagerGenNHibernate.Enumerated.IManager.DiasSemanaEnum.lunes;
-                dias.Add (dia);
-                dia.Dia = IManagerGenNHibernate.Enumerated.IManager.DiasSemanaEnum.martes;
-                dias.Add (dia);
-                dia.Dia = IManagerGenNHibernate.Enumerated.IManager.DiasSemanaEnum.miercoles;
-                dias.Add (dia);
-                dia.Dia = IManagerGenNHibernate.Enumerated.IManager.DiasSemanaEnum.jueves;
-                dias.Add (dia);
-                dia.Dia = IManagerGenNHibernate.Enumerated.IManager.DiasSemanaEnum.viernes;
-                dias.Add (dia);
-                dia.Dia = IManagerGenNHibernate.Enumerated.IManager.DiasSemanaEnum.sabado;
-                dias.Add (dia);
-                dia.Dia = IManagerGenNHibernate.Enumerated.IManager.DiasSemanaEnum.domingo;
-                dias.Add (dia);
-
-                //UsuarioEN usuario = new UsuarioEN();
-                System.Collections.Generic.List<string> usuarios = new List<string>();
-                usuarios.Add ("tonire@hotmail.com");
-                usuarios.Add ("julio17@hotmail.com");
-                //UsuarioEN us = new UsuarioEN();
-                //us=_IUsuarioCAD.GetUsuarioByEmail("julio.el.pro@hotmail.com");
-
-                horarioCEN.CreaHorario ("horario semanal 1", 2015, usuarios, turnos);
-                /*UsuarioEN usuario = usuarioCEN.GetUsuarioByEmail("julio.el.pro@hotmail.com");
-                 * IList<HorarioEN> horario=usuario.Horario;*/
 
                 IList<UsuarioEN> usu = usuarioCEN.DameTodos (0, 10);
                 usu.Add (new UsuarioEN ());
@@ -257,16 +210,72 @@ public static void InitializeData ()
                 pedido1.FechaConfirmacion = DateTime.Today;
                 pedido1.FechaCancelacion = DateTime.Today;
 
-                int pedido=pedidoCEN.CrearPedido (pedido1.Descripcion, pedido1.Estado, pedido1.FechaRealizacion, julio.Email, listaLineas, pedido1.FechaConfirmacion, pedido1.FechaCancelacion);
-                pedidoCP.AumentarStockConfirmarPedidoHacerMovimiento(pedido,DateTime.Today);
+                int pedido = pedidoCEN.CrearPedido (pedido1.Descripcion, pedido1.Estado, pedido1.FechaRealizacion, julio.Email, listaLineas, pedido1.FechaConfirmacion, pedido1.FechaCancelacion);
+                pedidoCP.AumentarStockConfirmarPedidoHacerMovimiento (pedido, DateTime.Today);
 
                 IList<PedidoEN> listaPedidos = pedidoCEN.GetPedidosPendientes ();
                 //string Hola = "quetal";
                 #endregion
 
-                #region Pedido
+                //Creamos Turnos
+                List<TurnoEN> turnos = new List<TurnoEN>();
+                TurnoEN turno = new TurnoEN ();
+                TurnoEN turno1 = new TurnoEN ();
+                TurnoEN turno2 = new TurnoEN ();
+                turno.Nombre = "tarde";
+                turno.Desde = "15:00";
+                turno.Hasta = "19:00";
+                turnos.Add (turno);
+                turno1.Nombre = "manyana";
+                turno1.Desde = "09:00";
+                turno1.Hasta = "14:00";
+                turnos.Add (turno1);
+                turno2.Nombre = "especial";
+                turno2.Desde = "20:00";
+                turno2.Hasta = "00:00";
+                turnos.Add (turno2);
 
-                #endregion
+                //Creamos Dias
+                List<DiaEN> dias = new List<DiaEN>();
+                DiaEN dia = new DiaEN ();
+
+                dia.Dia = IManagerGenNHibernate.Enumerated.IManager.DiasSemanaEnum.lunes;
+                dia.Turno = turno1;
+                dias.Add (dia);
+                dia.Dia = IManagerGenNHibernate.Enumerated.IManager.DiasSemanaEnum.martes;
+                dia.Turno = turno;
+                dias.Add (dia);
+                dia.Dia = IManagerGenNHibernate.Enumerated.IManager.DiasSemanaEnum.miercoles;
+                dia.Turno = turno1;
+                dias.Add (dia);
+                dia.Dia = IManagerGenNHibernate.Enumerated.IManager.DiasSemanaEnum.jueves;
+                dia.Turno = turno;
+                dias.Add (dia);
+                dia.Dia = IManagerGenNHibernate.Enumerated.IManager.DiasSemanaEnum.viernes;
+                dia.Turno = turno1;
+                dias.Add (dia);
+                dia.Dia = IManagerGenNHibernate.Enumerated.IManager.DiasSemanaEnum.sabado;
+                dia.Turno = turno;
+                dias.Add (dia);
+                dia.Dia = IManagerGenNHibernate.Enumerated.IManager.DiasSemanaEnum.domingo;
+                dia.Turno = turno2;
+                dias.Add (dia);
+
+                HorarioEN horario = new HorarioEN ();
+                horario.Titulo = "Horario semanal";
+                horario.Anyo = 2015;
+
+                //UsuarioEN usuario = new UsuarioEN();
+                System.Collections.Generic.List<string> usuarios = new List<string>();
+                usuarios.Add ("tonire@hotmail.com");
+                usuarios.Add ("julio17@hotmail.com");
+                //UsuarioEN us = new UsuarioEN();
+                //us=_IUsuarioCAD.GetUsuarioByEmail("julio.el.pro@hotmail.com");
+                horarioCP.CrearHorario (horario, usuarios, turnos, dias);
+
+                //horarioCEN.CreaHorario("horario semanal 1", 2015, usuarios, turnos);
+                /*UsuarioEN usuario = usuarioCEN.GetUsuarioByEmail("julio.el.pro@hotmail.com");
+                 * IList<HorarioEN> horario=usuario.Horario;*/
 
                 /*PROTECTED REGION END*/
         }

@@ -141,12 +141,6 @@ public string CreaHorario (HorarioEN horario)
                                 horario.Usuario [i].Horario.Add (horario);
                         }
                 }
-                if (horario.Turno != null) {
-                        foreach (IManagerGenNHibernate.EN.IManager.TurnoEN item in horario.Turno) {
-                                item.Horario = horario;
-                                session.Save (item);
-                        }
-                }
 
                 session.Save (horario);
                 SessionCommit ();

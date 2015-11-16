@@ -9,7 +9,6 @@ using NHibernate.Exceptions;
 
 using IManagerGenNHibernate.EN.IManager;
 using IManagerGenNHibernate.CAD.IManager;
-using System.Security.Cryptography;
 
 namespace IManagerGenNHibernate.CEN.IManager
 {
@@ -17,37 +16,31 @@ public partial class UsuarioCEN
 {
 public string Registrar (string p_email, string p_DNI, String p_password, string p_nombre, string p_apellidos, Nullable<DateTime> p_fechaRegistro)
 {
-            /*PROTECTED REGION ID(IManagerGenNHibernate.CEN.IManager_Usuario_registrar_customized) START*/
-            UsuarioEN usuarioEN = null;
-            String pass, nonce = "Etsjj8BGtdbT1kPm2FtivCp1SY52pMYTQSobeoQKsSYRGI08lG5D3KThCaBh0AUwf6GYJ9gp2uDfd0jL";
-            byte[] hash;
-            string oid;
-            pass = p_fechaRegistro.ToString() + nonce + p_password;
+        /*PROTECTED REGION ID(IManagerGenNHibernate.CEN.IManager_Usuario_registrar_customized) START*/
 
-            using (SHA512 shaM = new SHA512Managed())
-            {
-                hash = shaM.ComputeHash(Encoding.UTF8.GetBytes(pass));
-            }
-            //Initialized UsuarioEN
-            usuarioEN = new UsuarioEN();
+        UsuarioEN usuarioEN = null;
 
-            usuarioEN.Email = p_email;
+        string oid;
 
-            usuarioEN.DNI = p_DNI;
+        //Initialized UsuarioEN
+        usuarioEN = new UsuarioEN ();
+        usuarioEN.Email = p_email;
 
-            usuarioEN.Password = Utils.Util.GetEncondeMD5(hash.ToString());
+        usuarioEN.DNI = p_DNI;
 
-            usuarioEN.Nombre = p_nombre;
+        usuarioEN.Password = Utils.Util.GetEncondeMD5 (p_password);
 
-            usuarioEN.Apellidos = p_apellidos;
+        usuarioEN.Nombre = p_nombre;
 
-            usuarioEN.FechaRegistro = p_fechaRegistro;
+        usuarioEN.Apellidos = p_apellidos;
 
-            //Call to UsuarioCAD
+        usuarioEN.FechaRegistro = p_fechaRegistro;
 
-            oid = _IUsuarioCAD.Registrar(usuarioEN);
-            return oid;
-            /*PROTECTED REGION END*/
-        }
+        //Call to UsuarioCAD
+
+        oid = _IUsuarioCAD.Registrar (usuarioEN);
+        return oid;
+        /*PROTECTED REGION END*/
+}
 }
 }

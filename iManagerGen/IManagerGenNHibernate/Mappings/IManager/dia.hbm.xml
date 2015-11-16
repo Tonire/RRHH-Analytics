@@ -38,5 +38,6 @@
 		 </class>	
 		  
 		  <query name="DiaENReadAllHQL">from DiaEN</query>
+		  <query name="DiaENgetDiasByHorarioHQL"><![CDATA[FROM DiaEN where horario=:p_horario]]></query>
 		</hibernate-mapping>
 	
