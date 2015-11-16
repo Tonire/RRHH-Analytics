@@ -16,6 +16,6 @@ void Modify (TurnoEN turno);
 void Destroy (int id);
 
 
-System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.TurnoEN> GetTurnosByHorario (string horario);
+System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.TurnoEN> GetTurnosByHorario (string p_horario);
 }
 }

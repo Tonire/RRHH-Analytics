@@ -169,16 +169,16 @@ public void Destroy (int id)
         }
 }
 
-public System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.TurnoEN> GetTurnosByHorario (string horario)
+public System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.TurnoEN> GetTurnosByHorario (string p_horario)
 {
         System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.TurnoEN> result;
         try
         {
                 SessionInitializeTransaction ();
-                //String sql = @"FROM TurnoEN self where FROM TurnoEN where horario=:p_horario";
+                //String sql = @"FROM TurnoEN self where select turn FROM TurnoEN as turn inner join turn.Horario as hor where hor.Titulo=:p_horario";
                 //IQuery query = session.CreateQuery(sql);
                 IQuery query = (IQuery)session.GetNamedQuery ("TurnoENgetTurnosByHorarioHQL");
-                query.SetParameter ("horario", horario);
+                query.SetParameter ("p_horario", p_horario);
 
                 result = query.List<IManagerGenNHibernate.EN.IManager.TurnoEN>();
                 SessionCommit ();

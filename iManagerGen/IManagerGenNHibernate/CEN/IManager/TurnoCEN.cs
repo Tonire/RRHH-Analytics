@@ -83,9 +83,9 @@ public void Destroy (int id)
         _ITurnoCAD.Destroy (id);
 }
 
-public System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.TurnoEN> GetTurnosByHorario (string horario)
+public System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.TurnoEN> GetTurnosByHorario (string p_horario)
 {
-        return _ITurnoCAD.GetTurnosByHorario (horario);
+        return _ITurnoCAD.GetTurnosByHorario (p_horario);
 }
 }
 }

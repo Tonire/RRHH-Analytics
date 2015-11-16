@@ -69,29 +69,13 @@ public void RelationerVenta (int p_Movimientos_OID, int p_venta_OID)
 
         _IMovimientosCAD.RelationerVenta (p_Movimientos_OID, p_venta_OID);
 }
-public System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.MovimientosEN> GetMovimientosByAnyoMes (string p_tipomovimiento, int p_anyomovimiento, int p_mesmovimiento)
+public System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.MovimientosEN> GetMovimientosByAnyo (int p_anyomovimiento, string p_tipomovimiento)
 {
-        return _IMovimientosCAD.GetMovimientosByAnyoMes (p_tipomovimiento, p_anyomovimiento, p_mesmovimiento);
+        return _IMovimientosCAD.GetMovimientosByAnyo (p_anyomovimiento, p_tipomovimiento);
 }
-public System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.MovimientosEN> GetMovimientosByAnyo (string p_tipomovimiento, int p_anyomovimiento)
+public System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.MovimientosEN> GetMovimientosByAnyoMes (int p_mesmovimiento, int p_anyomovimiento, string p_tipomovimiento)
 {
-        return _IMovimientosCAD.GetMovimientosByAnyo (p_tipomovimiento, p_anyomovimiento);
-}
-public System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.MovimientosEN> GetBalanceByMesAnyo ()
-{
-        return _IMovimientosCAD.GetBalanceByMesAnyo ();
-}
-public System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.MovimientosEN> GetBalanceByAnyo ()
-{
-        return _IMovimientosCAD.GetBalanceByAnyo ();
-}
-public System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.MovimientosEN> GetMovimientoTotalMesAnyo (int p_mesmovimiento, int p_anyomovimiento, string p_tipomovimiento)
-{
-        return _IMovimientosCAD.GetMovimientoTotalMesAnyo (p_mesmovimiento, p_anyomovimiento, p_tipomovimiento);
-}
-public System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.MovimientosEN> GetMovimientoTotalAnyo (string p_tipomovimiento, int p_anyomovimiento)
-{
-        return _IMovimientosCAD.GetMovimientoTotalAnyo (p_tipomovimiento, p_anyomovimiento);
+        return _IMovimientosCAD.GetMovimientosByAnyoMes (p_mesmovimiento, p_anyomovimiento, p_tipomovimiento);
 }
 }
 }

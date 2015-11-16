@@ -13,7 +13,7 @@
 			
 					
 					<property name="Dia" > 
-						<column name="fecha"  unique="true" not-null="true"/>
+						<column name="dia"  unique="true" not-null="true"/>
 					</property>
 			
 			
@@ -38,6 +38,6 @@
 		 </class>	
 		  
 		  <query name="DiaENReadAllHQL">from DiaEN</query>
-		  <query name="DiaENgetDiasByHorarioHQL"><![CDATA[FROM DiaEN where horario=:p_horario]]></query>
+		  <query name="DiaENgetDiasByHorarioHQL"><![CDATA[select dia FROM DiaEN as dia inner join dia.Horario as hor where hor.Titulo=:p_horario]]></query>
 		</hibernate-mapping>
 	

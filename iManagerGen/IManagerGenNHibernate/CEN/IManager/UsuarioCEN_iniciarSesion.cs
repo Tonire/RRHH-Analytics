@@ -9,7 +9,6 @@ using NHibernate.Exceptions;
 
 using IManagerGenNHibernate.EN.IManager;
 using IManagerGenNHibernate.CAD.IManager;
-using System.Security.Cryptography;
 
 namespace IManagerGenNHibernate.CEN.IManager
 {
@@ -32,7 +31,7 @@ public IManagerGenNHibernate.EN.IManager.UsuarioEN IniciarSesion (string p_oid, 
                 if (usuarioEN != null) {
                         fechaReg = usuarioEN.FechaRegistro;
                         password = fechaReg.ToString () + nonce + pass;
-                        using (SHA512 shaM = new SHA512Managed ()) {
+                        using (System.Security.Cryptography.SHA512 shaM = new System.Security.Cryptography.SHA512Managed ()) {
                                 hash = shaM.ComputeHash (Encoding.UTF8.GetBytes (pass));
                         }
                         String md5 = Utils.Util.GetEncondeMD5 (hash.ToString ());

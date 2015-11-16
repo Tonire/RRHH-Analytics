@@ -92,6 +92,13 @@ public int CrearDia (DiaEN dia)
                         dia.Turno.Fecha
                         .Add (dia);
                 }
+                if (dia.Horario != null) {
+                        // Argumento OID y no colección.
+                        dia.Horario = (IManagerGenNHibernate.EN.IManager.HorarioEN)session.Load (typeof(IManagerGenNHibernate.EN.IManager.HorarioEN), dia.Horario.Titulo);
+
+                        dia.Horario.Dia
+                        .Add (dia);
+                }
 
                 session.Save (dia);
                 SessionCommit ();
@@ -204,7 +211,7 @@ public System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.DiaEN>
         try
         {
                 SessionInitializeTransaction ();
-                //String sql = @"FROM DiaEN self where FROM DiaEN where horario=:p_horario";
+                //String sql = @"FROM DiaEN self where select dia FROM DiaEN as dia inner join dia.Horario as hor where hor.Titulo=:p_horario";
                 //IQuery query = session.CreateQuery(sql);
                 IQuery query = (IQuery)session.GetNamedQuery ("DiaENgetDiasByHorarioHQL");
                 query.SetParameter ("p_horario", p_horario);

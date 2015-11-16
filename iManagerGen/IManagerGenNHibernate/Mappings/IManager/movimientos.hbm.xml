@@ -53,11 +53,7 @@
 		 </class>	
 		  
 		  <query name="MovimientosENReadAllHQL">from MovimientosEN</query>
-		  <query name="MovimientosENgetMovimientosByAnyoMesHQL"><![CDATA[FROM Movimientos WHERE mes=p_mesmovimiento AND anyo=:p_anyomovimiento AND tipo=:p_tipomovimiento]]></query>
-		  <query name="MovimientosENgetMovimientosByAnyoHQL"><![CDATA[FROM Movimientos WHERE anyo=:p_anyomovimiento AND tipo=:p_tipomovimiento]]></query>
-		  <query name="MovimientosENgetBalanceByMesAnyoHQL"><![CDATA[FROM MovimientosEN]]></query>
-		  <query name="MovimientosENgetBalanceByAnyoHQL"><![CDATA[FROM MovimientosEN]]></query>
-		  <query name="MovimientosENgetMovimientoTotalMesAnyoHQL"><![CDATA[FROM Movimientos WHERE tipo=:p_tipomovimiento AND mes=:p_mesmovimiento AND anyo=:p_anyomovimiento AND sum(cantidad)]]></query>
-		  <query name="MovimientosENgetMovimientoTotalAnyoHQL"><![CDATA[FROM Movimientos WHERE tipo=:p_tipomovimiento AND anyo=:p_anyomovimento AND sum(cantidad)]]></query>
+		  <query name="MovimientosENgetMovimientosByAnyoHQL"><![CDATA[FROM MovimientosEN where anyo=:p_anyomovimiento and tipo=:p_tipomovimiento]]></query>
+		  <query name="MovimientosENgetMovimientosByAnyoMesHQL"><![CDATA[FROM MovimientosEN where mes=:p_mesmovimiento and anyo=:p_anyomovimiento and tipo=:p_tipomovimiento]]></query>
 		</hibernate-mapping>
 	

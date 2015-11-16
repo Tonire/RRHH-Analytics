@@ -36,7 +36,7 @@ public IDiaCAD get_IDiaCAD ()
         return this._IDiaCAD;
 }
 
-public int CrearDia (IManagerGenNHibernate.Enumerated.IManager.DiasSemanaEnum p_dia, int p_turno)
+public int CrearDia (IManagerGenNHibernate.Enumerated.IManager.DiasSemanaEnum p_dia, int p_turno, string p_horario)
 {
         DiaEN diaEN = null;
         int oid;
@@ -51,6 +51,14 @@ public int CrearDia (IManagerGenNHibernate.Enumerated.IManager.DiasSemanaEnum p_
                 // Lista de oids id
                 diaEN.Turno = new IManagerGenNHibernate.EN.IManager.TurnoEN ();
                 diaEN.Turno.Id = p_turno;
+        }
+
+
+        if (p_horario != null) {
+                // El argumento p_horario -> Property horario es oid = false
+                // Lista de oids id
+                diaEN.Horario = new IManagerGenNHibernate.EN.IManager.HorarioEN ();
+                diaEN.Horario.Titulo = p_horario;
         }
 
         //Call to DiaCAD

@@ -80,32 +80,6 @@ public System.Collections.Generic.IList<UsuarioEN> ReadAllDefault (int first, in
         return result;
 }
 
-public string Registrar (UsuarioEN usuario)
-{
-        try
-        {
-                SessionInitializeTransaction ();
-
-                session.Save (usuario);
-                SessionCommit ();
-        }
-
-        catch (Exception ex) {
-                SessionRollBack ();
-                if (ex is IManagerGenNHibernate.Exceptions.ModelException)
-                        throw ex;
-                throw new IManagerGenNHibernate.Exceptions.DataLayerException ("Error in UsuarioCAD.", ex);
-        }
-
-
-        finally
-        {
-                SessionClose ();
-        }
-
-        return usuario.Email;
-}
-
 public void Modify (UsuarioEN usuario)
 {
         try
@@ -225,6 +199,32 @@ public System.Collections.Generic.IList<UsuarioEN> DameTodos (int first, int siz
         }
 
         return result;
+}
+
+public string Registrar (UsuarioEN usuario)
+{
+        try
+        {
+                SessionInitializeTransaction ();
+
+                session.Save (usuario);
+                SessionCommit ();
+        }
+
+        catch (Exception ex) {
+                SessionRollBack ();
+                if (ex is IManagerGenNHibernate.Exceptions.ModelException)
+                        throw ex;
+                throw new IManagerGenNHibernate.Exceptions.DataLayerException ("Error in UsuarioCAD.", ex);
+        }
+
+
+        finally
+        {
+                SessionClose ();
+        }
+
+        return usuario.Email;
 }
 }
 }

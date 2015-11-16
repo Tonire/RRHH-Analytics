@@ -8,8 +8,6 @@ public partial interface IUsuarioCAD
 {
 UsuarioEN ReadOIDDefault (string email);
 
-string Registrar (UsuarioEN usuario);
-
 
 void Modify (UsuarioEN usuario);
 
@@ -21,5 +19,8 @@ UsuarioEN GetUsuarioByEmail (string email);
 
 
 System.Collections.Generic.IList<UsuarioEN> DameTodos (int first, int size);
+
+
+string Registrar (UsuarioEN usuario);
 }
 }

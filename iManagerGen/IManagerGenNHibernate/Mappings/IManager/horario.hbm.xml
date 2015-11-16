@@ -57,6 +57,6 @@
 		 </class>	
 		  
 		  <query name="HorarioENReadAllHQL">from HorarioEN</query>
-		  <query name="HorarioENgetHorarioByUsuarioHQL"><![CDATA[FROM HorarioEN where usuario=:p_usuario]]></query>
+		  <query name="HorarioENgetHorariosByUsuarioHQL"><![CDATA[select hor FROM HorarioEN as hor inner join hor.Usuario as us where us.Email=:p_email]]></query>
 		</hibernate-mapping>
 	

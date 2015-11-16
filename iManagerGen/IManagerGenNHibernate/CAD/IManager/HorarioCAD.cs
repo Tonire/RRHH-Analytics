@@ -201,15 +201,15 @@ public void AsignarDias (string p_Horario_OID, System.Collections.Generic.IList<
         }
 }
 
-public System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.HorarioEN> GetHorarioByUsuario (string p_usuario)
+public System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.HorarioEN> GetHorariosByUsuario (string p_usuario)
 {
         System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.HorarioEN> result;
         try
         {
                 SessionInitializeTransaction ();
-                //String sql = @"FROM HorarioEN self where FROM HorarioEN where usuario=:p_usuario";
+                //String sql = @"FROM HorarioEN self where select hor FROM HorarioEN as hor inner join hor.Usuario as us where us.Email=:p_email";
                 //IQuery query = session.CreateQuery(sql);
-                IQuery query = (IQuery)session.GetNamedQuery ("HorarioENgetHorarioByUsuarioHQL");
+                IQuery query = (IQuery)session.GetNamedQuery ("HorarioENgetHorariosByUsuarioHQL");
                 query.SetParameter ("p_usuario", p_usuario);
 
                 result = query.List<IManagerGenNHibernate.EN.IManager.HorarioEN>();

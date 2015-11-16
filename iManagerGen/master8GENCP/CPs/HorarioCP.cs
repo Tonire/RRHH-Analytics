@@ -55,9 +55,9 @@ namespace EjemploProyectoCP.CPs
                     foreach (TurnoEN turno in turnos) {
                         if (dia.Turno.Nombre.CompareTo(turno.Nombre)==0){
                             oid = turno.Id;
+                            diaCEN.CrearDia(dia.Dia, oid,horario_oid);
                             break;
                         }
-                        diaCEN.CrearDia(dia.Dia,oid);
                     }
                 }
 
