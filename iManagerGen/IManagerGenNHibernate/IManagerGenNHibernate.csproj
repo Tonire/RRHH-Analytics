@@ -170,6 +170,8 @@
 	<Compile Include="CEN\IManager\MovimientosCEN.cs" />
 	<Compile Include="CAD\IManager\IMovimientosCAD.cs" />
 	<Compile Include="CAD\IManager\MovimientosCAD.cs" />
+			<Compile Include="CEN\IManager\MovimientosCEN_GetMovimientoTotalAnyo.cs" />
+			<Compile Include="CEN\IManager\MovimientosCEN_GetMovimientoTotalMesAnyo.cs" />
 	<Compile Include="Enumerated\IManager\EstadoPedidoEnum.cs" />
 	<Compile Include="Enumerated\IManager\DiasSemanaEnum.cs" />
 	

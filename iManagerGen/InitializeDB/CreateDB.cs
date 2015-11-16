@@ -132,6 +132,8 @@ public static void InitializeData ()
                 SuperAdministradorCEN superCEN = new SuperAdministradorCEN ();
                 PedidoCP pedidoCP = new PedidoCP ();
                 HorarioCP horarioCP = new HorarioCP ();
+                IMovimientosCAD _IMovimientosCAD = new MovimientosCAD();
+                MovimientosCEN movimientosCEN = new MovimientosCEN(_IMovimientosCAD);
 
                 UsuarioEN toni = new UsuarioEN ();
                 UsuarioEN julio = new UsuarioEN ();
@@ -215,6 +217,19 @@ public static void InitializeData ()
 
                 IList<PedidoEN> listaPedidos = pedidoCEN.GetPedidosPendientes ();
                 //string Hola = "quetal";
+
+                PedidoEN pedido2 = new PedidoEN();
+                pedido2.Descripcion = "Pedido dos";
+                pedido2.Estado = IManagerGenNHibernate.Enumerated.IManager.EstadoPedidoEnum.pendiente;
+                pedido2.FechaRealizacion = DateTime.Now;
+                pedido2.FechaCancelacion = DateTime.Today;
+                pedido2.FechaConfirmacion = DateTime.Today;
+
+                int oidPedido2 = pedidoCEN.CrearPedido(pedido2.Descripcion, pedido2.Estado, pedido2.FechaRealizacion, toni.Email, listaLineas, pedido2.FechaConfirmacion, pedido2.FechaCancelacion);
+                pedidoCP.AumentarStockConfirmarPedidoHacerMovimiento(oidPedido2, DateTime.Now);
+
+                double totalGastosAnyo = movimientosCEN.GetMovimientoTotalAnyo(2015, "GASTO");
+                
                 #endregion
 
                 //Creamos Turnos
