@@ -86,5 +86,19 @@ public void QuitarProducto (string p_Proveedor_OID, System.Collections.Generic.I
 
         _IProveedorCAD.QuitarProducto (p_Proveedor_OID, p_producto_OIDs);
 }
+public System.Collections.Generic.IList<ProveedorEN> DameTodos (int first, int size)
+{
+        System.Collections.Generic.IList<ProveedorEN> list = null;
+
+        list = _IProveedorCAD.DameTodos (first, size);
+        return list;
+}
+public ProveedorEN GetProveedorByEmail (string email)
+{
+        ProveedorEN proveedorEN = null;
+
+        proveedorEN = _IProveedorCAD.GetProveedorByEmail (email);
+        return proveedorEN;
+}
 }
 }

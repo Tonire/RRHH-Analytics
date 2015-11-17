@@ -58,5 +58,10 @@ public int CrearLineaVenta (int p_cantidad, int p_producto)
         oid = _ILineaVentaCAD.CrearLineaVenta (lineaVentaEN);
         return oid;
 }
+
+public System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.LineaVentaEN> GetLineasVentaByVenta (int p_venta)
+{
+        return _ILineaVentaCAD.GetLineasVentaByVenta (p_venta);
+}
 }
 }

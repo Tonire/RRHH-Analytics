@@ -143,5 +143,36 @@ public void RelationerLineaPedido (int p_LineaPedido_OID, int p_pedido_OID)
                 SessionClose ();
         }
 }
+
+public System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.LineaPedidoEN> GetLineasPedidoByPedido (int p_pedido)
+{
+        System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.LineaPedidoEN> result;
+        try
+        {
+                SessionInitializeTransaction ();
+                //String sql = @"FROM LineaPedidoEN self where select lp FROM LineaPedidoEN as lp inner join lp.Pedido as pe where pe.id=:p_pedido";
+                //IQuery query = session.CreateQuery(sql);
+                IQuery query = (IQuery)session.GetNamedQuery ("LineaPedidoENgetLineasPedidoByPedidoHQL");
+                query.SetParameter ("p_pedido", p_pedido);
+
+                result = query.List<IManagerGenNHibernate.EN.IManager.LineaPedidoEN>();
+                SessionCommit ();
+        }
+
+        catch (Exception ex) {
+                SessionRollBack ();
+                if (ex is IManagerGenNHibernate.Exceptions.ModelException)
+                        throw ex;
+                throw new IManagerGenNHibernate.Exceptions.DataLayerException ("Error in LineaPedidoCAD.", ex);
+        }
+
+
+        finally
+        {
+                SessionClose ();
+        }
+
+        return result;
+}
 }
 }

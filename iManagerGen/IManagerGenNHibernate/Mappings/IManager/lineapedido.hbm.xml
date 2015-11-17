@@ -38,5 +38,6 @@
 		 </class>	
 		  
 		  <query name="LineaPedidoENReadAllHQL">from LineaPedidoEN</query>
+		  <query name="LineaPedidoENgetLineasPedidoByPedidoHQL"><![CDATA[select lp FROM LineaPedidoEN as lp inner join lp.Pedido as pe where pe.id=:p_pedido]]></query>
 		</hibernate-mapping>
 	

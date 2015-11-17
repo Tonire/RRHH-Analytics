@@ -169,5 +169,63 @@ public void Modify (VentaEN venta)
                 SessionClose ();
         }
 }
+public System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.VentaEN> GetVentasByUsuario (string p_usuario)
+{
+        System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.VentaEN> result;
+        try
+        {
+                SessionInitializeTransaction ();
+                //String sql = @"FROM VentaEN self where FROM VentaEN WHERE usurio=:p_usuario";
+                //IQuery query = session.CreateQuery(sql);
+                IQuery query = (IQuery)session.GetNamedQuery ("VentaENgetVentasByUsuarioHQL");
+                query.SetParameter ("p_usuario", p_usuario);
+
+                result = query.List<IManagerGenNHibernate.EN.IManager.VentaEN>();
+                SessionCommit ();
+        }
+
+        catch (Exception ex) {
+                SessionRollBack ();
+                if (ex is IManagerGenNHibernate.Exceptions.ModelException)
+                        throw ex;
+                throw new IManagerGenNHibernate.Exceptions.DataLayerException ("Error in VentaCAD.", ex);
+        }
+
+
+        finally
+        {
+                SessionClose ();
+        }
+
+        return result;
+}
+//Sin e: GetVentaById
+//Con e: VentaEN
+public VentaEN GetVentaById (int id)
+{
+        VentaEN ventaEN = null;
+
+        try
+        {
+                SessionInitializeTransaction ();
+                ventaEN = (VentaEN)session.Get (typeof(VentaEN), id);
+                SessionCommit ();
+        }
+
+        catch (Exception ex) {
+                SessionRollBack ();
+                if (ex is IManagerGenNHibernate.Exceptions.ModelException)
+                        throw ex;
+                throw new IManagerGenNHibernate.Exceptions.DataLayerException ("Error in VentaCAD.", ex);
+        }
+
+
+        finally
+        {
+                SessionClose ();
+        }
+
+        return ventaEN;
+}
 }
 }

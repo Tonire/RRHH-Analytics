@@ -19,5 +19,10 @@ void Destroy (string email);
 void AddProducto (string p_Proveedor_OID, System.Collections.Generic.IList<int> p_producto_OIDs);
 
 void QuitarProducto (string p_Proveedor_OID, System.Collections.Generic.IList<int> p_producto_OIDs);
+
+System.Collections.Generic.IList<ProveedorEN> DameTodos (int first, int size);
+
+
+ProveedorEN GetProveedorByEmail (string email);
 }
 }

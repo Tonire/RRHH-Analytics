@@ -82,5 +82,12 @@ public System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.Pedido
 {
         return _IPedidoCAD.GetPedidosCancelados ();
 }
+public PedidoEN GetPedidoById (int id)
+{
+        PedidoEN pedidoEN = null;
+
+        pedidoEN = _IPedidoCAD.GetPedidoById (id);
+        return pedidoEN;
+}
 }
 }

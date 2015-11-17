@@ -12,7 +12,7 @@
 						</id>
 			
 					
-					<property name="FechaVenta" type="date"> 
+					<property name="FechaVenta" type="timestamp"> 
 						<column name="fechaVenta"  not-null="true"/>
 					</property>
 			
@@ -55,5 +55,6 @@
 		 </class>	
 		  
 		  <query name="VentaENReadAllHQL">from VentaEN</query>
+		  <query name="VentaENgetVentasByUsuarioHQL"><![CDATA[FROM VentaEN WHERE usurio=:p_usuario]]></query>
 		</hibernate-mapping>
 	

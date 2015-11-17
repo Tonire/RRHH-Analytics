@@ -43,5 +43,6 @@
 		 </class>	
 		  
 		  <query name="LineaVentaENReadAllHQL">from LineaVentaEN</query>
+		  <query name="LineaVentaENgetLineasVentaByVentaHQL"><![CDATA[select lv FROM LineaVentaEN as lv inner join lv.Venta as ve where ve.id=:p_venta]]></query>
 		</hibernate-mapping>
 	

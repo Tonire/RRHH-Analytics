@@ -102,5 +102,13 @@ public HorarioEN GetHorario (string titulo)
         horarioEN = _IHorarioCAD.GetHorario (titulo);
         return horarioEN;
 }
+
+public System.Collections.Generic.IList<HorarioEN> DameTodos (int first, int size)
+{
+        System.Collections.Generic.IList<HorarioEN> list = null;
+
+        list = _IHorarioCAD.DameTodos (first, size);
+        return list;
+}
 }
 }

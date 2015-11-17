@@ -22,5 +22,8 @@ System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.HorarioEN> Ge
 
 
 HorarioEN GetHorario (string titulo);
+
+
+System.Collections.Generic.IList<HorarioEN> DameTodos (int first, int size);
 }
 }

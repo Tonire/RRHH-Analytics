@@ -65,5 +65,9 @@ public void RelationerLineaPedido (int p_LineaPedido_OID, int p_pedido_OID)
 
         _ILineaPedidoCAD.RelationerLineaPedido (p_LineaPedido_OID, p_pedido_OID);
 }
+public System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.LineaPedidoEN> GetLineasPedidoByPedido (int p_pedido)
+{
+        return _ILineaPedidoCAD.GetLineasPedidoByPedido (p_pedido);
+}
 }
 }

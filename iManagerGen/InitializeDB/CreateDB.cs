@@ -115,7 +115,7 @@ public static void InitializeData ()
                 toni.Nombre = "Toni";
                 toni.Apellidos = "Rebollo";
                 adminCEN.New_ (toni.Email, toni.DNI, toni.Password, toni.Nombre, toni.Apellidos, DateTime.Now);
-                UsuarioEN prueba2=usuarioCEN.IniciarSesion (toni.Email, "tonireasdf");
+                UsuarioEN prueba2 = usuarioCEN.IniciarSesion (toni.Email, "tonireasdf");
                 //CLiente 2
                 julio.Email = "julio17@hotmail.com";
                 julio.DNI = "48730721T";
@@ -123,7 +123,7 @@ public static void InitializeData ()
                 julio.Nombre = "Toni";
                 julio.Apellidos = "Rebollo";
                 empleadoCEN.New_ (julio.Email, julio.DNI, julio.Password, julio.Nombre, julio.Apellidos, DateTime.Now);
-                UsuarioEN prueba1=usuarioCEN.IniciarSesion (julio.Email, "julioasdf");
+                UsuarioEN prueba1 = usuarioCEN.IniciarSesion (julio.Email, "julioasdf");
                 //Jefe
                 jefe.Email = "adri@hotmail.com";
                 jefe.DNI = "15145454145N";
@@ -180,7 +180,9 @@ public static void InitializeData ()
 
                 int pedido = pedidoCEN.CrearPedido (pedido1.Descripcion, pedido1.Estado, pedido1.FechaRealizacion, julio.Email, listaLineas);
                 pedidoCP.AumentarStockConfirmarPedidoHacerMovimiento (pedido, DateTime.Now);
-
+                ILineaPedidoCAD _ILineaPedido = new LineaPedidoCAD();
+                LineaPedidoCEN lineaPedidoCEN = new LineaPedidoCEN(_ILineaPedido);
+                IList<LineaPedidoEN> lineasPrueba = lineaPedidoCEN.GetLineasPedidoByPedido(pedido);
                 IList<PedidoEN> listaPedidos = pedidoCEN.GetPedidosPendientes ();
 
 

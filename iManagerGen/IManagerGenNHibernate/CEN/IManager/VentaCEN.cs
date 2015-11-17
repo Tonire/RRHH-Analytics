@@ -78,5 +78,17 @@ public void Modify (int p_Venta_OID, Nullable<DateTime> p_fechaVenta)
 
         _IVentaCAD.Modify (ventaEN);
 }
+
+public System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.VentaEN> GetVentasByUsuario (string p_usuario)
+{
+        return _IVentaCAD.GetVentasByUsuario (p_usuario);
+}
+public VentaEN GetVentaById (int id)
+{
+        VentaEN ventaEN = null;
+
+        ventaEN = _IVentaCAD.GetVentaById (id);
+        return ventaEN;
+}
 }
 }

@@ -268,5 +268,33 @@ public System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.Pedido
 
         return result;
 }
+//Sin e: GetPedidoById
+//Con e: PedidoEN
+public PedidoEN GetPedidoById (int id)
+{
+        PedidoEN pedidoEN = null;
+
+        try
+        {
+                SessionInitializeTransaction ();
+                pedidoEN = (PedidoEN)session.Get (typeof(PedidoEN), id);
+                SessionCommit ();
+        }
+
+        catch (Exception ex) {
+                SessionRollBack ();
+                if (ex is IManagerGenNHibernate.Exceptions.ModelException)
+                        throw ex;
+                throw new IManagerGenNHibernate.Exceptions.DataLayerException ("Error in PedidoCAD.", ex);
+        }
+
+
+        finally
+        {
+                SessionClose ();
+        }
+
+        return pedidoEN;
+}
 }
 }

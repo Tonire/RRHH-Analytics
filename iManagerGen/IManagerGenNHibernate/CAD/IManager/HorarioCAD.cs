@@ -259,5 +259,35 @@ public HorarioEN GetHorario (string titulo)
 
         return horarioEN;
 }
+
+public System.Collections.Generic.IList<HorarioEN> DameTodos (int first, int size)
+{
+        System.Collections.Generic.IList<HorarioEN> result = null;
+        try
+        {
+                SessionInitializeTransaction ();
+                if (size > 0)
+                        result = session.CreateCriteria (typeof(HorarioEN)).
+                                 SetFirstResult (first).SetMaxResults (size).List<HorarioEN>();
+                else
+                        result = session.CreateCriteria (typeof(HorarioEN)).List<HorarioEN>();
+                SessionCommit ();
+        }
+
+        catch (Exception ex) {
+                SessionRollBack ();
+                if (ex is IManagerGenNHibernate.Exceptions.ModelException)
+                        throw ex;
+                throw new IManagerGenNHibernate.Exceptions.DataLayerException ("Error in HorarioCAD.", ex);
+        }
+
+
+        finally
+        {
+                SessionClose ();
+        }
+
+        return result;
+}
 }
 }

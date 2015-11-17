@@ -112,5 +112,36 @@ public int CrearLineaVenta (LineaVentaEN lineaVenta)
 
         return lineaVenta.Id;
 }
+
+public System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.LineaVentaEN> GetLineasVentaByVenta (int p_venta)
+{
+        System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.LineaVentaEN> result;
+        try
+        {
+                SessionInitializeTransaction ();
+                //String sql = @"FROM LineaVentaEN self where select lv FROM LineaVentaEN as lv inner join lv.Venta as ve where ve.id=:p_venta";
+                //IQuery query = session.CreateQuery(sql);
+                IQuery query = (IQuery)session.GetNamedQuery ("LineaVentaENgetLineasVentaByVentaHQL");
+                query.SetParameter ("p_venta", p_venta);
+
+                result = query.List<IManagerGenNHibernate.EN.IManager.LineaVentaEN>();
+                SessionCommit ();
+        }
+
+        catch (Exception ex) {
+                SessionRollBack ();
+                if (ex is IManagerGenNHibernate.Exceptions.ModelException)
+                        throw ex;
+                throw new IManagerGenNHibernate.Exceptions.DataLayerException ("Error in LineaVentaCAD.", ex);
+        }
+
+
+        finally
+        {
+                SessionClose ();
+        }
+
+        return result;
+}
 }
 }

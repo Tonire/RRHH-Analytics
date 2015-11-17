@@ -24,5 +24,8 @@ System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.PedidoEN> Get
 
 
 System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.PedidoEN> GetPedidosCancelados ();
+
+
+PedidoEN GetPedidoById (int id);
 }
 }

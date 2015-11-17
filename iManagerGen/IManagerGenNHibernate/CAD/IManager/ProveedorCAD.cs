@@ -236,5 +236,63 @@ public void QuitarProducto (string p_Proveedor_OID, System.Collections.Generic.I
                 SessionClose ();
         }
 }
+public System.Collections.Generic.IList<ProveedorEN> DameTodos (int first, int size)
+{
+        System.Collections.Generic.IList<ProveedorEN> result = null;
+        try
+        {
+                SessionInitializeTransaction ();
+                if (size > 0)
+                        result = session.CreateCriteria (typeof(ProveedorEN)).
+                                 SetFirstResult (first).SetMaxResults (size).List<ProveedorEN>();
+                else
+                        result = session.CreateCriteria (typeof(ProveedorEN)).List<ProveedorEN>();
+                SessionCommit ();
+        }
+
+        catch (Exception ex) {
+                SessionRollBack ();
+                if (ex is IManagerGenNHibernate.Exceptions.ModelException)
+                        throw ex;
+                throw new IManagerGenNHibernate.Exceptions.DataLayerException ("Error in ProveedorCAD.", ex);
+        }
+
+
+        finally
+        {
+                SessionClose ();
+        }
+
+        return result;
+}
+
+//Sin e: GetProveedorByEmail
+//Con e: ProveedorEN
+public ProveedorEN GetProveedorByEmail (string email)
+{
+        ProveedorEN proveedorEN = null;
+
+        try
+        {
+                SessionInitializeTransaction ();
+                proveedorEN = (ProveedorEN)session.Get (typeof(ProveedorEN), email);
+                SessionCommit ();
+        }
+
+        catch (Exception ex) {
+                SessionRollBack ();
+                if (ex is IManagerGenNHibernate.Exceptions.ModelException)
+                        throw ex;
+                throw new IManagerGenNHibernate.Exceptions.DataLayerException ("Error in ProveedorCAD.", ex);
+        }
+
+
+        finally
+        {
+                SessionClose ();
+        }
+
+        return proveedorEN;
+}
 }
 }
