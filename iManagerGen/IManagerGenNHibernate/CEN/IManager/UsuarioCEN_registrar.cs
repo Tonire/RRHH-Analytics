@@ -9,23 +9,24 @@ using NHibernate.Exceptions;
 
 using IManagerGenNHibernate.EN.IManager;
 using IManagerGenNHibernate.CAD.IManager;
-using System.Security.Cryptography;
 
 namespace IManagerGenNHibernate.CEN.IManager
 {
-public partial class UsuarioCEN
-{
-public string Registrar (string p_email, string p_DNI, String p_password, string p_nombre, string p_apellidos, Nullable<DateTime> p_fechaRegistro)
-{
+    public partial class UsuarioCEN
+    {
+        public string Registrar(string p_email, string p_DNI, String p_password, string p_nombre, string p_apellidos, Nullable<DateTime> p_fechaRegistro)
+        {
             /*PROTECTED REGION ID(IManagerGenNHibernate.CEN.IManager_Usuario_registrar_customized) ENABLED START*/
 
             UsuarioEN usuarioEN = null;
             String pass, nonce = "Etsjj8BGtdbT1kPm2FtivCp1SY52pMYTQSobeoQKsSYRGI08lG5D3KThCaBh0AUwf6GYJ9gp2uDfd0jL";
+
             byte[] hash;
             string oid;
             pass = p_fechaRegistro.ToString() + nonce + p_password;
 
-            using (SHA512 shaM = new SHA512Managed()) {
+            using (System.Security.Cryptography.SHA512 shaM = new System.Security.Cryptography.SHA512Managed())
+            {
                 hash = shaM.ComputeHash(Encoding.UTF8.GetBytes(pass));
             }
             //Initialized UsuarioEN
@@ -35,7 +36,7 @@ public string Registrar (string p_email, string p_DNI, String p_password, string
 
             usuarioEN.DNI = p_DNI;
 
-            usuarioEN.Password = Utils.Util.GetEncondeMD5(hash.ToString());
+            usuarioEN.Password = Utils.Util.GetEncondeMD5(System.Text.Encoding.UTF8.GetString(hash));
 
             usuarioEN.Nombre = p_nombre;
 
@@ -49,5 +50,5 @@ public string Registrar (string p_email, string p_DNI, String p_password, string
             return oid;
             /*PROTECTED REGION END*/
         }
-}
+    }
 }

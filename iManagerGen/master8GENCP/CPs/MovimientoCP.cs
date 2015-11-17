@@ -20,7 +20,7 @@ namespace EjemploProyectoCP.CPs
         }
         /*Este metodo se encarga de calcular el total de un pedido o venta y de ingresar un movimiento que puede ser
         un ingreso para las ventas o un gasto para los pedidos*/
-        public void CrearMovimiento(int p_oid,string tipo)
+        public void CrearMovimiento(int p_oid,TipoMovimientoEnum tipo)
         {
             
             IMovimientosCAD _IMovimientosCAD = null;
@@ -43,7 +43,7 @@ namespace EjemploProyectoCP.CPs
                 int movimiento = 0;
                 switch (tipo)
                 {
-                    case "INGRESO":
+                    case TipoMovimientoEnum.ingreso:
                         _IVentaCAD = new VentaCAD(session);
                         ventaCEN = new VentaCEN(_IVentaCAD);
                         ventaEN = _IVentaCAD.ReadOIDDefault(p_oid);
@@ -59,7 +59,7 @@ namespace EjemploProyectoCP.CPs
                         movimientosCEN.RelationerVenta(movimiento,p_oid);
                     break;
 
-                    case "GASTO":
+                    case TipoMovimientoEnum.gasto:
                         _IPedidoCAD = new PedidoCAD(session);
                         pedidoCEN = new PedidoCEN(_IPedidoCAD);
                         pedidoEN=_IPedidoCAD.ReadOIDDefault(p_oid);

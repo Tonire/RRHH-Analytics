@@ -29,7 +29,7 @@ private int mes;
 /**
  *	Atributo tipo
  */
-private string tipo;
+private IManagerGenNHibernate.Enumerated.IManager.TipoMovimientoEnum tipo;
 
 
 
@@ -75,7 +75,7 @@ public virtual int Mes {
 
 
 
-public virtual string Tipo {
+public virtual IManagerGenNHibernate.Enumerated.IManager.TipoMovimientoEnum Tipo {
         get { return tipo; } set { tipo = value;  }
 }
 
@@ -107,7 +107,7 @@ public MovimientosEN()
 
 
 
-public MovimientosEN(int id, int anyo, int mes, string tipo, double cantidad, IManagerGenNHibernate.EN.IManager.PedidoEN pedido, IManagerGenNHibernate.EN.IManager.VentaEN venta
+public MovimientosEN(int id, int anyo, int mes, IManagerGenNHibernate.Enumerated.IManager.TipoMovimientoEnum tipo, double cantidad, IManagerGenNHibernate.EN.IManager.PedidoEN pedido, IManagerGenNHibernate.EN.IManager.VentaEN venta
                      )
 {
         this.init (Id, anyo, mes, tipo, cantidad, pedido, venta);
@@ -119,7 +119,7 @@ public MovimientosEN(MovimientosEN movimientos)
         this.init (Id, movimientos.Anyo, movimientos.Mes, movimientos.Tipo, movimientos.Cantidad, movimientos.Pedido, movimientos.Venta);
 }
 
-private void init (int id, int anyo, int mes, string tipo, double cantidad, IManagerGenNHibernate.EN.IManager.PedidoEN pedido, IManagerGenNHibernate.EN.IManager.VentaEN venta)
+private void init (int id, int anyo, int mes, IManagerGenNHibernate.Enumerated.IManager.TipoMovimientoEnum tipo, double cantidad, IManagerGenNHibernate.EN.IManager.PedidoEN pedido, IManagerGenNHibernate.EN.IManager.VentaEN venta)
 {
         this.Id = id;
 

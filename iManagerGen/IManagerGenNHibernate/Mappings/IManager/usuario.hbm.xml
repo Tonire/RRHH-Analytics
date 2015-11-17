@@ -21,7 +21,7 @@
 					<property name="Apellidos" type="string"> 
 						<column name="apellidos"  not-null="true"/>
 					</property>
-					<property name="FechaRegistro" type="date"> 
+					<property name="FechaRegistro" type="timestamp"> 
 						<column name="fechaRegistro"  not-null="true"/>
 					</property>
 			

@@ -23,13 +23,13 @@ namespace EjemploProyectoCP.CPs
         {
         }
 
-        public void RestarStockConfirmarVentaHacerMovimiento(int p_oid_pedido, DateTime p_fechaVenta)
+        public void RestarStockCrearVentaHacerMovimiento(string p_usuario,DateTime p_fechaVenta, IList<LineaVentaEN> p_lineasVenta)
         {
             IVentaCAD _IVentaCAD = null;
             VentaCEN ventaCEN = null;
-            VentaEN ventaEN = null;
             ProductoCP productoCP = null;
             MovimientoCP movimientoCP = null;
+            int p_oid_venta;
 
             try
             {
@@ -37,14 +37,12 @@ namespace EjemploProyectoCP.CPs
                 _IVentaCAD = new VentaCAD(session);
                 ventaCEN = new VentaCEN(_IVentaCAD);
                 //Recuperamos el pedido del CAD
-                ventaEN = _IVentaCAD.ReadOIDDefault(p_oid_pedido);
+                p_oid_venta = ventaCEN.NuevaVenta(p_usuario,p_lineasVenta,p_fechaVenta);
                 //Creamos el CP de productos y le pasamos la sesion
                 productoCP = new ProductoCP(session);
                 //Llamamos a la funcion RestarStock
-                productoCP.RestarStock(ventaEN.LineaVenta);
-                //Modificamos los valores del pedido, cambiando su estado a confirmado y indicando la fecha de la confirmacion.
-                ventaCEN.Modify(ventaEN.Id, p_fechaVenta);
-                movimientoCP.CrearMovimiento(ventaEN.Id, "INGRESO");
+                productoCP.RestarStock(p_lineasVenta);
+                movimientoCP.CrearMovimiento(p_oid_venta, TipoMovimientoEnum.ingreso);
 
                 SessionCommit();
 

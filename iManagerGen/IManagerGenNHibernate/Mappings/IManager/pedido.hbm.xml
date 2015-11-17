@@ -18,14 +18,14 @@
 					<property name="Estado" > 
 						<column name="estado"  not-null="true"/>
 					</property>
-					<property name="FechaRealizacion" type="date"> 
+					<property name="FechaRealizacion" type="timestamp"> 
 						<column name="fechaRealizacion"  not-null="true"/>
 					</property>
-					<property name="FechaConfirmacion" type="date"> 
-						<column name="fechaConfirmacion"  not-null="true"/>
+					<property name="FechaConfirmacion" type="timestamp"> 
+						<column name="fechaConfirmacion" />
 					</property>
-					<property name="FechaCancelacion" type="date"> 
-						<column name="fechaCancelacion"  not-null="true"/>
+					<property name="FechaCancelacion" type="timestamp"> 
+						<column name="fechaCancelacion" />
 					</property>
 			
 			

@@ -14,14 +14,14 @@ namespace IManagerGenNHibernate.CEN.IManager
 {
 public partial class MovimientosCEN
 {
-public double GetMovimientoTotalAnyo (int p_anyo, string p_tipomovimiento)
+public double GetMovimientoTotalAnyo (int p_anyo, IManagerGenNHibernate.Enumerated.IManager.TipoMovimientoEnum p_tipomovimiento)
 {
         /*PROTECTED REGION ID(IManagerGenNHibernate.CEN.IManager_Movimientos_getMovimientoTotalAnyo) ENABLED START*/
 
         // Write here your custom code...
         double total = 0;
 
-        if (p_anyo > 1 && p_tipomovimiento != null) {
+        if (p_anyo > 1) {
                 System.Collections.Generic.IList<MovimientosEN> movimientosAnyo = _IMovimientosCAD.GetMovimientosByAnyo (p_anyo, p_tipomovimiento);
 
                 foreach (MovimientosEN movimiento in movimientosAnyo) {

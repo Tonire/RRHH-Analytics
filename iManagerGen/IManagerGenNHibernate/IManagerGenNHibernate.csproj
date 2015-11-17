@@ -112,14 +112,17 @@
 	<Compile Include="CEN\IManager\SuperAdministradorCEN.cs" />
 	<Compile Include="CAD\IManager\ISuperAdministradorCAD.cs" />
 	<Compile Include="CAD\IManager\SuperAdministradorCAD.cs" />
+			<Compile Include="CEN\IManager\SuperAdministradorCEN_New_.cs" />
 	<Compile Include="EN\IManager\AdministradorEN.cs" />
 	<Compile Include="CEN\IManager\AdministradorCEN.cs" />
 	<Compile Include="CAD\IManager\IAdministradorCAD.cs" />
 	<Compile Include="CAD\IManager\AdministradorCAD.cs" />
+			<Compile Include="CEN\IManager\AdministradorCEN_New_.cs" />
 	<Compile Include="EN\IManager\EmpleadoEN.cs" />
 	<Compile Include="CEN\IManager\EmpleadoCEN.cs" />
 	<Compile Include="CAD\IManager\IEmpleadoCAD.cs" />
 	<Compile Include="CAD\IManager\EmpleadoCAD.cs" />
+			<Compile Include="CEN\IManager\EmpleadoCEN_New_.cs" />
 	<Compile Include="EN\IManager\MensajeEN.cs" />
 	<Compile Include="CEN\IManager\MensajeCEN.cs" />
 	<Compile Include="CAD\IManager\IMensajeCAD.cs" />
@@ -140,6 +143,7 @@
 	<Compile Include="CEN\IManager\PedidoCEN.cs" />
 	<Compile Include="CAD\IManager\IPedidoCAD.cs" />
 	<Compile Include="CAD\IManager\PedidoCAD.cs" />
+			<Compile Include="CEN\IManager\PedidoCEN_Modify.cs" />
 			<Compile Include="CEN\IManager\PedidoCEN_CancelarPedido.cs" />
 	<Compile Include="EN\IManager\LineaPedidoEN.cs" />
 	<Compile Include="CEN\IManager\LineaPedidoCEN.cs" />
@@ -174,6 +178,7 @@
 			<Compile Include="CEN\IManager\MovimientosCEN_GetMovimientoTotalMesAnyo.cs" />
 	<Compile Include="Enumerated\IManager\EstadoPedidoEnum.cs" />
 	<Compile Include="Enumerated\IManager\DiasSemanaEnum.cs" />
+	<Compile Include="Enumerated\IManager\TipoMovimientoEnum.cs" />
 	
 	
 

@@ -95,5 +95,12 @@ public System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.Horari
 {
         return _IHorarioCAD.GetHorariosByUsuario (p_usuario);
 }
+public HorarioEN GetHorario (string titulo)
+{
+        HorarioEN horarioEN = null;
+
+        horarioEN = _IHorarioCAD.GetHorario (titulo);
+        return horarioEN;
+}
 }
 }

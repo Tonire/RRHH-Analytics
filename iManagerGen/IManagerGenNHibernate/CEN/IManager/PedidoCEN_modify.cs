@@ -14,7 +14,7 @@ namespace IManagerGenNHibernate.CEN.IManager
 {
 public partial class PedidoCEN
 {
-public void Modify (int p_Pedido_OID, string p_descripcion, IManagerGenNHibernate.Enumerated.IManager.EstadoPedidoEnum p_estado, Nullable<DateTime> p_fechaRealizacion)
+public void Modify (int p_Pedido_OID, string p_descripcion, IManagerGenNHibernate.Enumerated.IManager.EstadoPedidoEnum p_estado, Nullable<DateTime> p_fechaRealizacion, Nullable<DateTime> p_fechaConfirmacion, Nullable<DateTime> p_fechaCancelacion)
 {
         /*PROTECTED REGION ID(IManagerGenNHibernate.CEN.IManager_Pedido_modify_customized) START*/
 
@@ -26,6 +26,8 @@ public void Modify (int p_Pedido_OID, string p_descripcion, IManagerGenNHibernat
         pedidoEN.Descripcion = p_descripcion;
         pedidoEN.Estado = p_estado;
         pedidoEN.FechaRealizacion = p_fechaRealizacion;
+        pedidoEN.FechaConfirmacion = p_fechaConfirmacion;
+        pedidoEN.FechaCancelacion = p_fechaCancelacion;
         //Call to PedidoCAD
 
         _IPedidoCAD.Modify (pedidoEN);

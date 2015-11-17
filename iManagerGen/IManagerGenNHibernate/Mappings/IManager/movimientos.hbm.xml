@@ -18,7 +18,7 @@
 					<property name="Mes" type="integer"> 
 						<column name="mes"  not-null="true"/>
 					</property>
-					<property name="Tipo" type="string"> 
+					<property name="Tipo" > 
 						<column name="tipo"  not-null="true"/>
 					</property>
 					<property name="Cantidad" type="double"> 

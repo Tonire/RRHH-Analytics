@@ -231,5 +231,33 @@ public System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.Horari
 
         return result;
 }
+//Sin e: GetHorario
+//Con e: HorarioEN
+public HorarioEN GetHorario (string titulo)
+{
+        HorarioEN horarioEN = null;
+
+        try
+        {
+                SessionInitializeTransaction ();
+                horarioEN = (HorarioEN)session.Get (typeof(HorarioEN), titulo);
+                SessionCommit ();
+        }
+
+        catch (Exception ex) {
+                SessionRollBack ();
+                if (ex is IManagerGenNHibernate.Exceptions.ModelException)
+                        throw ex;
+                throw new IManagerGenNHibernate.Exceptions.DataLayerException ("Error in HorarioCAD.", ex);
+        }
+
+
+        finally
+        {
+                SessionClose ();
+        }
+
+        return horarioEN;
+}
 }
 }

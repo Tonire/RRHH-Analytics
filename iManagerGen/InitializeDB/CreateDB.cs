@@ -80,42 +80,6 @@ public static void InitializeData ()
         /*PROTECTED REGION ID(initializeDataMethod) ENABLED START*/
         try
         {
-                /*List<IManagerGenNHibernate.EN.Mediaplayer.MusicTrackEN> musicTracks = new List<IManagerGenNHibernate.EN.Mediaplayer.MusicTrackEN>();
-                 * IManagerGenNHibernate.EN.Mediaplayer.UserEN userEN = new IManagerGenNHibernate.EN.Mediaplayer.UserEN();
-                 * IManagerGenNHibernate.EN.Mediaplayer.ArtistEN artistEN = new IManagerGenNHibernate.EN.Mediaplayer.ArtistEN();
-                 * IManagerGenNHibernate.EN.Mediaplayer.MusicTrackEN musicTrackEN = new IManagerGenNHibernate.EN.Mediaplayer.MusicTrackEN();
-                 * IManagerGenNHibernate.CEN.Mediaplayer.ArtistCEN artistCEN = new IManagerGenNHibernate.CEN.Mediaplayer.ArtistCEN();
-                 * IManagerGenNHibernate.CEN.Mediaplayer.UserCEN userCEN = new IManagerGenNHibernate.CEN.Mediaplayer.UserCEN();
-                 * IManagerGenNHibernate.CEN.Mediaplayer.MusicTrackCEN musicTrackCEN = new IManagerGenNHibernate.CEN.Mediaplayer.MusicTrackCEN();
-                 * IManagerGenNHibernate.CEN.Mediaplayer.PlayListCEN playListCEN = new IManagerGenNHibernate.CEN.Mediaplayer.PlayListCEN();
-                 *
-                 *              //Add Users
-                 * userEN.Email = "user@user.com";
-                 * userEN.Name = "user";
-                 * userEN.Surname = "userSurname";
-                 * userEN.Password = "user";
-                 * userCEN.New_(userEN.Name, userEN.Surname, userEN.Email, userEN.Password);
-                 *
-                 * //Add Music Track1
-                 * musicTrackEN.Id = "http://www2.b3ta.com/mp3/Beer Beer Beer (YOB mix).mp3";
-                 * musicTrackEN.Format = "mp3";
-                 * musicTrackEN.Lyrics = "Beer Beer Beer Beer Beer Beer ..";
-                 * musicTrackEN.Name = "Beer Beer Beer";
-                 * musicTrackEN.Company = "Company";
-                 * musicTrackEN.Cover = "http://www.tomasabraham.com.ar/cajadig/2007/images/nro18-2/beer1.jpg";
-                 * musicTrackEN.Price = 20;
-                 * musicTrackEN.Rating = 5;
-                 * musicTrackEN.CommunityRating = 5;
-                 * musicTrackEN.Duration = 200;
-                 * musicTrackCEN.New_(musicTrackEN.Id, musicTrackEN.Format, musicTrackEN.Lyrics, musicTrackEN.Name,
-                 *  musicTrackEN.Company, musicTrackEN.Cover, musicTrackEN.CommunityRating, musicTrackEN.Rating,
-                 *  musicTrackEN.Price, musicTrackEN.Duration);
-                 * musicTracks.Add(musicTrackEN);
-                 * musicTrackCEN.AsignUser(musicTrackEN.Id,userEN.Email);
-                 *
-                 * //Define Album
-                 * //IManagerGenNHibernate.CEN.Mediaplayer.AlbumCEN albumCEN = new IManagerGenNHibernate.CEN.Mediaplayer.AlbumCEN();
-                 * //albumCEN.New_("Album 1", "This is a Album 1", artists, musicTracks);*/
                 IUsuarioCAD _IUsuarioCAD = new UsuarioCAD ();
                 UsuarioCEN usuarioCEN = new UsuarioCEN (_IUsuarioCAD);
                 IMensajeCAD _IMensajeCAD = new MensajeCAD ();
@@ -130,10 +94,14 @@ public static void InitializeData ()
                 ProveedorCEN proveedorCEN = new ProveedorCEN (_IProveedorCAD);
                 ISuperAdministradorCAD _ISuperAdministradorCAD = new SuperAdministradorCAD ();
                 SuperAdministradorCEN superCEN = new SuperAdministradorCEN ();
+                IAdministradorCAD _IAdministradorCAD = new AdministradorCAD ();
+                AdministradorCEN adminCEN = new AdministradorCEN ();
+                IEmpleadoCAD _IEmpleadoCAD = new EmpleadoCAD ();
+                EmpleadoCEN empleadoCEN = new EmpleadoCEN ();
                 PedidoCP pedidoCP = new PedidoCP ();
                 HorarioCP horarioCP = new HorarioCP ();
-                IMovimientosCAD _IMovimientosCAD = new MovimientosCAD();
-                MovimientosCEN movimientosCEN = new MovimientosCEN(_IMovimientosCAD);
+                IMovimientosCAD _IMovimientosCAD = new MovimientosCAD ();
+                MovimientosCEN movimientosCEN = new MovimientosCEN (_IMovimientosCAD);
 
                 UsuarioEN toni = new UsuarioEN ();
                 UsuarioEN julio = new UsuarioEN ();
@@ -146,26 +114,26 @@ public static void InitializeData ()
                 toni.Password = "tonireasdf";
                 toni.Nombre = "Toni";
                 toni.Apellidos = "Rebollo";
-                usuarioCEN.Registrar (toni.Email, toni.DNI, toni.Password, toni.Nombre, toni.Apellidos, DateTime.Today);
-                usuarioCEN.IniciarSesion (toni.Email, "tonireasdf");
+                adminCEN.New_ (toni.Email, toni.DNI, toni.Password, toni.Nombre, toni.Apellidos, DateTime.Now);
+                UsuarioEN prueba2=usuarioCEN.IniciarSesion (toni.Email, "tonireasdf");
                 //CLiente 2
                 julio.Email = "julio17@hotmail.com";
                 julio.DNI = "48730721T";
                 julio.Password = "julioasdf";
                 julio.Nombre = "Toni";
                 julio.Apellidos = "Rebollo";
-                usuarioCEN.Registrar (julio.Email, julio.DNI, julio.Password, julio.Nombre, julio.Apellidos, DateTime.Today);
-                usuarioCEN.IniciarSesion (julio.Email, "julioasdf");
+                empleadoCEN.New_ (julio.Email, julio.DNI, julio.Password, julio.Nombre, julio.Apellidos, DateTime.Now);
+                UsuarioEN prueba1=usuarioCEN.IniciarSesion (julio.Email, "julioasdf");
                 //Jefe
                 jefe.Email = "adri@hotmail.com";
                 jefe.DNI = "15145454145N";
                 jefe.Password = "123";
                 jefe.Nombre = "Toni";
                 jefe.Apellidos = "Rebollo";
-                superCEN.New_ (jefe.Email, jefe.DNI, jefe.Password, jefe.Nombre, jefe.Apellidos, DateTime.Today);
+                superCEN.New_ (jefe.Email, jefe.DNI, jefe.Password, jefe.Nombre, jefe.Apellidos, DateTime.Now);
                 UsuarioEN prueba = usuarioCEN.IniciarSesion (jefe.Email, "123");
 
-                //Console.WriteLine ("\n\n\n------------------------" + prueba.GetType () + "------------------------");
+                //prueba.GetType ()
                 MensajeEN mensaje1 = new MensajeEN ();
                 mensaje1.Asunto = "Esto es un mensaje de prueba";
                 mensaje1.Contenido = "Hola esto es un mensaje para probar que los mensajes se envian.";
@@ -174,7 +142,7 @@ public static void InitializeData ()
 
                 IList<UsuarioEN> usu = usuarioCEN.DameTodos (0, 10);
                 usu.Add (new UsuarioEN ());
-                //MessageBox.Show(horario[0].);
+
                 #endregion
                 #region Proovedor
                 ProveedorEN proveedor1 = new ProveedorEN ();
@@ -208,28 +176,24 @@ public static void InitializeData ()
                 PedidoEN pedido1 = new PedidoEN ();
                 pedido1.Descripcion = "Pedido de prueba";
                 pedido1.Estado = IManagerGenNHibernate.Enumerated.IManager.EstadoPedidoEnum.pendiente;
-                pedido1.FechaRealizacion = DateTime.Today;
-                pedido1.FechaConfirmacion = DateTime.Today;
-                pedido1.FechaCancelacion = DateTime.Today;
+                pedido1.FechaRealizacion = DateTime.Now;
 
-                int pedido = pedidoCEN.CrearPedido (pedido1.Descripcion, pedido1.Estado, pedido1.FechaRealizacion, julio.Email, listaLineas, pedido1.FechaConfirmacion, pedido1.FechaCancelacion);
-                pedidoCP.AumentarStockConfirmarPedidoHacerMovimiento (pedido, DateTime.Today);
+                int pedido = pedidoCEN.CrearPedido (pedido1.Descripcion, pedido1.Estado, pedido1.FechaRealizacion, julio.Email, listaLineas);
+                pedidoCP.AumentarStockConfirmarPedidoHacerMovimiento (pedido, DateTime.Now);
 
                 IList<PedidoEN> listaPedidos = pedidoCEN.GetPedidosPendientes ();
-                //string Hola = "quetal";
 
-                PedidoEN pedido2 = new PedidoEN();
+
+                PedidoEN pedido2 = new PedidoEN ();
                 pedido2.Descripcion = "Pedido dos";
                 pedido2.Estado = IManagerGenNHibernate.Enumerated.IManager.EstadoPedidoEnum.pendiente;
                 pedido2.FechaRealizacion = DateTime.Now;
-                pedido2.FechaCancelacion = DateTime.Today;
-                pedido2.FechaConfirmacion = DateTime.Today;
 
-                int oidPedido2 = pedidoCEN.CrearPedido(pedido2.Descripcion, pedido2.Estado, pedido2.FechaRealizacion, toni.Email, listaLineas, pedido2.FechaConfirmacion, pedido2.FechaCancelacion);
-                pedidoCP.AumentarStockConfirmarPedidoHacerMovimiento(oidPedido2, DateTime.Now);
+                int oidPedido2 = pedidoCEN.CrearPedido (pedido2.Descripcion, pedido2.Estado, pedido2.FechaRealizacion, toni.Email, listaLineas);
+                pedidoCP.AumentarStockConfirmarPedidoHacerMovimiento (oidPedido2, DateTime.Now);
 
-                double totalGastosAnyo = movimientosCEN.GetMovimientoTotalAnyo(2015, "GASTO");
-                
+                double totalGastosAnyo = movimientosCEN.GetMovimientoTotalAnyo (2015, IManagerGenNHibernate.Enumerated.IManager.TipoMovimientoEnum.gasto);
+
                 #endregion
 
                 //Creamos Turnos
