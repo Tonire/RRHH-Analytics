@@ -17,7 +17,7 @@ public partial class UsuarioCEN
 {
 public string Registrar (string p_email, string p_DNI, String p_password, string p_nombre, string p_apellidos, Nullable<DateTime> p_fechaRegistro)
 {
-            /*PROTECTED REGION ID(IManagerGenNHibernate.CEN.IManager_Usuario_registrar_customized) START*/
+            /*PROTECTED REGION ID(IManagerGenNHibernate.CEN.IManager_Usuario_registrar_customized) ENABLED START*/
 
             UsuarioEN usuarioEN = null;
             String pass, nonce = "Etsjj8BGtdbT1kPm2FtivCp1SY52pMYTQSobeoQKsSYRGI08lG5D3KThCaBh0AUwf6GYJ9gp2uDfd0jL";

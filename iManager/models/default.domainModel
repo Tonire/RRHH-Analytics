@@ -7,27 +7,27 @@
         <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_kZZKQHwDEeW-XJNIUeA2IA" name="pass"/>
       </operations>
       <operations xmi:type="es.ua.dlsi.ooh:Operation" xmi:id="_VtuHYHwAEeWyGcqmZGlzvA" name="modify" operationType="Modifier" type="Void">
-        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_LZ9msIr1EeWqCKCTLCU_Xw" name="p_Usuario_OID" type="OID" typeObject="_FkwKoHv-EeWyGcqmZGlzvA"/>
-        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_LZ9msYr1EeWqCKCTLCU_Xw" name="p_DNI"/>
-        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_LZ9msor1EeWqCKCTLCU_Xw" name="p_password" type="Password"/>
-        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_LZ9ms4r1EeWqCKCTLCU_Xw" name="p_nombre"/>
-        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_LZ9mtIr1EeWqCKCTLCU_Xw" name="p_apellidos"/>
-        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_LZ9mtYr1EeWqCKCTLCU_Xw" name="p_fechaRegistro" type="Date"/>
+        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_j2Wf4I0gEeW4-tNygwEk4A" name="p_Usuario_OID" type="OID" typeObject="_FkwKoHv-EeWyGcqmZGlzvA"/>
+        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_j2Wf4Y0gEeW4-tNygwEk4A" name="p_DNI"/>
+        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_j2Wf4o0gEeW4-tNygwEk4A" name="p_password" type="Password"/>
+        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_j2Wf440gEeW4-tNygwEk4A" name="p_nombre"/>
+        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_j2Wf5I0gEeW4-tNygwEk4A" name="p_apellidos"/>
+        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_j2Wf5Y0gEeW4-tNygwEk4A" name="p_fechaRegistro" type="Time"/>
       </operations>
       <operations xmi:type="es.ua.dlsi.ooh:Operation" xmi:id="_ZRxc8HwAEeWyGcqmZGlzvA" name="destroy" operationType="Destroy" type="Void">
-        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_LZ9mtor1EeWqCKCTLCU_Xw" name="p_Usuario_OID" type="OID" typeObject="_FkwKoHv-EeWyGcqmZGlzvA"/>
+        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_j2Wf5o0gEeW4-tNygwEk4A" name="p_Usuario_OID" type="OID" typeObject="_FkwKoHv-EeWyGcqmZGlzvA"/>
       </operations>
       <operations xmi:type="es.ua.dlsi.ooh:Operation" xmi:id="_nRKYYISlEeW7W7_0DEGx_Q" name="getUsuarioByEmail" operationType="ReadOID" type="Object" typeObject="_FkwKoHv-EeWyGcqmZGlzvA">
-        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_LZ-NwIr1EeWqCKCTLCU_Xw" name="p_Usuario_OID" type="OID" typeObject="_FkwKoHv-EeWyGcqmZGlzvA"/>
+        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_j2Wf540gEeW4-tNygwEk4A" name="p_Usuario_OID" type="OID" typeObject="_FkwKoHv-EeWyGcqmZGlzvA"/>
       </operations>
       <operations xmi:type="es.ua.dlsi.ooh:Operation" xmi:id="_QrPDUIYkEeWbU5IiENBgZA" name="dameTodos" operationType="ReadAll" type="Object" collectionType="List" typeObject="_FkwKoHv-EeWyGcqmZGlzvA"/>
       <operations xmi:type="es.ua.dlsi.ooh:Operation" xmi:id="_rNN_AIyMEeWGZJ5n8sVNhg" name="registrar" operationType="New" type="Object" typeObject="_FkwKoHv-EeWyGcqmZGlzvA" customized="true">
-        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_sG5ZAIyMEeWGZJ5n8sVNhg" name="p_email"/>
-        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_sG6AEIyMEeWGZJ5n8sVNhg" name="p_DNI"/>
-        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_sG6AEYyMEeWGZJ5n8sVNhg" name="p_password" type="Password"/>
-        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_sG6AEoyMEeWGZJ5n8sVNhg" name="p_nombre"/>
-        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_sG6AE4yMEeWGZJ5n8sVNhg" name="p_apellidos"/>
-        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_sG6nIIyMEeWGZJ5n8sVNhg" name="p_fechaRegistro" type="Date"/>
+        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_j2Wf6I0gEeW4-tNygwEk4A" name="p_email"/>
+        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_j2Wf6Y0gEeW4-tNygwEk4A" name="p_DNI"/>
+        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_j2Wf6o0gEeW4-tNygwEk4A" name="p_password" type="Password"/>
+        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_j2Wf640gEeW4-tNygwEk4A" name="p_nombre"/>
+        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_j2Wf7I0gEeW4-tNygwEk4A" name="p_apellidos"/>
+        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_j2Wf7Y0gEeW4-tNygwEk4A" name="p_fechaRegistro" type="Time"/>
       </operations>
       <attributes xmi:type="es.ua.dlsi.ooh:Attribute" xmi:id="_JxAIoHv-EeWyGcqmZGlzvA" alias="email" name="email" isOID="true" unique="true"/>
       <attributes xmi:type="es.ua.dlsi.ooh:Attribute" xmi:id="_M5HwIHv-EeWyGcqmZGlzvA" alias="DNI" name="DNI" unique="true"/>
@@ -39,36 +39,36 @@
       <attributes xmi:type="es.ua.dlsi.ooh:Attribute" xmi:id="_h-55QHwNEeW-XJNIUeA2IA" alias="idVentas" lower="0" upper="*" associationOrigin="_h-5SMHwNEeW-XJNIUeA2IA" name="ventas" type="Object" collectionType="List"/>
       <attributes xmi:type="es.ua.dlsi.ooh:Attribute" xmi:id="_VWUi8IhUEeWRCsDwnmZ22g" alias="nombre" name="nombre"/>
       <attributes xmi:type="es.ua.dlsi.ooh:Attribute" xmi:id="_WsJtcIhUEeWRCsDwnmZ22g" alias="apellidos" name="apellidos"/>
-      <attributes xmi:type="es.ua.dlsi.ooh:Attribute" xmi:id="_JKDZkIr1EeWqCKCTLCU_Xw" alias="fechaRegistro" name="fechaRegistro" type="Date"/>
+      <attributes xmi:type="es.ua.dlsi.ooh:Attribute" xmi:id="_JKDZkIr1EeWqCKCTLCU_Xw" alias="fechaRegistro" name="fechaRegistro" type="Time"/>
     </elements>
     <elements xmi:type="es.ua.dlsi.ooh:Class" xmi:id="_LDNFcHwAEeWyGcqmZGlzvA" name="SuperAdministrador" alias="SuperAdministrador" inheritFathers="_RMk3cHwAEeWyGcqmZGlzvA">
       <operations xmi:type="es.ua.dlsi.ooh:Operation" xmi:id="_elWPYHwAEeWyGcqmZGlzvA" name="new" operationType="New" type="Object" typeObject="_LDNFcHwAEeWyGcqmZGlzvA">
-        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_LZ-NwYr1EeWqCKCTLCU_Xw" name="p_email"/>
-        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_LZ-Nwor1EeWqCKCTLCU_Xw" name="p_DNI"/>
-        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_LZ-Nw4r1EeWqCKCTLCU_Xw" name="p_password" type="Password"/>
-        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_LZ-NxIr1EeWqCKCTLCU_Xw" name="p_nombre"/>
-        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_LZ-NxYr1EeWqCKCTLCU_Xw" name="p_apellidos"/>
-        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_LZ-Nxor1EeWqCKCTLCU_Xw" name="p_fechaRegistro" type="Date"/>
+        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_j2Wf7o0gEeW4-tNygwEk4A" name="p_email"/>
+        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_j2Wf740gEeW4-tNygwEk4A" name="p_DNI"/>
+        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_j2Wf8I0gEeW4-tNygwEk4A" name="p_password" type="Password"/>
+        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_j2Wf8Y0gEeW4-tNygwEk4A" name="p_nombre"/>
+        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_j2Wf8o0gEeW4-tNygwEk4A" name="p_apellidos"/>
+        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_j2Wf840gEeW4-tNygwEk4A" name="p_fechaRegistro" type="Time"/>
       </operations>
     </elements>
     <elements xmi:type="es.ua.dlsi.ooh:Class" xmi:id="_MKFN8HwAEeWyGcqmZGlzvA" name="Administrador" alias="Administrador" inheritFathers="_SCcvgHwAEeWyGcqmZGlzvA">
       <operations xmi:type="es.ua.dlsi.ooh:Operation" xmi:id="_fZwu4HwAEeWyGcqmZGlzvA" name="new" operationType="New" type="Object" typeObject="_MKFN8HwAEeWyGcqmZGlzvA">
-        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_LZ-00Ir1EeWqCKCTLCU_Xw" name="p_email"/>
-        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_LZ-00Yr1EeWqCKCTLCU_Xw" name="p_DNI"/>
-        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_LZ-00or1EeWqCKCTLCU_Xw" name="p_password" type="Password"/>
-        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_LZ-004r1EeWqCKCTLCU_Xw" name="p_nombre"/>
-        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_LZ-01Ir1EeWqCKCTLCU_Xw" name="p_apellidos"/>
-        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_LZ-01Yr1EeWqCKCTLCU_Xw" name="p_fechaRegistro" type="Date"/>
+        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_j2Wf9I0gEeW4-tNygwEk4A" name="p_email"/>
+        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_j2Wf9Y0gEeW4-tNygwEk4A" name="p_DNI"/>
+        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_j2Wf9o0gEeW4-tNygwEk4A" name="p_password" type="Password"/>
+        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_j2Wf940gEeW4-tNygwEk4A" name="p_nombre"/>
+        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_j2Wf-I0gEeW4-tNygwEk4A" name="p_apellidos"/>
+        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_j2Wf-Y0gEeW4-tNygwEk4A" name="p_fechaRegistro" type="Time"/>
       </operations>
     </elements>
     <elements xmi:type="es.ua.dlsi.ooh:Class" xmi:id="_NAQoAHwAEeWyGcqmZGlzvA" name="Empleado" alias="Empleado" inheritFathers="_San-8HwAEeWyGcqmZGlzvA">
       <operations xmi:type="es.ua.dlsi.ooh:Operation" xmi:id="_f4hHcHwAEeWyGcqmZGlzvA" name="new" operationType="New" type="Object" typeObject="_NAQoAHwAEeWyGcqmZGlzvA">
-        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_LZ-01or1EeWqCKCTLCU_Xw" name="p_email"/>
-        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_LZ-014r1EeWqCKCTLCU_Xw" name="p_DNI"/>
-        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_LZ-02Ir1EeWqCKCTLCU_Xw" name="p_password" type="Password"/>
-        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_LZ-02Yr1EeWqCKCTLCU_Xw" name="p_nombre"/>
-        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_LZ-02or1EeWqCKCTLCU_Xw" name="p_apellidos"/>
-        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_LZ-024r1EeWqCKCTLCU_Xw" name="p_fechaRegistro" type="Date"/>
+        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_j2Wf-o0gEeW4-tNygwEk4A" name="p_email"/>
+        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_j2Wf-40gEeW4-tNygwEk4A" name="p_DNI"/>
+        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_j2Wf_I0gEeW4-tNygwEk4A" name="p_password" type="Password"/>
+        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_j2Wf_Y0gEeW4-tNygwEk4A" name="p_nombre"/>
+        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_j2Wf_o0gEeW4-tNygwEk4A" name="p_apellidos"/>
+        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_j2Wf_40gEeW4-tNygwEk4A" name="p_fechaRegistro" type="Time"/>
       </operations>
     </elements>
     <elements xmi:type="es.ua.dlsi.ooh:Inheritance" xmi:id="_RMk3cHwAEeWyGcqmZGlzvA" name="inheritance" son="_LDNFcHwAEeWyGcqmZGlzvA" father="_FkwKoHv-EeWyGcqmZGlzvA"/>
@@ -175,24 +175,21 @@
     <elements xmi:type="es.ua.dlsi.ooh:Association" xmi:id="_vWNgUHwHEeW-XJNIUeA2IA" name="fecha_turno" alias="fecha_turno" rolOrigin="_vWNgUXwHEeW-XJNIUeA2IA" rolTarget="_vWNgUnwHEeW-XJNIUeA2IA" classTarget="_8AfFcHwFEeW-XJNIUeA2IA" classOrigin="_fVMTwHwHEeW-XJNIUeA2IA" rolOriginName="fecha" rolTargetName="turno" rolOriginMultiplicity="0..*" rolTargetMultiplicity="1..1"/>
     <elements xmi:type="es.ua.dlsi.ooh:Class" xmi:id="_96vgwHwHEeW-XJNIUeA2IA" name="Pedido" alias="Pedido" asociationTarget="_fP_OMHwIEeW-XJNIUeA2IA" associationOrigin="_ToVZIHwJEeW-XJNIUeA2IA _9OKQIIhTEeWRCsDwnmZ22g">
       <operations xmi:type="es.ua.dlsi.ooh:Operation" xmi:id="_MryTMHwIEeW-XJNIUeA2IA" name="crearPedido" operationType="New" type="Object" typeObject="_96vgwHwHEeW-XJNIUeA2IA">
-        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_Xb-z0IsFEeWSEuYgsQDi4g" name="p_descripcion"/>
-        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_Xb-z0YsFEeWSEuYgsQDi4g" name="p_estado" type="Enum" typeEnum="_E55rQHwIEeW-XJNIUeA2IA"/>
-        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_Xb-z0osFEeWSEuYgsQDi4g" name="p_fechaRealizacion" type="Date"/>
-        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_Xb-z04sFEeWSEuYgsQDi4g" name="p_usuario" type="OID" typeObject="_FkwKoHv-EeWyGcqmZGlzvA"/>
-        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_Xb-z1IsFEeWSEuYgsQDi4g" name="p_lineaPedido" type="Object" collectionType="List" typeObject="_HNgQIHwJEeW-XJNIUeA2IA"/>
-        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_Xb-z1YsFEeWSEuYgsQDi4g" name="p_fechaConfirmacion" type="Date"/>
-        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_Xb_a4IsFEeWSEuYgsQDi4g" name="p_fechaCancelacion" type="Date"/>
+        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_P2PnkI0gEeW4-tNygwEk4A" name="p_descripcion"/>
+        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_P2PnkY0gEeW4-tNygwEk4A" name="p_estado" type="Enum" typeEnum="_E55rQHwIEeW-XJNIUeA2IA"/>
+        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_P2Pnko0gEeW4-tNygwEk4A" name="p_fechaRealizacion" type="Date"/>
+        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_P2Pnk40gEeW4-tNygwEk4A" name="p_usuario" type="OID" typeObject="_FkwKoHv-EeWyGcqmZGlzvA"/>
+        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_P2PnlI0gEeW4-tNygwEk4A" name="p_lineaPedido" type="Object" collectionType="List" typeObject="_HNgQIHwJEeW-XJNIUeA2IA"/>
       </operations>
-      <operations xmi:type="es.ua.dlsi.ooh:Operation" xmi:id="_N605MHwIEeW-XJNIUeA2IA" name="modify" operationType="Modifier" type="Void">
-        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_XcAB8IsFEeWSEuYgsQDi4g" name="p_Pedido_OID" type="OID" typeObject="_96vgwHwHEeW-XJNIUeA2IA"/>
-        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_XcAB8YsFEeWSEuYgsQDi4g" name="p_descripcion"/>
-        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_XcAB8osFEeWSEuYgsQDi4g" name="p_estado" type="Enum" typeEnum="_E55rQHwIEeW-XJNIUeA2IA"/>
-        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_XcAB84sFEeWSEuYgsQDi4g" name="p_fechaRealizacion" type="Date"/>
-        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_XcAB9IsFEeWSEuYgsQDi4g" name="p_fechaConfirmacion" type="Date"/>
-        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_XcAB9YsFEeWSEuYgsQDi4g" name="p_fechaCancelacion" type="Date"/>
+      <operations xmi:type="es.ua.dlsi.ooh:Operation" xmi:id="_N605MHwIEeW-XJNIUeA2IA" name="modify" operationType="Modifier" type="Void" automaticSynchronize="false" customized="true">
+        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_P2PnlY0gEeW4-tNygwEk4A" name="p_Pedido_OID" type="OID" typeObject="_96vgwHwHEeW-XJNIUeA2IA"/>
+        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_P2Pnlo0gEeW4-tNygwEk4A" name="p_descripcion"/>
+        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_P2Pnl40gEeW4-tNygwEk4A" name="p_estado" type="Enum" typeEnum="_E55rQHwIEeW-XJNIUeA2IA"/>
+        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_P2PnmI0gEeW4-tNygwEk4A" name="p_fechaRealizacion" type="Date"/>
+        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_SXXggI0gEeW4-tNygwEk4A" name="p_fechaConfirmacion" type="Date"/>
       </operations>
       <operations xmi:type="es.ua.dlsi.ooh:Operation" xmi:id="_PEFAQHwIEeW-XJNIUeA2IA" name="destroy" operationType="Destroy" type="Void">
-        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_XcAB9osFEeWSEuYgsQDi4g" name="p_Pedido_OID" type="OID" typeObject="_96vgwHwHEeW-XJNIUeA2IA"/>
+        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_P2PnmY0gEeW4-tNygwEk4A" name="p_Pedido_OID" type="OID" typeObject="_96vgwHwHEeW-XJNIUeA2IA"/>
       </operations>
       <operations xmi:type="es.ua.dlsi.ooh:Operation" xmi:id="_ShQRwHwIEeW-XJNIUeA2IA" name="cancelarPedido" type="Void">
         <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_ShQRwXwIEeW-XJNIUeA2IA" name="p_oid" type="OID" typeObject="_96vgwHwHEeW-XJNIUeA2IA"/>
@@ -206,8 +203,8 @@
       <attributes xmi:type="es.ua.dlsi.ooh:Attribute" xmi:id="_dI4bQIRtEeWmgMPv04z-xw" alias="fechaRealizacion" name="fechaRealizacion" type="Date"/>
       <attributes xmi:type="es.ua.dlsi.ooh:Attribute" xmi:id="_fP_1QXwIEeW-XJNIUeA2IA" alias="idUsuario" associationTarget="_fP_OMHwIEeW-XJNIUeA2IA" name="usuario" type="Object"/>
       <attributes xmi:type="es.ua.dlsi.ooh:Attribute" xmi:id="_ToVZIXwJEeW-XJNIUeA2IA" alias="idLineaPedido" aggregation="Composite" upper="*" associationOrigin="_ToVZIHwJEeW-XJNIUeA2IA" name="lineaPedido" type="Object" collectionType="List"/>
-      <attributes xmi:type="es.ua.dlsi.ooh:Attribute" xmi:id="_PMc1QIRwEeWmgMPv04z-xw" alias="fechaConfirmacion" name="fechaConfirmacion" type="Date"/>
-      <attributes xmi:type="es.ua.dlsi.ooh:Attribute" xmi:id="_QjlAQIRwEeWmgMPv04z-xw" alias="fechaCancelacion" name="fechaCancelacion" type="Date"/>
+      <attributes xmi:type="es.ua.dlsi.ooh:Attribute" xmi:id="_PMc1QIRwEeWmgMPv04z-xw" alias="fechaConfirmacion" lower="0" name="fechaConfirmacion" type="Date"/>
+      <attributes xmi:type="es.ua.dlsi.ooh:Attribute" xmi:id="_QjlAQIRwEeWmgMPv04z-xw" alias="fechaCancelacion" lower="0" name="fechaCancelacion" type="Date"/>
       <attributes xmi:type="es.ua.dlsi.ooh:Attribute" xmi:id="_9OeZMIhTEeWRCsDwnmZ22g" alias="idMovimientos" lower="0" upper="*" associationOrigin="_9OKQIIhTEeWRCsDwnmZ22g" name="movimientos" type="Object"/>
     </elements>
     <elements xmi:type="es.ua.dlsi.ooh:Enumeration" xmi:id="_E55rQHwIEeW-XJNIUeA2IA" name="estadoPedido">
