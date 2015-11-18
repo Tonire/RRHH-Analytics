@@ -98,42 +98,56 @@ public static void InitializeData ()
                 AdministradorCEN adminCEN = new AdministradorCEN ();
                 IEmpleadoCAD _IEmpleadoCAD = new EmpleadoCAD ();
                 EmpleadoCEN empleadoCEN = new EmpleadoCEN ();
-                PedidoCP pedidoCP = new PedidoCP ();
-                HorarioCP horarioCP = new HorarioCP ();
                 IMovimientosCAD _IMovimientosCAD = new MovimientosCAD ();
                 MovimientosCEN movimientosCEN = new MovimientosCEN (_IMovimientosCAD);
+                ILineaPedidoCAD _ILineaPedido = new LineaPedidoCAD ();
+                LineaPedidoCEN lineaPedidoCEN = new LineaPedidoCEN (_ILineaPedido);
+                PedidoCP pedidoCP = new PedidoCP ();
+                HorarioCP horarioCP = new HorarioCP ();
 
+
+                #region Usuario
                 UsuarioEN toni = new UsuarioEN ();
                 UsuarioEN julio = new UsuarioEN ();
-                SuperAdministradorEN jefe = new SuperAdministradorEN ();
-                #region Cliente
-                //Cliente 1
-                //MessageBox.Show ("Cago en dios!");
+                UsuarioEN hector = new UsuarioEN ();
+                UsuarioEN adri = new UsuarioEN ();
+                //Administrador 1
                 toni.Email = "tonire@hotmail.com";
                 toni.DNI = "48730721h";
                 toni.Password = "tonireasdf";
                 toni.Nombre = "Toni";
                 toni.Apellidos = "Rebollo";
                 adminCEN.New_ (toni.Email, toni.DNI, toni.Password, toni.Nombre, toni.Apellidos, DateTime.Now);
-                UsuarioEN prueba2 = usuarioCEN.IniciarSesion (toni.Email, "tonireasdf");
-                //CLiente 2
+                toni = usuarioCEN.IniciarSesion (toni.Email, "tonireasdf");
+                //Empleado 1
                 julio.Email = "julio17@hotmail.com";
                 julio.DNI = "48730721T";
                 julio.Password = "julioasdf";
                 julio.Nombre = "Toni";
                 julio.Apellidos = "Rebollo";
                 empleadoCEN.New_ (julio.Email, julio.DNI, julio.Password, julio.Nombre, julio.Apellidos, DateTime.Now);
-                UsuarioEN prueba1 = usuarioCEN.IniciarSesion (julio.Email, "julioasdf");
+                julio = usuarioCEN.IniciarSesion (julio.Email, "julioasdf");
+                //Empleado2
+                //Empleado 1
+                hector.Email = "hector@hotmail.com";
+                hector.DNI = "489965421T";
+                hector.Password = "julioasdf";
+                hector.Nombre = "Toni";
+                hector.Apellidos = "Rebollo";
+                empleadoCEN.New_ (hector.Email, hector.DNI, hector.Password, hector.Nombre, hector.Apellidos, DateTime.Now);
+                hector = usuarioCEN.IniciarSesion (hector.Email, "julioasdf");
                 //Jefe
-                jefe.Email = "adri@hotmail.com";
-                jefe.DNI = "15145454145N";
-                jefe.Password = "123";
-                jefe.Nombre = "Toni";
-                jefe.Apellidos = "Rebollo";
-                superCEN.New_ (jefe.Email, jefe.DNI, jefe.Password, jefe.Nombre, jefe.Apellidos, DateTime.Now);
-                UsuarioEN prueba = usuarioCEN.IniciarSesion (jefe.Email, "123");
+                adri.Email = "adri@hotmail.com";
+                adri.DNI = "15145454145N";
+                adri.Password = "123";
+                adri.Nombre = "Toni";
+                adri.Apellidos = "Rebollo";
+                superCEN.New_ (adri.Email, adri.DNI, adri.Password, adri.Nombre, adri.Apellidos, DateTime.Now);
+                adri = usuarioCEN.IniciarSesion (adri.Email, "123");
+                adri.GetType ();
+                #endregion
 
-                //prueba.GetType ()
+                #region Mensaje
                 MensajeEN mensaje1 = new MensajeEN ();
                 mensaje1.Asunto = "Esto es un mensaje de prueba";
                 mensaje1.Contenido = "Hola esto es un mensaje para probar que los mensajes se envian.";
@@ -141,49 +155,70 @@ public static void InitializeData ()
                 IList<MensajeEN> listaMensajes = mensajeCEN.GetMensajesByRemitente (julio.Email);
 
                 IList<UsuarioEN> usu = usuarioCEN.DameTodos (0, 10);
-                usu.Add (new UsuarioEN ());
-
                 #endregion
+
+
                 #region Proovedor
+                IList<string> proveedores = new List<string>();
                 ProveedorEN proveedor1 = new ProveedorEN ();
                 proveedor1.Email = "alibaba@china.com";
                 proveedor1.Nombre = "Alibaba GROUP";
                 proveedor1.Telefono = "0213-02546-23354";
                 proveedorCEN.CrearProveedor (proveedor1.Email, proveedor1.Nombre, proveedor1.Telefono);
-                IList<string> proveedores = new List<string>();
+                proveedores.Add (proveedor1.Email);
+
+                proveedor1 = new ProveedorEN ();
+                proveedor1.Email = "lg@ladrones.com";
+                proveedor1.Nombre = "LG";
+                proveedor1.Telefono = "548946512";
+                proveedorCEN.CrearProveedor (proveedor1.Email, proveedor1.Nombre, proveedor1.Telefono);
                 proveedores.Add (proveedor1.Email);
                 #endregion
 
                 #region Producto
                 ProductoEN producto1 = new ProductoEN ();
-                producto1.Referencia = 1;
-                producto1.Nombre = "Producto de prueba";
-                producto1.Marca = "Marca 1";
+                producto1.Referencia = 56489;
+                producto1.Nombre = "Camiseta XL";
+                producto1.Marca = "Noke";
                 producto1.PrecioCompra = 10;
                 producto1.PrecioVenta = 15;
                 producto1.Stock = 0;
                 productoCEN.CrearProducto (producto1.Referencia, producto1.Nombre, producto1.Marca, producto1.PrecioCompra, producto1.PrecioVenta, producto1.Stock, proveedores);
+                producto1 = new ProductoEN ();
+                producto1.Referencia = 15468;
+                producto1.Nombre = "Chandal";
+                producto1.Marca = "Odidas";
+                producto1.PrecioCompra = 20;
+                producto1.PrecioVenta = 30;
+                producto1.Stock = 0;
+                productoCEN.CrearProducto (producto1.Referencia, producto1.Nombre, producto1.Marca, producto1.PrecioCompra, producto1.PrecioVenta, producto1.Stock, proveedores);
+                productoCEN.GetProductosByProveedor ("alibaba@china.com");
+                #endregion
 
+                #region LineasPedido
                 LineaPedidoEN lp1 = new LineaPedidoEN ();
                 LineaPedidoEN lp2 = new LineaPedidoEN ();
                 lp1.Cantidad = 5;
                 lp1.Producto = producto1;
                 lp2.Cantidad = 2;
-                lp2.Producto = producto1;
+                lp2.Producto = productoCEN.GetProducto (56489);
                 IList<LineaPedidoEN> listaLineas = new List<LineaPedidoEN>();
                 listaLineas.Add (lp1);
                 listaLineas.Add (lp2);
+                #endregion
+
+                #region Pedido
                 PedidoEN pedido1 = new PedidoEN ();
                 pedido1.Descripcion = "Pedido de prueba";
                 pedido1.Estado = IManagerGenNHibernate.Enumerated.IManager.EstadoPedidoEnum.pendiente;
                 pedido1.FechaRealizacion = DateTime.Now;
-
                 int pedido = pedidoCEN.CrearPedido (pedido1.Descripcion, pedido1.Estado, pedido1.FechaRealizacion, julio.Email, listaLineas);
-                pedidoCP.AumentarStockConfirmarPedidoHacerMovimiento (pedido, DateTime.Now);
-                ILineaPedidoCAD _ILineaPedido = new LineaPedidoCAD();
-                LineaPedidoCEN lineaPedidoCEN = new LineaPedidoCEN(_ILineaPedido);
-                IList<LineaPedidoEN> lineasPrueba = lineaPedidoCEN.GetLineasPedidoByPedido(pedido);
+
                 IList<PedidoEN> listaPedidos = pedidoCEN.GetPedidosPendientes ();
+
+                pedidoCP.AumentarStockConfirmarPedidoHacerMovimiento (pedido, DateTime.Now);
+
+                IList<LineaPedidoEN> lineasPrueba = lineaPedidoCEN.GetLineasPedidoByPedido (pedido);
 
 
                 PedidoEN pedido2 = new PedidoEN ();
@@ -196,8 +231,11 @@ public static void InitializeData ()
 
                 double totalGastosAnyo = movimientosCEN.GetMovimientoTotalAnyo (2015, IManagerGenNHibernate.Enumerated.IManager.TipoMovimientoEnum.gasto);
 
+                pedidoCEN.Destroy (pedidoCEN.GetPedidosConfirmados () [1].Id);
+
                 #endregion
 
+                #region Turnos
                 //Creamos Turnos
                 List<TurnoEN> turnos = new List<TurnoEN>();
                 TurnoEN turno = new TurnoEN ();
@@ -215,11 +253,12 @@ public static void InitializeData ()
                 turno2.Desde = "20:00";
                 turno2.Hasta = "00:00";
                 turnos.Add (turno2);
+                #endregion
 
+                #region Dias
                 //Creamos Dias
                 List<DiaEN> dias = new List<DiaEN>();
                 DiaEN dia = new DiaEN ();
-
                 dia.Dia = IManagerGenNHibernate.Enumerated.IManager.DiasSemanaEnum.lunes;
                 dia.Turno = turno1;
                 dias.Add (dia);
@@ -247,22 +286,20 @@ public static void InitializeData ()
                 dia.Dia = IManagerGenNHibernate.Enumerated.IManager.DiasSemanaEnum.domingo;
                 dia.Turno = turno2;
                 dias.Add (dia);
+                #endregion region
 
+                #region Horario
                 HorarioEN horario = new HorarioEN ();
                 horario.Titulo = "Horario semanal";
                 horario.Anyo = 2015;
 
-                //UsuarioEN usuario = new UsuarioEN();
                 System.Collections.Generic.List<string> usuarios = new List<string>();
                 usuarios.Add ("tonire@hotmail.com");
                 usuarios.Add ("julio17@hotmail.com");
-                //UsuarioEN us = new UsuarioEN();
-                //us=_IUsuarioCAD.GetUsuarioByEmail("julio.el.pro@hotmail.com");
-                horarioCP.CrearHorario (horario, usuarios, turnos, dias);
 
-                //horarioCEN.CreaHorario("horario semanal 1", 2015, usuarios, turnos);
-                /*UsuarioEN usuario = usuarioCEN.GetUsuarioByEmail("julio.el.pro@hotmail.com");
-                 * IList<HorarioEN> horario=usuario.Horario;*/
+                string horario_oid = horarioCP.CrearHorario (horario, usuarios, turnos, dias);
+                horarioCP.borrarHorario (horario_oid);
+                #endregion
 
                 /*PROTECTED REGION END*/
         }

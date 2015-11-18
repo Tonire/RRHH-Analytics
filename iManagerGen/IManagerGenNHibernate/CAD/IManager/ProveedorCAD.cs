@@ -266,9 +266,9 @@ public System.Collections.Generic.IList<ProveedorEN> DameTodos (int first, int s
         return result;
 }
 
-//Sin e: GetProveedorByEmail
+//Sin e: GetProveedor
 //Con e: ProveedorEN
-public ProveedorEN GetProveedorByEmail (string email)
+public ProveedorEN GetProveedor (string email)
 {
         ProveedorEN proveedorEN = null;
 

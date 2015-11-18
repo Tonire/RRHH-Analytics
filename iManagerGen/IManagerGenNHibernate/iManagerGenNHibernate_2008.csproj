@@ -131,7 +131,6 @@
 	<Compile Include="CAD\IManager\IPedidoCAD.cs" />
 	<Compile Include="CAD\IManager\PedidoCAD.cs" />
 			<Compile Include="CEN\IManager\PedidoCEN_Modify.cs" />
-			<Compile Include="CEN\IManager\PedidoCEN_CancelarPedido.cs" />
 	<Compile Include="EN\IManager\LineaPedidoEN.cs" />
 	<Compile Include="CEN\IManager\LineaPedidoCEN.cs" />
 	<Compile Include="CAD\IManager\ILineaPedidoCAD.cs" />

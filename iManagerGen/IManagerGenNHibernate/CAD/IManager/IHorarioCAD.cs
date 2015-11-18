@@ -25,5 +25,8 @@ HorarioEN GetHorario (string titulo);
 
 
 System.Collections.Generic.IList<HorarioEN> DameTodos (int first, int size);
+
+
+void QuitarUsuario (string p_Horario_OID, System.Collections.Generic.IList<string> p_usuario_OIDs);
 }
 }

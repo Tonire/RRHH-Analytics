@@ -124,5 +124,9 @@ public void QuitarProveedor (int p_Producto_OID, System.Collections.Generic.ILis
 
         _IProductoCAD.QuitarProveedor (p_Producto_OID, p_proveedor_OIDs);
 }
+public System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.ProductoEN> GetProductosByProveedor (string p_proveedor)
+{
+        return _IProductoCAD.GetProductosByProveedor (p_proveedor);
+}
 }
 }

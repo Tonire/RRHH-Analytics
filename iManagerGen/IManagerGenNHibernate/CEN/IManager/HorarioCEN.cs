@@ -110,5 +110,11 @@ public System.Collections.Generic.IList<HorarioEN> DameTodos (int first, int siz
         list = _IHorarioCAD.DameTodos (first, size);
         return list;
 }
+public void QuitarUsuario (string p_Horario_OID, System.Collections.Generic.IList<string> p_usuario_OIDs)
+{
+        //Call to HorarioCAD
+
+        _IHorarioCAD.QuitarUsuario (p_Horario_OID, p_usuario_OIDs);
+}
 }
 }

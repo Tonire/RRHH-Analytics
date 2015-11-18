@@ -310,5 +310,35 @@ public void QuitarProveedor (int p_Producto_OID, System.Collections.Generic.ILis
                 SessionClose ();
         }
 }
+public System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.ProductoEN> GetProductosByProveedor (string p_proveedor)
+{
+        System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.ProductoEN> result;
+        try
+        {
+                SessionInitializeTransaction ();
+                //String sql = @"FROM ProductoEN self where select prod FROM ProductoEN as prod inner join prod.Proveedor as prov where prov.Email=:p_proveedor";
+                //IQuery query = session.CreateQuery(sql);
+                IQuery query = (IQuery)session.GetNamedQuery ("ProductoENgetProductosByProveedorHQL");
+                query.SetParameter ("p_proveedor", p_proveedor);
+
+                result = query.List<IManagerGenNHibernate.EN.IManager.ProductoEN>();
+                SessionCommit ();
+        }
+
+        catch (Exception ex) {
+                SessionRollBack ();
+                if (ex is IManagerGenNHibernate.Exceptions.ModelException)
+                        throw ex;
+                throw new IManagerGenNHibernate.Exceptions.DataLayerException ("Error in ProductoCAD.", ex);
+        }
+
+
+        finally
+        {
+                SessionClose ();
+        }
+
+        return result;
+}
 }
 }

@@ -25,5 +25,7 @@ ProductoEN GetProducto (int referencia);
 void AsignarProveedor (int p_Producto_OID, System.Collections.Generic.IList<string> p_proveedor_OIDs);
 
 void QuitarProveedor (int p_Producto_OID, System.Collections.Generic.IList<string> p_proveedor_OIDs);
+
+System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.ProductoEN> GetProductosByProveedor (string p_proveedor);
 }
 }

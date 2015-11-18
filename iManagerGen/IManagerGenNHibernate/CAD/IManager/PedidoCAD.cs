@@ -296,5 +296,35 @@ public PedidoEN GetPedidoById (int id)
 
         return pedidoEN;
 }
+
+public System.Collections.Generic.IList<PedidoEN> DameTodos (int first, int size)
+{
+        System.Collections.Generic.IList<PedidoEN> result = null;
+        try
+        {
+                SessionInitializeTransaction ();
+                if (size > 0)
+                        result = session.CreateCriteria (typeof(PedidoEN)).
+                                 SetFirstResult (first).SetMaxResults (size).List<PedidoEN>();
+                else
+                        result = session.CreateCriteria (typeof(PedidoEN)).List<PedidoEN>();
+                SessionCommit ();
+        }
+
+        catch (Exception ex) {
+                SessionRollBack ();
+                if (ex is IManagerGenNHibernate.Exceptions.ModelException)
+                        throw ex;
+                throw new IManagerGenNHibernate.Exceptions.DataLayerException ("Error in PedidoCAD.", ex);
+        }
+
+
+        finally
+        {
+                SessionClose ();
+        }
+
+        return result;
+}
 }
 }

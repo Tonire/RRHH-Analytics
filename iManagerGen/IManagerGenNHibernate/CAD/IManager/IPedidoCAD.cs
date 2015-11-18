@@ -16,7 +16,6 @@ void Modify (PedidoEN pedido);
 void Destroy (int id);
 
 
-
 System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.PedidoEN> GetPedidosPendientes ();
 
 
@@ -27,5 +26,8 @@ System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.PedidoEN> Get
 
 
 PedidoEN GetPedidoById (int id);
+
+
+System.Collections.Generic.IList<PedidoEN> DameTodos (int first, int size);
 }
 }

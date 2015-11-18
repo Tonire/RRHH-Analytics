@@ -93,11 +93,11 @@ public System.Collections.Generic.IList<ProveedorEN> DameTodos (int first, int s
         list = _IProveedorCAD.DameTodos (first, size);
         return list;
 }
-public ProveedorEN GetProveedorByEmail (string email)
+public ProveedorEN GetProveedor (string email)
 {
         ProveedorEN proveedorEN = null;
 
-        proveedorEN = _IProveedorCAD.GetProveedorByEmail (email);
+        proveedorEN = _IProveedorCAD.GetProveedor (email);
         return proveedorEN;
 }
 }

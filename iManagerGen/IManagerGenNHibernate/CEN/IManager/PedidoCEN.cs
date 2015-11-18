@@ -89,5 +89,13 @@ public PedidoEN GetPedidoById (int id)
         pedidoEN = _IPedidoCAD.GetPedidoById (id);
         return pedidoEN;
 }
+
+public System.Collections.Generic.IList<PedidoEN> DameTodos (int first, int size)
+{
+        System.Collections.Generic.IList<PedidoEN> list = null;
+
+        list = _IPedidoCAD.DameTodos (first, size);
+        return list;
+}
 }
 }

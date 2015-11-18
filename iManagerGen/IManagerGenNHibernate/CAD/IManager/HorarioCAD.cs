@@ -289,5 +289,44 @@ public System.Collections.Generic.IList<HorarioEN> DameTodos (int first, int siz
 
         return result;
 }
+
+public void QuitarUsuario (string p_Horario_OID, System.Collections.Generic.IList<string> p_usuario_OIDs)
+{
+        try
+        {
+                SessionInitializeTransaction ();
+                IManagerGenNHibernate.EN.IManager.HorarioEN horarioEN = null;
+                horarioEN = (HorarioEN)session.Load (typeof(HorarioEN), p_Horario_OID);
+
+                IManagerGenNHibernate.EN.IManager.UsuarioEN usuarioENAux = null;
+                if (horarioEN.Usuario != null) {
+                        foreach (string item in p_usuario_OIDs) {
+                                usuarioENAux = (IManagerGenNHibernate.EN.IManager.UsuarioEN)session.Load (typeof(IManagerGenNHibernate.EN.IManager.UsuarioEN), item);
+                                if (horarioEN.Usuario.Contains (usuarioENAux) == true) {
+                                        horarioEN.Usuario.Remove (usuarioENAux);
+                                        usuarioENAux.Horario.Remove (horarioEN);
+                                }
+                                else
+                                        throw new ModelException ("The identifier " + item + " in p_usuario_OIDs you are trying to unrelationer, doesn't exist in HorarioEN");
+                        }
+                }
+
+                session.Update (horarioEN);
+                SessionCommit ();
+        }
+
+        catch (Exception ex) {
+                SessionRollBack ();
+                if (ex is IManagerGenNHibernate.Exceptions.ModelException)
+                        throw ex;
+                throw new IManagerGenNHibernate.Exceptions.DataLayerException ("Error in HorarioCAD.", ex);
+        }
+
+
+        finally
+        {
+                SessionClose ();
+        }
+}
 }
 }

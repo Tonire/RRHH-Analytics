@@ -23,6 +23,6 @@ void QuitarProducto (string p_Proveedor_OID, System.Collections.Generic.IList<in
 System.Collections.Generic.IList<ProveedorEN> DameTodos (int first, int size);
 
 
-ProveedorEN GetProveedorByEmail (string email);
+ProveedorEN GetProveedor (string email);
 }
 }
