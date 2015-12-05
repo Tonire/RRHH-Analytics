@@ -823,6 +823,10 @@
       <Project>{bce25da0-2aca-4461-a8b9-c301d34cb76c}</Project>
       <Name>AdminLte</Name>
     </ProjectReference>
+    <ProjectReference Include="..\IManagerGenNHibernate\IManagerGenNHibernate.csproj">
+      <Project>{66c66636-fd6a-4a3f-a7c5-fe88bba117af}</Project>
+      <Name>IManagerGenNHibernate</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

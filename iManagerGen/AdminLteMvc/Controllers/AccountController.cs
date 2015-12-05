@@ -5,10 +5,14 @@ using System.Security.Claims;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Security;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using AdminLteMvc.Models;
+using IManagerGenNHibernate.CEN.IManager;
+using IManagerGenNHibernate.EN.IManager;
+using IManagerGenNHibernate.CAD.IManager;
 
 namespace AdminLteMvc.Controllers
 {
@@ -66,29 +70,18 @@ namespace AdminLteMvc.Controllers
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Login(LoginViewModel model, string returnUrl)
+        public ActionResult Login(LoginViewModel model, string returnUrl)
         {
-            if (!ModelState.IsValid)
+            if (ModelState.IsValid && WebSecurity.Login(model.UserName, model.Password, persistCookie: model.RememberMe))
             {
-                return View(model);
+                UsuarioCEN usuCEN = new UsuarioCEN();
+                if (usuCEN.IniciarSesion(model.UserName, model.Password)!=null)
+                    return RedirectToLocal(returnUrl);
             }
 
-            // This doesn't count login failures towards account lockout
-            // To enable password failures to trigger account lockout, change to shouldLockout: true
-            var result = await SignInManager.PasswordSignInAsync(model.Email, model.Password, model.RememberMe, shouldLockout: false);
-            switch (result)
-            {
-                case SignInStatus.Success:
-                    return RedirectToLocal(returnUrl);
-                case SignInStatus.LockedOut:
-                    return View("Lockout");
-                case SignInStatus.RequiresVerification:
-                    return RedirectToAction("SendCode", new { ReturnUrl = returnUrl, RememberMe = model.RememberMe });
-                case SignInStatus.Failure:
-                default:
-                    ModelState.AddModelError("", "Invalid login attempt.");
-                    return View(model);
-            }
+            // Si llegamos a este punto, es que se ha producido un error y volvemos a mostrar el formulario
+            ModelState.AddModelError("", "El nombre de usuario o la contraseña especificados son incorrectos.");
+            return View(model);
         }
 
         //
