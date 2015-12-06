@@ -19,9 +19,8 @@ namespace MVCApp
                 defaults: new { controller = "AdminLte", action = "Index", id = UrlParameter.Optional }
             );
             routes.MapRoute(
-                name: "Colors",
+                name: "Account",
                 url: "{controller}/{action}/{id}"
-                
             );
         }
     }

@@ -247,6 +247,7 @@
                                 <a href="#" class="btn btn-default btn-flat">Sign out</a>
                             </div>
                         </li>
+                        @using System.Web.Mvc
                         @if (Request.IsAuthenticated)
                         {
                             <text>
@@ -257,10 +258,6 @@
                                     <a href="javascript:document.getElementById('logoutForm').submit()">Cerrar sesión</a>
                                 }
                             </text>
-                        }
-                        else
-                        {
-                            Response.Redirect("Account/Login");
                         }
 
                     </ul>

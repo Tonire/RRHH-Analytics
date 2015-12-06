@@ -126,7 +126,7 @@ public static void InitializeData ()
                 julio.Nombre = "Toni";
                 julio.Apellidos = "Rebollo";
                 empleadoCEN.New_ (julio.Email, julio.DNI, julio.Password, julio.Nombre, julio.Apellidos, DateTime.Now);
-                julio = usuarioCEN.IniciarSesion (julio.Email, "julioasdf");
+                julio = usuarioCEN.IniciarSesion (julio.Email, "sd");
                 //Empleado2
                 //Empleado 1
                 hector.Email = "hector@hotmail.com";

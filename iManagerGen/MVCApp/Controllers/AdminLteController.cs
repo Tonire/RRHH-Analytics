@@ -16,6 +16,7 @@ namespace AdminLteMvc.Controllers
         /// The home page of the AdminLTE demo dashboard, recreated in this new system
         /// </summary>
         /// <returns></returns>
+        [Authorize]
         public ActionResult Index()
         {
             return View();

@@ -10,7 +10,9 @@ using Microsoft.Web.WebPages.OAuth;
 using WebMatrix.WebData;
 using MVCApp.Filters;
 using MVCApp.Models;
-
+using IManagerGenNHibernate.CEN.IManager;
+using IManagerGenNHibernate.EN.IManager;
+using IManagerGenNHibernate.CAD.IManager;
 namespace MVCApp.Controllers
 {
     [Authorize]
@@ -37,6 +39,9 @@ namespace MVCApp.Controllers
         {
             if (ModelState.IsValid && WebSecurity.Login(model.UserName, model.Password, persistCookie: model.RememberMe))
             {
+                UsuarioCEN usuCEN = new UsuarioCEN();
+                if (usuCEN.IniciarSesion(model.UserName, model.Password)!=null)
+                    return RedirectToLocal(returnUrl);
                 return RedirectToLocal(returnUrl);
             }
 
