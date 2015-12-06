@@ -42,7 +42,6 @@ namespace MVCApp.Controllers
                 UsuarioCEN usuCEN = new UsuarioCEN();
                 if (usuCEN.IniciarSesion(model.UserName, model.Password)!=null)
                     return RedirectToLocal(returnUrl);
-                return RedirectToLocal(returnUrl);
             }
 
             // Si llegamos a este punto, es que se ha producido un error y volvemos a mostrar el formulario
