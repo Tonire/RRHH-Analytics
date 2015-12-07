@@ -40,7 +40,7 @@
         </div><!-- /.login-logo -->
         <div class="login-box-body">
             <p class="login-box-msg">Inicia sesión para acceder a tu cuenta.</p>
-            @using (Html.BeginForm(new { ReturnUrl = ViewBag.ReturnUrl }))
+            @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { role = "form", id = "userForm" }))
             {
                 @Html.AntiForgeryToken()
                 @Html.ValidationSummary(true, "", new { @class = "text-danger" })
@@ -92,6 +92,34 @@
                 increaseArea: '20%' // optional
             });
         });
+    </script>
+    <script>
+        // No client-side validation
+        
+        $(document).ready(function() {
+            $('.input-validation-error').parents('.form-group').addClass('has-error');
+            $('.field-validation-error').addClass('text-danger');
+        });
+
+        // Unobtrusive validation
+       /* $(document).ready(function () {
+            var form = $('#userForm')
+              , formData = $.data(form[0])
+              , settings = formData.validator.settings
+              , oldErrorPlacement = settings.errorPlacement
+              , oldSuccess = settings.success;
+
+            settings.errorPlacement = function (label, element) {
+                oldErrorPlacement(label, element);
+                label.parents('.form-group').addClass('has-error');
+                label.addClass('text-danger');
+            };
+
+            settings.success = function (label) {
+                label.parents('.form-group').removeClass('has-error');
+                oldSuccess(label);
+            };
+        });*/
     </script>
     @section Scripts {
         @Scripts.Render("~/bundles/jqueryval")
