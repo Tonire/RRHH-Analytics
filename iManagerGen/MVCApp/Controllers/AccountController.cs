@@ -45,7 +45,7 @@ namespace MVCApp.Controllers
                 {
                     switch (usuEN.GetType().Name)
                     {
-                        case "AdministradorEN":
+                        case "SuperAdministradorEN":
                             return RedirectToAction("Index", "Super");
                     }
                 }
