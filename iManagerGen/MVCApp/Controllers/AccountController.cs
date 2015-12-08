@@ -35,13 +35,20 @@ namespace MVCApp.Controllers
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
-        public ActionResult Login(LoginModel model, string returnUrl)
+        public ActionResult Login(LoginModel model)
         {
             if (ModelState.IsValid && WebSecurity.Login(model.UserName, model.Password, persistCookie: model.RememberMe))
             {
                 UsuarioCEN usuCEN = new UsuarioCEN();
-                if (usuCEN.IniciarSesion(model.UserName, model.Password)!=null)
-                    return RedirectToLocal(returnUrl);
+                UsuarioEN usuEN = usuCEN.IniciarSesion(model.UserName, model.Password); //Llamamos a la logica de negocio
+                if (usuEN!=null)    //Si se cumple quiere decir que se inicia sesion
+                {
+                    switch (usuEN.GetType().Name)
+                    {
+                        case "AdministradorEN":
+                            return RedirectToAction("Index", "Super");
+                    }
+                }
             }
 
             // Si llegamos a este punto, es que se ha producido un error y volvemos a mostrar el formulario
@@ -84,6 +91,7 @@ namespace MVCApp.Controllers
                 try
                 {
                     WebSecurity.CreateUserAndAccount(model.UserName, model.Password);
+                    Roles.AddUserToRole(model.UserName, "SuperAdministrador"); // user in role A 
                     WebSecurity.Login(model.UserName, model.Password);
                     return RedirectToAction("Index", "Home");
                 }

@@ -112,13 +112,13 @@ public static void InitializeData ()
                 UsuarioEN hector = new UsuarioEN ();
                 UsuarioEN adri = new UsuarioEN ();
                 //Administrador 1
-                toni.Email = "tonire@hotmail.com";
+                toni.Email = "toniyo@hotmail.com";
                 toni.DNI = "48730721h";
-                toni.Password = "tonireasdf";
+                toni.Password = "1234asdf";
                 toni.Nombre = "Toni";
                 toni.Apellidos = "Rebollo";
                 adminCEN.New_ (toni.Email, toni.DNI, toni.Password, toni.Nombre, toni.Apellidos, DateTime.Now);
-                toni = usuarioCEN.IniciarSesion (toni.Email, "tonireasdf");
+                toni = usuarioCEN.IniciarSesion (toni.Email, "1234asdf");
                 //Empleado 1
                 julio.Email = "julio17@hotmail.com";
                 julio.DNI = "48730721T";
@@ -126,7 +126,7 @@ public static void InitializeData ()
                 julio.Nombre = "Toni";
                 julio.Apellidos = "Rebollo";
                 empleadoCEN.New_ (julio.Email, julio.DNI, julio.Password, julio.Nombre, julio.Apellidos, DateTime.Now);
-                julio = usuarioCEN.IniciarSesion (julio.Email, "sd");
+                julio = usuarioCEN.IniciarSesion (julio.Email, "julioasdf");
                 //Empleado2
                 //Empleado 1
                 hector.Email = "hector@hotmail.com";
@@ -294,7 +294,7 @@ public static void InitializeData ()
                 horario.Anyo = 2015;
 
                 System.Collections.Generic.List<string> usuarios = new List<string>();
-                usuarios.Add ("tonire@hotmail.com");
+                usuarios.Add ("toniyo@hotmail.com");
                 usuarios.Add ("julio17@hotmail.com");
 
                 string horario_oid = horarioCP.CrearHorario (horario, usuarios, turnos, dias);

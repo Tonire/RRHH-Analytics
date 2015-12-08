@@ -1,0 +1,119 @@
+﻿@model MVCApp.Models.InstalacionModel
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <script src="~/Scripts/jquery-1.8.2.min.js"></script>
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+    
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true)
+    
+        <fieldset>
+            <legend>AparienciaEN</legend>
+    
+            <div class="editor-label">
+                @Html.LabelFor(model => model.SiteName)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.SiteName)
+                @Html.ValidationMessageFor(model => model.SiteName)
+            </div>
+    
+            <div class="editor-label">
+                @Html.LabelFor(model => model.UserName)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.UserName)
+                @Html.ValidationMessageFor(model => model.UserName)
+            </div>
+    
+            <div class="editor-label">
+                @Html.LabelFor(model => model.UserLastName)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.UserLastName)
+                @Html.ValidationMessageFor(model => model.UserLastName)
+            </div>
+
+            <div class="editor-label">
+                @Html.LabelFor(model => model.DNI)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.DNI)
+                @Html.ValidationMessageFor(model => model.DNI)
+            </div>
+
+            <div class="editor-label">
+                @Html.LabelFor(model => model.UserEmail)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.UserEmail)
+                @Html.ValidationMessageFor(model => model.UserEmail)
+            </div>
+            <div class="editor-label">
+                @Html.LabelFor(model => model.SiteLogo)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.SiteLogo)
+                @Html.ValidationMessageFor(model => model.SiteLogo)
+            </div>
+            <div class="editor-label">
+                @Html.LabelFor(model => model.SuperColor)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.SuperColor)
+                @Html.ValidationMessageFor(model => model.SuperColor)
+            </div>
+            <div class="editor-label">
+                @Html.LabelFor(model => model.AdminColor)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.AdminColor)
+                @Html.ValidationMessageFor(model => model.AdminColor)
+            </div>
+            <div class="editor-label">
+                @Html.LabelFor(model => model.EmplColor)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.EmplColor)
+                @Html.ValidationMessageFor(model => model.EmplColor)
+            </div>
+            <div class="editor-label">
+                @Html.LabelFor(model => model.Password)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.Password)
+                @Html.ValidationMessageFor(model => model.Password)
+            </div>
+            <div class="editor-label">
+                @Html.LabelFor(model => model.ConfirmPassword)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.ConfirmPassword)
+                @Html.ValidationMessageFor(model => model.ConfirmPassword)
+            </div>
+
+    
+            <p>
+                <input type="submit" value="Create" />
+            </p>
+        </fieldset>
+    }
+    
+    <div>
+        @Html.ActionLink("Back to List", "Index")
+    </div>
+</body>
+</html>

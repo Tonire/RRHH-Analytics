@@ -12,13 +12,23 @@
 					<property name="Logo" type="string"> 
 						<column name="logo"  not-null="true"/>
 					</property>
-					<property name="Css" type="string"> 
-						<column name="css"  not-null="true"/>
+					<property name="SuperAdmin" type="string"> 
+						<column name="superAdmin"  not-null="true"/>
+					</property>
+					<property name="Admin" type="string"> 
+						<column name="admin"  not-null="true"/>
+					</property>
+					<property name="Empleado" type="string"> 
+						<column name="empleado"  not-null="true"/>
 					</property>
 			
 			
 			
 			
+			
+			
+					
+					
 					
 					
 					

@@ -36,7 +36,7 @@ public IAparienciaCAD get_IAparienciaCAD ()
         return this._IAparienciaCAD;
 }
 
-public string CrearApariencia (string p_nombre, string p_logo, string p_css)
+public string CrearApariencia (string p_nombre, string p_logo, string p_superAdmin, string p_admin, string p_empleado)
 {
         AparienciaEN aparienciaEN = null;
         string oid;
@@ -47,7 +47,11 @@ public string CrearApariencia (string p_nombre, string p_logo, string p_css)
 
         aparienciaEN.Logo = p_logo;
 
-        aparienciaEN.Css = p_css;
+        aparienciaEN.SuperAdmin = p_superAdmin;
+
+        aparienciaEN.Admin = p_admin;
+
+        aparienciaEN.Empleado = p_empleado;
 
         //Call to AparienciaCAD
 
@@ -62,7 +66,7 @@ public System.Collections.Generic.IList<AparienciaEN> GetApariencia (int first, 
         list = _IAparienciaCAD.GetApariencia (first, size);
         return list;
 }
-public void Modify (string p_Apariencia_OID, string p_logo, string p_css)
+public void Modify (string p_Apariencia_OID, string p_logo, string p_superAdmin, string p_admin, string p_empleado)
 {
         AparienciaEN aparienciaEN = null;
 
@@ -70,7 +74,9 @@ public void Modify (string p_Apariencia_OID, string p_logo, string p_css)
         aparienciaEN = new AparienciaEN ();
         aparienciaEN.Nombre = p_Apariencia_OID;
         aparienciaEN.Logo = p_logo;
-        aparienciaEN.Css = p_css;
+        aparienciaEN.SuperAdmin = p_superAdmin;
+        aparienciaEN.Admin = p_admin;
+        aparienciaEN.Empleado = p_empleado;
         //Call to AparienciaCAD
 
         _IAparienciaCAD.Modify (aparienciaEN);

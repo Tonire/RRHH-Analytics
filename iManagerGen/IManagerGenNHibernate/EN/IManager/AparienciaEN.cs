@@ -20,9 +20,23 @@ private string logo;
 
 
 /**
- *	Atributo css
+ *	Atributo superAdmin
  */
-private string css;
+private string superAdmin;
+
+
+
+/**
+ *	Atributo admin
+ */
+private string admin;
+
+
+
+/**
+ *	Atributo empleado
+ */
+private string empleado;
 
 
 
@@ -41,8 +55,20 @@ public virtual string Logo {
 
 
 
-public virtual string Css {
-        get { return css; } set { css = value;  }
+public virtual string SuperAdmin {
+        get { return superAdmin; } set { superAdmin = value;  }
+}
+
+
+
+public virtual string Admin {
+        get { return admin; } set { admin = value;  }
+}
+
+
+
+public virtual string Empleado {
+        get { return empleado; } set { empleado = value;  }
 }
 
 
@@ -55,26 +81,30 @@ public AparienciaEN()
 
 
 
-public AparienciaEN(string nombre, string logo, string css
+public AparienciaEN(string nombre, string logo, string superAdmin, string admin, string empleado
                     )
 {
-        this.init (Nombre, logo, css);
+        this.init (Nombre, logo, superAdmin, admin, empleado);
 }
 
 
 public AparienciaEN(AparienciaEN apariencia)
 {
-        this.init (Nombre, apariencia.Logo, apariencia.Css);
+        this.init (Nombre, apariencia.Logo, apariencia.SuperAdmin, apariencia.Admin, apariencia.Empleado);
 }
 
-private void init (string nombre, string logo, string css)
+private void init (string nombre, string logo, string superAdmin, string admin, string empleado)
 {
         this.Nombre = nombre;
 
 
         this.Logo = logo;
 
-        this.Css = css;
+        this.SuperAdmin = superAdmin;
+
+        this.Admin = admin;
+
+        this.Empleado = empleado;
 }
 
 public override bool Equals (object obj)

@@ -146,7 +146,13 @@ public void Modify (AparienciaEN apariencia)
                 aparienciaEN.Logo = apariencia.Logo;
 
 
-                aparienciaEN.Css = apariencia.Css;
+                aparienciaEN.SuperAdmin = apariencia.SuperAdmin;
+
+
+                aparienciaEN.Admin = apariencia.Admin;
+
+
+                aparienciaEN.Empleado = apariencia.Empleado;
 
                 session.Update (aparienciaEN);
                 SessionCommit ();
