@@ -36,7 +36,7 @@
 <body class="hold-transition login-page">
     <div class="login-box">
         <div class="login-logo">
-            <a href="@Url.Action("Index", "AdminLte")"><b>Admin</b>LTE</a>
+            <a href="@Url.Action("Login", "Account")"><b>Shop </b>ANALYTICS</a>
         </div><!-- /.login-logo -->
         <div class="login-box-body">
             <p class="login-box-msg">Inicia sesión para acceder a tu cuenta.</p>
@@ -76,7 +76,6 @@
             </div><!-- /.social-auth-links -->
             @Html.ActionLink("¿Olvidaste la contraseña?", "ForgotPassword")<br>
             <!--<a href="register.html" class="text-center">Register a new membership</a>-->
-            @Html.ActionLink("Register as a new user", "Register", null, new { @class = "text-center" })
 
         </div><!-- /.login-box-body -->
     </div><!-- /.login-box -->
@@ -100,26 +99,6 @@
             $('.input-validation-error').parents('.form-group').addClass('has-error');
             $('.field-validation-error').addClass('text-danger');
         });
-
-        // Unobtrusive validation
-       /* $(document).ready(function () {
-            var form = $('#userForm')
-              , formData = $.data(form[0])
-              , settings = formData.validator.settings
-              , oldErrorPlacement = settings.errorPlacement
-              , oldSuccess = settings.success;
-
-            settings.errorPlacement = function (label, element) {
-                oldErrorPlacement(label, element);
-                label.parents('.form-group').addClass('has-error');
-                label.addClass('text-danger');
-            };
-
-            settings.success = function (label) {
-                label.parents('.form-group').removeClass('has-error');
-                oldSuccess(label);
-            };
-        });*/
     </script>
     @section Scripts {
         @Scripts.Render("~/bundles/jqueryval")

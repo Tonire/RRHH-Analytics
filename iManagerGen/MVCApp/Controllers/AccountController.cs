@@ -26,6 +26,18 @@ namespace MVCApp.Controllers
         public ActionResult Login(string returnUrl)
         {
             ViewBag.ReturnUrl = returnUrl;
+             if (Request.IsAuthenticated)
+            {
+                if (User.IsInRole("SuperAdministrador")) {
+                    return RedirectToAction("Index", "Super");
+                }
+                if (User.IsInRole("Administrador")) {
+                    return RedirectToAction("Index", "Admin");
+                }
+                if (User.IsInRole("Empleado")) {
+                    return RedirectToAction("Index", "Empleado");
+                }
+            }
             return View();
         }
 
@@ -47,6 +59,10 @@ namespace MVCApp.Controllers
                     {
                         case "SuperAdministradorEN":
                             return RedirectToAction("Index", "Super");
+                        case "AdministradorEN":
+                            return RedirectToAction("Index","Admin");
+                        case "EmpleadoEN":
+                            return RedirectToAction("Index", "Empleado");
                     }
                 }
             }
@@ -65,7 +81,7 @@ namespace MVCApp.Controllers
         {
             WebSecurity.Logout();
 
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("Login", "Account");
         }
 
         //

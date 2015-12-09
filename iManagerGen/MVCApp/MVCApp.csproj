@@ -216,11 +216,10 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
-    <Compile Include="Controllers\AdminLteController.cs" />
     <Compile Include="Controllers\BasicController.cs" />
-    <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\InstalacionController.cs" />
-    <Compile Include="Controllers\SuperController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\UsuariosController.cs" />
     <Compile Include="Filters\InitializeSimpleMembershipAttribute.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -894,21 +893,22 @@
     <Content Include="Views\Account\Register.cshtml" />
     <Content Include="Views\Account\ExternalLoginFailure.cshtml" />
     <Content Include="Views\Account\ExternalLoginConfirmation.cshtml" />
-    <Content Include="Views\Home\About.cshtml" />
-    <Content Include="Views\Home\Contact.cshtml" />
-    <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
-    <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Web.config" />
-    <Content Include="Views\AdminLte\Colors.cshtml" />
-    <Content Include="Views\AdminLte\Index.cshtml" />
     <Content Include="Views\Shared\_AdminLteBreadcrumb.cshtml" />
-    <Content Include="Views\Shared\_AdminLteLayout.cshtml" />
-    <Content Include="Views\Shared\_AdminLteLeftMenu.cshtml" />
-    <Content Include="Views\Shared\_AdminLteTopMenu.cshtml" />
-    <Content Include="Views\Super\Index.cshtml" />
+    <Content Include="Views\Shared\_SuperLayout.cshtml" />
+    <Content Include="Views\Shared\_SuperLeftMenu.cshtml" />
+    <Content Include="Views\Shared\_SuperTopMenu.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Instalacion\Index.cshtml" />
+    <Content Include="Views\Shared\_EmpleadoLayout.cshtml" />
+    <Content Include="Views\Shared\_EmpleadoLeftMenu.cshtml" />
+    <Content Include="Views\Shared\_EmpleadoTopMenu.cshtml" />
+    <Content Include="Views\Shared\_AdminLayout.cshtml" />
+    <Content Include="Views\Shared\_AdminTopMenu.cshtml" />
+    <Content Include="Views\Shared\_AdminLeftMenu.cshtml" />
+    <Content Include="Views\Usuarios\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
