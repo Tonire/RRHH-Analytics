@@ -25,7 +25,7 @@ namespace MVCApp.Controllers
         [AllowAnonymous]
         public ActionResult Index()
         {
-            if(TempData["Instalacion"]==null){
+            if (HttpContext.Application["Instalacion"] == null) {
                 return RedirectToAction("Index", "Super");
             }
             return View();
@@ -56,6 +56,8 @@ namespace MVCApp.Controllers
                     superCEN.New_(model.UserEmail,model.DNI,model.Password,model.UserName,model.UserLastName,DateTime.Now);
 
                     WebSecurity.Login(model.UserEmail, model.Password);
+                    HttpContext.Application["Instalacion"] = true;
+                    
                     return RedirectToAction("Index", "Super");
                 }
                 catch (MembershipCreateUserException e)

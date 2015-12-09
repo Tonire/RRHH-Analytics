@@ -20,7 +20,7 @@ namespace MVCApp.Controllers
             AparienciaCEN apariencia = new AparienciaCEN();
             if (!apariencia.GetApariencia(0, 3).Any()) //Si se cumple es que aun no hemos insertado nada en apariencia
             {
-                TempData["Instalacion"] = true;
+                
                 return RedirectToAction("Index", "Instalacion");
             }
             if (!User.IsInRole("SuperAdministrador"))
