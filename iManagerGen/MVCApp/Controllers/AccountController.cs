@@ -28,15 +28,8 @@ namespace MVCApp.Controllers
             ViewBag.ReturnUrl = returnUrl;
              if (Request.IsAuthenticated)
             {
-                if (User.IsInRole("SuperAdministrador")) {
-                    return RedirectToAction("Index", "Super");
-                }
-                if (User.IsInRole("Administrador")) {
-                    return RedirectToAction("Index", "Admin");
-                }
-                if (User.IsInRole("Empleado")) {
-                    return RedirectToAction("Index", "Empleado");
-                }
+                    return RedirectToAction("Index", "Home");
+
             }
 
             return View();

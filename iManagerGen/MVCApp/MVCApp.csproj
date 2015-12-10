@@ -348,6 +348,9 @@
     <Content Include="Scripts\AdminLTE\plugins\ckeditor\plugins\wsc\README.md" />
     <Content Include="Scripts\AdminLTE\plugins\ckeditor\README.md" />
     <Content Include="Scripts\AdminLTE\plugins\ckeditor\skins\moono\readme.md" />
+    <Content Include="Scripts\AdminLTE\plugins\datatables\dataTables.responsive.css" />
+    <Content Include="Scripts\AdminLTE\plugins\datatables\dataTables.responsive.js" />
+    <Content Include="Scripts\AdminLTE\plugins\datatables\dataTables.responsive.min.js" />
     <Content Include="Scripts\AdminLTE\plugins\input-mask\phone-codes\phone-be.json" />
     <Content Include="Scripts\AdminLTE\plugins\input-mask\phone-codes\phone-codes.json" />
     <Content Include="Scripts\AdminLTE\app.js" />

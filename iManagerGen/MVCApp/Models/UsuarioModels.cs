@@ -8,6 +8,8 @@ namespace MVCApp.Models {
     public class UsuarioModels {
 
         [Display(Prompt = "Rol", Description = "Rol del usuario", Name = "Rol")]
+        [Required(ErrorMessage = "Debe un rol para el usuario")]
+        [Range(minimum: 0, maximum: 2, ErrorMessage = "Debes introducir un Rol válido.")]
         public string Rol { get; set; }
 
         [Display(Prompt = "Email", Description = "Email del usuario", Name = "Email")]

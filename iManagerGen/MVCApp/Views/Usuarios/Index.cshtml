@@ -12,6 +12,20 @@
         new Crumb("Control de usuarios", "", "fa-dashboard")
     });
 }
+        @{
+            if (ViewData["Creado"]!=null) { 
+                <text>
+                <div class="row">
+                    <div class="alert alert-success alert-dismissible">
+                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                        <h4><i class="icon fa fa-check"></i> Usuario Creado!</h4>
+                        El usuario ha sido creado correctamente.
+                    </div>
+                </div>
+                    
+                </text>
+            }
+        }
         <div class="row">
             <div class="col-xs-12">
                 <div class="box">
@@ -20,8 +34,7 @@
                     </div>
                     <!-- /.box-header -->
                     <div class="box-body">
-                    <div class="table-responsive">
-                        <table id="example2" class="table table-bordered table-hover table-condensed">
+                        <table id="example2" class="table table-bordered table-hover table-striped dataTable">
                             <thead>
                                 <tr>
                                     <th>Rol</th>
@@ -68,7 +81,6 @@
                                 </tr>
                             </tfoot>
                         </table>
-                    </div>
                         
                     </div><!-- /.box-body -->
                 </div><!-- /.box -->
@@ -80,25 +92,26 @@
     <!-- DataTables -->
     <script src="~/Scripts/AdminLTE/plugins/datatables/jquery.dataTables.js"></script>
     <script src="~/Scripts/AdminLTE/plugins/datatables/dataTables.bootstrap.js"></script>
+
     <!-- SlimScroll -->
     <script src="~/Scripts/AdminLTE/plugins/slimScroll/jquery.slimscroll.min.js"></script>
     <script src="~/Scripts/AdminLTE/demo.js"></script>
        @Scripts.Render("~/bundles/jqueryval")
     <!-- page script -->
     <script>
-        $(function () {
             $('#example2').DataTable({
-                "paging": true,
-                "lengthChange": true,
-                "searching": true,
-                "ordering": true,
-                "info": true,
-                "autoWidth": true
+                paging: true,
+                lengthChange: true,
+                searching: true,
+                ordering: true,
+                info: true,
+                responsive: true,
+                autoWidth: false
             });
-        });
     </script>
 }
 @section especificos{
     <!-- DataTables -->
     <link rel="stylesheet" href="~/Scripts/AdminLTE/plugins/datatables/dataTables.bootstrap.css">
+
 }

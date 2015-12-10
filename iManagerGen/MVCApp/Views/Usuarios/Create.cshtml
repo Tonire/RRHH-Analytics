@@ -17,50 +17,66 @@
         <div class="box">
             <!-- /.box-header -->
             <div class="box-body">
-                @using (Html.BeginForm("Usuarios", "Create", FormMethod.Post, new { role = "form", id = "userForm" })) {
+                @using (Html.BeginForm("Create", "Usuarios", FormMethod.Post, new { role = "form", id = "userForm" })) {
                     @Html.AntiForgeryToken()
                     @Html.ValidationSummary(true, "", new { @class = "text-danger" })
                     <div class="box-body">
                         <div class="form-group">
+                            @Html.LabelFor(model => model.Rol)
+                            @{
+                                List<SelectListItem> listItems = new List<SelectListItem>();
+                                listItems.Add(new SelectListItem {
+                                    Text = "Super Administrador",
+                                    Value = "0",
+                                    Selected = true
+                                });
+                                listItems.Add(new SelectListItem {
+                                    Text = "Administrador",
+                                    Value = "1"
+                                });
+                                listItems.Add(new SelectListItem {
+                                    Text = "Empleado",
+                                    Value = "2"
+                                });
+                            }
+                            @Html.DropDownListFor(model => model.Rol, listItems, new {@class="form-control"})
+                            @Html.ValidationMessageFor(model => model.Rol, "", new { @class = "text-danger" })
+                        </div>
+                        <div class="form-group">
                             @Html.LabelFor(model => model.Email)
                             @Html.TextBoxFor(model => model.Email, new { @class = "form-control", @placeholder = "Introduce el email" })
-                            @Html.ValidationMessageFor(model => model.Email)
+                            @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
                         </div>
                         <div class="form-group">
                             @Html.LabelFor(model => model.DNI)
                             @Html.TextBoxFor(model => model.DNI, new { @class = "form-control", @placeholder = "Introduce el DNI" })
-                            @Html.ValidationMessageFor(model => model.DNI)
+                            @Html.ValidationMessageFor(model => model.DNI, "", new { @class = "text-danger" })
                         </div>
                         <div class="form-group">
                             @Html.LabelFor(model => model.Nombre)
                             @Html.TextBoxFor(model => model.Nombre, new { @class = "form-control", @placeholder = "Introduce el Nombre" })
-                            @Html.ValidationMessageFor(model => model.Nombre)
+                            @Html.ValidationMessageFor(model => model.Nombre, "", new { @class = "text-danger" })
                         </div>
                         <div class="form-group">
                             @Html.LabelFor(model => model.Apellidos)
                             @Html.TextBoxFor(model => model.Apellidos, new { @class = "form-control", @placeholder = "Introduce los apellidos" })
-                            @Html.ValidationMessageFor(model => model.Apellidos)
+                            @Html.ValidationMessageFor(model => model.Apellidos, "", new { @class = "text-danger" })
                         </div>
                         <div class="form-group">
                             @Html.LabelFor(m => m.Password)
-                            @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
-                            @Html.ValidationMessageFor(model => model.Password)
+                            @Html.PasswordFor(m => m.Password, new { @class = "form-control", @placeholder = "Introduce la contraseña" })
+                            @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
                         </div>
                         <div class="form-group">
                             @Html.LabelFor(m => m.ConfirmPassword)
-                            @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control" })
-                            @Html.ValidationMessageFor(model => model.ConfirmPassword)
-                        </div>
-                        <div class="checkbox">
-                            <label>
-                                <input type="checkbox"> Check me out
-                            </label>
+                            @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control", @placeholder = "Repite la contraseña" })
+                            @Html.ValidationMessageFor(model => model.ConfirmPassword, "", new { @class = "text-danger" })
                         </div>
                     </div>
                             <!-- /.box-body -->
 
                     <div class="box-footer">
-                        <button type="submit" class="btn btn-primary">Submit</button>
+                        <button type="submit" class="btn btn-primary">Crear Usuario</button>
                     </div>
                 }
             </div>
@@ -69,5 +85,34 @@
     </div>
 </div>
 @section scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    <script>
+        $(document).ready(function () {
+            var form = $('#userForm')
+                , formData = $.data(form[0])
+                , settings = formData.validator.settings
+                // Store existing event handlers in local variables
+                , oldErrorPlacement = settings.errorPlacement
+                , oldSuccess = settings.success;
 
+            settings.errorPlacement = function (label, element) {
+
+                // Call old handler so it can update the HTML
+                oldErrorPlacement(label, element);
+
+                // Add Bootstrap classes to newly added elements
+                label.parents('.form-group').addClass('has-error');
+                label.addClass('text-danger');
+            };
+
+            settings.success = function (label) {
+                // Remove error class from <div class="form-group">, but don't worry about
+                // validation error messages as the plugin is going to remove it anyway
+                label.parents('.form-group').removeClass('has-error');
+
+                // Call old handler to do rest of the work
+                oldSuccess(label);
+            };
+        });
+    </script>
 }
