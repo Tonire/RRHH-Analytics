@@ -20,7 +20,8 @@
                     </div>
                     <!-- /.box-header -->
                     <div class="box-body">
-                        <table id="example2" class="table table-bordered table-hover">
+                    <div class="table-responsive">
+                        <table id="example2" class="table table-bordered table-hover table-condensed">
                             <thead>
                                 <tr>
                                     <th>Rol</th>
@@ -32,7 +33,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                    @foreach (var item in Model) {
+                                @foreach (var item in Model) {
                                     <tr>
                                         <td>
                                             @Html.DisplayFor(modelItem => item.Rol)
@@ -54,7 +55,7 @@
                                             <a href="@Url.Action("Delete", new { /* id=item.PrimaryKey */ })" class="fa fa-remove"></a>
                                         </td>
                                     </tr>
-                                    }
+                                }
                             </tbody>
                             <tfoot>
                                 <tr>
@@ -67,6 +68,8 @@
                                 </tr>
                             </tfoot>
                         </table>
+                    </div>
+                        
                     </div><!-- /.box-body -->
                 </div><!-- /.box -->
             </div><!-- /.col -->
