@@ -6,7 +6,7 @@ using System.Web.Http;
 using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
-
+using MVCApp.App_Start;
 namespace MVCApp
 {
     // Nota: para obtener instrucciones sobre cómo habilitar el modo clásico de IIS6 o IIS7, 
@@ -23,6 +23,7 @@ namespace MVCApp
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
             AuthConfig.RegisterAuth();
+            CargarColores.cargarColores();
         }
     }
 }

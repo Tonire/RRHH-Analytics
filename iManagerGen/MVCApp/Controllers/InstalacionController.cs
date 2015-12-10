@@ -50,7 +50,9 @@ namespace MVCApp.Controllers
                     /*Creamos la apariencia*/
                     AparienciaCEN aparienciaCEN = new AparienciaCEN();
                     aparienciaCEN.CrearApariencia(model.SiteName,model.SiteLogo,model.SuperColor,model.AdminColor,model.EmplColor);
-
+                    HttpContext.Application["colorSuper"] = model.SuperColor;
+                    HttpContext.Application["colorAdmin"] = model.AdminColor;
+                    HttpContext.Application["colorEmpleado"] = model.EmplColor;
                     /*Creamos el usuario*/
                     SuperAdministradorCEN superCEN = new SuperAdministradorCEN();
                     superCEN.New_(model.UserEmail,model.DNI,model.Password,model.UserName,model.UserLastName,DateTime.Now);
