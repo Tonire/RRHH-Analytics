@@ -6,18 +6,22 @@ using System.Web.Mvc;
 using IManagerGenNHibernate.CEN.IManager;
 using IManagerGenNHibernate.EN.IManager;
 using IManagerGenNHibernate.CAD.IManager;
+using MVCApp.Models;
 namespace MVCApp.Controllers
 {
-    public class UsuariosController : Controller
+    public class UsuariosController : BasicController
     {
         //
         // GET: /Usuarios/
 
         public ActionResult Index()
         {
+
             UsuarioCEN cen = new UsuarioCEN();
-            IEnumerable<UsuarioEN> list = cen.DameTodos(0, -1).ToList();
-            return View(list);
+            IList<UsuarioEN> list = cen.DameTodos(0, -1).ToList();
+            IEnumerable<UsuarioModels> listUsu = new AssemblerUsuarios().ConvertListENToModel(list).ToList();
+            
+            return View(listUsu);
         }
 
         //

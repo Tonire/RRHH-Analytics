@@ -8,7 +8,7 @@ using NHibernate;
 using IManagerGenNHibernate.Exceptions;
 using IManagerGenNHibernate.CAD.IManager;
 
-namespace MvcApplication1.Controllers
+namespace MVCApp.Controllers
 {
     public class BasicController : Controller
     {

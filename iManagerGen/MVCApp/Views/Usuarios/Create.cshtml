@@ -1,0 +1,73 @@
+﻿@model MVCApp.Models.UsuarioModels
+@{
+    if (User.IsInRole("SuperAdministrador")) {
+        Layout = "~/Views/Shared/_SuperLayout.cshtml";
+    }
+    if (User.IsInRole("Administrador")) {
+        Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    }
+    ViewBag.Title = "Crear Usuario";
+
+    ViewBag.Breadcrumb = new Breadcrumb(new Crumb[] {
+        new Crumb("Control de usuarios", "", "fa-dashboard")
+    });
+}
+<div class="row">
+    <div class="col-xs-12">
+        <div class="box">
+            <!-- /.box-header -->
+            <div class="box-body">
+                @using (Html.BeginForm("Usuarios", "Create", FormMethod.Post, new { role = "form", id = "userForm" })) {
+                    @Html.AntiForgeryToken()
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                    <div class="box-body">
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.Email)
+                            @Html.TextBoxFor(model => model.Email, new { @class = "form-control", @placeholder = "Introduce el email" })
+                            @Html.ValidationMessageFor(model => model.Email)
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.DNI)
+                            @Html.TextBoxFor(model => model.DNI, new { @class = "form-control", @placeholder = "Introduce el DNI" })
+                            @Html.ValidationMessageFor(model => model.DNI)
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.Nombre)
+                            @Html.TextBoxFor(model => model.Nombre, new { @class = "form-control", @placeholder = "Introduce el Nombre" })
+                            @Html.ValidationMessageFor(model => model.Nombre)
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.Apellidos)
+                            @Html.TextBoxFor(model => model.Apellidos, new { @class = "form-control", @placeholder = "Introduce los apellidos" })
+                            @Html.ValidationMessageFor(model => model.Apellidos)
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(m => m.Password)
+                            @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.Password)
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(m => m.ConfirmPassword)
+                            @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.ConfirmPassword)
+                        </div>
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox"> Check me out
+                            </label>
+                        </div>
+                    </div>
+                            <!-- /.box-body -->
+
+                    <div class="box-footer">
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </div>
+                }
+            </div>
+            <!-- /.box-body -->
+        </div>
+    </div>
+</div>
+@section scripts {
+
+}

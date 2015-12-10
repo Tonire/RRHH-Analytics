@@ -38,6 +38,7 @@ namespace MVCApp.Controllers
                     return RedirectToAction("Index", "Empleado");
                 }
             }
+
             return View();
         }
 
@@ -55,15 +56,23 @@ namespace MVCApp.Controllers
                 UsuarioEN usuEN = usuCEN.IniciarSesion(model.UserName, model.Password); //Llamamos a la logica de negocio
                 if (usuEN!=null)    //Si se cumple quiere decir que se inicia sesion
                 {
+                    
                     switch (usuEN.GetType().Name)
                     {
                         case "SuperAdministradorEN":
-                            return RedirectToAction("Index", "Super");
+                            System.Web.HttpContext.Current.Session["NombreUsuario"] = usuEN.Nombre + " " + usuEN.Apellidos;
+                            System.Web.HttpContext.Current.Session["Rol"] = "Super Administrador";
+                            return RedirectToAction("Index", "Home");
                         case "AdministradorEN":
-                            return RedirectToAction("Index","Admin");
+                            System.Web.HttpContext.Current.Session["NombreUsuario"] = usuEN.Nombre + " " + usuEN.Apellidos;
+                            System.Web.HttpContext.Current.Session["Rol"] = "Administrador";
+                            return RedirectToAction("Index","Home");
                         case "EmpleadoEN":
-                            return RedirectToAction("Index", "Empleado");
+                            System.Web.HttpContext.Current.Session["NombreUsuario"] = usuEN.Nombre + " " + usuEN.Apellidos;
+                            System.Web.HttpContext.Current.Session["Rol"] = "Empleado";
+                            return RedirectToAction("Index", "Home");
                     }
+
                 }
             }
 

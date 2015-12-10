@@ -18,7 +18,7 @@
                 <img src="/Content/AdminLTE/img/user2-160x160.jpg" class="img-circle" alt="User Image" />
             </div>
             <div class="pull-left info">
-                <p>@ViewData["NombreUsuario"]</p>
+                <p>@System.Web.HttpContext.Current.Session["NombreUsuario"]</p>
                 <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
             </div>
         </div>
@@ -36,22 +36,28 @@
         <ul class="sidebar-menu">
             <li class="header">MENÚ DE NAVEGACIÓN</li>
             <li>
-                <a href="@Url.Action("Index", "Home")}">
+                <a href="@Url.Action("Index", "Home")">
                     <i class="fa fa-dashboard"></i> <span>Tabla resúmen</span> 
                 </a>
             </li>
             <li>
-                <a href="@Url.Action("Index", "Home")}">
+                <a href="@Url.Action("Index", "Home")">
                     <i class="fa fa-envelope"></i> <span>Mensajería</span> <small class="label pull-right bg-yellow">@ViewData["Emails"]</small>
                 </a>
             </li>
-            <li>
-                <a href="@Url.Action("Index", "Usuarios")">
-                    <i class="fa fa-users"></i> <span>Control de usuarios</span>
+            <li class="treeview">
+                <a href="#">
+                    <i class="fa fa-users"></i>
+                    <span>Control de usuarios</span>
+                    <i class="fa fa-angle-left pull-right"></i>
                 </a>
+                <ul class="treeview-menu">
+                    <li><a href="@Url.Action("Index", "Usuarios")"><i class="fa fa-circle-o"></i> Ver usuarios</a></li>
+                    <li><a href="@Url.Action("Create", "Usuarios")"><i class="fa fa-circle-o"></i> Crear Usuarios</a></li>
+                </ul>
             </li>
             <li>
-                <a href="@Url.Action("Index", "Home")}">
+                <a href="@Url.Action("Index", "Home")">
                     <i class="fa fa-users"></i> <span>Proveedores</span>
                 </a>
             </li>

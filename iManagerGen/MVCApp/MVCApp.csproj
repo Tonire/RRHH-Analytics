@@ -225,7 +225,9 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountModels.cs" />
+    <Compile Include="Models\AssemblerUsuarios.cs" />
     <Compile Include="Models\InstalacionModels.cs" />
+    <Compile Include="Models\UsuarioModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -899,16 +901,15 @@
     <Content Include="Views\Shared\_AdminLteBreadcrumb.cshtml" />
     <Content Include="Views\Shared\_SuperLayout.cshtml" />
     <Content Include="Views\Shared\_SuperLeftMenu.cshtml" />
-    <Content Include="Views\Shared\_SuperTopMenu.cshtml" />
+    <Content Include="Views\Shared\_TopMenu.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Instalacion\Index.cshtml" />
     <Content Include="Views\Shared\_EmpleadoLayout.cshtml" />
     <Content Include="Views\Shared\_EmpleadoLeftMenu.cshtml" />
-    <Content Include="Views\Shared\_EmpleadoTopMenu.cshtml" />
     <Content Include="Views\Shared\_AdminLayout.cshtml" />
-    <Content Include="Views\Shared\_AdminTopMenu.cshtml" />
     <Content Include="Views\Shared\_AdminLeftMenu.cshtml" />
     <Content Include="Views\Usuarios\Index.cshtml" />
+    <Content Include="Views\Usuarios\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
