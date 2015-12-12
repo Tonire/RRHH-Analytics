@@ -8,112 +8,114 @@
 
 <html>
 <head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Index</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>AdminLTE 2 | Blank Page</title>
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <!-- Bootstrap 3.3.5 -->
+    <link rel="stylesheet" href="../../Content/bootstrap.min.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <!-- Ionicons -->
+    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <!-- Theme style -->
+    <link rel="stylesheet" href="../../Content/AdminLTE/AdminLTE.min.css">
+    <!-- AdminLTE Skins. Choose a skin from the css/skins
+         folder instead of downloading all of them to reduce the load. -->
+    <link rel="stylesheet" href="../../Content/AdminLTE/skins/_all-skins.min.css">
+    <link rel="stylesheet" href="../../Scripts/AdminLTE/plugins/iCheck/square/blue.css">
 </head>
-<body>
-    <script src="~/Scripts/jquery-1.8.2.min.js"></script>
+<body class="hold-transition register-page">
+    <div class="register-box">
+        @using (Html.BeginForm("", "Instalacion", FormMethod.Post))
+        {
+            @Html.AntiForgeryToken()
+            @Html.ValidationSummary(true)
+
+
+
+            <div class="register-logo">
+                <b>Admin</b>LTE
+            </div>
+            <div class="register-box-body">
+
+                <div class="form-group has-feedback">
+                    @Html.TextBoxFor(model => model.SiteName,null, new { @class = "form-control", placeholder="Nombre del sitio"})
+                    @Html.ValidationMessageFor(model => model.SiteName, null, new { @class = "glyphicon glyphicon-home form-control-feedback" })
+                </div>
+
+                <div class="form-group has-feedback">
+                    @Html.TextBoxFor(model => model.UserName, null, new { @class = "form-control", placeholder = "Nombre del Super-Usuario" })
+                    @Html.ValidationMessageFor(model => model.UserName, null, new { @class = "glyphicon glyphicon-chevron-left form-control-feedback" })
+                </div>
+
+                <div class="form-group has-feedback">
+
+                    @Html.TextBoxFor(model => model.UserLastName, null, new { @class = "form-control", placeholder = "Apellido del Super-Usuario" })
+                    @Html.ValidationMessageFor(model => model.UserLastName, null, new { @class = "glyphicon glyphicon-chevron-left form-control-feedback" })
+                </div>
+
+                <div class="form-group has-feedback">
+                    @Html.TextBoxFor(model => model.DNI, null, new { @class = "form-control", placeholder = "DNI" })
+                    @Html.ValidationMessageFor(model => model.DNI, null, new { @class = "glyphicon glyphicon-chevron-left form-control-feedback" })
+                </div>
+
+                <div class="form-group has-feedback">
+                    @Html.TextBoxFor(model => model.UserEmail, null, new { @class = "form-control", placeholder = "Email del Super-Usuario" })
+                    @Html.ValidationMessageFor(model => model.UserEmail, null, new { @class = "glyphicon glyphicon-envelope form-control-feedback" })
+                </div>
+            
+                <div class="form-group has-feedback">
+                    @Html.TextBoxFor(model => model.SiteLogo, null, new { @class = "form-control", placeholder = "Logo del sitio" })
+                    @Html.ValidationMessageFor(model => model.SiteLogo, null, new { @class = "glyphicon glyphicon-picture form-control-feedback" })
+                </div>
+             
+                <div class="form-group has-feedback">
+                    @Html.TextBoxFor(model => model.SuperColor, null, new { @class = "form-control", placeholder = "Color del Tema del Super-Usuario" })
+                    @Html.ValidationMessageFor(model => model.SuperColor, null, new { @class = "glyphicon glyphicon-cog form-control-feedback" })
+                </div>
+               
+                <div class="form-group has-feedback">
+                    @Html.TextBoxFor(model => model.AdminColor, null, new { @class = "form-control", placeholder = "Color del Tema del Administrador" })
+                    @Html.ValidationMessageFor(model => model.AdminColor, null, new { @class = "glyphicon glyphicon-cog form-control-feedback" })
+                </div>
+                
+                <div class="form-group has-feedback">
+                    @Html.TextBoxFor(model => model.EmplColor, null, new { @class = "form-control", placeholder = "Color del Tema del Empleado" })
+                    @Html.ValidationMessageFor(model => model.EmplColor, null, new { @class = "glyphicon glyphicon-cog form-control-feedback" })
+                </div>
+                
+                <div class="form-group has-feedback">
+                    @Html.TextBoxFor(model => model.Password, null, new { @class = "form-control", placeholder = "Contraseña" })
+                    @Html.ValidationMessageFor(model => model.Password, null, new { @class = "glyphicon glyphicon-lock form-control-feedback" })
+                </div>
+                
+                <div class="form-group has-feedback">
+                    @Html.TextBoxFor(model => model.ConfirmPassword, null, new { @class = "form-control", placeholder = "Contraseña" })
+                    @Html.ValidationMessageFor(model => model.ConfirmPassword, null, new { @class = "glyphicon glyphicon-log-in form-control-feedback" })
+                </div>
+
+                <div class="row">
+                   
+                    <div class="col-xs-4">
+                        <button type="submit" class="btn btn-primary btn-block btn-flat">Create</button>
+                    </div><!-- /.col -->
+                </div>
+               <!--
+                <p>
+                    <input type="submit" value="Create" />
+                </p>-->
+            </div>
+        }
+
+        <div>
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+
+    </div>
+    <script src="~/Scripts/jquery-2.1.3.min.js"></script>
     <script src="~/Scripts/jquery.validate.min.js"></script>
     <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
-    
-    @using (Html.BeginForm()) {
-        @Html.AntiForgeryToken()
-        @Html.ValidationSummary(true)
-    
-        <fieldset>
-            <legend>AparienciaEN</legend>
-    
-            <div class="editor-label">
-                @Html.LabelFor(model => model.SiteName)
-            </div>
-            <div class="editor-field">
-                @Html.EditorFor(model => model.SiteName)
-                @Html.ValidationMessageFor(model => model.SiteName)
-            </div>
-    
-            <div class="editor-label">
-                @Html.LabelFor(model => model.UserName)
-            </div>
-            <div class="editor-field">
-                @Html.EditorFor(model => model.UserName)
-                @Html.ValidationMessageFor(model => model.UserName)
-            </div>
-    
-            <div class="editor-label">
-                @Html.LabelFor(model => model.UserLastName)
-            </div>
-            <div class="editor-field">
-                @Html.EditorFor(model => model.UserLastName)
-                @Html.ValidationMessageFor(model => model.UserLastName)
-            </div>
-
-            <div class="editor-label">
-                @Html.LabelFor(model => model.DNI)
-            </div>
-            <div class="editor-field">
-                @Html.EditorFor(model => model.DNI)
-                @Html.ValidationMessageFor(model => model.DNI)
-            </div>
-
-            <div class="editor-label">
-                @Html.LabelFor(model => model.UserEmail)
-            </div>
-            <div class="editor-field">
-                @Html.EditorFor(model => model.UserEmail)
-                @Html.ValidationMessageFor(model => model.UserEmail)
-            </div>
-            <div class="editor-label">
-                @Html.LabelFor(model => model.SiteLogo)
-            </div>
-            <div class="editor-field">
-                @Html.EditorFor(model => model.SiteLogo)
-                @Html.ValidationMessageFor(model => model.SiteLogo)
-            </div>
-            <div class="editor-label">
-                @Html.LabelFor(model => model.SuperColor)
-            </div>
-            <div class="editor-field">
-                @Html.EditorFor(model => model.SuperColor)
-                @Html.ValidationMessageFor(model => model.SuperColor)
-            </div>
-            <div class="editor-label">
-                @Html.LabelFor(model => model.AdminColor)
-            </div>
-            <div class="editor-field">
-                @Html.EditorFor(model => model.AdminColor)
-                @Html.ValidationMessageFor(model => model.AdminColor)
-            </div>
-            <div class="editor-label">
-                @Html.LabelFor(model => model.EmplColor)
-            </div>
-            <div class="editor-field">
-                @Html.EditorFor(model => model.EmplColor)
-                @Html.ValidationMessageFor(model => model.EmplColor)
-            </div>
-            <div class="editor-label">
-                @Html.LabelFor(model => model.Password)
-            </div>
-            <div class="editor-field">
-                @Html.EditorFor(model => model.Password)
-                @Html.ValidationMessageFor(model => model.Password)
-            </div>
-            <div class="editor-label">
-                @Html.LabelFor(model => model.ConfirmPassword)
-            </div>
-            <div class="editor-field">
-                @Html.EditorFor(model => model.ConfirmPassword)
-                @Html.ValidationMessageFor(model => model.ConfirmPassword)
-            </div>
-
-    
-            <p>
-                <input type="submit" value="Create" />
-            </p>
-        </fieldset>
-    }
-    
-    <div>
-        @Html.ActionLink("Back to List", "Index")
-    </div>
 </body>
 </html>
