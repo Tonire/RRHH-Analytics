@@ -25,8 +25,18 @@
          folder instead of downloading all of them to reduce the load. -->
     <link rel="stylesheet" href="../../Content/AdminLTE/skins/_all-skins.min.css">
     <link rel="stylesheet" href="../../Scripts/AdminLTE/plugins/iCheck/square/blue.css">
+
+
+
+    <script>
+        function iniciar() {
+        
+            document.getElementById('apariencia').style.display = "none";
+        }
+    </script>
+    <link rel="stylesheet" href="../../Content/animate.css">
 </head>
-<body class="hold-transition register-page">
+<body onload="iniciar();" class="hold-transition register-page ">
     <div class="register-box">
         @using (Html.BeginForm("", "Instalacion", FormMethod.Post))
         {
@@ -35,87 +45,97 @@
 
 
 
-            <div class="register-logo">
-                <b>Admin</b>LTE
-            </div>
-            <div class="register-box-body">
+    <div class="register-logo animated fadeInRightBig">
+        <b>Admin</b>LTE
+    </div>
+    <div id="datos" class="register-box-body animated slideInLeft">
+        <p class="login-box-msg animated flipInX">Datos Personales</p>
+        <div class="form-group has-feedback animated flipInX">
+            @Html.TextBoxFor(model => model.SiteName, null, new { @class = "form-control", placeholder = "Nombre del sitio" })
+            @Html.ValidationMessageFor(model => model.SiteName, null, new { @class = "glyphicon glyphicon-home form-control-feedback" })
 
-                <div class="form-group has-feedback">
-                    @Html.TextBoxFor(model => model.SiteName,null, new { @class = "form-control", placeholder="Nombre del sitio"})
-                    @Html.ValidationMessageFor(model => model.SiteName, null, new { @class = "glyphicon glyphicon-home form-control-feedback" })
-                </div>
-
-                <div class="form-group has-feedback">
-                    @Html.TextBoxFor(model => model.UserName, null, new { @class = "form-control", placeholder = "Nombre del Super-Usuario" })
-                    @Html.ValidationMessageFor(model => model.UserName, null, new { @class = "glyphicon glyphicon-chevron-left form-control-feedback" })
-                </div>
-
-                <div class="form-group has-feedback">
-
-                    @Html.TextBoxFor(model => model.UserLastName, null, new { @class = "form-control", placeholder = "Apellido del Super-Usuario" })
-                    @Html.ValidationMessageFor(model => model.UserLastName, null, new { @class = "glyphicon glyphicon-chevron-left form-control-feedback" })
-                </div>
-
-                <div class="form-group has-feedback">
-                    @Html.TextBoxFor(model => model.DNI, null, new { @class = "form-control", placeholder = "DNI" })
-                    @Html.ValidationMessageFor(model => model.DNI, null, new { @class = "glyphicon glyphicon-chevron-left form-control-feedback" })
-                </div>
-
-                <div class="form-group has-feedback">
-                    @Html.TextBoxFor(model => model.UserEmail, null, new { @class = "form-control", placeholder = "Email del Super-Usuario" })
-                    @Html.ValidationMessageFor(model => model.UserEmail, null, new { @class = "glyphicon glyphicon-envelope form-control-feedback" })
-                </div>
-            
-                <div class="form-group has-feedback">
-                    @Html.TextBoxFor(model => model.SiteLogo, null, new { @class = "form-control", placeholder = "Logo del sitio" })
-                    @Html.ValidationMessageFor(model => model.SiteLogo, null, new { @class = "glyphicon glyphicon-picture form-control-feedback" })
-                </div>
-             
-                <div class="form-group has-feedback">
-                    @Html.TextBoxFor(model => model.SuperColor, null, new { @class = "form-control", placeholder = "Color del Tema del Super-Usuario" })
-                    @Html.ValidationMessageFor(model => model.SuperColor, null, new { @class = "glyphicon glyphicon-cog form-control-feedback" })
-                </div>
-               
-                <div class="form-group has-feedback">
-                    @Html.TextBoxFor(model => model.AdminColor, null, new { @class = "form-control", placeholder = "Color del Tema del Administrador" })
-                    @Html.ValidationMessageFor(model => model.AdminColor, null, new { @class = "glyphicon glyphicon-cog form-control-feedback" })
-                </div>
-                
-                <div class="form-group has-feedback">
-                    @Html.TextBoxFor(model => model.EmplColor, null, new { @class = "form-control", placeholder = "Color del Tema del Empleado" })
-                    @Html.ValidationMessageFor(model => model.EmplColor, null, new { @class = "glyphicon glyphicon-cog form-control-feedback" })
-                </div>
-                
-                <div class="form-group has-feedback">
-                    @Html.TextBoxFor(model => model.Password, null, new { @class = "form-control", placeholder = "Contraseña" })
-                    @Html.ValidationMessageFor(model => model.Password, null, new { @class = "glyphicon glyphicon-lock form-control-feedback" })
-                </div>
-                
-                <div class="form-group has-feedback">
-                    @Html.TextBoxFor(model => model.ConfirmPassword, null, new { @class = "form-control", placeholder = "Contraseña" })
-                    @Html.ValidationMessageFor(model => model.ConfirmPassword, null, new { @class = "glyphicon glyphicon-log-in form-control-feedback" })
-                </div>
-
-                <div class="row">
-                   
-                    <div class="col-xs-4">
-                        <button type="submit" class="btn btn-primary btn-block btn-flat">Create</button>
-                    </div><!-- /.col -->
-                </div>
-               <!--
-                <p>
-                    <input type="submit" value="Create" />
-                </p>-->
-            </div>
-        }
-
-        <div>
-            @Html.ActionLink("Back to List", "Index")
         </div>
+
+        <div class="form-group has-feedback animated flipInX">
+            @Html.TextBoxFor(model => model.UserName, null, new { @class = "form-control", placeholder = "Nombre del Super-Usuario" })
+            @Html.ValidationMessageFor(model => model.UserName, null, new { @class = "glyphicon glyphicon-chevron-left form-control-feedback" })
+        </div>
+
+        <div class="form-group has-feedback animated flipInX">
+
+            @Html.TextBoxFor(model => model.UserLastName, null, new { @class = "form-control", placeholder = "Apellido del Super-Usuario" })
+            @Html.ValidationMessageFor(model => model.UserLastName, null, new { @class = "glyphicon glyphicon-chevron-left form-control-feedback" })
+        </div>
+
+        <div class="form-group has-feedback animated flipInX">
+            @Html.TextBoxFor(model => model.DNI, null, new { @class = "form-control", placeholder = "DNI" })
+            @Html.ValidationMessageFor(model => model.DNI, null, new { @class = "glyphicon glyphicon-chevron-left form-control-feedback" })
+        </div>
+
+        <div class="form-group has-feedback animated flipInX">
+            @Html.TextBoxFor(model => model.UserEmail, null, new { @class = "form-control", placeholder = "Email del Super-Usuario" })
+            @Html.ValidationMessageFor(model => model.UserEmail, null, new { @class = "glyphicon glyphicon-envelope form-control-feedback" })
+        </div>
+
+        <div class="form-group has-feedback animated flipInX">
+            @Html.TextBoxFor(model => model.Password, null, new { @class = "form-control", placeholder = "Contraseña" })
+            @Html.ValidationMessageFor(model => model.Password, null, new { @class = "glyphicon glyphicon-lock form-control-feedback" })
+        </div>
+
+        <div class="form-group has-feedback animated flipInX">
+            @Html.TextBoxFor(model => model.ConfirmPassword, null, new { @class = "form-control", placeholder = "Contraseña" })
+            @Html.ValidationMessageFor(model => model.ConfirmPassword, null, new { @class = "glyphicon glyphicon-log-in form-control-feedback" })
+        </div>
+        <div class="row">
+
+            <div class="col-xs-12">
+                <button type="button" onclick="cambiar();" class="btn btn-success btn-block btn-flat">Siguiente</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="apariencia" class="register-box-body" style="display:none">
+        <p class="login-box-msg">Apariencia</p>
+        <div class="form-group has-feedback">
+
+
+            @Html.TextBoxFor(model => model.SiteLogo, null, new { @class = "form-control", placeholder = "Logo del sitio" })
+            @Html.ValidationMessageFor(model => model.SiteLogo, null, new { @class = "glyphicon glyphicon-picture form-control-feedback" })
+        </div>
+
+        <div class="form-group has-feedback">
+            @Html.TextBoxFor(model => model.SuperColor, null, new { @class = "form-control", placeholder = "Color del Tema del Super-Usuario" })
+            @Html.ValidationMessageFor(model => model.SuperColor, null, new { @class = "glyphicon glyphicon-cog form-control-feedback" })
+        </div>
+
+        <div class="form-group has-feedback">
+            @Html.TextBoxFor(model => model.AdminColor, null, new { @class = "form-control", placeholder = "Color del Tema del Administrador" })
+            @Html.ValidationMessageFor(model => model.AdminColor, null, new { @class = "glyphicon glyphicon-cog form-control-feedback" })
+        </div>
+
+        <div class="form-group has-feedback">
+            @Html.TextBoxFor(model => model.EmplColor, null, new { @class = "form-control", placeholder = "Color del Tema del Empleado" })
+            @Html.ValidationMessageFor(model => model.EmplColor, null, new { @class = "glyphicon glyphicon-cog form-control-feedback" })
+        </div>
+
+        <div class="row">
+
+            <div class="col-xs-6">
+                <button type="button" onclick="cambiar();" class="btn btn-success btn-block btn-flat">Atras</button>
+                </div>
+                <div class="col-xs-6">
+
+                    <button type="submit" class="btn btn-primary btn-block btn-flat">Create</button>
+                </div>
+            </div>
+
+    </div>
+        }
 
     </div>
     <script src="~/Scripts/jquery-2.1.3.min.js"></script>
     <script src="~/Scripts/jquery.validate.min.js"></script>
     <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+    <script type="text/javascript" src="../../Scripts/instalacion.js"></script>
 </body>
 </html>
