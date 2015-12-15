@@ -26,7 +26,7 @@ namespace MVCApp.Controllers
         public ActionResult Index()
         {
             if (TempData["Instalacion"] == null) {
-                return RedirectToAction("Index", "Super");
+                return RedirectToAction("Index", "Home");
             }
             return View();
         }
