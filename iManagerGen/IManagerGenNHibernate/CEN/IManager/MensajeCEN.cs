@@ -36,7 +36,7 @@ public IMensajeCAD get_IMensajeCAD ()
         return this._IMensajeCAD;
 }
 
-public int CreaMensaje (string p_remitente, string p_destinatario, string p_asunto, string p_contenido)
+public int CreaMensaje (string p_remitente, string p_destinatario, string p_asunto, string p_contenido, bool p_leido)
 {
         MensajeEN mensajeEN = null;
         int oid;
@@ -63,6 +63,8 @@ public int CreaMensaje (string p_remitente, string p_destinatario, string p_asun
 
         mensajeEN.Contenido = p_contenido;
 
+        mensajeEN.Leido = p_leido;
+
         //Call to MensajeCAD
 
         oid = _IMensajeCAD.CreaMensaje (mensajeEN);
@@ -81,9 +83,23 @@ public System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.Mensaj
 {
         return _IMensajeCAD.GetMensajesByRemitente (p_email);
 }
-public System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.MensajeEN> GetMensajesByDestinatario (string p_email)
+public System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.MensajeEN> GetMensajesByDestinatario (string p_email, int first, int size)
 {
-        return _IMensajeCAD.GetMensajesByDestinatario (p_email);
+        return _IMensajeCAD.GetMensajesByDestinatario (p_email, first, size);
+}
+public void Modify (int p_Mensaje_OID, string p_asunto, string p_contenido, bool p_leido)
+{
+        MensajeEN mensajeEN = null;
+
+        //Initialized MensajeEN
+        mensajeEN = new MensajeEN ();
+        mensajeEN.Id = p_Mensaje_OID;
+        mensajeEN.Asunto = p_asunto;
+        mensajeEN.Contenido = p_contenido;
+        mensajeEN.Leido = p_leido;
+        //Call to MensajeCAD
+
+        _IMensajeCAD.Modify (mensajeEN);
 }
 }
 }

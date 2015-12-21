@@ -40,6 +40,13 @@ private string contenido;
 
 
 
+/**
+ *	Atributo leido
+ */
+private bool leido;
+
+
+
 
 
 
@@ -73,6 +80,12 @@ public virtual string Contenido {
 
 
 
+public virtual bool Leido {
+        get { return leido; } set { leido = value;  }
+}
+
+
+
 
 
 public MensajeEN()
@@ -81,19 +94,19 @@ public MensajeEN()
 
 
 
-public MensajeEN(int id, IManagerGenNHibernate.EN.IManager.UsuarioEN remitente, IManagerGenNHibernate.EN.IManager.UsuarioEN destinatario, string asunto, string contenido
+public MensajeEN(int id, IManagerGenNHibernate.EN.IManager.UsuarioEN remitente, IManagerGenNHibernate.EN.IManager.UsuarioEN destinatario, string asunto, string contenido, bool leido
                  )
 {
-        this.init (Id, remitente, destinatario, asunto, contenido);
+        this.init (Id, remitente, destinatario, asunto, contenido, leido);
 }
 
 
 public MensajeEN(MensajeEN mensaje)
 {
-        this.init (Id, mensaje.Remitente, mensaje.Destinatario, mensaje.Asunto, mensaje.Contenido);
+        this.init (Id, mensaje.Remitente, mensaje.Destinatario, mensaje.Asunto, mensaje.Contenido, mensaje.Leido);
 }
 
-private void init (int id, IManagerGenNHibernate.EN.IManager.UsuarioEN remitente, IManagerGenNHibernate.EN.IManager.UsuarioEN destinatario, string asunto, string contenido)
+private void init (int id, IManagerGenNHibernate.EN.IManager.UsuarioEN remitente, IManagerGenNHibernate.EN.IManager.UsuarioEN destinatario, string asunto, string contenido, bool leido)
 {
         this.Id = id;
 
@@ -105,6 +118,8 @@ private void init (int id, IManagerGenNHibernate.EN.IManager.UsuarioEN remitente
         this.Asunto = asunto;
 
         this.Contenido = contenido;
+
+        this.Leido = leido;
 }
 
 public override bool Equals (object obj)

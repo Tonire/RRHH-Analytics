@@ -179,7 +179,7 @@ public System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.Mensaj
 
         return result;
 }
-public System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.MensajeEN> GetMensajesByDestinatario (string p_email)
+public System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.MensajeEN> GetMensajesByDestinatario (string p_email, int first, int size)
 {
         System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.MensajeEN> result;
         try
@@ -189,6 +189,13 @@ public System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.Mensaj
                 //IQuery query = session.CreateQuery(sql);
                 IQuery query = (IQuery)session.GetNamedQuery ("MensajeENgetMensajesByDestinatarioHQL");
                 query.SetParameter ("p_email", p_email);
+
+                if (size > 0) {
+                        query.SetFirstResult (first).SetMaxResults (size);
+                }
+                else{
+                        query.SetFirstResult (first);
+                }
 
                 result = query.List<IManagerGenNHibernate.EN.IManager.MensajeEN>();
                 SessionCommit ();
@@ -208,6 +215,38 @@ public System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.Mensaj
         }
 
         return result;
+}
+public void Modify (MensajeEN mensaje)
+{
+        try
+        {
+                SessionInitializeTransaction ();
+                MensajeEN mensajeEN = (MensajeEN)session.Load (typeof(MensajeEN), mensaje.Id);
+
+                mensajeEN.Asunto = mensaje.Asunto;
+
+
+                mensajeEN.Contenido = mensaje.Contenido;
+
+
+                mensajeEN.Leido = mensaje.Leido;
+
+                session.Update (mensajeEN);
+                SessionCommit ();
+        }
+
+        catch (Exception ex) {
+                SessionRollBack ();
+                if (ex is IManagerGenNHibernate.Exceptions.ModelException)
+                        throw ex;
+                throw new IManagerGenNHibernate.Exceptions.DataLayerException ("Error in MensajeCAD.", ex);
+        }
+
+
+        finally
+        {
+                SessionClose ();
+        }
 }
 }
 }

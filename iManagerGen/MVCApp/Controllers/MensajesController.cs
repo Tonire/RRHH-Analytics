@@ -3,10 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-
+using IManagerGenNHibernate.CEN.IManager;
+using IManagerGenNHibernate.EN.IManager;
+using IManagerGenNHibernate.CAD.IManager;
+using Newtonsoft.Json;
 namespace MVCApp.Controllers
 {
-    public class MensajesController : Controller
+    public class MensajesController : BasicController
     {
         //
         // GET: /Mensajes/
@@ -18,10 +21,39 @@ namespace MVCApp.Controllers
 
         //
         // GET: /Mensajes/Details/5
-        [Authorize]
-        public ActionResult Details(int id)
+        
+        public string Details(int id)
         {
-            return View();
+            return null;
+        }
+
+
+        // GET: /Mensajes/getUltimosMensajes/
+        [Authorize]
+        public string getUltimosMensajes() {
+            SessionInitialize();
+
+            MensajeCAD mensajeCAD = new MensajeCAD(session);
+            MensajeCEN mensajeCEN = new MensajeCEN(mensajeCAD);
+            IList<MensajeEN> listaMensajes;
+            
+            string emailUsuario = User.Identity.Name;
+            string sJSON = "[";
+            //mensajeCEN.CreaMensaje("hector@hotmail.com",emailUsuario,"Hola Toni","Soy Hector",false);
+            listaMensajes = mensajeCEN.GetMensajesByDestinatario(emailUsuario, 0, 5);
+
+            for (int i = 0; i < listaMensajes.Count; i++) {
+                sJSON = sJSON + "{";
+                //sJSON = sJSON + "\"" + listaMensajes[i].Asunto + "\", \"" + listaMensajes[i].Contenido + "\", \"";
+                if (i == listaMensajes.Count - 1) {
+                    sJSON = sJSON + "}";
+                } else {
+                    sJSON = sJSON + "},";
+                }
+                
+            }
+            sJSON = sJSON + "]";
+                return sJSON;
         }
 
         //

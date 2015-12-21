@@ -18,6 +18,9 @@
 					<property name="Contenido" type="string"> 
 						<column name="contenido"  not-null="true"/>
 					</property>
+					<property name="Leido" type="boolean"> 
+						<column name="leido"  not-null="true"/>
+					</property>
 			
 			
 			
@@ -34,6 +37,8 @@
 											 					
 			
 			
+			
+					
 					
 					
 					
