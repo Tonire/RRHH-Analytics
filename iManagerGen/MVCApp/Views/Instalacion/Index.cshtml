@@ -130,30 +130,6 @@
                 Text = "Amarillo",
                 Value = "5"
             });
-            listItems.Add(new SelectListItem {
-                Text = "Azul Menú Blanco",
-                Value = "6"
-            });
-            listItems.Add(new SelectListItem {
-                Text = "Negro Menú Blanco",
-                Value = "7"
-            });
-            listItems.Add(new SelectListItem {
-                Text = "Violeta Menú Blanco",
-                Value = "8"
-            });
-            listItems.Add(new SelectListItem {
-                Text = "Verde Menú Blanco",
-                Value = "9"
-            });
-            listItems.Add(new SelectListItem {
-                Text = "Rojo Menú Blanco",
-                Value = "10"
-            });
-            listItems.Add(new SelectListItem {
-                Text = "Amarillo Menú Blanco",
-                Value = "11"
-            });
             }
             @Html.DropDownListFor(model => model.SuperColor, listItems, new { @class = "form-control" })
             @Html.ValidationMessageFor(model => model.SuperColor, "", new { @class = "glyphicon glyphicon-cog form-control-feedback" })

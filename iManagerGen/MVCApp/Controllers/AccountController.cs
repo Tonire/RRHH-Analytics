@@ -49,23 +49,7 @@ namespace MVCApp.Controllers
                 UsuarioEN usuEN = usuCEN.IniciarSesion(model.UserName, model.Password); //Llamamos a la logica de negocio
                 if (usuEN!=null)    //Si se cumple quiere decir que se inicia sesion
                 {
-                    
-                    switch (usuEN.GetType().Name)
-                    {
-                        case "SuperAdministradorEN":
-                            System.Web.HttpContext.Current.Session["NombreUsuario"] = usuEN.Nombre + " " + usuEN.Apellidos;
-                            System.Web.HttpContext.Current.Session["Rol"] = "Super Administrador";
-                            return RedirectToAction("Index", "Home");
-                        case "AdministradorEN":
-                            System.Web.HttpContext.Current.Session["NombreUsuario"] = usuEN.Nombre + " " + usuEN.Apellidos;
-                            System.Web.HttpContext.Current.Session["Rol"] = "Administrador";
-                            return RedirectToAction("Index","Home");
-                        case "EmpleadoEN":
-                            System.Web.HttpContext.Current.Session["NombreUsuario"] = usuEN.Nombre + " " + usuEN.Apellidos;
-                            System.Web.HttpContext.Current.Session["Rol"] = "Empleado";
-                            return RedirectToAction("Index", "Home");
-                    }
-
+                    return RedirectToAction("Index", "Home");
                 }
             }
 
@@ -81,6 +65,14 @@ namespace MVCApp.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult LogOff()
         {
+            WebSecurity.Logout();
+
+            return RedirectToAction("Login", "Account");
+        }
+        //
+        // GET: /Account/LogOff
+        [HttpGet]
+        public ActionResult Logout() {
             WebSecurity.Logout();
 
             return RedirectToAction("Login", "Account");
@@ -109,6 +101,7 @@ namespace MVCApp.Controllers
                 try
                 {
                     WebSecurity.CreateUserAndAccount(model.UserName, model.Password);
+                    
                     Roles.AddUserToRole(model.UserName, "SuperAdministrador"); // user in role A 
                     WebSecurity.Login(model.UserName, model.Password);
                     return RedirectToAction("Index", "Home");

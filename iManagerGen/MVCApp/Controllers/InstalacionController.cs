@@ -61,9 +61,10 @@ namespace MVCApp.Controllers
                     /*Creamos la apariencia*/
                     AparienciaCEN aparienciaCEN = new AparienciaCEN();
                     aparienciaCEN.CrearApariencia(model.SiteName, fileName, model.SuperColor, model.AdminColor, model.EmplColor);
-                    HttpContext.Application["colorSuper"] = model.SuperColor;
-                    HttpContext.Application["colorAdmin"] = model.AdminColor;
-                    HttpContext.Application["colorEmpleado"] = model.EmplColor;
+                    Skins skin = new Skins();
+                    HttpContext.Application["colorSuper"] = skin.getSkin(Int32.Parse(model.SuperColor));
+                    HttpContext.Application["colorAdmin"] = skin.getSkin(Int32.Parse(model.AdminColor));
+                    HttpContext.Application["colorEmpleado"] = skin.getSkin(Int32.Parse(model.EmplColor));
                     /*Creamos el usuario*/
                     SuperAdministradorCEN superCEN = new SuperAdministradorCEN();
                     superCEN.New_(model.UserEmail,model.DNI,model.Password,model.UserName,model.UserLastName,DateTime.Now);
@@ -75,6 +76,9 @@ namespace MVCApp.Controllers
                 catch (MembershipCreateUserException e)
                 {
                     ModelState.AddModelError("", ErrorCodeToString(e.StatusCode));
+                }
+                catch(IOException e1){
+                    ModelState.AddModelError("","Error subiendo la imágen.");
                 }
             }
 

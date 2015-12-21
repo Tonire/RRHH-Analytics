@@ -38,7 +38,7 @@ namespace MVCApp.Models
 
         [Display(Prompt = "Super Administrador Color", Description = "Color Super Admin", Name = "SuperColor")]
         [Required(ErrorMessage = "Debes seleccionar un color para el Super Administrador.")]
-        [Range(minimum: 0, maximum: 11, ErrorMessage = "Debes introducir un color válido.")]
+        [Range(minimum: 0, maximum: 5, ErrorMessage = "Debes introducir un color válido.")]
         public string SuperColor { get; set; }
 
         [Display(Prompt = "Administrador Color", Description = "Color Admin", Name = "AdminColor")]
