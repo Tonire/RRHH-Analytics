@@ -90,28 +90,32 @@
     @*NOTE: These should NOT be used in a production situation
         They do contains useful snippets on how to setup charts*@
     <!-- DataTables -->
-    <script src="~/Scripts/AdminLTE/plugins/datatables/jquery.dataTables.js"></script>
+    <script type="text/javascript" language="javascript" src="//cdn.datatables.net/1.10.10/js/jquery.dataTables.min.js"></script>
     <script src="~/Scripts/AdminLTE/plugins/datatables/dataTables.bootstrap.js"></script>
-
+    <script type="text/javascript" language="javascript" src="//cdn.datatables.net/responsive/1.0.0/js/dataTables.responsive.min.js"></script>
     <!-- SlimScroll -->
     <script src="~/Scripts/AdminLTE/plugins/slimScroll/jquery.slimscroll.min.js"></script>
     <script src="~/Scripts/AdminLTE/demo.js"></script>
        @Scripts.Render("~/bundles/jqueryval")
     <!-- page script -->
     <script>
+        $(document).ready(function () {
             $('#example2').DataTable({
-                paging: true,
-                lengthChange: true,
-                searching: true,
-                ordering: true,
-                info: true,
                 responsive: true,
-                autoWidth: false
+                autoWidth: false,
+                paging: true
             });
+        });
     </script>
 }
 @section especificos{
     <!-- DataTables -->
-    <link rel="stylesheet" href="~/Scripts/AdminLTE/plugins/datatables/dataTables.bootstrap.css">
-
+    <style>
+        .form-control.input-sm {
+            width: 100%;
+        }
+    </style>
+    <link rel="stylesheet" type="text/css" href="~/Scripts/AdminLTE/plugins/datatables/dataTables.bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/responsive/1.0.0/css/dataTables.responsive.css">
+    
 }
