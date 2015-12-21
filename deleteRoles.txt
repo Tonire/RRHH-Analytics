@@ -1,0 +1,3 @@
+delete from webpages_UsersInRoles;
+delete from webpages_Membership;
+delete from UserProfile;

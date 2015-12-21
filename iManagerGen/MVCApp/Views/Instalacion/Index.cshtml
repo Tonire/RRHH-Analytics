@@ -38,7 +38,7 @@
 </head>
 <body onload="iniciar();" class="hold-transition register-page ">
     <div class="register-box">
-        @using (Html.BeginForm("", "Instalacion", FormMethod.Post))
+        @using (Html.BeginForm("", "Instalacion", FormMethod.Post, new { enctype = "multipart/form-data" }))
         {
             @Html.AntiForgeryToken()
             @Html.ValidationSummary(true)
@@ -78,12 +78,12 @@
         </div>
 
         <div class="form-group has-feedback animated flipInX">
-            @Html.TextBoxFor(model => model.Password, null, new { @class = "form-control", placeholder = "Contraseña" })
+            @Html.PasswordFor(model => model.Password, new { @class = "form-control", placeholder = "Contraseña" })
             @Html.ValidationMessageFor(model => model.Password, null, new { @class = "glyphicon glyphicon-lock form-control-feedback" })
         </div>
 
         <div class="form-group has-feedback animated flipInX">
-            @Html.TextBoxFor(model => model.ConfirmPassword, null, new { @class = "form-control", placeholder = "Contraseña" })
+            @Html.PasswordFor(model => model.ConfirmPassword, new { @class = "form-control", placeholder = "Contraseña" })
             @Html.ValidationMessageFor(model => model.ConfirmPassword, null, new { @class = "glyphicon glyphicon-log-in form-control-feedback" })
         </div>
         <div class="row">
@@ -98,23 +98,75 @@
         <p class="login-box-msg">Apariencia</p>
         <div class="form-group has-feedback">
 
-
-            @Html.TextBoxFor(model => model.SiteLogo, null, new { @class = "form-control", placeholder = "Logo del sitio" })
+            <input type="file" name="file" />
             @Html.ValidationMessageFor(model => model.SiteLogo, null, new { @class = "glyphicon glyphicon-picture form-control-feedback" })
         </div>
 
         <div class="form-group has-feedback">
-            @Html.TextBoxFor(model => model.SuperColor, null, new { @class = "form-control", placeholder = "Color del Tema del Super-Usuario" })
-            @Html.ValidationMessageFor(model => model.SuperColor, null, new { @class = "glyphicon glyphicon-cog form-control-feedback" })
+            @{
+            List<SelectListItem> listItems = new List<SelectListItem>();
+            listItems.Add(new SelectListItem {
+                Text = "Azul",
+                Value = "0",
+                Selected = true
+            });
+            listItems.Add(new SelectListItem {
+                Text = "Negro",
+                Value = "1"
+            });
+            listItems.Add(new SelectListItem {
+                Text = "Violeta",
+                Value = "2"
+            });
+            listItems.Add(new SelectListItem {
+                Text = "Verde",
+                Value = "3"
+            });
+            listItems.Add(new SelectListItem {
+                Text = "Rojo",
+                Value = "4"
+            });
+            listItems.Add(new SelectListItem {
+                Text = "Amarillo",
+                Value = "5"
+            });
+            listItems.Add(new SelectListItem {
+                Text = "Azul Menú Blanco",
+                Value = "6"
+            });
+            listItems.Add(new SelectListItem {
+                Text = "Negro Menú Blanco",
+                Value = "7"
+            });
+            listItems.Add(new SelectListItem {
+                Text = "Violeta Menú Blanco",
+                Value = "8"
+            });
+            listItems.Add(new SelectListItem {
+                Text = "Verde Menú Blanco",
+                Value = "9"
+            });
+            listItems.Add(new SelectListItem {
+                Text = "Rojo Menú Blanco",
+                Value = "10"
+            });
+            listItems.Add(new SelectListItem {
+                Text = "Amarillo Menú Blanco",
+                Value = "11"
+            });
+            }
+            @Html.DropDownListFor(model => model.SuperColor, listItems, new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.SuperColor, "", new { @class = "glyphicon glyphicon-cog form-control-feedback" })
+
         </div>
 
         <div class="form-group has-feedback">
-            @Html.TextBoxFor(model => model.AdminColor, null, new { @class = "form-control", placeholder = "Color del Tema del Administrador" })
+            @Html.DropDownListFor(model => model.AdminColor, listItems, new { @class = "form-control", placeholder = "Color del Tema del Administrador" })
             @Html.ValidationMessageFor(model => model.AdminColor, null, new { @class = "glyphicon glyphicon-cog form-control-feedback" })
         </div>
 
         <div class="form-group has-feedback">
-            @Html.TextBoxFor(model => model.EmplColor, null, new { @class = "form-control", placeholder = "Color del Tema del Empleado" })
+            @Html.DropDownListFor(model => model.EmplColor, listItems, new { @class = "form-control", placeholder = "Color del Tema del Empleado" })
             @Html.ValidationMessageFor(model => model.EmplColor, null, new { @class = "glyphicon glyphicon-cog form-control-feedback" })
         </div>
 
@@ -125,7 +177,7 @@
                 </div>
                 <div class="col-xs-6">
 
-                    <button type="submit" class="btn btn-primary btn-block btn-flat">Create</button>
+                    <button type="submit" class="btn btn-primary btn-block btn-flat">Finalizar</button>
                 </div>
             </div>
 

@@ -32,21 +32,23 @@ namespace MVCApp.Models
         [DataType(DataType.EmailAddress)]
         public string UserEmail { get; set; }
 
-        [Required]
         [Display(Name = "Logo del sitio")]
         [DataType(DataType.Upload)]
         public string SiteLogo { get; set; }
 
-        [Required]
-        [Display(Name = "Super Administrador Color")]
+        [Display(Prompt = "Super Administrador Color", Description = "Color Super Admin", Name = "SuperColor")]
+        [Required(ErrorMessage = "Debes seleccionar un color para el Super Administrador.")]
+        [Range(minimum: 0, maximum: 11, ErrorMessage = "Debes introducir un color válido.")]
         public string SuperColor { get; set; }
 
-        [Required]
-        [Display(Name = "Administrador Color")]
+        [Display(Prompt = "Administrador Color", Description = "Color Admin", Name = "AdminColor")]
+        [Required(ErrorMessage = "Debes seleccionar un color para el Administrador.")]
+        [Range(minimum: 0, maximum: 11, ErrorMessage = "Debes introducir un color válido.")]
         public string AdminColor { get; set; }
 
-        [Required]
-        [Display(Name = "Empleado Color")]
+        [Display(Prompt = "Super Administrador Color", Description = "Color Empleado", Name = "EmplColor")]
+        [Required(ErrorMessage = "Debes seleccionar un color para el Empleado.")]
+        [Range(minimum: 0, maximum: 11, ErrorMessage = "Debes introducir un color válido.")]
         public string EmplColor { get; set; }
 
         [Required]

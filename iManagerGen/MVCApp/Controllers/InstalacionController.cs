@@ -13,7 +13,7 @@ using MVCApp.Models;
 using IManagerGenNHibernate.CEN.IManager;
 using IManagerGenNHibernate.EN.IManager;
 using IManagerGenNHibernate.CAD.IManager;
-
+using System.IO;
 namespace MVCApp.Controllers
 {
     [Authorize]
@@ -37,19 +37,30 @@ namespace MVCApp.Controllers
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
-        public ActionResult Index(InstalacionModel model)
+        public ActionResult Index(InstalacionModel model, HttpPostedFileBase file)
         {
             if (ModelState.IsValid)
             {
                 // Intento de registrar al usuario
                 try
                 {
+                    //Guardamos la foto
+                    string fileName = "", path = "";
+                    // Verify that the user selected a file
+                    if (file != null && file.ContentLength > 0) {
+                        // extract only the fielname
+                        fileName = Path.GetFileName(file.FileName);
+                        // store the file inside ~/App_Data/uploads folder
+                        path = Path.Combine(Server.MapPath("~/Images/Uploads"), fileName);
+                        //string pathDef = path.Replace(@"\\", @"\");
+                        file.SaveAs(path);
+                    }
+                    fileName = "/Images/Uploads/" + fileName;
                     WebSecurity.CreateUserAndAccount(model.UserEmail, model.Password);
                     Roles.AddUserToRole(model.UserEmail, "SuperAdministrador"); // user in role A 
-
                     /*Creamos la apariencia*/
                     AparienciaCEN aparienciaCEN = new AparienciaCEN();
-                    aparienciaCEN.CrearApariencia(model.SiteName,model.SiteLogo,model.SuperColor,model.AdminColor,model.EmplColor);
+                    aparienciaCEN.CrearApariencia(model.SiteName, fileName, model.SuperColor, model.AdminColor, model.EmplColor);
                     HttpContext.Application["colorSuper"] = model.SuperColor;
                     HttpContext.Application["colorAdmin"] = model.AdminColor;
                     HttpContext.Application["colorEmpleado"] = model.EmplColor;
