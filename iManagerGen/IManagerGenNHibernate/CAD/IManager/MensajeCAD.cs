@@ -248,9 +248,10 @@ public void Modify (MensajeEN mensaje)
                 SessionClose ();
         }
 }
-public IManagerGenNHibernate.EN.IManager.MensajeEN ContarMensajesNoLeidosByDestinatario (string p_email)
+public long ContarMensajesNoLeidosByDestinatario (string p_email)
 {
-        IManagerGenNHibernate.EN.IManager.MensajeEN result;
+        long result;
+
         try
         {
                 SessionInitializeTransaction ();
@@ -260,7 +261,7 @@ public IManagerGenNHibernate.EN.IManager.MensajeEN ContarMensajesNoLeidosByDesti
                 query.SetParameter ("p_email", p_email);
 
 
-                result = query.UniqueResult<IManagerGenNHibernate.EN.IManager.MensajeEN>();
+                result = query.UniqueResult<long>();
                 SessionCommit ();
         }
 

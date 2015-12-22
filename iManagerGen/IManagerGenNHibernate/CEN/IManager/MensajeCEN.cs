@@ -102,7 +102,7 @@ public void Modify (int p_Mensaje_OID, string p_asunto, string p_contenido, bool
         _IMensajeCAD.Modify (mensajeEN);
 }
 
-public IManagerGenNHibernate.EN.IManager.MensajeEN ContarMensajesNoLeidosByDestinatario (string p_email)
+public long ContarMensajesNoLeidosByDestinatario (string p_email)
 {
         return _IMensajeCAD.ContarMensajesNoLeidosByDestinatario (p_email);
 }

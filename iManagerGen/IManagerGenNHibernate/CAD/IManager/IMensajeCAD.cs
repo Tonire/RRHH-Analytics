@@ -22,6 +22,6 @@ System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.MensajeEN> Ge
 void Modify (MensajeEN mensaje);
 
 
-IManagerGenNHibernate.EN.IManager.MensajeEN ContarMensajesNoLeidosByDestinatario (string p_email);
+long ContarMensajesNoLeidosByDestinatario (string p_email);
 }
 }
