@@ -919,6 +919,8 @@
     <Content Include="Views\Shared\_AdminLeftMenu.cshtml" />
     <Content Include="Views\Usuarios\Index.cshtml" />
     <Content Include="Views\Usuarios\Create.cshtml" />
+    <Content Include="Views\Mensajes\Index.cshtml" />
+    <Content Include="Views\Mensajes\Crear.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

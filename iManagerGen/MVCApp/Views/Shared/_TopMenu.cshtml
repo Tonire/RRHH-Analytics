@@ -9,6 +9,7 @@
         string userId="";
         string rol="";
         IManagerGenNHibernate.CEN.IManager.UsuarioCEN usu = new IManagerGenNHibernate.CEN.IManager.UsuarioCEN();
+        IManagerGenNHibernate.CEN.IManager.AparienciaCEN apa = new IManagerGenNHibernate.CEN.IManager.AparienciaCEN();
         IManagerGenNHibernate.EN.IManager.UsuarioEN usuario=usu.GetUsuarioByEmail(User.Identity.Name);
         userId = usuario.Nombre + " " + usuario.Apellidos;
         switch (usuario.GetType().Name) {
@@ -24,11 +25,13 @@
         }
         IManagerGenNHibernate.CEN.IManager.MensajeCEN mensajeCEN = new IManagerGenNHibernate.CEN.IManager.MensajeCEN();
         long sinLeer = mensajeCEN.ContarMensajesNoLeidosByDestinatario(User.Identity.Name);
+        TempData["Nombre"] = userId;
+        string siteName=apa.GetApariencia(0,-1)[0].Nombre;
 }
 
 <header class="main-header">
     <!-- Logo -->
-    <a href="index2.html" class="logo"><b>Admin</b>LTE</a>
+    <a href="@Url.Action("Index","Home")" class="logo">@siteName</a>
     <!-- Header Navbar: style can be found in header.less -->
     <nav class="navbar navbar-static-top" role="navigation">
         <!-- Sidebar toggle button-->

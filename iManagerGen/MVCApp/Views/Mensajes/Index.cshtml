@@ -1,0 +1,150 @@
+﻿@{
+    if (User.IsInRole("SuperAdministrador")) {
+        Layout = "~/Views/Shared/_SuperLayout.cshtml";
+    }
+    if (User.IsInRole("Administrador")) {
+        Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    }
+    if (User.IsInRole("Empleado")) {
+        Layout = "~/Views/Shared/_EmpleadoLayout.cshtml";
+    }
+    ViewBag.Title = "Mensajería";
+
+    ViewBag.Breadcrumb = new Breadcrumb(new Crumb[] {
+        new Crumb("Mensajería", "", "fa fa-envelope")
+    });
+}
+
+<div class="row">
+    <div class="col-md-3">
+        <a href="compose.html" class="btn btn-primary btn-block margin-bottom">Compose</a>
+        <div class="box box-solid">
+            <div class="box-header with-border">
+                <h3 class="box-title">Folders</h3>
+                <div class="box-tools">
+                    <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                </div>
+            </div>
+            <div class="box-body no-padding">
+                <ul class="nav nav-pills nav-stacked">
+                    <li class="active"><a href="#"><i class="fa fa-inbox"></i> Inbox <span class="label label-primary pull-right">12</span></a></li>
+                    <li><a href="#"><i class="fa fa-envelope-o"></i> Sent</a></li>
+                    <li><a href="#"><i class="fa fa-file-text-o"></i> Drafts</a></li>
+                    <li><a href="#"><i class="fa fa-filter"></i> Junk <span class="label label-warning pull-right">65</span></a></li>
+                    <li><a href="#"><i class="fa fa-trash-o"></i> Trash</a></li>
+                </ul>
+            </div><!-- /.box-body -->
+        </div><!-- /. box -->
+        <div class="box box-solid">
+            <div class="box-header with-border">
+                <h3 class="box-title">Labels</h3>
+                <div class="box-tools">
+                    <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                </div>
+            </div>
+            <div class="box-body no-padding">
+                <ul class="nav nav-pills nav-stacked">
+                    <li><a href="#"><i class="fa fa-circle-o text-red"></i> Important</a></li>
+                    <li><a href="#"><i class="fa fa-circle-o text-yellow"></i> Promotions</a></li>
+                    <li><a href="#"><i class="fa fa-circle-o text-light-blue"></i> Social</a></li>
+                </ul>
+            </div><!-- /.box-body -->
+        </div><!-- /.box -->
+    </div><!-- /.col -->
+    <div class="col-md-9">
+        <div class="box box-primary">
+            <div class="box-header with-border">
+                <h3 class="box-title">Mensajes Recibidos</h3>
+            </div><!-- /.box-header -->
+            <div class="box-body no-padding">
+                <div class="mailbox-controls">
+                    <!-- Check all button -->
+                    <button class="btn btn-default btn-sm checkbox-toggle"><i class="fa fa-square-o"></i></button>
+                    <div class="btn-group">
+                        <button class="btn btn-default btn-sm"><i class="fa fa-trash-o"></i></button>
+                        <button class="btn btn-default btn-sm"><i class="fa fa-reply"></i></button>
+                        <button class="btn btn-default btn-sm"><i class="fa fa-share"></i></button>
+                    </div><!-- /.btn-group -->
+                    <button class="btn btn-default btn-sm"><i class="fa fa-refresh"></i></button>
+                </div>
+                <div class="table-responsive mailbox-messages">
+                    <table id="tabla1" class="table table-hover table-striped">
+                        <tbody>
+                            <tr>
+                                <td><input type="checkbox"></td>
+                                <td class="mailbox-star" ></td>
+                                <td class="mailbox-name"><a href="read-mail.html">Alexander Pierce</a></td>
+                                <td class="mailbox-subject"><b>AdminLTE 2.0 Issue</b> - Trying to find a solution to this problem...</td>
+                                <td class="mailbox-attachment"><i class="fa fa-paperclip"></i></td>
+                                <td class="mailbox-date">11 hours ago</td>
+                            </tr>
+                            <tr>
+                                <td><input type="checkbox"></td>
+                                <td class="mailbox-star"></td>
+                                <td class="mailbox-name"><a href="read-mail.html">Alexander Pierce</a></td>
+                                <td class="mailbox-subject"><b>AdminLTE 2.0 Issue</b> - Trying to find a solution to this problem...</td>
+                                <td class="mailbox-attachment"></td>
+                                <td class="mailbox-date">15 hours ago</td>
+                            </tr>
+                            <tr>
+                                <td><input type="checkbox"></td>
+                                <td class="mailbox-star"></td>
+                                <td class="mailbox-name"><a href="read-mail.html">Alexander Pierce</a></td>
+                                <td class="mailbox-subject"><b>AdminLTE 2.0 Issue</b> - Trying to find a solution to this problem...</td>
+                                <td class="mailbox-attachment"><i class="fa fa-paperclip"></i></td>
+                                <td class="mailbox-date">Yesterday</td>
+                            </tr>
+                        </tbody>
+                    </table><!-- /.table -->
+                </div><!-- /.mail-box-messages -->
+            </div><!-- /.box-body -->
+            <div class="box-footer no-padding">
+                <div class="mailbox-controls">
+                    <!-- Check all button -->
+                    <button class="btn btn-default btn-sm checkbox-toggle"><i class="fa fa-square-o"></i></button>
+                    <div class="btn-group">
+                        <button class="btn btn-default btn-sm"><i class="fa fa-trash-o"></i></button>
+                        <button class="btn btn-default btn-sm"><i class="fa fa-reply"></i></button>
+                        <button class="btn btn-default btn-sm"><i class="fa fa-share"></i></button>
+                    </div><!-- /.btn-group -->
+                    <button class="btn btn-default btn-sm"><i class="fa fa-refresh"></i></button>
+                </div>
+            </div>
+        </div><!-- /. box -->
+    </div><!-- /.col -->
+</div><!-- /.row -->
+@section scripts{
+    @*Scripts propios de la pagina para renderizar*@
+    <!-- Page Script -->
+    <script>
+        $(function () {
+            //Enable iCheck plugin for checkboxes
+            //iCheck for checkbox and radio inputs
+            $('.mailbox-messages input[type="checkbox"]').iCheck({
+                checkboxClass: 'icheckbox_flat-blue',
+                radioClass: 'iradio_flat-blue'
+            });
+
+            //Enable check and uncheck all functionality
+            $(".checkbox-toggle").click(function () {
+                var clicks = $(this).data('clicks');
+                if (clicks) {
+                    //Uncheck all checkboxes
+                    $(".mailbox-messages input[type='checkbox']").iCheck("uncheck");
+                    $(".fa", this).removeClass("fa-check-square-o").addClass('fa-square-o');
+                } else {
+                    //Check all checkboxes
+                    $(".mailbox-messages input[type='checkbox']").iCheck("check");
+                    $(".fa", this).removeClass("fa-square-o").addClass('fa-check-square-o');
+                }
+                $(this).data("clicks", !clicks);
+            });
+            
+        });
+    </script>
+}
+@section especificos{
+    @*CSS especifico de esta pagina*@
+    <!-- iCheck -->
+    <link rel="stylesheet" type="text/css" href="~/Scripts/AdminLTE/plugins/iCheck/flat/blue.css">
+}
