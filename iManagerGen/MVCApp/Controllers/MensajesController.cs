@@ -6,6 +6,7 @@ using System.Web.Mvc;
 using IManagerGenNHibernate.CEN.IManager;
 using IManagerGenNHibernate.EN.IManager;
 using IManagerGenNHibernate.CAD.IManager;
+using MVCApp.Models;
 using Newtonsoft.Json;
 namespace MVCApp.Controllers
 {
@@ -16,7 +17,15 @@ namespace MVCApp.Controllers
 
         public ActionResult Index()
         {
-            return View();
+            SessionInitialize();
+            MensajeCAD mensajeCAD = new MensajeCAD(session);
+            MensajeCEN mensajeCEN = new MensajeCEN(mensajeCAD);
+            IList<MensajeEN> mensajes = mensajeCEN.GetMensajesByDestinatario(User.Identity.Name,0,-1);
+            IEnumerable<VerMensajesModels> listaMensajes = new VerMensajes().ConvertListENToModel(mensajes).ToList();
+            long noLeidos = mensajeCEN.ContarMensajesNoLeidosByDestinatario(User.Identity.Name);
+            ViewData["cuenta"] = noLeidos;
+            SessionClose();
+            return View(listaMensajes);
         }
 
         //

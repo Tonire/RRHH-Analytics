@@ -7,29 +7,30 @@ using IManagerGenNHibernate.CEN.IManager;
 namespace MVCApp.Models {
     public class VerMensajes {
         public VerMensajesModels ConvertENToModelUI(MensajeEN mensaje) {
+            VerMensajesModels modeloMensaje = null;
             if (mensaje != null) {
-                VerMensajesModels modeloMensaje = new VerMensajesModels();
+                modeloMensaje = new VerMensajesModels();
                 MensajeCEN mensajeCEN = new MensajeCEN();
-                long noLeidos = mensajeCEN.ContarMensajesNoLeidosByDestinatario(mensaje.Destinatario.Email);
-                modeloMensaje.Cuenta = noLeidos;
+
                 modeloMensaje.IdMensaje = mensaje.Id.ToString();
                 modeloMensaje.Nombre = mensaje.Remitente.Nombre;
                 modeloMensaje.Apellidos = mensaje.Remitente.Apellidos;
                 modeloMensaje.Asunto = mensaje.Asunto;
                 modeloMensaje.Contenido = mensaje.Contenido;
-
+                modeloMensaje.ContenidoPreview = mensaje.Contenido.Substring(0, 41);
                 DateTime? when = mensaje.Fecha;
                 TimeSpan ts = DateTime.Now.Subtract((DateTime)when);
                 if (ts.TotalHours < 1){
-                    modeloMensaje.Tiempo = "Hace " + (int)ts.TotalMinutes + " minutos";
+                    modeloMensaje.Tiempo = "Hace " + (int)ts.TotalMinutes + " minuto(s)";
                 } else if (ts.TotalDays < 1) {
-                    modeloMensaje.Tiempo = "Hace " + (int)ts.TotalHours + " horas";
+                    modeloMensaje.Tiempo = "Hace " + (int)ts.TotalHours + " hora(s)";
                 }else{
-                    modeloMensaje.Tiempo = "Hace " + (int)ts.TotalDays + " dias";
+                    modeloMensaje.Tiempo = "Hace " + (int)ts.TotalDays + " día(s)";
                 }
 
-                    
+                
             }
+            return modeloMensaje;
         }
         public IList<VerMensajesModels> ConvertListENToModel(IList<MensajeEN> ens) {
             IList<VerMensajesModels> usu = new List<VerMensajesModels>();

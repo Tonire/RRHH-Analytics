@@ -1,4 +1,5 @@
-﻿@{
+﻿@model IEnumerable<MVCApp.Models.VerMensajesModels>
+@{
     if (User.IsInRole("SuperAdministrador")) {
         Layout = "~/Views/Shared/_SuperLayout.cshtml";
     }
@@ -27,7 +28,7 @@
             </div>
             <div class="box-body no-padding">
                 <ul class="nav nav-pills nav-stacked">
-                    <li class="active"><a href="#"><i class="fa fa-inbox"></i> Bandeja de entrada <span class="label label-primary pull-right">12</span></a></li>
+                    <li class="active"><a href="#"><i class="fa fa-inbox"></i> Bandeja de entrada <span class="label label-primary pull-right">@ViewData["cuenta"]</span></a></li>
                     <li><a href="#"><i class="fa fa-envelope-o"></i> Bandeja de salida </a></li>
                 </ul>
             </div><!-- /.box-body -->
@@ -52,30 +53,16 @@
                 <div class="table-responsive mailbox-messages">
                     <table id="tabla1" class="table table-hover table-striped">
                         <tbody>
-                            <tr>
-                                <td><input type="checkbox"></td>
-                                <td class="mailbox-star" ></td>
-                                <td class="mailbox-name"><a href="read-mail.html">Alexander Pierce</a></td>
-                                <td class="mailbox-subject"><b>AdminLTE 2.0 Issue</b> - Trying to find a solution to this problem...</td>
-                                <td class="mailbox-attachment"><i class="fa fa-paperclip"></i></td>
-                                <td class="mailbox-date">11 hours ago</td>
-                            </tr>
-                            <tr>
-                                <td><input type="checkbox"></td>
-                                <td class="mailbox-star"></td>
-                                <td class="mailbox-name"><a href="read-mail.html">Alexander Pierce</a></td>
-                                <td class="mailbox-subject"><b>AdminLTE 2.0 Issue</b> - Trying to find a solution to this problem...</td>
-                                <td class="mailbox-attachment"></td>
-                                <td class="mailbox-date">15 hours ago</td>
-                            </tr>
-                            <tr>
-                                <td><input type="checkbox"></td>
-                                <td class="mailbox-star"></td>
-                                <td class="mailbox-name"><a href="read-mail.html">Alexander Pierce</a></td>
-                                <td class="mailbox-subject"><b>AdminLTE 2.0 Issue</b> - Trying to find a solution to this problem...</td>
-                                <td class="mailbox-attachment"><i class="fa fa-paperclip"></i></td>
-                                <td class="mailbox-date">Yesterday</td>
-                            </tr>
+                            @foreach (var mensaje in Model) {
+                                <tr>
+                                    <td><input type="checkbox" /></td>
+                                    <td class="mailbox-star"></td>
+                                    <td class="mailbox-name"><a href="#">@mensaje.Nombre @mensaje.Apellidos</a></td>
+                                    <td class="mailbox-subject"><b>@mensaje.Asunto</b> - @mensaje.ContenidoPreview ...</td>
+                                    <td class="mailbox-attachment"></td>
+                                    <td class="mailbox-date">@mensaje.Tiempo</td>
+                                </tr>
+                            }
                         </tbody>
                     </table><!-- /.table -->
                 </div><!-- /.mail-box-messages -->

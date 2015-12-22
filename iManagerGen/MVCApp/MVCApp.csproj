@@ -231,6 +231,8 @@
     <Compile Include="Models\AssemblerUsuarios.cs" />
     <Compile Include="Models\InstalacionModels.cs" />
     <Compile Include="Models\UsuarioModels.cs" />
+    <Compile Include="Models\VerMensajes.cs" />
+    <Compile Include="Models\VerMensajesModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
