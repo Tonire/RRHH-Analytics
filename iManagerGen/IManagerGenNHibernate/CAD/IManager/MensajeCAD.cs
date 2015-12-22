@@ -248,5 +248,36 @@ public void Modify (MensajeEN mensaje)
                 SessionClose ();
         }
 }
+public IManagerGenNHibernate.EN.IManager.MensajeEN ContarMensajesNoLeidosByDestinatario (string p_email)
+{
+        IManagerGenNHibernate.EN.IManager.MensajeEN result;
+        try
+        {
+                SessionInitializeTransaction ();
+                //String sql = @"FROM MensajeEN self where select count(*) FROM MensajeEN where Destinatario.Email=:p_email and leido=false";
+                //IQuery query = session.CreateQuery(sql);
+                IQuery query = (IQuery)session.GetNamedQuery ("MensajeENcontarMensajesNoLeidosByDestinatarioHQL");
+                query.SetParameter ("p_email", p_email);
+
+
+                result = query.UniqueResult<IManagerGenNHibernate.EN.IManager.MensajeEN>();
+                SessionCommit ();
+        }
+
+        catch (Exception ex) {
+                SessionRollBack ();
+                if (ex is IManagerGenNHibernate.Exceptions.ModelException)
+                        throw ex;
+                throw new IManagerGenNHibernate.Exceptions.DataLayerException ("Error in MensajeCAD.", ex);
+        }
+
+
+        finally
+        {
+                SessionClose ();
+        }
+
+        return result;
+}
 }
 }

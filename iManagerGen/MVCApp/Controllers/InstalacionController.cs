@@ -50,7 +50,7 @@ namespace MVCApp.Controllers
                     if (file != null && file.ContentLength > 0) {
                         // extract only the fielname
                         fileName = Path.GetFileName(file.FileName);
-                        // store the file inside ~/App_Data/uploads folder
+                        // store the file inside ~/Images/uploads folder
                         path = Path.Combine(Server.MapPath("~/Images/Uploads"), fileName);
                         //string pathDef = path.Replace(@"\\", @"\");
                         file.SaveAs(path);
@@ -71,7 +71,7 @@ namespace MVCApp.Controllers
 
                     WebSecurity.Login(model.UserEmail, model.Password);
                     
-                    return RedirectToAction("Index", "Home");
+                    return RedirectToAction("Login", "Account");
                 }
                 catch (MembershipCreateUserException e)
                 {
