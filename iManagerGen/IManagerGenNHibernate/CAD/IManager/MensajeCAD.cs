@@ -231,6 +231,9 @@ public void Modify (MensajeEN mensaje)
 
                 mensajeEN.Leido = mensaje.Leido;
 
+
+                mensajeEN.Fecha = mensaje.Fecha;
+
                 session.Update (mensajeEN);
                 SessionCommit ();
         }

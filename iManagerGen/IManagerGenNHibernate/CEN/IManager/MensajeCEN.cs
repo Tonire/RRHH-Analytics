@@ -36,7 +36,7 @@ public IMensajeCAD get_IMensajeCAD ()
         return this._IMensajeCAD;
 }
 
-public int CreaMensaje (string p_remitente, string p_destinatario, string p_asunto, string p_contenido, bool p_leido)
+public int CreaMensaje (string p_remitente, string p_destinatario, string p_asunto, string p_contenido, bool p_leido, Nullable<DateTime> p_fecha)
 {
         MensajeEN mensajeEN = null;
         int oid;
@@ -65,6 +65,8 @@ public int CreaMensaje (string p_remitente, string p_destinatario, string p_asun
 
         mensajeEN.Leido = p_leido;
 
+        mensajeEN.Fecha = p_fecha;
+
         //Call to MensajeCAD
 
         oid = _IMensajeCAD.CreaMensaje (mensajeEN);
@@ -87,7 +89,7 @@ public System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.Mensaj
 {
         return _IMensajeCAD.GetMensajesByDestinatario (p_email, first, size);
 }
-public void Modify (int p_Mensaje_OID, string p_asunto, string p_contenido, bool p_leido)
+public void Modify (int p_Mensaje_OID, string p_asunto, string p_contenido, bool p_leido, Nullable<DateTime> p_fecha)
 {
         MensajeEN mensajeEN = null;
 
@@ -97,6 +99,7 @@ public void Modify (int p_Mensaje_OID, string p_asunto, string p_contenido, bool
         mensajeEN.Asunto = p_asunto;
         mensajeEN.Contenido = p_contenido;
         mensajeEN.Leido = p_leido;
+        mensajeEN.Fecha = p_fecha;
         //Call to MensajeCAD
 
         _IMensajeCAD.Modify (mensajeEN);

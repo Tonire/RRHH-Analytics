@@ -51,7 +51,7 @@ namespace MVCApp.Controllers
                 usuarioRemitente = usuarioCEN.GetUsuarioByEmail(remitente);
 
                 sJSON = sJSON + "{";
-                sJSON = sJSON + "\"Asunto\":\"" + listaMensajes[i].Asunto + "\", \"Remitente\":\"" + listaMensajes[i].Remitente.Email + "\", \"Rol\": \"" + usuarioRemitente.GetType().Name + "\"";
+                sJSON = sJSON + "\"Asunto\":\"" + listaMensajes[i].Asunto + "\", \"Remitente\":\"" + listaMensajes[i].Remitente.Nombre + " " + listaMensajes[i].Remitente.Apellidos + "\", \"Rol\": \"" + usuarioRemitente.GetType().Name + "\"";
                 if (i == listaMensajes.Count - 1) {
                     sJSON = sJSON + "}";
                 } else {
