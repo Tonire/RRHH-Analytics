@@ -36,15 +36,22 @@ namespace MVCApp.Controllers
             MensajeCAD mensajeCAD = new MensajeCAD(session);
             MensajeCEN mensajeCEN = new MensajeCEN(mensajeCAD);
             IList<MensajeEN> listaMensajes;
+            UsuarioCEN usuarioCEN = new UsuarioCEN();
             
             string emailUsuario = User.Identity.Name;
             string sJSON = "[";
             //mensajeCEN.CreaMensaje("hector@hotmail.com",emailUsuario,"Hola Toni","Soy Hector",false);
             listaMensajes = mensajeCEN.GetMensajesByDestinatario(emailUsuario, 0, 5);
 
+            string remitente;
+            UsuarioEN usuarioRemitente;
+
             for (int i = 0; i < listaMensajes.Count; i++) {
+                remitente = listaMensajes[i].Remitente.Email;
+                usuarioRemitente = usuarioCEN.GetUsuarioByEmail(remitente);
+
                 sJSON = sJSON + "{";
-                //sJSON = sJSON + "\"" + listaMensajes[i].Asunto + "\", \"" + listaMensajes[i].Contenido + "\", \"";
+                sJSON = sJSON + "\"Asunto\":\"" + listaMensajes[i].Asunto + "\", \"Remitente\":\"" + listaMensajes[i].Remitente.Email + "\", \"Rol\": \"" + usuarioRemitente.GetType().Name + "\"";
                 if (i == listaMensajes.Count - 1) {
                     sJSON = sJSON + "}";
                 } else {
@@ -53,7 +60,8 @@ namespace MVCApp.Controllers
                 
             }
             sJSON = sJSON + "]";
-                return sJSON;
+            SessionClose();
+            return sJSON;
         }
 
         //
