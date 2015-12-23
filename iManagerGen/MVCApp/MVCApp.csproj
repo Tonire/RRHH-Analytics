@@ -229,6 +229,7 @@
     </Compile>
     <Compile Include="Models\AccountModels.cs" />
     <Compile Include="Models\AssemblerUsuarios.cs" />
+    <Compile Include="Models\CrearMensajeModels.cs" />
     <Compile Include="Models\InstalacionModels.cs" />
     <Compile Include="Models\UsuarioModels.cs" />
     <Compile Include="Models\VerMensajes.cs" />

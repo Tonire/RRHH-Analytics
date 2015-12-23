@@ -18,17 +18,17 @@
 
 <div class="row">
     <div class="col-md-3">
-        <a href="compose.html" class="btn btn-primary btn-block margin-bottom">Redactar</a>
+        <a href="@Url.Action("Crear","Mensajes")" class="btn btn-primary btn-block margin-bottom">Redactar</a>
         <div class="box box-solid">
             <div class="box-header with-border">
-                <h3 class="box-title">Folders</h3>
+                <h3 class="box-title">Carpetas</h3>
                 <div class="box-tools">
                     <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
                 </div>
             </div>
             <div class="box-body no-padding">
                 <ul class="nav nav-pills nav-stacked">
-                    <li class="active"><a href="#"><i class="fa fa-inbox"></i> Bandeja de entrada <span class="label label-primary pull-right">@ViewData["cuenta"]</span></a></li>
+                    <li class="active"><a href="@Url.Action("Index","Mensajes")"><i class="fa fa-inbox"></i> Bandeja de entrada <span class="label label-primary pull-right">@ViewData["cuenta"]</span></a></li>
                     <li><a href="#"><i class="fa fa-envelope-o"></i> Bandeja de salida </a></li>
                 </ul>
             </div><!-- /.box-body -->
@@ -53,7 +53,8 @@
                 <div class="table-responsive mailbox-messages">
                     <table id="tabla1" class="table table-hover table-striped">
                         <tbody>
-                            @foreach (var mensaje in Model) {
+                            @if(Model.Any()){
+                                 foreach (var mensaje in Model) {
                                 <tr>
                                     <td><input type="checkbox" /></td>
                                     <td class="mailbox-star"></td>
@@ -62,7 +63,12 @@
                                     <td class="mailbox-attachment"></td>
                                     <td class="mailbox-date">@mensaje.Tiempo</td>
                                 </tr>
+                                }
                             }
+                            else {
+                                <text><tr><td>No hay ningún mensaje recibido.</td></tr></text>
+                            }
+                           
                         </tbody>
                     </table><!-- /.table -->
                 </div><!-- /.mail-box-messages -->

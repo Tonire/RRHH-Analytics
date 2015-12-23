@@ -74,11 +74,17 @@ namespace MVCApp.Controllers
         }
 
         //
-        // GET: /Mensajes/Create
+        // GET: /Mensajes/Crear
 
-        public ActionResult Create()
+        public ActionResult Crear()
         {
-            return View();
+            UsuarioCEN usuarioCEN = new UsuarioCEN();
+            UsuarioEN usuario = new UsuarioEN();
+            CrearMensajeModels mensaje = new CrearMensajeModels();
+            IList<UsuarioEN> list = usuarioCEN.DameTodos(0, -1);
+            IEnumerable<UsuarioModels> listUsu = new AssemblerUsuarios().ConvertListENToModel(list).ToList();
+            mensaje.Usuarios = listUsu;
+            return View(mensaje);
         }
 
         //

@@ -33,6 +33,8 @@ namespace MVCApp.Models {
         [StringLength(maximumLength: 200, ErrorMessage = "El nombre no puede tener más de 200 caracteres")]
         public string Apellidos { get; set; }
 
+        public string NombreCompleto { get; set; }
+
         [Required]
         [StringLength(100, ErrorMessage = "El número de caracteres de {0} debe ser al menos {2}.", MinimumLength = 6)]
         [DataType(DataType.Password)]

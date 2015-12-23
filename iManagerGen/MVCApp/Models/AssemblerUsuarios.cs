@@ -23,6 +23,7 @@ namespace MVCApp.Models {
             us.DNI = en.DNI;
             us.Nombre = en.Nombre;
             us.Apellidos = en.Apellidos;
+            us.NombreCompleto = en.Apellidos.ToUpper() + ", " + en.Nombre.ToUpper();
             return us;
         }
         public IList<UsuarioModels> ConvertListENToModel(IList<UsuarioEN> ens) {
