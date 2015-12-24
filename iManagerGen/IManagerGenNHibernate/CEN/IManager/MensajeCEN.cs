@@ -109,5 +109,9 @@ public long ContarMensajesNoLeidosByDestinatario (string p_email)
 {
         return _IMensajeCAD.ContarMensajesNoLeidosByDestinatario (p_email);
 }
+public void Destroy (int id)
+{
+        _IMensajeCAD.Destroy (id);
+}
 }
 }

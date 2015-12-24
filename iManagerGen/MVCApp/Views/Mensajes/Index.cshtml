@@ -15,22 +15,35 @@
         new Crumb("Mensajería", "", "fa fa-envelope"), new Crumb("Recibidos")
     });
 }
-
-<div class="row">
-    @{
-        if (ViewData["Creado"] != null) {
-            <text>
-                <div class="row">
-                    <div class="alert alert-success alert-dismissible" style="margin-right: 15px; margin-left: 15px;">
-                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-                        <h4><i class="icon fa fa-check"></i> Mensaje enviado!</h4>
-                        El mensaje se ha enviado correctamente.
-                    </div>
+@{
+    if (TempData["Creado"] != null) {
+        <text>
+            <div class="row">
+                <div class="alert alert-success alert-dismissible" style="margin-right: 15px; margin-left: 15px;">
+                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                    <h4><i class="icon fa fa-check"></i> Mensaje enviado!</h4>
+                    El mensaje se ha enviado correctamente.
                 </div>
+            </div>
 
-            </text>
-        }
+        </text>
     }
+}
+@{
+    if (TempData["ErrorBorr"] != null) {
+        <text>
+            <div class="row">
+                <div class="alert alert-danger alert-dismissible" style="margin-right: 15px; margin-left: 15px;">
+                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                    <h4><i class="icon fa fa-check"></i> Error!</h4>
+                    No hemos podido elminar el mensaje, intentalo de nuevo porfavor.
+                </div>
+            </div>
+
+        </text>
+    }
+}
+<div class="row">
     <div class="col-md-3">
         <a href="@Url.Action("Crear","Mensajes")" class="btn btn-primary btn-block margin-bottom">Redactar</a>
         <div class="box box-solid">
@@ -58,7 +71,7 @@
                     <!-- Check all button -->
                     <button class="btn btn-default btn-sm checkbox-toggle"><i class="fa fa-square-o"></i></button>
                     <div class="btn-group">
-                        <button class="btn btn-default btn-sm"><i class="fa fa-trash-o"></i></button>
+                        <button class="btn btn-default btn-sm" id="eliminar1"><i class="fa fa-trash-o"></i></button>
                         <button class="btn btn-default btn-sm"><i class="fa fa-reply"></i></button>
                         <button class="btn btn-default btn-sm"><i class="fa fa-share"></i></button>
                     </div><!-- /.btn-group -->
@@ -67,22 +80,22 @@
                 <div class="table-responsive mailbox-messages">
                     <table id="tabla1" class="table table-hover table-striped">
                         <tbody>
-                            @if(Model.Any()){
-                                 foreach (var mensaje in Model) {
-                                <tr>
-                                    <td><input type="checkbox" /></td>
-                                    <td class="mailbox-star"></td>
-                                    <td class="mailbox-name"><a href="#">@mensaje.Nombre @mensaje.Apellidos</a></td>
-                                    <td class="mailbox-subject"><b>@mensaje.Asunto</b> - @mensaje.ContenidoPreview ...</td>
-                                    <td class="mailbox-attachment"></td>
-                                    <td class="mailbox-date">@mensaje.Tiempo</td>
-                                </tr>
+                            @if (Model.Any()) {
+                                foreach (var mensaje in Model) {
+                                    <tr>
+                                        <td><input class="check" type="checkbox" /></td>
+                                        <td class="mailbox-star"><input type="hidden" value="@mensaje.IdMensaje" /></td>
+                                        <td class="mailbox-name"><a href="#">@mensaje.Nombre @mensaje.Apellidos</a></td>
+                                        <td class="mailbox-subject"><b>@mensaje.Asunto</b> - @mensaje.ContenidoPreview ...</td>
+                                        <td class="mailbox-attachment"></td>
+                                        <td class="mailbox-date">@mensaje.Tiempo</td>
+                                    </tr>
                                 }
+                            } else {
+                                <text>
+                                    <tr><td>No hay ningún mensaje recibido.</td></tr></text>
                             }
-                            else {
-                                <text><tr><td>No hay ningún mensaje recibido.</td></tr></text>
-                            }
-                           
+
                         </tbody>
                     </table><!-- /.table -->
                 </div><!-- /.mail-box-messages -->
@@ -92,7 +105,7 @@
                     <!-- Check all button -->
                     <button class="btn btn-default btn-sm checkbox-toggle"><i class="fa fa-square-o"></i></button>
                     <div class="btn-group">
-                        <button class="btn btn-default btn-sm"><i class="fa fa-trash-o"></i></button>
+                        <button class="btn btn-default btn-sm" id="eliminar2"><i class="fa fa-trash-o"></i></button>
                         <button class="btn btn-default btn-sm"><i class="fa fa-reply"></i></button>
                         <button class="btn btn-default btn-sm"><i class="fa fa-share"></i></button>
                     </div><!-- /.btn-group -->
@@ -104,9 +117,10 @@
 </div><!-- /.row -->
 @section scripts{
     @*Scripts propios de la pagina para renderizar*@
+    <script src="~/Scripts/mensajes.js"></script>
     <!-- Page Script -->
-<!-- SlimScroll -->
-<script src="~/Scripts/AdminLTE/plugins/slimScroll/jquery.slimscroll.min.js"></script>
+    <!-- SlimScroll -->
+    <script src="~/Scripts/AdminLTE/plugins/slimScroll/jquery.slimscroll.min.js"></script>
     <script>
 
         $(function () {
@@ -131,7 +145,7 @@
                 }
                 $(this).data("clicks", !clicks);
             });
-            
+
         });
     </script>
 }

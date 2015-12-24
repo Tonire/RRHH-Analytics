@@ -283,5 +283,28 @@ public long ContarMensajesNoLeidosByDestinatario (string p_email)
 
         return result;
 }
+public void Destroy (int id)
+{
+        try
+        {
+                SessionInitializeTransaction ();
+                MensajeEN mensajeEN = (MensajeEN)session.Load (typeof(MensajeEN), id);
+                session.Delete (mensajeEN);
+                SessionCommit ();
+        }
+
+        catch (Exception ex) {
+                SessionRollBack ();
+                if (ex is IManagerGenNHibernate.Exceptions.ModelException)
+                        throw ex;
+                throw new IManagerGenNHibernate.Exceptions.DataLayerException ("Error in MensajeCAD.", ex);
+        }
+
+
+        finally
+        {
+                SessionClose ();
+        }
+}
 }
 }

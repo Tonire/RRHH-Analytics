@@ -23,5 +23,8 @@ void Modify (MensajeEN mensaje);
 
 
 long ContarMensajesNoLeidosByDestinatario (string p_email);
+
+
+void Destroy (int id);
 }
 }

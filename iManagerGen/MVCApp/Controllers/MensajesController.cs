@@ -78,12 +78,15 @@ namespace MVCApp.Controllers
         [Authorize]
         public ActionResult Crear()
         {
+            MensajeCEN mensajeCEN = new MensajeCEN();
             UsuarioCEN usuarioCEN = new UsuarioCEN();
             UsuarioEN usuario = new UsuarioEN();
             CrearMensajeModels mensaje = new CrearMensajeModels();
             IList<UsuarioEN> list = usuarioCEN.DameTodos(0, -1);
             IEnumerable<UsuarioModels> listUsu = new AssemblerUsuarios().ConvertListENToModel(list).ToList();
             mensaje.Usuarios = listUsu;
+            long noLeidos = mensajeCEN.ContarMensajesNoLeidosByDestinatario(User.Identity.Name);
+            ViewData["cuenta"] = noLeidos;
             return View(mensaje);
         }
 
@@ -106,56 +109,36 @@ namespace MVCApp.Controllers
                 return View(model);
             }
         }
-
         //
-        // GET: /Mensajes/Edit/5
-
-        public ActionResult Edit(int id)
-        {
-            return View();
-        }
-
-        //
-        // POST: /Mensajes/Edit/5
-
-        [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
-        {
-            try
-            {
-                // TODO: Add update logic here
-
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
-        }
+        // GET: /Mensajes/Salida
+        [Authorize]
+        public ActionResult 
 
         //
         // GET: /Mensajes/Delete/5
-
-        public ActionResult Delete(int id)
-        {
-            return View();
-        }
-
-        //
-        // POST: /Mensajes/Delete/5
-
-        [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
+        [Authorize]
+        public string Delete(int id)
         {
             try
             {
-                // TODO: Add delete logic here
-
-                return RedirectToAction("Index");
+                SessionInitialize();
+                MensajeCAD mensajeCAD = new MensajeCAD();
+                MensajeCEN mensajeCEN = new MensajeCEN(mensajeCAD);
+                if(mensajeCEN.GetMensaje(id).Destinatario.Email.CompareTo(User.Identity.Name)==0){
+                    mensajeCEN.Destroy(id);
+                } else {
+                    TempData["ErrorBorr"] = true;
+                    RedirectToAction("Index");
+                    return "Error";
+                }
+                SessionClose();
+                return "1";
             }
             catch
             {
-                return View();
+                TempData["ErrorBorr"] = true;
+                RedirectToAction("Index");
+                return "0";
             }
         }
     }

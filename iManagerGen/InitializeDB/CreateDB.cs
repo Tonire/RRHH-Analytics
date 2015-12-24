@@ -108,54 +108,54 @@ public static void InitializeData ()
 
                 #region Usuario
                 /*UsuarioEN toni = new UsuarioEN ();
-                UsuarioEN julio = new UsuarioEN ();
-                UsuarioEN hector = new UsuarioEN ();
-                UsuarioEN adri = new UsuarioEN ();
-                //Administrador 1
-                toni.Email = "toniyo@hotmail.com";
-                toni.DNI = "48730721h";
-                toni.Password = "1234asdf";
-                toni.Nombre = "Toni";
-                toni.Apellidos = "Rebollo";
-                adminCEN.New_ (toni.Email, toni.DNI, toni.Password, toni.Nombre, toni.Apellidos, DateTime.Now);
-                toni = usuarioCEN.IniciarSesion (toni.Email, "1234asdf");
-                //Empleado 1
-                julio.Email = "julio17@hotmail.com";
-                julio.DNI = "48730721T";
-                julio.Password = "julioasdf";
-                julio.Nombre = "Toni";
-                julio.Apellidos = "Rebollo";
-                empleadoCEN.New_ (julio.Email, julio.DNI, julio.Password, julio.Nombre, julio.Apellidos, DateTime.Now);
-                julio = usuarioCEN.IniciarSesion (julio.Email, "julioasdf");
-                //Empleado2
-                //Empleado 1
-                hector.Email = "hector@hotmail.com";
-                hector.DNI = "489965421T";
-                hector.Password = "julioasdf";
-                hector.Nombre = "Toni";
-                hector.Apellidos = "Rebollo";
-                empleadoCEN.New_ (hector.Email, hector.DNI, hector.Password, hector.Nombre, hector.Apellidos, DateTime.Now);
-                hector = usuarioCEN.IniciarSesion (hector.Email, "julioasdf");
-                //Jefe
-                adri.Email = "adri@hotmail.com";
-                adri.DNI = "15145454145N";
-                adri.Password = "123";
-                adri.Nombre = "Toni";
-                adri.Apellidos = "Rebollo";
-                superCEN.New_ (adri.Email, adri.DNI, adri.Password, adri.Nombre, adri.Apellidos, DateTime.Now);
-                adri = usuarioCEN.IniciarSesion (adri.Email, "123");
-                adri.GetType ();*/
+                 * UsuarioEN julio = new UsuarioEN ();
+                 * UsuarioEN hector = new UsuarioEN ();
+                 * UsuarioEN adri = new UsuarioEN ();
+                 * //Administrador 1
+                 * toni.Email = "toniyo@hotmail.com";
+                 * toni.DNI = "48730721h";
+                 * toni.Password = "1234asdf";
+                 * toni.Nombre = "Toni";
+                 * toni.Apellidos = "Rebollo";
+                 * adminCEN.New_ (toni.Email, toni.DNI, toni.Password, toni.Nombre, toni.Apellidos, DateTime.Now);
+                 * toni = usuarioCEN.IniciarSesion (toni.Email, "1234asdf");
+                 * //Empleado 1
+                 * julio.Email = "julio17@hotmail.com";
+                 * julio.DNI = "48730721T";
+                 * julio.Password = "julioasdf";
+                 * julio.Nombre = "Toni";
+                 * julio.Apellidos = "Rebollo";
+                 * empleadoCEN.New_ (julio.Email, julio.DNI, julio.Password, julio.Nombre, julio.Apellidos, DateTime.Now);
+                 * julio = usuarioCEN.IniciarSesion (julio.Email, "julioasdf");
+                 * //Empleado2
+                 * //Empleado 1
+                 * hector.Email = "hector@hotmail.com";
+                 * hector.DNI = "489965421T";
+                 * hector.Password = "julioasdf";
+                 * hector.Nombre = "Toni";
+                 * hector.Apellidos = "Rebollo";
+                 * empleadoCEN.New_ (hector.Email, hector.DNI, hector.Password, hector.Nombre, hector.Apellidos, DateTime.Now);
+                 * hector = usuarioCEN.IniciarSesion (hector.Email, "julioasdf");
+                 * //Jefe
+                 * adri.Email = "adri@hotmail.com";
+                 * adri.DNI = "15145454145N";
+                 * adri.Password = "123";
+                 * adri.Nombre = "Toni";
+                 * adri.Apellidos = "Rebollo";
+                 * superCEN.New_ (adri.Email, adri.DNI, adri.Password, adri.Nombre, adri.Apellidos, DateTime.Now);
+                 * adri = usuarioCEN.IniciarSesion (adri.Email, "123");
+                 * adri.GetType ();*/
                 #endregion
 
                 #region Mensaje
                 /*MensajeEN mensaje1 = new MensajeEN ();
-                mensaje1.Asunto = "Esto es un mensaje de prueba";
-                mensaje1.Contenido = "Hola esto es un mensaje para probar que los mensajes se envian.";
-                mensajeCEN.CreaMensaje (julio.Email, toni.Email, mensaje1.Asunto, mensaje1.Contenido, false, DateTime.Now);
-
-                IList<MensajeEN> listaMensajes = mensajeCEN.GetMensajesByRemitente (julio.Email);
-
-                IList<UsuarioEN> usu = usuarioCEN.DameTodos (0, 10);*/
+                 * mensaje1.Asunto = "Esto es un mensaje de prueba";
+                 * mensaje1.Contenido = "Hola esto es un mensaje para probar que los mensajes se envian.";
+                 * mensajeCEN.CreaMensaje (julio.Email, toni.Email, mensaje1.Asunto, mensaje1.Contenido, false, DateTime.Now);
+                 *
+                 * IList<MensajeEN> listaMensajes = mensajeCEN.GetMensajesByRemitente (julio.Email);
+                 *
+                 * IList<UsuarioEN> usu = usuarioCEN.DameTodos (0, 10);*/
                 #endregion
 
 
@@ -210,29 +210,29 @@ public static void InitializeData ()
 
                 #region Pedido
                 /*PedidoEN pedido1 = new PedidoEN ();
-                pedido1.Descripcion = "Pedido de prueba";
-                pedido1.Estado = IManagerGenNHibernate.Enumerated.IManager.EstadoPedidoEnum.pendiente;
-                pedido1.FechaRealizacion = DateTime.Now;
-                int pedido = pedidoCEN.CrearPedido (pedido1.Descripcion, pedido1.Estado, pedido1.FechaRealizacion, julio.Email, listaLineas);
-
-                IList<PedidoEN> listaPedidos = pedidoCEN.GetPedidosPendientes ();
-
-                pedidoCP.AumentarStockConfirmarPedidoHacerMovimiento (pedido, DateTime.Now);
-
-                IList<LineaPedidoEN> lineasPrueba = lineaPedidoCEN.GetLineasPedidoByPedido (pedido);
-
-
-                PedidoEN pedido2 = new PedidoEN ();
-                pedido2.Descripcion = "Pedido dos";
-                pedido2.Estado = IManagerGenNHibernate.Enumerated.IManager.EstadoPedidoEnum.pendiente;
-                pedido2.FechaRealizacion = DateTime.Now;
-
-                int oidPedido2 = pedidoCEN.CrearPedido (pedido2.Descripcion, pedido2.Estado, pedido2.FechaRealizacion, toni.Email, listaLineas);
-                pedidoCP.AumentarStockConfirmarPedidoHacerMovimiento (oidPedido2, DateTime.Now);
-
-                double totalGastosAnyo = movimientosCEN.GetMovimientoTotalAnyo (2015, IManagerGenNHibernate.Enumerated.IManager.TipoMovimientoEnum.gasto);
-
-                pedidoCEN.Destroy (pedidoCEN.GetPedidosConfirmados () [1].Id);*/
+                 * pedido1.Descripcion = "Pedido de prueba";
+                 * pedido1.Estado = IManagerGenNHibernate.Enumerated.IManager.EstadoPedidoEnum.pendiente;
+                 * pedido1.FechaRealizacion = DateTime.Now;
+                 * int pedido = pedidoCEN.CrearPedido (pedido1.Descripcion, pedido1.Estado, pedido1.FechaRealizacion, julio.Email, listaLineas);
+                 *
+                 * IList<PedidoEN> listaPedidos = pedidoCEN.GetPedidosPendientes ();
+                 *
+                 * pedidoCP.AumentarStockConfirmarPedidoHacerMovimiento (pedido, DateTime.Now);
+                 *
+                 * IList<LineaPedidoEN> lineasPrueba = lineaPedidoCEN.GetLineasPedidoByPedido (pedido);
+                 *
+                 *
+                 * PedidoEN pedido2 = new PedidoEN ();
+                 * pedido2.Descripcion = "Pedido dos";
+                 * pedido2.Estado = IManagerGenNHibernate.Enumerated.IManager.EstadoPedidoEnum.pendiente;
+                 * pedido2.FechaRealizacion = DateTime.Now;
+                 *
+                 * int oidPedido2 = pedidoCEN.CrearPedido (pedido2.Descripcion, pedido2.Estado, pedido2.FechaRealizacion, toni.Email, listaLineas);
+                 * pedidoCP.AumentarStockConfirmarPedidoHacerMovimiento (oidPedido2, DateTime.Now);
+                 *
+                 * double totalGastosAnyo = movimientosCEN.GetMovimientoTotalAnyo (2015, IManagerGenNHibernate.Enumerated.IManager.TipoMovimientoEnum.gasto);
+                 *
+                 * pedidoCEN.Destroy (pedidoCEN.GetPedidosConfirmados () [1].Id);*/
 
                 #endregion
 
@@ -291,15 +291,15 @@ public static void InitializeData ()
 
                 #region Horario
                 /*HorarioEN horario = new HorarioEN ();
-                horario.Titulo = "Horario semanal";
-                horario.Anyo = 2015;
-
-                System.Collections.Generic.List<string> usuarios = new List<string>();
-                usuarios.Add ("toniyo@hotmail.com");
-                usuarios.Add ("julio17@hotmail.com");
-
-                string horario_oid = horarioCP.CrearHorario (horario, usuarios, turnos, dias);
-                horarioCP.borrarHorario (horario_oid);*/
+                 * horario.Titulo = "Horario semanal";
+                 * horario.Anyo = 2015;
+                 *
+                 * System.Collections.Generic.List<string> usuarios = new List<string>();
+                 * usuarios.Add ("toniyo@hotmail.com");
+                 * usuarios.Add ("julio17@hotmail.com");
+                 *
+                 * string horario_oid = horarioCP.CrearHorario (horario, usuarios, turnos, dias);
+                 * horarioCP.borrarHorario (horario_oid);*/
                 #endregion
 
                 /*PROTECTED REGION END*/

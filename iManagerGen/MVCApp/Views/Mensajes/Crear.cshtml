@@ -15,22 +15,21 @@
         new Crumb("Mensajería", "", "fa fa-envelope"), new Crumb("Redactar Mensaje")
     });
 }
-
-<div class="row">
-    @{
-        if (ViewData["Error"] != null) {
-            <text>
-                <div class="row">
-                    <div class="alert alert-danger alert-dismissible" style="margin-right: 15px; margin-left: 15px;">
-                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-                        <h4><i class="icon fa fa-check"></i> Error en el envío del mensaje!</h4>
-                        Intentalo de nuevo porfavor, o contacta con un administrador.
-                    </div>
+@{
+    if (TempData["Error"] != null) {
+        <text>
+            <div class="row">
+                <div class="alert alert-danger alert-dismissible" style="margin-right: 15px; margin-left: 15px;">
+                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                    <h4><i class="icon fa fa-check"></i> Error en el envío del mensaje!</h4>
+                    Intentalo de nuevo porfavor, o contacta con un administrador.
                 </div>
+            </div>
 
-            </text>
-        }
+        </text>
     }
+}
+<div class="row">
     <div class="col-md-3">
         <a href="@Url.Action("Index","Mensajes")" class="btn btn-primary btn-block margin-bottom">Volver a Bandeja de entrada</a>
         <div class="box box-solid">
@@ -42,7 +41,7 @@
             </div>
             <div class="box-body no-padding">
                 <ul class="nav nav-pills nav-stacked">
-                    <li><a href="mailbox.html"><i class="fa fa-inbox"></i> Bandeja de entrada <span class="label label-primary pull-right">12</span></a></li>
+                    <li><a href="@Url.Action("Index","Mensajes")"><i class="fa fa-inbox"></i> Bandeja de entrada <span class="label label-primary pull-right">@ViewData["cuenta"]</span></a></li>
                     <li><a href="#"><i class="fa fa-envelope-o"></i> Bandeja de salida</a></li>
                 </ul>
             </div><!-- /.box-body -->

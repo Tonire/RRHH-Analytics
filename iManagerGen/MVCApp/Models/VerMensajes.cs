@@ -17,7 +17,13 @@ namespace MVCApp.Models {
                 modeloMensaje.Apellidos = mensaje.Remitente.Apellidos;
                 modeloMensaje.Asunto = mensaje.Asunto;
                 modeloMensaje.Contenido = mensaje.Contenido;
-                modeloMensaje.ContenidoPreview = mensaje.Contenido.Substring(0, 41);
+                int longitud = mensaje.Contenido.Length;
+                if(longitud>41){
+                    modeloMensaje.ContenidoPreview = mensaje.Contenido.Substring(0, 41);
+                }else {
+                    modeloMensaje.ContenidoPreview = mensaje.Contenido;
+                }
+                
                 DateTime? when = mensaje.Fecha;
                 TimeSpan ts = DateTime.Now.Subtract((DateTime)when);
                 if (ts.TotalHours < 1){
