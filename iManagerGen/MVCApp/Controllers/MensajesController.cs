@@ -99,7 +99,7 @@ namespace MVCApp.Controllers
             try
             {
                 MensajeCEN mensajeCEN = new MensajeCEN();
-                mensajeCEN.CreaMensaje(User.Identity.Name,model.Destinatario,model.Asunto,model.Contenido,false,DateTime.Now);
+                mensajeCEN.CreaMensaje(User.Identity.Name,model.Destinatario,model.Asunto,model.Contenido,false,DateTime.Now,false);
                 TempData["Creado"] = true;
                 return RedirectToAction("Index");
             }
@@ -148,6 +148,30 @@ namespace MVCApp.Controllers
             {
                 TempData["ErrorBorr"] = true;
                 RedirectToAction("Index");
+                return "0";
+            }
+        }
+        //
+        // GET: /Mensajes/Borrar/5
+        [Authorize]
+        public string Borrar(int id) {
+            try {
+                SessionInitialize();
+                MensajeCAD mensajeCAD = new MensajeCAD();
+                MensajeCEN mensajeCEN = new MensajeCEN(mensajeCAD);
+                MensajeEN mensajeEN= mensajeCEN.GetMensaje(id);
+                if (mensajeEN.Remitente.Email.CompareTo(User.Identity.Name) == 0) {
+                    mensajeCEN.Modify(mensajeEN.Id,mensajeEN.Asunto,mensajeEN.Contenido,mensajeEN.Leido,mensajeEN.Fecha,true);
+                } else {
+                    TempData["ErrorBorr"] = true;
+                    RedirectToAction("Salida");
+                    return "Error";
+                }
+                SessionClose();
+                return "1";
+            } catch {
+                TempData["ErrorBorr"] = true;
+                RedirectToAction("Salida");
                 return "0";
             }
         }
