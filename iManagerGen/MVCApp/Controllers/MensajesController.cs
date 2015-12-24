@@ -91,7 +91,7 @@ namespace MVCApp.Controllers
         // POST: /Mensajes/Create
         [Authorize]
         [HttpPost]
-        public ActionResult Create(CrearMensajeModels model)
+        public ActionResult Crear(CrearMensajeModels model)
         {
             try
             {
