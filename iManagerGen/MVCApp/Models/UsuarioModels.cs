@@ -14,7 +14,7 @@ namespace MVCApp.Models {
 
         [Display(Prompt = "Email", Description = "Email del usuario", Name = "Email")]
         [Required(ErrorMessage = "Debe indicar un nombre para el usuario")]
-        [DataType(DataType.EmailAddress, ErrorMessage = "El precio debe ser un valor numérico")]
+        [DataType(DataType.EmailAddress, ErrorMessage = "Introduce un email válido.")]
         [StringLength(maximumLength: 200, ErrorMessage = "El nombre no puede tener más de 200 caracteres")]
         public string Email { get; set; }
 

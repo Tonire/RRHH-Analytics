@@ -107,7 +107,7 @@ public static void InitializeData ()
 
 
                 #region Usuario
-                UsuarioEN toni = new UsuarioEN ();
+                /*UsuarioEN toni = new UsuarioEN ();
                 UsuarioEN julio = new UsuarioEN ();
                 UsuarioEN hector = new UsuarioEN ();
                 UsuarioEN adri = new UsuarioEN ();
@@ -144,18 +144,18 @@ public static void InitializeData ()
                 adri.Apellidos = "Rebollo";
                 superCEN.New_ (adri.Email, adri.DNI, adri.Password, adri.Nombre, adri.Apellidos, DateTime.Now);
                 adri = usuarioCEN.IniciarSesion (adri.Email, "123");
-                adri.GetType ();
+                adri.GetType ();*/
                 #endregion
 
                 #region Mensaje
-                MensajeEN mensaje1 = new MensajeEN ();
+                /*MensajeEN mensaje1 = new MensajeEN ();
                 mensaje1.Asunto = "Esto es un mensaje de prueba";
                 mensaje1.Contenido = "Hola esto es un mensaje para probar que los mensajes se envian.";
                 mensajeCEN.CreaMensaje (julio.Email, toni.Email, mensaje1.Asunto, mensaje1.Contenido, false, DateTime.Now);
 
                 IList<MensajeEN> listaMensajes = mensajeCEN.GetMensajesByRemitente (julio.Email);
 
-                IList<UsuarioEN> usu = usuarioCEN.DameTodos (0, 10);
+                IList<UsuarioEN> usu = usuarioCEN.DameTodos (0, 10);*/
                 #endregion
 
 
@@ -209,7 +209,7 @@ public static void InitializeData ()
                 #endregion
 
                 #region Pedido
-                PedidoEN pedido1 = new PedidoEN ();
+                /*PedidoEN pedido1 = new PedidoEN ();
                 pedido1.Descripcion = "Pedido de prueba";
                 pedido1.Estado = IManagerGenNHibernate.Enumerated.IManager.EstadoPedidoEnum.pendiente;
                 pedido1.FechaRealizacion = DateTime.Now;
@@ -232,7 +232,7 @@ public static void InitializeData ()
 
                 double totalGastosAnyo = movimientosCEN.GetMovimientoTotalAnyo (2015, IManagerGenNHibernate.Enumerated.IManager.TipoMovimientoEnum.gasto);
 
-                pedidoCEN.Destroy (pedidoCEN.GetPedidosConfirmados () [1].Id);
+                pedidoCEN.Destroy (pedidoCEN.GetPedidosConfirmados () [1].Id);*/
 
                 #endregion
 
@@ -290,7 +290,7 @@ public static void InitializeData ()
                 #endregion region
 
                 #region Horario
-                HorarioEN horario = new HorarioEN ();
+                /*HorarioEN horario = new HorarioEN ();
                 horario.Titulo = "Horario semanal";
                 horario.Anyo = 2015;
 
@@ -299,7 +299,7 @@ public static void InitializeData ()
                 usuarios.Add ("julio17@hotmail.com");
 
                 string horario_oid = horarioCP.CrearHorario (horario, usuarios, turnos, dias);
-                horarioCP.borrarHorario (horario_oid);
+                horarioCP.borrarHorario (horario_oid);*/
                 #endregion
 
                 /*PROTECTED REGION END*/

@@ -14,7 +14,7 @@ namespace MVCApp.Controllers
     {
         //
         // GET: /Mensajes/
-
+        [Authorize]
         public ActionResult Index()
         {
             SessionInitialize();
@@ -75,7 +75,7 @@ namespace MVCApp.Controllers
 
         //
         // GET: /Mensajes/Crear
-
+        [Authorize]
         public ActionResult Crear()
         {
             UsuarioCEN usuarioCEN = new UsuarioCEN();
@@ -89,19 +89,21 @@ namespace MVCApp.Controllers
 
         //
         // POST: /Mensajes/Create
-
+        [Authorize]
         [HttpPost]
-        public ActionResult Create(FormCollection collection)
+        public ActionResult Create(CrearMensajeModels model)
         {
             try
             {
-                // TODO: Add insert logic here
-
+                MensajeCEN mensajeCEN = new MensajeCEN();
+                mensajeCEN.CreaMensaje(User.Identity.Name,model.Destinatario,model.Asunto,model.Contenido,false,DateTime.Now);
+                TempData["Creado"] = true;
                 return RedirectToAction("Index");
             }
             catch
             {
-                return View();
+                TempData["Error"] = true;
+                return View(model);
             }
         }
 

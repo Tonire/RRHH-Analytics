@@ -17,6 +17,20 @@
 }
 
 <div class="row">
+    @{
+        if (ViewData["Error"] != null) {
+            <text>
+                <div class="row">
+                    <div class="alert alert-danger alert-dismissible" style="margin-right: 15px; margin-left: 15px;">
+                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                        <h4><i class="icon fa fa-check"></i> Error en el envío del mensaje!</h4>
+                        Intentalo de nuevo porfavor, o contacta con un administrador.
+                    </div>
+                </div>
+
+            </text>
+        }
+    }
     <div class="col-md-3">
         <a href="@Url.Action("Index","Mensajes")" class="btn btn-primary btn-block margin-bottom">Volver a Bandeja de entrada</a>
         <div class="box box-solid">
@@ -39,49 +53,71 @@
             <div class="box-header with-border">
                 <h3 class="box-title">Redactar Nuevo Mensaje</h3>
             </div><!-- /.box-header -->
-            <div class="box-body">
-                <div class="form-horizontal">
-                    <div class="form-group">
-                        <label for="destinatario" class="col-sm-2 control-label">Destinatario </label>
-                        <div class="col-sm-10">
-                            @Html.DropDownListFor(x => x.Destinatario, new SelectList(Model.Usuarios, "Email", "NombreCompleto"), new { @class = "form-control", @id = "destinatario"})
-                        </div>
+            @using (Html.BeginForm("Crear", "Mensajes", FormMethod.Post, new { role = "form", id = "userForm" })) {
+                @Html.AntiForgeryToken()
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                <div class="box-body">
+                    <div class="form-horizontal">
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.Destinatario, new { @class = "col-sm-2 control-label" })
+                            <div class="col-sm-10">
+                                @Html.DropDownListFor(model => model.Destinatario, new SelectList(Model.Usuarios, "Email", "NombreCompleto"), new { @class = "form-control", @id = "destinatario" })
+                                @Html.ValidationMessageFor(model => model.Destinatario, "", new { @class = "text-danger" })
+                            </div>
 
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.Asunto, new { @class = "col-sm-2 control-label" })
+                            <div class="col-sm-10">
+                                @Html.TextBoxFor(model => model.Asunto, new { @class = "form-control", @placeholder = "Asunto:" })
+                                @Html.ValidationMessageFor(model => model.Asunto, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
                     </div>
                     <div class="form-group">
-                        <label for="inputEmail3" class="col-sm-2 control-label">Asunto</label>
-
-                        <div class="col-sm-10">
-                            <input type="text" class="form-control" id="inputEmail3" placeholder="Asunto">
-                        </div>
-                    </div>
-                </div>
-                    <div class="form-group">
-                        <textarea id="compose-textarea" class="form-control" style="height: 300px">
-                            <h1><u>Heading Of Message</u></h1>
-                            <h4>Subheading</h4>
-                            <p>But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth, the master-builder of human happiness. No one rejects, dislikes, or avoids pleasure itself, because it is pleasure, but because those who do not know how to pursue pleasure rationally encounter consequences that are extremely painful. Nor again is there anyone who loves or pursues or desires to obtain pain of itself, because it is pain, but because occasionally circumstances occur in which toil and pain can procure him some great pleasure. To take a trivial example, which of us ever undertakes laborious physical exercise, except to obtain some advantage from it? But who has any right to find fault with a man who chooses to enjoy a pleasure that has no annoying consequences, or one who avoids a pain that produces no resultant pleasure? On the other hand, we denounce with righteous indignation and dislike men who are so beguiled and demoralized by the charms of pleasure of the moment, so blinded by desire, that they cannot foresee</p>
-                            <ul>
-                                <li>List item one</li>
-                                <li>List item two</li>
-                                <li>List item three</li>
-                                <li>List item four</li>
-                            </ul>
-                            <p>Thank you,</p>
-                            <p>John Doe</p>
-                        </textarea>
+                        @Html.TextAreaFor(model => model.Contenido, new { @id = "compose-textarea", @class = "form-control", @style = "height: 300px;" })
+                        @Html.ValidationMessageFor(model => model.Contenido, "", new { @class = "text-danger" })
                     </div>
                 </div><!-- /.box-body -->
-
-            
-            <div class="box-footer">
-                <button type="submit" class="btn btn-primary"><i class="fa fa-envelope-o"></i> Enviar</button>
-            </div><!-- /.box-footer -->
+                <div class="box-footer">
+                    <button type="submit" class="btn btn-primary"><i class="fa fa-envelope-o"></i> Enviar</button>
+                </div><!-- /.box-footer -->
+            }
         </div><!-- /. box -->
     </div><!-- /.col -->
 </div><!-- /.row -->
 @section scripts{
     @*Scripts propios de la pagina para renderizar*@
+    @Scripts.Render("~/bundles/jqueryval")
+    <script>
+        $(document).ready(function () {
+            var form = $('#userForm')
+                , formData = $.data(form[0])
+                , settings = formData.validator.settings
+                // Store existing event handlers in local variables
+                , oldErrorPlacement = settings.errorPlacement
+                , oldSuccess = settings.success;
+
+            settings.errorPlacement = function (label, element) {
+
+                // Call old handler so it can update the HTML
+                oldErrorPlacement(label, element);
+
+                // Add Bootstrap classes to newly added elements
+                label.parents('.form-group').addClass('has-error');
+                label.addClass('text-danger');
+            };
+
+            settings.success = function (label) {
+                // Remove error class from <div class="form-group">, but don't worry about
+                // validation error messages as the plugin is going to remove it anyway
+                label.parents('.form-group').removeClass('has-error');
+
+                // Call old handler to do rest of the work
+                oldSuccess(label);
+            };
+        });
+    </script>
     <!-- Page Script -->
     <script>
         $(function () {
@@ -103,7 +139,7 @@
     <link rel="stylesheet" href="~/Scripts/AdminLTE/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css">
     <style>
         iframe {
-            width: 100%!important;
+            width: 100% !important;
         }
     </style>
 }
