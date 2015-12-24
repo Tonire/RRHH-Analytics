@@ -83,7 +83,14 @@ namespace MVCApp.Controllers
             UsuarioEN usuario = new UsuarioEN();
             CrearMensajeModels mensaje = new CrearMensajeModels();
             IList<UsuarioEN> list = usuarioCEN.DameTodos(0, -1);
+            for(int i=0;i<list.Count();i++){
+                if (list[i].Email.CompareTo(User.Identity.Name)==0) {
+                    list.RemoveAt(i);
+                    break;
+                }
+            }
             IEnumerable<UsuarioModels> listUsu = new AssemblerUsuarios().ConvertListENToModel(list).ToList();
+            
             mensaje.Usuarios = listUsu;
             long noLeidos = mensajeCEN.ContarMensajesNoLeidosByDestinatario(User.Identity.Name);
             ViewData["cuenta"] = noLeidos;
@@ -117,6 +124,11 @@ namespace MVCApp.Controllers
             MensajeCAD mensajeCAD = new MensajeCAD(session);
             MensajeCEN mensajeCEN = new MensajeCEN(mensajeCAD);
             IList<MensajeEN> mensajes = mensajeCEN.GetMensajesByRemitente(User.Identity.Name);
+            for (int i = 0; i < mensajes.Count();i++ ) {
+                if (mensajes[i].Borrado == true) {
+                    mensajes.RemoveAt(i);
+                }
+            }
             IEnumerable<VerMensajesModels> listaMensajes = new VerMensajes().ConvertListENToModel(mensajes).ToList();
             long noLeidos = mensajeCEN.ContarMensajesNoLeidosByDestinatario(User.Identity.Name);
             ViewData["cuenta"] = noLeidos;
