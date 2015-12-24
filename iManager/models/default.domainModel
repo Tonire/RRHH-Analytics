@@ -76,15 +76,16 @@
     <elements xmi:type="es.ua.dlsi.ooh:Inheritance" xmi:id="_San-8HwAEeWyGcqmZGlzvA" name="inheritance3" son="_NAQoAHwAEeWyGcqmZGlzvA" father="_FkwKoHv-EeWyGcqmZGlzvA"/>
     <elements xmi:type="es.ua.dlsi.ooh:Class" xmi:id="_jjUIwHwBEeWyGcqmZGlzvA" name="Mensaje" alias="Mensaje" asociationTarget="_ufoFUHwBEeWyGcqmZGlzvA" associationOrigin="_-AgyQISyEeW7W7_0DEGx_Q">
       <operations xmi:type="es.ua.dlsi.ooh:Operation" xmi:id="_P-HOUHwCEeWyGcqmZGlzvA" name="creaMensaje" operationType="New" type="Object" typeObject="_jjUIwHwBEeWyGcqmZGlzvA">
-        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_TmwfMKjUEeWFTu12Z9zxQg" name="p_remitente" type="OID" typeObject="_FkwKoHv-EeWyGcqmZGlzvA"/>
-        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_TmwfMajUEeWFTu12Z9zxQg" name="p_destinatario" type="OID" typeObject="_FkwKoHv-EeWyGcqmZGlzvA"/>
-        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_TmwfMqjUEeWFTu12Z9zxQg" name="p_asunto"/>
-        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_TmwfM6jUEeWFTu12Z9zxQg" name="p_contenido"/>
-        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_TmwfNKjUEeWFTu12Z9zxQg" name="p_leido" type="Boolean"/>
-        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_TmwfNajUEeWFTu12Z9zxQg" name="p_fecha" type="Time"/>
+        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_88nFkKpfEeWE3chMAtF7mQ" name="p_remitente" type="OID" typeObject="_FkwKoHv-EeWyGcqmZGlzvA"/>
+        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_88nFkapfEeWE3chMAtF7mQ" name="p_destinatario" type="OID" typeObject="_FkwKoHv-EeWyGcqmZGlzvA"/>
+        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_88nFkqpfEeWE3chMAtF7mQ" name="p_asunto"/>
+        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_88nsoKpfEeWE3chMAtF7mQ" name="p_contenido"/>
+        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_88nsoapfEeWE3chMAtF7mQ" name="p_leido" type="Boolean"/>
+        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_88nsoqpfEeWE3chMAtF7mQ" name="p_fecha" type="Time"/>
+        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_88nso6pfEeWE3chMAtF7mQ" name="p_borrado" type="Boolean"/>
       </operations>
       <operations xmi:type="es.ua.dlsi.ooh:Operation" xmi:id="_XhbOwHwCEeWyGcqmZGlzvA" name="getMensaje" operationType="ReadOID" type="Object" typeObject="_jjUIwHwBEeWyGcqmZGlzvA">
-        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_TmwfNqjUEeWFTu12Z9zxQg" name="p_Mensaje_OID" type="OID" typeObject="_jjUIwHwBEeWyGcqmZGlzvA"/>
+        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_88nspKpfEeWE3chMAtF7mQ" name="p_Mensaje_OID" type="OID" typeObject="_jjUIwHwBEeWyGcqmZGlzvA"/>
       </operations>
       <operations xmi:type="es.ua.dlsi.ooh:Operation" xmi:id="_8QN6UISnEeW7W7_0DEGx_Q" name="getMensajesByRemitente" operationType="ReadFilter" type="Object" collectionType="List" typeObject="_jjUIwHwBEeWyGcqmZGlzvA" filter="FROM MensajeEN where Remitente.Email=:p_email" automaticSynchronize="false">
         <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_ItTtIISoEeW7W7_0DEGx_Q" name="p_email"/>
@@ -93,17 +94,18 @@
         <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_B0KxcISwEeW7W7_0DEGx_Q" name="p_email"/>
       </operations>
       <operations xmi:type="es.ua.dlsi.ooh:Operation" xmi:id="_j6fFEKgTEeWb7M63aX7Fdg" name="modify" operationType="Modifier" type="Void">
-        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_TmwfN6jUEeWFTu12Z9zxQg" name="p_Mensaje_OID" type="OID" typeObject="_jjUIwHwBEeWyGcqmZGlzvA"/>
-        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_TmwfOKjUEeWFTu12Z9zxQg" name="p_asunto"/>
-        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_TmwfOajUEeWFTu12Z9zxQg" name="p_contenido"/>
-        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_TmwfOqjUEeWFTu12Z9zxQg" name="p_leido" type="Boolean"/>
-        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_TmwfO6jUEeWFTu12Z9zxQg" name="p_fecha" type="Time"/>
+        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_88nspapfEeWE3chMAtF7mQ" name="p_Mensaje_OID" type="OID" typeObject="_jjUIwHwBEeWyGcqmZGlzvA"/>
+        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_88nspqpfEeWE3chMAtF7mQ" name="p_asunto"/>
+        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_88nsp6pfEeWE3chMAtF7mQ" name="p_contenido"/>
+        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_88nsqKpfEeWE3chMAtF7mQ" name="p_leido" type="Boolean"/>
+        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_88nsqapfEeWE3chMAtF7mQ" name="p_fecha" type="Time"/>
+        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_88nsqqpfEeWE3chMAtF7mQ" name="p_borrado" type="Boolean"/>
       </operations>
       <operations xmi:type="es.ua.dlsi.ooh:Operation" xmi:id="_DBRGsKifEeWXSv0dAo9JzA" name="contarMensajesNoLeidosByDestinatario" operationType="ReadFilter" type="Long" filter="select count(*) FROM MensajeEN where Destinatario.Email=:p_email and leido=false" automaticSynchronize="false">
         <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_JcVFoKifEeWXSv0dAo9JzA" name="p_email" type="OID" typeObject="_FkwKoHv-EeWyGcqmZGlzvA"/>
       </operations>
       <operations xmi:type="es.ua.dlsi.ooh:Operation" xmi:id="_AoOSIKpUEeWE3chMAtF7mQ" name="Destroy" operationType="Destroy" type="Void">
-        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_CfrjAKpUEeWE3chMAtF7mQ" name="p_Mensaje_OID" type="OID" typeObject="_jjUIwHwBEeWyGcqmZGlzvA"/>
+        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_88oTsKpfEeWE3chMAtF7mQ" name="p_Mensaje_OID" type="OID" typeObject="_jjUIwHwBEeWyGcqmZGlzvA"/>
       </operations>
       <attributes xmi:type="es.ua.dlsi.ooh:Attribute" xmi:id="_mAQsUHwBEeWyGcqmZGlzvA" alias="id" name="id" type="Autogenerated" isOID="true" unique="true"/>
       <attributes xmi:type="es.ua.dlsi.ooh:Attribute" xmi:id="_-AhZUISyEeW7W7_0DEGx_Q" alias="idUsuario" associationOrigin="_-AgyQISyEeW7W7_0DEGx_Q" name="remitente" type="Object"/>
@@ -112,6 +114,7 @@
       <attributes xmi:type="es.ua.dlsi.ooh:Attribute" xmi:id="_N4qkwHwCEeWyGcqmZGlzvA" alias="contenido" name="contenido"/>
       <attributes xmi:type="es.ua.dlsi.ooh:Attribute" xmi:id="_6MoNQKgaEeWb7M63aX7Fdg" alias="leido" name="leido" type="Boolean"/>
       <attributes xmi:type="es.ua.dlsi.ooh:Attribute" xmi:id="_WvakIKjSEeWFTu12Z9zxQg" alias="fecha" name="fecha" type="Time"/>
+      <attributes xmi:type="es.ua.dlsi.ooh:Attribute" xmi:id="_5vwIAKpfEeWE3chMAtF7mQ" alias="borrado" name="borrado" type="Boolean"/>
     </elements>
     <elements xmi:type="es.ua.dlsi.ooh:Association" xmi:id="_ufoFUHwBEeWyGcqmZGlzvA" name="mensaje_0_usuario_0" alias="mensaje_0_usuario_0" rolOrigin="_ufoFUXwBEeWyGcqmZGlzvA" rolTarget="_ufoFUnwBEeWyGcqmZGlzvA" classTarget="_jjUIwHwBEeWyGcqmZGlzvA" classOrigin="_FkwKoHv-EeWyGcqmZGlzvA" rolOriginName="mensajesRecibidos" rolTargetName="destinatario" rolOriginMultiplicity="0..*" rolTargetMultiplicity="1..1"/>
     <elements xmi:type="es.ua.dlsi.ooh:Class" xmi:id="_WzXHgHwFEeW-XJNIUeA2IA" name="Horario" alias="Horario" associationOrigin="_yyMw8HwFEeW-XJNIUeA2IA _GAJRkITPEeWJUN0bydMDMg _6gVJ4ITPEeWJUN0bydMDMg">
@@ -661,6 +664,10 @@
         <children xmi:type="notation:Shape" xmi:id="_WvkVLKjSEeWFTu12Z9zxQg" type="3003" element="_WvakIKjSEeWFTu12Z9zxQg" fontName="Segoe UI">
           <children xmi:type="notation:DecorationNode" xmi:id="_WvkVLqjSEeWFTu12Z9zxQg" type="5007"/>
           <layoutConstraint xmi:type="notation:Bounds" xmi:id="_WvkVLajSEeWFTu12Z9zxQg"/>
+        </children>
+        <children xmi:type="notation:Shape" xmi:id="_5v2OoKpfEeWE3chMAtF7mQ" type="3003" element="_5vwIAKpfEeWE3chMAtF7mQ" fontName="Segoe UI">
+          <children xmi:type="notation:DecorationNode" xmi:id="_5v21sapfEeWE3chMAtF7mQ" type="5007"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_5v21sKpfEeWE3chMAtF7mQ"/>
         </children>
         <styles xmi:type="notation:SortingStyle" xmi:id="_jjWlAnwBEeWyGcqmZGlzvA"/>
         <styles xmi:type="notation:FilteringStyle" xmi:id="_jjWlA3wBEeWyGcqmZGlzvA"/>

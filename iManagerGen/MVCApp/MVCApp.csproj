@@ -926,6 +926,7 @@
     <Content Include="Views\Usuarios\Create.cshtml" />
     <Content Include="Views\Mensajes\Index.cshtml" />
     <Content Include="Views\Mensajes\Crear.cshtml" />
+    <Content Include="Views\Mensajes\Salida.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

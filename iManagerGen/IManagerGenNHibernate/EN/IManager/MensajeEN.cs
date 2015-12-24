@@ -54,6 +54,13 @@ private Nullable<DateTime> fecha;
 
 
 
+/**
+ *	Atributo borrado
+ */
+private bool borrado;
+
+
+
 
 
 
@@ -99,6 +106,12 @@ public virtual Nullable<DateTime> Fecha {
 
 
 
+public virtual bool Borrado {
+        get { return borrado; } set { borrado = value;  }
+}
+
+
+
 
 
 public MensajeEN()
@@ -107,19 +120,19 @@ public MensajeEN()
 
 
 
-public MensajeEN(int id, IManagerGenNHibernate.EN.IManager.UsuarioEN remitente, IManagerGenNHibernate.EN.IManager.UsuarioEN destinatario, string asunto, string contenido, bool leido, Nullable<DateTime> fecha
+public MensajeEN(int id, IManagerGenNHibernate.EN.IManager.UsuarioEN remitente, IManagerGenNHibernate.EN.IManager.UsuarioEN destinatario, string asunto, string contenido, bool leido, Nullable<DateTime> fecha, bool borrado
                  )
 {
-        this.init (Id, remitente, destinatario, asunto, contenido, leido, fecha);
+        this.init (Id, remitente, destinatario, asunto, contenido, leido, fecha, borrado);
 }
 
 
 public MensajeEN(MensajeEN mensaje)
 {
-        this.init (Id, mensaje.Remitente, mensaje.Destinatario, mensaje.Asunto, mensaje.Contenido, mensaje.Leido, mensaje.Fecha);
+        this.init (Id, mensaje.Remitente, mensaje.Destinatario, mensaje.Asunto, mensaje.Contenido, mensaje.Leido, mensaje.Fecha, mensaje.Borrado);
 }
 
-private void init (int id, IManagerGenNHibernate.EN.IManager.UsuarioEN remitente, IManagerGenNHibernate.EN.IManager.UsuarioEN destinatario, string asunto, string contenido, bool leido, Nullable<DateTime> fecha)
+private void init (int id, IManagerGenNHibernate.EN.IManager.UsuarioEN remitente, IManagerGenNHibernate.EN.IManager.UsuarioEN destinatario, string asunto, string contenido, bool leido, Nullable<DateTime> fecha, bool borrado)
 {
         this.Id = id;
 
@@ -135,6 +148,8 @@ private void init (int id, IManagerGenNHibernate.EN.IManager.UsuarioEN remitente
         this.Leido = leido;
 
         this.Fecha = fecha;
+
+        this.Borrado = borrado;
 }
 
 public override bool Equals (object obj)

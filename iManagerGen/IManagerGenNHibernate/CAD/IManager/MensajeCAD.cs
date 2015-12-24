@@ -234,6 +234,9 @@ public void Modify (MensajeEN mensaje)
 
                 mensajeEN.Fecha = mensaje.Fecha;
 
+
+                mensajeEN.Borrado = mensaje.Borrado;
+
                 session.Update (mensajeEN);
                 SessionCommit ();
         }

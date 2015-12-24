@@ -24,6 +24,9 @@
 					<property name="Fecha" type="timestamp"> 
 						<column name="fecha"  not-null="true"/>
 					</property>
+					<property name="Borrado" type="boolean"> 
+						<column name="borrado"  not-null="true"/>
+					</property>
 			
 			
 			
@@ -42,6 +45,8 @@
 			
 			
 			
+			
+					
 					
 					
 					

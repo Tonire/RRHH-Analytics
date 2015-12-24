@@ -112,7 +112,17 @@ namespace MVCApp.Controllers
         //
         // GET: /Mensajes/Salida
         [Authorize]
-        public ActionResult 
+        public ActionResult Salida() {
+            SessionInitialize();
+            MensajeCAD mensajeCAD = new MensajeCAD(session);
+            MensajeCEN mensajeCEN = new MensajeCEN(mensajeCAD);
+            IList<MensajeEN> mensajes = mensajeCEN.GetMensajesByRemitente(User.Identity.Name);
+            IEnumerable<VerMensajesModels> listaMensajes = new VerMensajes().ConvertListENToModel(mensajes).ToList();
+            long noLeidos = mensajeCEN.ContarMensajesNoLeidosByDestinatario(User.Identity.Name);
+            ViewData["cuenta"] = noLeidos;
+            SessionClose();
+            return View(listaMensajes);
+        }
 
         //
         // GET: /Mensajes/Delete/5
