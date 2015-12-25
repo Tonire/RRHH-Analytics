@@ -1,0 +1,47 @@
+﻿@model IEnumerable<MVCApp.Models.UsuarioModels>
+@{
+    if (User.IsInRole("SuperAdministrador")) {
+        Layout = "~/Views/Shared/_SuperLayout.cshtml";
+    }
+    if (User.IsInRole("Administrador")) {
+        Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    }
+    ViewBag.Title = "Registrar venta";
+
+    ViewBag.Breadcrumb = new Breadcrumb(new Crumb[] {
+        new Crumb("Control de usuarios", "", "fa-users"), new Crumb("Ver Usuarios")
+    });
+    
+}
+        
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="box">
+                    <div class="box-header">
+                        <h3 class="box-title">Nueva venta</h3>
+                    </div>
+                    <!-- /.box-header -->
+                    <div class="box-body">
+                        <input type="text" id="idProducto" />
+                        <input type="number" id="cantidad" />
+                        <input type="button" id="crearVenta" value="Vender"/>
+                    </div><!-- /.box-body -->
+                </div><!-- /.box -->
+            </div><!-- /.col -->
+        </div><!-- /.row -->
+@section scripts {
+    @*NOTE: These should NOT be used in a production situation
+        They do contains useful snippets on how to setup charts*@
+    <!-- DataTables -->
+    <script type="text/javascript" language="javascript" src="//cdn.datatables.net/1.10.10/js/jquery.dataTables.min.js"></script>
+    <script src="~/Scripts/AdminLTE/plugins/datatables/dataTables.bootstrap.js"></script>
+    <script type="text/javascript" language="javascript" src="//cdn.datatables.net/responsive/1.0.0/js/dataTables.responsive.min.js"></script>
+    <!-- SlimScroll -->
+    <script src="~/Scripts/AdminLTE/plugins/slimScroll/jquery.slimscroll.min.js"></script>
+    <script src="~/Scripts/ventas.js" type="text/javascript"></script>
+       @Scripts.Render("~/bundles/jqueryval")
+}
+@section especificos{
+
+    
+}

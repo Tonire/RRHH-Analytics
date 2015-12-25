@@ -143,5 +143,33 @@ public System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.LineaV
 
         return result;
 }
+//Sin e: GetLineaVentaOID
+//Con e: LineaVentaEN
+public LineaVentaEN GetLineaVentaOID (int id)
+{
+        LineaVentaEN lineaVentaEN = null;
+
+        try
+        {
+                SessionInitializeTransaction ();
+                lineaVentaEN = (LineaVentaEN)session.Get (typeof(LineaVentaEN), id);
+                SessionCommit ();
+        }
+
+        catch (Exception ex) {
+                SessionRollBack ();
+                if (ex is IManagerGenNHibernate.Exceptions.ModelException)
+                        throw ex;
+                throw new IManagerGenNHibernate.Exceptions.DataLayerException ("Error in LineaVentaCAD.", ex);
+        }
+
+
+        finally
+        {
+                SessionClose ();
+        }
+
+        return lineaVentaEN;
+}
 }
 }

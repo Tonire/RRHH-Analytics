@@ -63,5 +63,12 @@ public System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.LineaV
 {
         return _ILineaVentaCAD.GetLineasVentaByVenta (p_venta);
 }
+public LineaVentaEN GetLineaVentaOID (int id)
+{
+        LineaVentaEN lineaVentaEN = null;
+
+        lineaVentaEN = _ILineaVentaCAD.GetLineaVentaOID (id);
+        return lineaVentaEN;
+}
 }
 }

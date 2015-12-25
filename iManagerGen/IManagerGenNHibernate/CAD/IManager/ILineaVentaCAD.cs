@@ -12,5 +12,8 @@ LineaVentaEN ReadOIDDefault (int id);
 int CrearLineaVenta (LineaVentaEN lineaVenta);
 
 System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.LineaVentaEN> GetLineasVentaByVenta (int p_venta);
+
+
+LineaVentaEN GetLineaVentaOID (int id);
 }
 }

@@ -223,6 +223,7 @@
     <Compile Include="Controllers\MensajesController.cs" />
     <Compile Include="Controllers\Skins.cs" />
     <Compile Include="Controllers\UsuariosController.cs" />
+    <Compile Include="Controllers\VentasController.cs" />
     <Compile Include="Filters\InitializeSimpleMembershipAttribute.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -876,6 +877,7 @@
     <Content Include="Scripts\respond.min.js" />
     <None Include="Scripts\_references.js" />
     <Content Include="Scripts\ultimosMensajes.js" />
+    <Content Include="Scripts\ventas.js" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -927,6 +929,7 @@
     <Content Include="Views\Mensajes\Index.cshtml" />
     <Content Include="Views\Mensajes\Crear.cshtml" />
     <Content Include="Views\Mensajes\Salida.cshtml" />
+    <Content Include="Views\Ventas\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
