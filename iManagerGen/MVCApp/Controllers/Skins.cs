@@ -15,7 +15,7 @@ namespace MVCApp.Controllers {
                 case 1:
                     return "skin-black";
                 case 2:
-                    return "skin purple";
+                    return "skin-purple";
                 case 3:
                     return "skin-green";
                 case 4:

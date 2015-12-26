@@ -50,13 +50,13 @@
             <div class="box-header with-border">
                 <h3 class="box-title">Carpetas</h3>
                 <div class="box-tools">
-                    <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                    <a href="/Mensajes/Salida" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></a>
                 </div>
             </div>
             <div class="box-body no-padding">
                 <ul class="nav nav-pills nav-stacked">
-                    <li class="active"><a href="@Url.Action("Index","Mensajes")"><i class="fa fa-inbox"></i> Bandeja de entrada <span class="label label-primary pull-right">@ViewData["cuenta"]</span></a></li>
-                    <li><a href="#"><i class="fa fa-envelope-o"></i> Bandeja de salida </a></li>
+                    <li><a href="@Url.Action("Index","Mensajes")"><i class="fa fa-inbox"></i> Bandeja de entrada <span class="label label-primary pull-right">@ViewData["cuenta"]</span></a></li>
+                    <li class="active"><a href="@Url.Action("Salida","Mensajes")"><i class="fa fa-envelope-o"></i> Bandeja de salida </a></li>
                 </ul>
             </div><!-- /.box-body -->
         </div><!-- /. box -->
@@ -64,7 +64,7 @@
     <div class="col-md-9">
         <div class="box box-primary">
             <div class="box-header with-border">
-                <h3 class="box-title">Mensajes Recibidos</h3>
+                <h3 class="box-title">Mensajes Enviados</h3>
             </div><!-- /.box-header -->
             <div class="box-body no-padding">
                 <div class="mailbox-controls">
@@ -72,10 +72,8 @@
                     <button class="btn btn-default btn-sm checkbox-toggle"><i class="fa fa-square-o"></i></button>
                     <div class="btn-group">
                         <button class="btn btn-default btn-sm" id="eliminar1"><i class="fa fa-trash-o"></i></button>
-                        <button class="btn btn-default btn-sm"><i class="fa fa-reply"></i></button>
-                        <button class="btn btn-default btn-sm"><i class="fa fa-share"></i></button>
                     </div><!-- /.btn-group -->
-                    <button class="btn btn-default btn-sm"><i class="fa fa-refresh"></i></button>
+                    <a href="/Mensajes/Salida" class="btn btn-default btn-sm"><i class="fa fa-refresh"></i></a>
                 </div>
                 <div class="table-responsive mailbox-messages">
                     <table id="tabla1" class="table table-hover table-striped">
@@ -93,7 +91,7 @@
                                 }
                             } else {
                                 <text>
-                                    <tr><td>No hay ningún mensaje recibido.</td></tr></text>
+                                    <tr><td>No has enviado ningún mensaje.</td></tr></text>
                             }
 
                         </tbody>
@@ -106,10 +104,8 @@
                     <button class="btn btn-default btn-sm checkbox-toggle"><i class="fa fa-square-o"></i></button>
                     <div class="btn-group">
                         <button class="btn btn-default btn-sm" id="eliminar2"><i class="fa fa-trash-o"></i></button>
-                        <button class="btn btn-default btn-sm"><i class="fa fa-reply"></i></button>
-                        <button class="btn btn-default btn-sm"><i class="fa fa-share"></i></button>
                     </div><!-- /.btn-group -->
-                    <button class="btn btn-default btn-sm"><i class="fa fa-refresh"></i></button>
+                    <a href="/Mensajes/Salida" class="btn btn-default btn-sm"><i class="fa fa-refresh"></i></a>
                 </div>
             </div>
         </div><!-- /. box -->
@@ -117,7 +113,7 @@
 </div><!-- /.row -->
 @section scripts{
     @*Scripts propios de la pagina para renderizar*@
-    <script src="~/Scripts/mensajes.js"></script>
+    <script src="~/Scripts/mensajesSalida.js"></script>
     <!-- Page Script -->
     <!-- SlimScroll -->
     <script src="~/Scripts/AdminLTE/plugins/slimScroll/jquery.slimscroll.min.js"></script>
@@ -148,6 +144,7 @@
 
         });
     </script>
+
 }
 @section especificos{
     @*CSS especifico de esta pagina*@

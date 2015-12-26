@@ -9,18 +9,26 @@
             array.push($(this).parent().parent().next().first().children().val());
         }
     });
-    for(var key in array){
-        $.ajax({
-            url: '/Mensajes/Delete/'+array[key],
-            type: 'GET',
-            success: function (result) {
-                
-            }
-        });
+    for (var key in array) {
+        if (key == array.length-1) {
+            $.ajax({
+                url: '/Mensajes/Delete/' + array[key],
+                type: 'GET',
+                success: function (result) {
+                    location.reload();
+                }
+            });
+        } else {
+            $.ajax({
+                url: '/Mensajes/Delete/' + array[key],
+                type: 'GET',
+                success: function (result) {
+
+                }
+            });
+        }
+        
     }
-    setTimeout(function () { location.reload(); }, 1000);
-    
-    
 });
 $('#eliminar2').on("click", function () {
     var array = new Array();
@@ -34,14 +42,24 @@ $('#eliminar2').on("click", function () {
         }
     });
     for (var key in array) {
-        $.ajax({
-            url: '/Mensajes/Delete/' + array[key],
-            type: 'GET',
-            success: function (result) {
+        if (key == array.length-1) {
+            $.ajax({
+                url: '/Mensajes/Delete/' + array[key],
+                type: 'GET',
+                success: function (result) {
+                    location.reload();
+                }
+            });
+        } else {
+            $.ajax({
+                url: '/Mensajes/Delete/' + array[key],
+                type: 'GET',
+                success: function (result) {
 
-            }
-        });
+                }
+            });
+        }
+
     }
-    setTimeout(function () { location.reload(); }, 1000);
 
 });
