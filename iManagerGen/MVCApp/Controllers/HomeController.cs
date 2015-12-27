@@ -29,9 +29,11 @@ namespace MVCApp.Controllers
             MovimientosCEN movimientoCEN = new MovimientosCEN();
             PedidoCEN pedidoCEN= new PedidoCEN();
             HomeModels homeModel= new HomeModels();
+            homeModel.totalAnyoGastos = new List<double>();
+            homeModel.totalAnyoIngresos = new List<double>();
             for (int i = 1; i <= 12; i++) {
-                homeModel.totalAñoGastos[i]=movimientoCEN.GetMovimientoTotalMesAnyo(i,2015,IManagerGenNHibernate.Enumerated.IManager.TipoMovimientoEnum.gasto);
-                homeModel.totalAñoIngresos[i] = movimientoCEN.GetMovimientoTotalMesAnyo(i, 2015, IManagerGenNHibernate.Enumerated.IManager.TipoMovimientoEnum.ingreso);
+                homeModel.totalAnyoGastos.Add(movimientoCEN.GetMovimientoTotalMesAnyo(i,2015,IManagerGenNHibernate.Enumerated.IManager.TipoMovimientoEnum.gasto));
+                homeModel.totalAnyoIngresos.Add(movimientoCEN.GetMovimientoTotalMesAnyo(i, 2015, IManagerGenNHibernate.Enumerated.IManager.TipoMovimientoEnum.ingreso));
             }
             homeModel.PedidosPendientes = pedidoCEN.GetPedidosPendientes().ToList();
             return View(homeModel);

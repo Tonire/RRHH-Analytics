@@ -235,6 +235,7 @@
     <Compile Include="Models\AssemblerUsuarios.cs" />
     <Compile Include="Models\AssemblerLineaVentas.cs" />
     <Compile Include="Models\CrearMensajeModels.cs" />
+    <Compile Include="Models\HomeModels.cs" />
     <Compile Include="Models\HorarioModels.cs" />
     <Compile Include="Models\InstalacionModels.cs" />
     <Compile Include="Models\LineaVentasModels.cs" />
@@ -948,7 +949,6 @@
     <Content Include="Views\Mensajes\Details.cshtml" />
     <Content Include="Views\Horario\Create.cshtml" />
     <Content Include="Views\Productos\Index.cshtml" />
-    <Content Include="Views\Productos\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
