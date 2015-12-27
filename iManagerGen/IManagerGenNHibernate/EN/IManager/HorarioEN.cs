@@ -40,6 +40,13 @@ private System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.Turno
 
 
 
+/**
+ *	Atributo mes
+ */
+private int mes;
+
+
+
 
 
 
@@ -73,6 +80,12 @@ public virtual System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManage
 
 
 
+public virtual int Mes {
+        get { return mes; } set { mes = value;  }
+}
+
+
+
 
 
 public HorarioEN()
@@ -84,19 +97,19 @@ public HorarioEN()
 
 
 
-public HorarioEN(string titulo, int anyo, System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.UsuarioEN> usuario, System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.DiaEN> dia, System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.TurnoEN> turno
+public HorarioEN(string titulo, int anyo, System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.UsuarioEN> usuario, System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.DiaEN> dia, System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.TurnoEN> turno, int mes
                  )
 {
-        this.init (Titulo, anyo, usuario, dia, turno);
+        this.init (Titulo, anyo, usuario, dia, turno, mes);
 }
 
 
 public HorarioEN(HorarioEN horario)
 {
-        this.init (Titulo, horario.Anyo, horario.Usuario, horario.Dia, horario.Turno);
+        this.init (Titulo, horario.Anyo, horario.Usuario, horario.Dia, horario.Turno, horario.Mes);
 }
 
-private void init (string titulo, int anyo, System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.UsuarioEN> usuario, System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.DiaEN> dia, System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.TurnoEN> turno)
+private void init (string titulo, int anyo, System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.UsuarioEN> usuario, System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.DiaEN> dia, System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.TurnoEN> turno, int mes)
 {
         this.Titulo = titulo;
 
@@ -108,6 +121,8 @@ private void init (string titulo, int anyo, System.Collections.Generic.IList<IMa
         this.Dia = dia;
 
         this.Turno = turno;
+
+        this.Mes = mes;
 }
 
 public override bool Equals (object obj)

@@ -1,0 +1,283 @@
+﻿@model MVCApp.Models.HorarioModels
+@{
+    if (User.IsInRole("SuperAdministrador")) {
+        Layout = "~/Views/Shared/_SuperLayout.cshtml";
+    }
+    if (User.IsInRole("Administrador")) {
+        Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    }
+    if (User.IsInRole("Empleado")) {
+        Layout = "~/Views/Shared/_EmpleadoLayout.cshtml";
+    }
+    ViewBag.Title = "Crear Horario";
+
+    ViewBag.Breadcrumb = new Breadcrumb(new Crumb[] {
+        new Crumb("Horario", "", "fa fa-envelope"), new Crumb("Recibidos")
+    });
+    IList<Int32> years = new List<Int32>();
+    years.Add(DateTime.Now.Year);
+    years.Add(DateTime.Now.Year+1);
+    years.Add(DateTime.Now.Year+2);
+    IList<Int32> meses = new List<Int32>();
+    meses.Add(1);
+    meses.Add(2);
+    meses.Add(3);
+    meses.Add(4);
+    meses.Add(5);
+    meses.Add(6);
+    meses.Add(7);
+    meses.Add(8);
+    meses.Add(9);
+    meses.Add(10);
+    meses.Add(11);
+    meses.Add(12);
+}
+<div class="row">
+    <div class="col-md-12">
+        <div class="box box-solid">
+            <div class="box-header">
+                <h3 class="box-title">Lista de Usuarios</h3>
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body">
+                @using (Html.BeginForm("Create", "Horario", FormMethod.Post, new { role = "form", id = "userForm" })) {
+                    @Html.AntiForgeryToken()
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                    <div class="box-body">
+                        <div class="form-horizontal">
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.Titulo, new { @class = "col-sm-2 control-label" })
+                                        <div class="col-sm-10">
+                                            @Html.TextBoxFor(model => model.Titulo, new { @class = "form-control", @placeholder = "Titulo..." })
+                                            @Html.ValidationMessageFor(model => model.Titulo, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.Año, new { @class = "col-sm-2 control-label" })
+                                        <div class="col-sm-10">
+                                            @Html.DropDownListFor(model => model.Año, new SelectList(years), new { @class = "form-control", @id = "año" })
+                                            @Html.ValidationMessageFor(model => model.Año, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.Mes, new { @class = "col-sm-2 control-label" })
+                                        <div class="col-sm-10">
+                                            @Html.DropDownListFor(model => model.Mes, new SelectList(meses), new { @class = "form-control", @id = "mes" })
+                                            @Html.ValidationMessageFor(model => model.Mes, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-7">
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.Usuarios, new { @class = "col-sm-4 control-label" })
+                                        <div class="col-sm-8">
+                                            @Html.DropDownListFor(model => model.Usuarios, new SelectList(Model.Usuarios, "Email", "NombreCompleto"), new { @style="width: 100%", @multiple = "multiple", @class = "form-control js-example-basic-multiple", @id = "destinatario" })
+                                            @Html.ValidationMessageFor(model => model.Año, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                        </div>
+                    </div><!-- /.box-body -->
+                    <div class="box-footer">
+                        <button type="submit" class="btn btn-primary"><i class="fa fa-send"></i> Crear Horario</button>
+                    </div><!-- /.box-footer -->
+                }
+            </div><!-- /.box-body -->
+        </div>
+    </div>
+</div><!-- /.row -->
+<div class="row">
+    <div class="col-md-3">
+        <div class="box box-solid">
+            <div class="box-header with-border">
+                <h4 class="box-title">Arrastrar y soltar Turnos</h4>
+            </div>
+            <div class="box-body">
+                <!-- the events -->
+                <div id="external-events">
+                </div>
+            </div><!-- /.box-body -->
+        </div><!-- /. box -->
+        <div class="box box-solid">
+            <div class="box-header with-border">
+                <h3 class="box-title">Crear Turno</h3>
+            </div>
+            <div class="box-body">
+                <div class="btn-group" style="width: 100%; margin-bottom: 10px;">
+                    <!--<button type="button" id="color-chooser-btn" class="btn btn-info btn-block dropdown-toggle" data-toggle="dropdown">Color <span class="caret"></span></button>-->
+                    <ul class="fc-color-picker" id="color-chooser">
+                        <li><a class="text-aqua" href="#"><i class="fa fa-square"></i></a></li>
+                        <li><a class="text-blue" href="#"><i class="fa fa-square"></i></a></li>
+                        <li><a class="text-light-blue" href="#"><i class="fa fa-square"></i></a></li>
+                        <li><a class="text-teal" href="#"><i class="fa fa-square"></i></a></li>
+                        <li><a class="text-yellow" href="#"><i class="fa fa-square"></i></a></li>
+                        <li><a class="text-orange" href="#"><i class="fa fa-square"></i></a></li>
+                        <li><a class="text-green" href="#"><i class="fa fa-square"></i></a></li>
+                        <li><a class="text-lime" href="#"><i class="fa fa-square"></i></a></li>
+                        <li><a class="text-red" href="#"><i class="fa fa-square"></i></a></li>
+                        <li><a class="text-purple" href="#"><i class="fa fa-square"></i></a></li>
+                        <li><a class="text-fuchsia" href="#"><i class="fa fa-square"></i></a></li>
+                        <li><a class="text-muted" href="#"><i class="fa fa-square"></i></a></li>
+                        <li><a class="text-navy" href="#"><i class="fa fa-square"></i></a></li>
+                    </ul>
+                </div><!-- /btn-group -->
+                <div class="input-group">
+                    <input id="new-event" type="text" class="form-control" placeholder="Titulo del turno...">
+                    <div class="input-group-btn">
+                        <button id="add-new-event" type="button" class="btn btn-primary btn-flat">Añadir</button>
+                    </div><!-- /btn-group -->
+                </div><!-- /input-group -->
+            </div>
+        </div>
+    </div><!-- /.col -->
+    <div class="col-md-9">
+        <div class="box box-primary">
+            <div class="box-body no-padding">
+                <!-- THE CALENDAR -->
+                <div id="calendar"></div>
+            </div><!-- /.box-body -->
+        </div><!-- /. box -->
+    </div><!-- /.col -->
+</div><!-- /.row -->
+@section scripts{
+    @*Scripts propios de la pagina para renderizar*@
+    <!-- Page Script -->
+    <!-- SlimScroll -->
+    <script src="~/Scripts/AdminLTE/plugins/slimScroll/jquery.slimscroll.min.js"></script>
+    <script src="~/Scripts/AdminLTE/plugins/select2/select2.full.min.js"></script>
+    <!-- fullCalendar 2.2.5 -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.2/moment.min.js"></script>
+    <script src="~/Scripts/AdminLTE/plugins/fullcalendar/fullcalendar.min.js"></script>
+    <script src="~/Scripts/AdminLTE/plugins/fullcalendar/es.js"></script>
+    <!-- jQuery UI 1.11.4 -->
+    <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $(".js-example-basic-multiple").select2();
+        });
+    </script>
+    <script>
+        $(function () {
+
+            /* initialize the external events
+             -----------------------------------------------------------------*/
+            function ini_events(ele) {
+                ele.each(function () {
+
+                    // create an Event Object (http://arshaw.com/fullcalendar/docs/event_data/Event_Object/)
+                    // it doesn't need to have a start or end
+                    var eventObject = {
+                        title: $.trim($(this).text()) // use the element's text as the event title
+                    };
+
+                    // store the Event Object in the DOM element so we can get to it later
+                    $(this).data('eventObject', eventObject);
+
+                    // make the event draggable using jQuery UI
+                    $(this).draggable({
+                        zIndex: 1070,
+                        revert: true, // will cause the event to go back to its
+                        revertDuration: 0  //  original position after the drag
+                    });
+
+                });
+            }
+            ini_events($('#external-events div.external-event'));
+
+            /* initialize the calendar
+             -----------------------------------------------------------------*/
+            //Date for the calendar events (dummy data)
+            var date = new Date();
+            var d = date.getDate(),
+                    m = $("#mes").val(),
+                    y = $("#año").val();
+            $('#calendar').fullCalendar({
+                header: {
+                    center: 'title',
+                    right: '',
+                    left: ''
+                },
+                views: {
+                    agendaDay: { // name of view
+                        titleFormat: 'MMMM, YYYY'
+                        // other view-specific options here
+                    }
+                },
+                defaultView: 'agendaDay',
+                now: "01-"+m+"-"+y,
+                lang: 'es',
+                editable: true,
+                droppable: true, // this allows things to be dropped onto the calendar !!!
+                drop: function (date, allDay) { // this function is called when something is dropped
+
+                    // retrieve the dropped element's stored Event Object
+                    var originalEventObject = $(this).data('eventObject');
+
+                    // we need to copy it, so that multiple events don't have a reference to the same object
+                    var copiedEventObject = $.extend({}, originalEventObject);
+
+                    // assign it the date that was reported
+                    copiedEventObject.start = date;
+                    copiedEventObject.allDay = allDay;
+                    copiedEventObject.backgroundColor = $(this).css("background-color");
+                    copiedEventObject.borderColor = $(this).css("border-color");
+
+                    // render the event on the calendar
+                    // the last `true` argument determines if the event "sticks" (http://arshaw.com/fullcalendar/docs/event_rendering/renderEvent/)
+                    $('#calendar').fullCalendar('renderEvent', copiedEventObject, true);
+
+                }
+            });
+
+            /* ADDING EVENTS */
+            var currColor = "#3c8dbc"; //Red by default
+            //Color chooser button
+            var colorChooser = $("#color-chooser-btn");
+            $("#color-chooser > li > a").click(function (e) {
+                e.preventDefault();
+                //Save color
+                currColor = $(this).css("color");
+                //Add color effect to button
+                $('#add-new-event').css({ "background-color": currColor, "border-color": currColor });
+            });
+            $("#add-new-event").click(function (e) {
+                e.preventDefault();
+                //Get value and make sure it is not null
+                var val = $("#new-event").val();
+                if (val.length == 0) {
+                    return;
+                }
+
+                //Create events
+                var event = $("<div />");
+                event.css({ "background-color": currColor, "border-color": currColor, "color": "#fff" }).addClass("external-event");
+                event.html(val);
+                $('#external-events').prepend(event);
+
+                //Add draggable funtionality
+                ini_events(event);
+
+                //Remove event from text input
+                $("#new-event").val("");
+            });
+        });
+    </script>
+}
+@section especificos{
+    @*CSS especifico de esta pagina*@
+    <!--select2-->
+    <link rel="stylesheet" href="~/Scripts/AdminLTE/plugins/select2/select2.min.css">
+    <!-- fullCalendar 2.2.5-->
+    <link rel="stylesheet" href="~/Scripts/AdminLTE/plugins/fullcalendar/fullcalendar.min.css">
+    <link rel="stylesheet" href="~/Scripts/AdminLTE/plugins/fullcalendar/fullcalendar.print.css" media="print">
+}

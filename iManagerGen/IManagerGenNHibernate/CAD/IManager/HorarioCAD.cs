@@ -89,6 +89,9 @@ public void Modify (HorarioEN horario)
 
                 horarioEN.Anyo = horario.Anyo;
 
+
+                horarioEN.Mes = horario.Mes;
+
                 session.Update (horarioEN);
                 SessionCommit ();
         }

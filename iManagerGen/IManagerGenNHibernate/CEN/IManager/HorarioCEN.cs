@@ -36,7 +36,7 @@ public IHorarioCAD get_IHorarioCAD ()
         return this._IHorarioCAD;
 }
 
-public void Modify (string p_Horario_OID, int p_anyo)
+public void Modify (string p_Horario_OID, int p_anyo, int p_mes)
 {
         HorarioEN horarioEN = null;
 
@@ -44,6 +44,7 @@ public void Modify (string p_Horario_OID, int p_anyo)
         horarioEN = new HorarioEN ();
         horarioEN.Titulo = p_Horario_OID;
         horarioEN.Anyo = p_anyo;
+        horarioEN.Mes = p_mes;
         //Call to HorarioCAD
 
         _IHorarioCAD.Modify (horarioEN);
@@ -54,7 +55,7 @@ public void Destroy (string titulo)
         _IHorarioCAD.Destroy (titulo);
 }
 
-public string CreaHorario (string p_titulo, int p_anyo, System.Collections.Generic.IList<string> p_usuario)
+public string CreaHorario (string p_titulo, int p_anyo, System.Collections.Generic.IList<string> p_usuario, int p_mes)
 {
         HorarioEN horarioEN = null;
         string oid;
@@ -78,6 +79,8 @@ public string CreaHorario (string p_titulo, int p_anyo, System.Collections.Gener
         else{
                 horarioEN.Usuario = new System.Collections.Generic.List<IManagerGenNHibernate.EN.IManager.UsuarioEN>();
         }
+
+        horarioEN.Mes = p_mes;
 
         //Call to HorarioCAD
 

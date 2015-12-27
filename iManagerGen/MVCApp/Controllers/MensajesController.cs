@@ -36,13 +36,12 @@ namespace MVCApp.Controllers
             SessionInitialize();
             MensajeCAD mensajeCAD = new MensajeCAD(session);
             MensajeCEN mensajeCEN = new MensajeCEN(mensajeCAD);
-            IList<MensajeEN> mensajes = mensajeCEN.GetMensajesByDestinatario(User.Identity.Name,0,-1);
-            IEnumerable<VerMensajesModels> listaMensajes = new VerMensajes().ConvertListENToModel(mensajes).ToList();
             MensajeEN mensajeEN=mensajeCEN.GetMensaje(id);
             VerMensajesModels mensaje = new VerMensajes().ConvertENToModelUI(mensajeEN);
-            long noLeidos = mensajeCEN.ContarMensajesNoLeidosByDestinatario(User.Identity.Name);
-            ViewData["cuenta"] = noLeidos;
             SessionClose();
+            if (mensajeEN.Destinatario.Email.CompareTo(User.Identity.Name) != 0 || mensajeEN.Remitente.Email.CompareTo(User.Identity.Name)!=0) {
+                RedirectToAction("Index", "Mensajes");
+            }
             return View(mensaje);
         }
 

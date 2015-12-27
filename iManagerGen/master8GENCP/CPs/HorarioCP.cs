@@ -42,7 +42,7 @@ namespace EjemploProyectoCP.CPs
                 _IDiaCAD = new DiaCAD(session);
                 diaCEN = new DiaCEN(_IDiaCAD);
 
-                horario_oid = horarioCEN.CreaHorario(horario.Titulo, horario.Anyo, usuarios);
+                horario_oid = horarioCEN.CreaHorario(horario.Titulo, horario.Anyo, usuarios, horario.Mes);
 
                 foreach (TurnoEN turno in turnos) {
                     turnoCEN.CrearTurno(turno.Nombre,turno.Desde,turno.Hasta,horario_oid);

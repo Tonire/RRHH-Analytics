@@ -12,6 +12,9 @@
 					<property name="Anyo" type="integer"> 
 						<column name="anyo"  unique="true" not-null="true"/>
 					</property>
+					<property name="Mes" type="integer"> 
+						<column name="mes"  not-null="true"/>
+					</property>
 			
 			
 			
@@ -47,6 +50,8 @@
 					      	</key>
 							<one-to-many class="IManagerGenNHibernate.EN.IManager.TurnoEN"/>
 					    </bag>
+					
+			
 					
 					
 					

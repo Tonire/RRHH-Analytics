@@ -218,6 +218,7 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\BasicController.cs" />
+    <Compile Include="Controllers\HorarioController.cs" />
     <Compile Include="Controllers\InstalacionController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MensajesController.cs" />
@@ -231,6 +232,7 @@
     <Compile Include="Models\AccountModels.cs" />
     <Compile Include="Models\AssemblerUsuarios.cs" />
     <Compile Include="Models\CrearMensajeModels.cs" />
+    <Compile Include="Models\HorarioModels.cs" />
     <Compile Include="Models\InstalacionModels.cs" />
     <Compile Include="Models\UsuarioModels.cs" />
     <Compile Include="Models\VerMensajes.cs" />
@@ -849,6 +851,8 @@
     <Content Include="Scripts\AdminLTE\plugins\morris\morris.js" />
     <Content Include="Scripts\AdminLTE\plugins\morris\morris.min.js" />
     <Content Include="Scripts\AdminLTE\plugins\pace\pace.js" />
+    <Content Include="Scripts\AdminLTE\plugins\select2\select2.full.min.js" />
+    <Content Include="Scripts\AdminLTE\plugins\select2\select2.min.css" />
     <Content Include="Scripts\AdminLTE\plugins\slimScroll\jquery.slimscroll.js" />
     <Content Include="Scripts\AdminLTE\plugins\slimScroll\jquery.slimscroll.min.js" />
     <Content Include="Scripts\AdminLTE\plugins\sparkline\jquery.sparkline.js" />
@@ -870,6 +874,7 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\mensajes.js" />
     <Content Include="Scripts\mensajesSalida.js" />
+    <Content Include="Scripts\mensajesVer.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
     <Content Include="Scripts\npm.js" />
     <Content Include="Scripts\respond.js" />
@@ -932,6 +937,7 @@
     <Content Include="Views\Mensajes\Salida.cshtml" />
     <Content Include="Views\Ventas\Index.cshtml" />
     <Content Include="Views\Mensajes\Details.cshtml" />
+    <Content Include="Views\Horario\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
