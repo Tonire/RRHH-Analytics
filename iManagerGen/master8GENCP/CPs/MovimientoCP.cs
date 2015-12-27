@@ -50,7 +50,7 @@ namespace EjemploProyectoCP.CPs
                         anyo = ventaEN.FechaVenta.Value.Year;
                         mes = ventaEN.FechaVenta.Value.Month;
                         ventaEN = _IVentaCAD.ReadOIDDefault(p_oid);
-                        foreach (LineaPedidoEN lp in pedidoEN.LineaPedido)
+                        foreach (LineaVentaEN lp in ventaEN.LineaVenta)
                         {
                             total = total+(lp.Producto.PrecioVenta * lp.Cantidad);
                         }

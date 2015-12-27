@@ -42,6 +42,7 @@ namespace EjemploProyectoCP.CPs
                 productoCP = new ProductoCP(session);
                 //Llamamos a la funcion RestarStock
                 productoCP.RestarStock(p_lineasVenta);
+                movimientoCP = new MovimientoCP(session);
                 movimientoCP.CrearMovimiento(p_oid_venta, TipoMovimientoEnum.ingreso);
 
                 SessionCommit();
