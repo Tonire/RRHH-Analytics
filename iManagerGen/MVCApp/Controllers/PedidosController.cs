@@ -52,7 +52,7 @@ namespace MVCApp.Controllers
                 bool pedir = true;
                 IList<LineaPedidoEN> lineas = new List<LineaPedidoEN>();
                 ProductoCEN productoCEN = new ProductoCEN();
-                LineaPedidoEN linea = new LineaPedidoEN();
+                
                 ProductoEN producto = new ProductoEN();
                 PedidoCEN pedidoCEN = new PedidoCEN();
 
@@ -67,6 +67,7 @@ namespace MVCApp.Controllers
                 }
                 
                 for(int i=0;i<pedidos.lineas.Count();i++){
+                    LineaPedidoEN linea = new LineaPedidoEN();
                     linea.Producto = productoCEN.GetProducto(pedidos.lineas[i].referencia);
                     if (linea.Producto != null) {
                         linea.Cantidad = pedidos.lineas[i].cantidad;
