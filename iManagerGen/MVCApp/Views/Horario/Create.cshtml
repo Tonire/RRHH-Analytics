@@ -14,23 +14,6 @@
     ViewBag.Breadcrumb = new Breadcrumb(new Crumb[] {
         new Crumb("Horario", "", "fa fa-envelope"), new Crumb("Recibidos")
     });
-    IList<Int32> years = new List<Int32>();
-    years.Add(DateTime.Now.Year);
-    years.Add(DateTime.Now.Year+1);
-    years.Add(DateTime.Now.Year+2);
-    IList<Int32> meses = new List<Int32>();
-    meses.Add(1);
-    meses.Add(2);
-    meses.Add(3);
-    meses.Add(4);
-    meses.Add(5);
-    meses.Add(6);
-    meses.Add(7);
-    meses.Add(8);
-    meses.Add(9);
-    meses.Add(10);
-    meses.Add(11);
-    meses.Add(12);
 }
 <div class="row">
     <div class="col-md-12">
@@ -59,7 +42,7 @@
                                     <div class="form-group">
                                         @Html.LabelFor(model => model.Año, new { @class = "col-sm-2 control-label" })
                                         <div class="col-sm-10">
-                                            @Html.DropDownListFor(model => model.Año, new SelectList(years), new { @class = "form-control", @id = "año" })
+                                            @Html.DropDownListFor(m => m.Año, Enumerable.Range(2015, 3).Select(i => new SelectListItem { Text = i.ToString(), Value = i.ToString() }), new { @class = "form-control", @id = "año" })
                                             @Html.ValidationMessageFor(model => model.Año, "", new { @class = "text-danger" })
                                         </div>
                                     </div>
@@ -68,7 +51,7 @@
                                     <div class="form-group">
                                         @Html.LabelFor(model => model.Mes, new { @class = "col-sm-2 control-label" })
                                         <div class="col-sm-10">
-                                            @Html.DropDownListFor(model => model.Mes, new SelectList(meses), new { @class = "form-control", @id = "mes" })
+                                            @Html.DropDownListFor(m => m.Mes, Enumerable.Range(1, 12).Select(i => new SelectListItem { Text = i.ToString(), Value = i.ToString() }), new { @class = "form-control", @id = "mes" })
                                             @Html.ValidationMessageFor(model => model.Mes, "", new { @class = "text-danger" })
                                         </div>
                                     </div>
@@ -197,24 +180,27 @@
             /* initialize the calendar
              -----------------------------------------------------------------*/
             //Date for the calendar events (dummy data)
-            var date = new Date();
-            var d = date.getDate(),
-                    m = $("#mes").val(),
-                    y = $("#año").val();
+            var m = $("#mes").val()-1;
+            var y = $("#año").val();
+            var d = "01";
+            var date = new Date(y,m,d);
+                    
             $('#calendar').fullCalendar({
                 header: {
                     center: 'title',
                     right: '',
                     left: ''
                 },
-                views: {
-                    agendaDay: { // name of view
-                        titleFormat: 'MMMM, YYYY'
-                        // other view-specific options here
-                    }
+                titleFormat: {
+                    agendaWeek: 'h:mm',                // Tuesday, Sep 8, 2009
                 },
-                defaultView: 'agendaDay',
-                now: "01-"+m+"-"+y,
+                columnFormat: {
+                    month: 'dddd',    // Monday, Wednesday, etc
+                    week: 'dddd', // Monday 9/7
+                    day: 'dddd'  // Monday 9/7
+                },
+                        // other view-specific options here
+                defaultView: 'agendaWeek',
                 lang: 'es',
                 editable: true,
                 droppable: true, // this allows things to be dropped onto the calendar !!!
@@ -238,7 +224,29 @@
 
                 }
             });
-
+            $('#calendar').fullCalendar('gotoDate', date);
+            $("#mes").change(function () {
+                m = $("#mes").val() - 1;
+                y = $("#año").val();
+                d = "01";
+                var newDate = new Date(y, m, d);
+                $('#calendar').fullCalendar('gotoDate', newDate);
+                $('#calendar').fullCalendar({
+                    titleFormat: {
+                        agendaWeek: '[' + $("#mes").val() + ']',
+                    }
+                });
+                
+            });
+            $("#año").change(function () {
+                m = $("#mes").val() - 1;
+                y = $("#año").val();
+                d = "01";
+                var newDate2 = new Date(y, m, d);
+               
+                $('#calendar').fullCalendar('gotoDate', newDate2);
+                
+            });
             /* ADDING EVENTS */
             var currColor = "#3c8dbc"; //Red by default
             //Color chooser button
@@ -271,6 +279,7 @@
                 $("#new-event").val("");
             });
         });
+        
     </script>
 }
 @section especificos{

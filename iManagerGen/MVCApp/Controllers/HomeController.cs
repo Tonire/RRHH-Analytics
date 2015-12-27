@@ -6,14 +6,13 @@ using System.Web.Mvc;
 using IManagerGenNHibernate.CEN.IManager;
 using IManagerGenNHibernate.EN.IManager;
 using IManagerGenNHibernate.CAD.IManager;
-
+using MVCApp.Models;
 namespace MVCApp.Controllers
 {
     public class HomeController : Controller
     {
         //
         // GET: /Home/
-
         public ActionResult Index()
         {
             //Comprobamos que aun no se ha realizado la configuración de la aplicacion
@@ -26,9 +25,16 @@ namespace MVCApp.Controllers
             if (!Request.IsAuthenticated) {
                 return RedirectToAction("Login", "Account"); 
             }
-                
 
-            return View();
+            MovimientosCEN movimientoCEN = new MovimientosCEN();
+            PedidoCEN pedidoCEN= new PedidoCEN();
+            HomeModels homeModel= new HomeModels();
+            for (int i = 1; i <= 12; i++) {
+                homeModel.totalAñoGastos[i]=movimientoCEN.GetMovimientoTotalMesAnyo(i,2015,IManagerGenNHibernate.Enumerated.IManager.TipoMovimientoEnum.gasto);
+                homeModel.totalAñoIngresos[i] = movimientoCEN.GetMovimientoTotalMesAnyo(i, 2015, IManagerGenNHibernate.Enumerated.IManager.TipoMovimientoEnum.ingreso);
+            }
+            homeModel.PedidosPendientes = pedidoCEN.GetPedidosPendientes().ToList();
+            return View(homeModel);
         }
 
     }
