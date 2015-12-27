@@ -30,10 +30,20 @@ namespace MVCApp.Controllers
 
         //
         // GET: /Mensajes/Details/5
-        
-        public string Details(int id)
+        [Authorize]
+        public ActionResult Details(int id)
         {
-            return null;
+            SessionInitialize();
+            MensajeCAD mensajeCAD = new MensajeCAD(session);
+            MensajeCEN mensajeCEN = new MensajeCEN(mensajeCAD);
+            IList<MensajeEN> mensajes = mensajeCEN.GetMensajesByDestinatario(User.Identity.Name,0,-1);
+            IEnumerable<VerMensajesModels> listaMensajes = new VerMensajes().ConvertListENToModel(mensajes).ToList();
+            MensajeEN mensajeEN=mensajeCEN.GetMensaje(id);
+            VerMensajesModels mensaje = new VerMensajes().ConvertENToModelUI(mensajeEN);
+            long noLeidos = mensajeCEN.ContarMensajesNoLeidosByDestinatario(User.Identity.Name);
+            ViewData["cuenta"] = noLeidos;
+            SessionClose();
+            return View(mensaje);
         }
 
 
@@ -93,6 +103,7 @@ namespace MVCApp.Controllers
         //
         // POST: /Mensajes/Create
         [Authorize]
+        [ValidateInput(false)]
         [HttpPost]
         public ActionResult Crear(CrearMensajeModels model)
         {
@@ -117,6 +128,12 @@ namespace MVCApp.Controllers
             MensajeCAD mensajeCAD = new MensajeCAD(session);
             MensajeCEN mensajeCEN = new MensajeCEN(mensajeCAD);
             IList<MensajeEN> mensajes = mensajeCEN.GetMensajesByRemitente(User.Identity.Name);
+            for (int i = 0; i < mensajes.Count();i++ ) {
+                if (mensajes[i].Borrado == true) {
+                    mensajes.RemoveAt(i);
+                    i--;
+                }
+            }
             IEnumerable<VerMensajesModels> listaMensajes = new VerMensajes().ConvertListENToModel(mensajes).ToList();
             long noLeidos = mensajeCEN.ContarMensajesNoLeidosByDestinatario(User.Identity.Name);
             ViewData["cuenta"] = noLeidos;
