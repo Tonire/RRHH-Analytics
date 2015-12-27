@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
+using IManagerGenNHibernate.EN.IManager;
 
 namespace MVCApp.Models {
     public class ProductoModels {
@@ -21,17 +22,24 @@ namespace MVCApp.Models {
         [StringLength(maximumLength: 200, ErrorMessage = "La marca no puede tener más de 200 caracteres")]
         public string Marca { get; set; }
 
-        [Display(Prompt = "Precio de compra", Description = "Precio de compra del producto", Name = "PrecioCompra")]
+        [Display(Prompt = "Precio de compra", Description = "Precio de compra del producto", Name = "Precio Compra")]
         [Required(ErrorMessage = "Debe indicar un nombre para el artículo")]
         public int PrecioCompra { get; set; }
 
-        [Display(Prompt = "Precio de venta", Description = "Precio de venta del producto", Name = "PrecioVenta")]
+        [Display(Prompt = "Precio de venta", Description = "Precio de venta del producto", Name = "Precio Venta")]
         [Required(ErrorMessage = "Debe indicar un precio de venta para el producto")]
         public int PrecioVenta { get; set; }
 
-        [Display(Prompt = "Stock", Description = "Stock del producto", Name = "Stock")]
-        [Required(ErrorMessage = "Debe indicar un stock para el producto")]
+        //[Display(Prompt = "Stock", Description = "Stock del producto", Name = "Stock")]
+        //[Required(ErrorMessage = "Debe indicar un stock para el producto")]
         public int Stock { get; set; }
 
+        //[Required(ErrorMessage = "Debe indicar un proveedor para el producto")]
+        [Display(Name="Proveedores")]
+        public IEnumerable<ProveedorModels> proveedor { get; set; }
+
+        //public IList<string> proovedoresStrings { get; set; }
+        //public string[] selectedProveedores { get; set; }
+        public IEnumerable<string> SelectedItems { get; set; }
     }
 }

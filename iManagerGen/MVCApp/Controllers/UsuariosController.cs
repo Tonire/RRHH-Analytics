@@ -120,27 +120,36 @@ namespace MVCApp.Controllers
 
         //
         // GET: /Usuarios/Delete/5
-
-        public ActionResult Delete(int id)
+       /* [Authorize(Roles = "SuperAdministrador, Administrador")]
+        public ActionResult Delete(string id)
         {
-            return View();
-        }
+            UsuarioCEN usuarioCEN = new UsuarioCEN();
+            Roles.RemoveUserFromRoles(id, Roles.GetRolesForUser(id));
+            ((SimpleMembershipProvider)Membership.Provider).DeleteAccount(id); // deletes record from webpages_Membership table
+            ((SimpleMembershipProvider)Membership.Provider).DeleteUser(id, true); // deletes record from UserProfile table
+            usuarioCEN.Destroy(id);
+            return View("Index");
+        }*/
 
         //
         // POST: /Usuarios/Delete/5
-
+        [Authorize(Roles = "SuperAdministrador, Administrador")]
         [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
+        public ActionResult Delete()
         {
             try
             {
-                // TODO: Add delete logic here
-
+                string id = Request["email"];
+                UsuarioCEN usuarioCEN = new UsuarioCEN();
+                Roles.RemoveUserFromRoles(id, Roles.GetRolesForUser(id));
+                ((SimpleMembershipProvider)Membership.Provider).DeleteAccount(id); // deletes record from webpages_Membership table
+                ((SimpleMembershipProvider)Membership.Provider).DeleteUser(id, true); // deletes record from UserProfile table
+                usuarioCEN.Destroy(id);
                 return RedirectToAction("Index");
             }
-            catch
+            catch(Exception ex)
             {
-                return View();
+                return RedirectToAction("Index");
             }
         }
         private static string ErrorCodeToString(MembershipCreateStatus createStatus) {

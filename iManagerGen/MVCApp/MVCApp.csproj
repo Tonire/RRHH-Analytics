@@ -231,6 +231,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountModels.cs" />
+    <Compile Include="Models\AssemblerProveedores.cs" />
     <Compile Include="Models\AssemblerUsuarios.cs" />
     <Compile Include="Models\AssemblerLineaVentas.cs" />
     <Compile Include="Models\CrearMensajeModels.cs" />
@@ -238,6 +239,7 @@
     <Compile Include="Models\InstalacionModels.cs" />
     <Compile Include="Models\LineaVentasModels.cs" />
     <Compile Include="Models\ProductoModels.cs" />
+    <Compile Include="Models\ProveedorModels.cs" />
     <Compile Include="Models\UsuarioModels.cs" />
     <Compile Include="Models\VentasModels.cs" />
     <Compile Include="Models\VerMensajes.cs" />
@@ -946,6 +948,7 @@
     <Content Include="Views\Mensajes\Details.cshtml" />
     <Content Include="Views\Horario\Create.cshtml" />
     <Content Include="Views\Productos\Index.cshtml" />
+    <Content Include="Views\Productos\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

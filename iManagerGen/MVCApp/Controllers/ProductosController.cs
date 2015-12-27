@@ -5,6 +5,9 @@ using System.Web;
 using System.Web.Mvc;
 using IManagerGenNHibernate.CEN.IManager;
 using IManagerGenNHibernate.EN.IManager;
+using MVCApp.Models;
+using EjemploProyectoCP.CPs;
+
 namespace MVCApp.Controllers
 {
     public class ProductosController : Controller
@@ -32,25 +35,37 @@ namespace MVCApp.Controllers
 
         public ActionResult Create()
         {
-            return View();
+            ProveedorCEN proveedorCEN = new ProveedorCEN();
+            ProductoModels productoModelo = new ProductoModels();
+            IList<ProveedorEN> todosProveedores = proveedorCEN.DameTodos(0,-1);
+            IEnumerable<ProveedorModels> modelosProveedores = new AssemblerProveedores().ConvertListENToModel(todosProveedores).ToList();
+            productoModelo.proveedor = modelosProveedores;
+            return View(productoModelo);
         }
 
         //
         // POST: /Productos/Create
-
+        [Authorize(Roles = "SuperAdministrador, Administrador")]
         [HttpPost]
-        public ActionResult Create(FormCollection collection)
+        [ValidateAntiForgeryToken]
+        public ActionResult Create(ProductoModels model)
         {
-            try
-            {
-                // TODO: Add insert logic here
-
-                return RedirectToAction("Index");
+            if (ModelState.IsValid) {
+                try {
+                    ProductoCEN productoCEN = new ProductoCEN();
+                    IList<string> proveedores = new List<string>();
+                    for(int i=0;i<model.SelectedItems.ToList().Count;i++){
+                        proveedores.Add(model.SelectedItems.ToList()[i]);
+                    }
+                    productoCEN.CrearProducto(model.Referencia, model.Nombre, model.Marca, model.PrecioCompra, model.PrecioVenta, 0, proveedores);
+                    TempData["creado"] = true;
+                    return RedirectToAction("Index");
+                } catch {
+                    return View(model);
+                }
             }
-            catch
-            {
-                return View();
-            }
+            return View(model);
+            
         }
 
         //
