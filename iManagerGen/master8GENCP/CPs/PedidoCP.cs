@@ -48,7 +48,7 @@ namespace EjemploProyectoCP.CPs
                     //Llamamos a la funcion SumarStock
                     productoCP.SumarStock(pedidoEN.LineaPedido);
                     //Modificamos los valores del pedido, cambiando su estado a confirmado y indicando la fecha de la confirmacion.
-                    pedidoCEN.Modify(pedidoEN.Id, pedidoEN.Descripcion, EstadoPedidoEnum.confirmado, pedidoEN.FechaRealizacion, p_fechaConfirmacion, null);
+                    pedidoCEN.Modify(pedidoEN.Id, EstadoPedidoEnum.confirmado, pedidoEN.FechaRealizacion, p_fechaConfirmacion, null);
                     movimientoCP = new MovimientoCP(session);
                     movimientoCP.CrearMovimiento(pedidoEN.Id, TipoMovimientoEnum.gasto);
                 }

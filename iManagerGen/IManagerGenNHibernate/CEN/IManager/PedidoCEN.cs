@@ -36,15 +36,13 @@ public IPedidoCAD get_IPedidoCAD ()
         return this._IPedidoCAD;
 }
 
-public int CrearPedido (string p_descripcion, IManagerGenNHibernate.Enumerated.IManager.EstadoPedidoEnum p_estado, Nullable<DateTime> p_fechaRealizacion, string p_usuario, System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.LineaPedidoEN> p_lineaPedido)
+public int CrearPedido (IManagerGenNHibernate.Enumerated.IManager.EstadoPedidoEnum p_estado, Nullable<DateTime> p_fechaRealizacion, string p_usuario, System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.LineaPedidoEN> p_lineaPedido)
 {
         PedidoEN pedidoEN = null;
         int oid;
 
         //Initialized PedidoEN
         pedidoEN = new PedidoEN ();
-        pedidoEN.Descripcion = p_descripcion;
-
         pedidoEN.Estado = p_estado;
 
         pedidoEN.FechaRealizacion = p_fechaRealizacion;

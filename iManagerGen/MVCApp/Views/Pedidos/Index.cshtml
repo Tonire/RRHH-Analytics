@@ -1,0 +1,155 @@
+﻿@model IEnumerable<IManagerGenNHibernate.EN.IManager.PedidoEN>
+@{
+    if (User.IsInRole("SuperAdministrador")) {
+        Layout = "~/Views/Shared/_SuperLayout.cshtml";
+    }
+    if (User.IsInRole("Administrador")) {
+        Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    }
+    if (User.IsInRole("Empleado")) {
+        Layout = "~/Views/Shared/_EmpleadoLayout.cshtml";
+    }
+    ViewBag.Title = "Pedidos";
+
+    ViewBag.Breadcrumb = new Breadcrumb(new Crumb[] {
+        new Crumb("Gestionar Pedidos", "", "fa-users"), new Crumb("Ver Pedidos")
+    });
+
+}
+@{
+    if (TempData["Cancelado"] != null) {
+        <text>
+            <div class="row">
+                <div class="alert alert-success alert-dismissible" style="margin-right: 15px; margin-left: 15px;">
+                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                    <h4><i class="icon fa fa-check"></i> Pedido Cancelado!</h4>
+                    El pedido ha sido cancelado correctamente.
+                </div>
+            </div>
+        </text>
+    }
+}
+@{
+    if (TempData["Confirmado"] != null) {
+        <text>
+            <div class="row">
+                <div class="alert alert-success alert-dismissible" style="margin-right: 15px; margin-left: 15px;">
+                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                    <h4><i class="icon fa fa-check"></i> Pedido Confirmado!</h4>
+                    El pedido ha sido confirmado correctamente.
+                </div>
+            </div>
+        </text>
+    }
+}
+<div class="row">
+    <div class="col-xs-12">
+        <div class="box">
+            <div class="box-header">
+                <h3 class="box-title">Lista de Pedidos</h3>
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body">
+                <table id="example2" class="table table-bordered table-hover table-striped dataTable">
+                    <thead>
+                        <tr>
+                            <th>Id del Pedido</th>
+                            <th>Estado del pedido</th>
+                            <th>Fecha Pedido</th>
+                            <th>Fecha Confirmación</th>
+                            <th>Fecha Cancelación</th>
+                            <th>Acción</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model) {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Id)
+                                </td>
+                                <td>
+                                    @{
+                                        switch (item.Estado.ToString()) {
+                                            case "pendiente":
+                                                <text><span class="label label-warning">Pendiente</span></text>
+                                                break;
+                                            case "confirmado":
+                                                <text><span class="label label-success">Confirmado</span></text>
+                                                break;
+                                            case "rechazado":
+                                                <text><span class="label label-danger">Cancelado</span></text>
+                                                break;
+                                        }
+                                    }
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.FechaRealizacion)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.FechaConfirmacion)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.FechaCancelacion)
+                                </td>
+                                <td>
+                                    <form action="/Pedidos/Confirmar" method="post" id="@item.Id" style="display:inline-block;cursor:pointer;padding-right:5px;">
+                                        <input type="hidden" name="id" value="@item.Id" />
+                                        <a title="Confirmar Pedido" class="fa fa-check-square" onclick="document.getElementById('@item.Id').submit()"></a>
+                                    </form>
+                                    <form action="/Pedidos/Cancelar" method="post" style="display:inline-block;cursor:pointer;padding-right:5px;">
+                                        <input type="hidden" name="id" value="@item.Id" />
+                                        <a title="Cancelar Pedido" class="fa fa-remove" onclick="document.getElementById('@item.Id').nextElementSibling.submit()"></a>
+                                    </form>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <th>Id del Pedido</th>
+                            <th>Estado del pedido</th>
+                            <th>Fecha Pedido</th>
+                            <th>Fecha Confirmación</th>
+                            <th>Fecha Cancelación</th>
+                            <th>Acción</th>
+                        </tr>
+                    </tfoot>
+                </table>
+
+            </div><!-- /.box-body -->
+        </div><!-- /.box -->
+    </div><!-- /.col -->
+</div><!-- /.row -->
+@section scripts {
+    @*NOTE: These should NOT be used in a production situation
+        They do contains useful snippets on how to setup charts*@
+    <!-- DataTables -->
+    <script type="text/javascript" language="javascript" src="//cdn.datatables.net/1.10.10/js/jquery.dataTables.min.js"></script>
+    <script src="~/Scripts/AdminLTE/plugins/datatables/dataTables.bootstrap.js"></script>
+    <script type="text/javascript" language="javascript" src="//cdn.datatables.net/responsive/1.0.0/js/dataTables.responsive.min.js"></script>
+    <!-- SlimScroll -->
+    <script src="~/Scripts/AdminLTE/plugins/slimScroll/jquery.slimscroll.min.js"></script>
+
+    @Scripts.Render("~/bundles/jqueryval")
+    <!-- page script -->
+    <script>
+        $(document).ready(function () {
+            $('#example2').DataTable({
+                responsive: true,
+                autoWidth: false,
+                paging: true
+            });
+        });
+    </script>
+}
+@section especificos{
+    <!-- DataTables -->
+    <style>
+        .form-control.input-sm {
+            width: 100%;
+        }
+    </style>
+    <link rel="stylesheet" type="text/css" href="~/Scripts/AdminLTE/plugins/datatables/dataTables.bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/responsive/1.0.0/css/dataTables.responsive.css">
+
+}

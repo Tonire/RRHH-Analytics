@@ -126,9 +126,6 @@ public void Modify (PedidoEN pedido)
                 SessionInitializeTransaction ();
                 PedidoEN pedidoEN = (PedidoEN)session.Load (typeof(PedidoEN), pedido.Id);
 
-                pedidoEN.Descripcion = pedido.Descripcion;
-
-
                 pedidoEN.Estado = pedido.Estado;
 
 

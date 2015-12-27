@@ -77,10 +77,16 @@
                     <li><a href="@Url.Action("Create", "Productos")"><i class="fa fa-circle-o"> </i>Añadir Productos</a></li>
                 </ul>
             </li>
-            <li>
-                <a href="@Url.Action("Index", "Home")">
-                    <i class="fa fa-users"></i> <span>Pedidos</span>
+            <li class="treeview">
+                <a href="#">
+                    <i class="fa fa-users"></i>
+                    <span>Gestión de pedidos</span>
+                    <i class="fa fa-angle-left pull-right"></i>
                 </a>
+                <ul class="treeview-menu">
+                    <li><a href="@Url.Action("Index", "Pedidos")"><i class="fa fa-circle-o"></i> Ver Pedidos</a></li>
+                    <li><a href="@Url.Action("Create", "Pedidos")"><i class="fa fa-circle-o"></i> Crear Pedidos</a></li>
+                </ul>
             </li>
             <li>
                 <a href="@Url.Action("Index", "Ventas")">

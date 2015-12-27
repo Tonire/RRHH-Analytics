@@ -12,9 +12,6 @@
 						</id>
 			
 					
-					<property name="Descripcion" type="string"> 
-						<column name="descripcion"  not-null="true"/>
-					</property>
 					<property name="Estado" > 
 						<column name="estado"  not-null="true"/>
 					</property>
@@ -27,7 +24,6 @@
 					<property name="FechaCancelacion" type="timestamp"> 
 						<column name="fechaCancelacion" />
 					</property>
-			
 			
 			
 			
@@ -61,7 +57,6 @@
 					      	</key>
 							<one-to-many class="IManagerGenNHibernate.EN.IManager.MovimientosEN"/>
 					    </bag>
-					
 					
 					
 					

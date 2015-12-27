@@ -10,10 +10,6 @@ namespace MVCApp.Models {
     public class PedidoModels {
         public int id { get; set; }
 
-        [Display(Prompt = "Descripción", Description = "Descripción del pedido", Name = "Descripcion")]
-        [Required]
-        public string Descripcion { get; set; }
-
         [Display(Prompt = "Estado", Description = "Estado del pedido", Name = "Estado")]
         [Required]
         public EstadoPedidoEnum estado { get; set; }
@@ -29,5 +25,11 @@ namespace MVCApp.Models {
         [Display(Prompt = "Fecha de cancelación", Description = "Fecha de cancelación del pedido", Name = "FechaCancelacion")]
         [Required]
         public DateTime fechaCancelacion { get; set; }
+
+        public IList<LineaPedidosModels> lineas { get; set; }
+
+        public PedidoModels() {
+            lineas = new List<LineaPedidosModels>();
+        }
     }
 }

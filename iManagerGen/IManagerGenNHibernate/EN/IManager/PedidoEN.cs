@@ -13,13 +13,6 @@ private int id;
 
 
 /**
- *	Atributo descripcion
- */
-private string descripcion;
-
-
-
-/**
  *	Atributo estado
  */
 private IManagerGenNHibernate.Enumerated.IManager.EstadoPedidoEnum estado;
@@ -77,12 +70,6 @@ public virtual int Id {
 
 
 
-public virtual string Descripcion {
-        get { return descripcion; } set { descripcion = value;  }
-}
-
-
-
 public virtual IManagerGenNHibernate.Enumerated.IManager.EstadoPedidoEnum Estado {
         get { return estado; } set { estado = value;  }
 }
@@ -135,24 +122,22 @@ public PedidoEN()
 
 
 
-public PedidoEN(int id, string descripcion, IManagerGenNHibernate.Enumerated.IManager.EstadoPedidoEnum estado, Nullable<DateTime> fechaRealizacion, IManagerGenNHibernate.EN.IManager.UsuarioEN usuario, System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.LineaPedidoEN> lineaPedido, Nullable<DateTime> fechaConfirmacion, Nullable<DateTime> fechaCancelacion, System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.MovimientosEN> movimientos
+public PedidoEN(int id, IManagerGenNHibernate.Enumerated.IManager.EstadoPedidoEnum estado, Nullable<DateTime> fechaRealizacion, IManagerGenNHibernate.EN.IManager.UsuarioEN usuario, System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.LineaPedidoEN> lineaPedido, Nullable<DateTime> fechaConfirmacion, Nullable<DateTime> fechaCancelacion, System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.MovimientosEN> movimientos
                 )
 {
-        this.init (Id, descripcion, estado, fechaRealizacion, usuario, lineaPedido, fechaConfirmacion, fechaCancelacion, movimientos);
+        this.init (Id, estado, fechaRealizacion, usuario, lineaPedido, fechaConfirmacion, fechaCancelacion, movimientos);
 }
 
 
 public PedidoEN(PedidoEN pedido)
 {
-        this.init (Id, pedido.Descripcion, pedido.Estado, pedido.FechaRealizacion, pedido.Usuario, pedido.LineaPedido, pedido.FechaConfirmacion, pedido.FechaCancelacion, pedido.Movimientos);
+        this.init (Id, pedido.Estado, pedido.FechaRealizacion, pedido.Usuario, pedido.LineaPedido, pedido.FechaConfirmacion, pedido.FechaCancelacion, pedido.Movimientos);
 }
 
-private void init (int id, string descripcion, IManagerGenNHibernate.Enumerated.IManager.EstadoPedidoEnum estado, Nullable<DateTime> fechaRealizacion, IManagerGenNHibernate.EN.IManager.UsuarioEN usuario, System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.LineaPedidoEN> lineaPedido, Nullable<DateTime> fechaConfirmacion, Nullable<DateTime> fechaCancelacion, System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.MovimientosEN> movimientos)
+private void init (int id, IManagerGenNHibernate.Enumerated.IManager.EstadoPedidoEnum estado, Nullable<DateTime> fechaRealizacion, IManagerGenNHibernate.EN.IManager.UsuarioEN usuario, System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.LineaPedidoEN> lineaPedido, Nullable<DateTime> fechaConfirmacion, Nullable<DateTime> fechaCancelacion, System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.MovimientosEN> movimientos)
 {
         this.Id = id;
 
-
-        this.Descripcion = descripcion;
 
         this.Estado = estado;
 
