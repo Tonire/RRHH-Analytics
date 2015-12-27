@@ -230,9 +230,12 @@
     </Compile>
     <Compile Include="Models\AccountModels.cs" />
     <Compile Include="Models\AssemblerUsuarios.cs" />
+    <Compile Include="Models\AssemblerLineaVentas.cs" />
     <Compile Include="Models\CrearMensajeModels.cs" />
     <Compile Include="Models\InstalacionModels.cs" />
+    <Compile Include="Models\LineaVentasModels.cs" />
     <Compile Include="Models\UsuarioModels.cs" />
+    <Compile Include="Models\VentasModels.cs" />
     <Compile Include="Models\VerMensajes.cs" />
     <Compile Include="Models\VerMensajesModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -868,9 +871,11 @@
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\JSON.js" />
     <Content Include="Scripts\mensajes.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
     <Content Include="Scripts\npm.js" />
+    <Content Include="Scripts\quagga.min.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.matchmedia.addListener.js" />
     <Content Include="Scripts\respond.matchmedia.addListener.min.js" />
@@ -946,6 +951,10 @@
     <ProjectReference Include="..\IManagerGenNHibernate\IManagerGenNHibernate.csproj">
       <Project>{66c66636-fd6a-4a3f-a7c5-fe88bba117af}</Project>
       <Name>IManagerGenNHibernate</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\master8GENCP\EjemploProyectoCP.csproj">
+      <Project>{d4cb224b-8b66-402c-90cd-2e8168d2c104}</Project>
+      <Name>EjemploProyectoCP</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

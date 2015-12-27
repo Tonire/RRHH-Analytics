@@ -1,47 +1,140 @@
-﻿@model IEnumerable<MVCApp.Models.UsuarioModels>
-@{
+﻿@{
     if (User.IsInRole("SuperAdministrador")) {
         Layout = "~/Views/Shared/_SuperLayout.cshtml";
     }
     if (User.IsInRole("Administrador")) {
         Layout = "~/Views/Shared/_AdminLayout.cshtml";
     }
+    if (User.IsInRole("Empleado")) {
+        Layout = "~/Views/Shared/_EmpleadoLayout.cshtml";
+    }
     ViewBag.Title = "Registrar venta";
 
     ViewBag.Breadcrumb = new Breadcrumb(new Crumb[] {
-        new Crumb("Control de usuarios", "", "fa-users"), new Crumb("Ver Usuarios")
+        new Crumb("Registrar Ventas", "", "fa-users"), new Crumb("Nueva venta")
     });
-    
+
 }
+<div id="error" style="display:none;" class="row">
+    <div class="alert alert-danger alert-dismissible" id="div-error" style="margin:20px">
+        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+        <h4><i class="icon fa fa-ban"></i> Error!</h4>
         
-        <div class="row">
-            <div class="col-xs-12">
-                <div class="box">
-                    <div class="box-header">
-                        <h3 class="box-title">Nueva venta</h3>
+    </div>
+</div>
+
+<div id="success" style="display:none;" class="row">
+    <div id="div-success" class="alert alert-success alert-dismissible" style="margin:20px">
+        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+        <h4><i class="icon fa fa-check"></i> Venta realizada!</h4>
+        Venta realizada con éxito!
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-xs-12">
+
+        <div class="box">
+            <div class="box-header">
+                <h3 class="box-title">Nueva venta</h3>
+            </div>
+        
+            <!-- /.box-header -->
+            <div class="box-body">
+                <div class="row">
+                    <div class="col-md-3 col-xs-12">
+                        <div class="form-horizontal">
+                            <div class="form-group">
+                                <label class="col-sm-4 col-xs-12 control-label" for="idProducto">Id del producto</label>
+                                <div class="col-sm-8 col-xs-12">
+                                    <input type="number" id="idProducto" class="form-control col-xs-12" />
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-4 col-xs-12 control-label" for="cantidad">Cantidad</label>
+                                <div class="col-sm-8 col-xs-12">
+                                    <input type="number" id="cantidad" class="form-control col-xs-12" />
+                                </div>
+                            </div>
+
+                        </div>
                     </div>
-                    <!-- /.box-header -->
-                    <div class="box-body">
-                        <input type="text" id="idProducto" />
-                        <input type="number" id="cantidad" />
-                        <input type="button" id="crearVenta" value="Vender"/>
-                    </div><!-- /.box-body -->
-                </div><!-- /.box -->
-            </div><!-- /.col -->
-        </div><!-- /.row -->
+                    <div class="col-md-9 col-xs-12">
+                        <button id="add" type="submit" class="btn btn-info" style="margin-bottom:5px">Añadir</button>
+                        <br />
+                    </div>
+                    
+                </div>
+                <div class="row">
+                    <div class="col-md-4 col-xs-12">
+                        <div id="interactive" class="viewport"></div>
+                    </div>
+                </div>
+                <table id="example3" class="table table-bordered table-hover table-striped table-responsive">
+                    <thead>
+                        <tr>
+                            <th>Referencia</th>
+                            <th>Cantidad</th>
+                            <th>Acción</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tbody">
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <th>Referencia</th>
+                            <th>Cantidad</th>
+                            <th>Acción</th>
+                        </tr>
+                    </tfoot>
+                </table>
+
+            </div><!-- /.box-body -->
+            <div class="box-footer">
+                <button type="submit" class="btn btn-primary" id="vender"><i class="fa fa-envelope-o"></i> Vender</button>
+            </div><!-- /.box-footer -->
+        </div><!-- /.box -->
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    </div><!-- /.col -->
+</div><!-- /.row -->
 @section scripts {
     @*NOTE: These should NOT be used in a production situation
         They do contains useful snippets on how to setup charts*@
     <!-- DataTables -->
+    
     <script type="text/javascript" language="javascript" src="//cdn.datatables.net/1.10.10/js/jquery.dataTables.min.js"></script>
     <script src="~/Scripts/AdminLTE/plugins/datatables/dataTables.bootstrap.js"></script>
     <script type="text/javascript" language="javascript" src="//cdn.datatables.net/responsive/1.0.0/js/dataTables.responsive.min.js"></script>
     <!-- SlimScroll -->
     <script src="~/Scripts/AdminLTE/plugins/slimScroll/jquery.slimscroll.min.js"></script>
+    <script src="~/Scripts/JSON.js" type="text/javascript"></script>
+    <script src="~/Scripts/quagga.min.js"></script>
+    <script src="~/Scripts/jquery.vibrate.min.js"></script>
     <script src="~/Scripts/ventas.js" type="text/javascript"></script>
-       @Scripts.Render("~/bundles/jqueryval")
+
+    @Scripts.Render("~/bundles/jqueryval")
+    <script>
+
+    </script>
+
 }
 @section especificos{
+    <!-- DataTables -->
+    <style>
+        .form-control.input-sm {
+            width: 100%;
+        }
+    </style>
+    <link rel="stylesheet" type="text/css" href="~/Scripts/AdminLTE/plugins/datatables/dataTables.bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/responsive/1.0.0/css/dataTables.responsive.css">
+    <style>
+        .drawingBuffer{
+            display:none;
+        }
+        video {
+            width: 100% !important;
+            height: auto !important;
+        }
+    </style>
 
-    
 }

@@ -8,116 +8,75 @@ using IManagerGenNHibernate.EN.IManager;
 using IManagerGenNHibernate.CAD.IManager;
 using Newtonsoft.Json.Linq;
 using Newtonsoft.Json;
+using MVCApp.Models;
+using System.Text.RegularExpressions;
+using EjemploProyectoCP.CPs;
 namespace MVCApp.Controllers
 {
     public class VentasController : Controller
     {
         //
         // GET: /Ventas/
-
+        [Authorize]
         public ActionResult Index()
         {
             return View();
         }
 
         //
-        // GET: /Ventas/Details/5
-
-        public ActionResult Details(int id)
-        {
-            return View();
-        }
-
-        //
-        // GET: /Ventas/Create
-
-        public ActionResult Create()
-        {
-            return View();
-        }
-
-        //
         // POST: /Ventas/Create
-
+        [Authorize]
         [HttpPost]
-        public int Create(string jsonDatos)
+        public string Create(string data)
         {
+            //data = Regex.Replace(data, @"\", "",RegexOptions.None, TimeSpan.FromSeconds(1.5));
+            //data = limpiarString(data);
+            string data1 = data.Replace("\\", "");
+            VentasModels ventas=new VentasModels();
             try
             {
-                LineaVentaCEN lineaVentaCEN = new LineaVentaCEN();
-               //Esta mierda siempre es null, porque no se pasar las cosas por POST XD
-                if (jsonDatos != null) {
-                    JArray jArray = JArray.Parse(jsonDatos);
-                    JObject jObject = JObject.Parse(jsonDatos);
-                    int idProducto;
-                    int cantidad;
-                    JToken token = jObject.GetValue("idProducto");
-                    idProducto = Int32.Parse(token.ToString());
-                    token = jObject.GetValue("cantidad");
-                    cantidad = Int32.Parse(token.ToString());
-                    lineaVentaCEN.CrearLineaVenta(cantidad, idProducto);
-                    return 1;
-                } else {
-                    return 0;
+                bool vender = true;
+                IList<LineaVentaEN> lineas = new List<LineaVentaEN>();
+                ProductoCEN productoCEN = new ProductoCEN();
+                LineaVentaEN linea = new LineaVentaEN();
+                ProductoEN producto = new ProductoEN();
+                VentaCEN ventaCEN = new VentaCEN();
+
+                JArray jarray = JArray.Parse(data1);
+                foreach (JObject objeto in jarray) {
+                    LineaVentasModels lineaVentaModel = new LineaVentasModels();
+                    JToken token = objeto.GetValue("referencia");
+                    lineaVentaModel.referencia = Int32.Parse(token.ToString());
+                    token = objeto.GetValue("cantidad");
+                    lineaVentaModel.cantidad = Int32.Parse(token.ToString());
+                   // lineaVentaModel.cantidad = Int32.Parse();
+                    ventas.lineas.Add(lineaVentaModel);
                 }
-
                 
-            }
-            catch
+                for(int i=0;i<ventas.lineas.Count();i++){
+                    linea.Producto=productoCEN.GetProducto (ventas.lineas[i].referencia);
+                    if (linea.Producto != null) {
+                        linea.Cantidad = ventas.lineas[i].cantidad;
+                        lineas.Add(linea);
+                    } else {
+                        //No se hace la venta - El producto es null
+                        vender = false;
+                        break;
+                    }
+                }
+                if (vender) {
+                    /*CREAR EMOVIMIENTO*/
+                    VentaCP ventaCP = new VentaCP();
+                    ventaCP.RestarStockCrearVentaHacerMovimiento(User.Identity.Name,DateTime.Now,lineas);
+                    TempData["Creado"] = true;
+                } else {
+                    return "ERROR Producto nulo";
+                }
+                
+                return "Ok";
+            } catch (Exception ex)
             {
-                return 0;
-            }
-        }
-
-        //
-        // GET: /Ventas/Edit/5
-
-        public ActionResult Edit(int id)
-        {
-            return View();
-        }
-
-        //
-        // POST: /Ventas/Edit/5
-
-        [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
-        {
-            try
-            {
-                // TODO: Add update logic here
-
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
-        }
-
-        //
-        // GET: /Ventas/Delete/5
-
-        public ActionResult Delete(int id)
-        {
-            return View();
-        }
-
-        //
-        // POST: /Ventas/Delete/5
-
-        [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
-        {
-            try
-            {
-                // TODO: Add delete logic here
-
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
+                return  ex.Message;
             }
         }
     }
