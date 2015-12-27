@@ -222,6 +222,7 @@
     <Compile Include="Controllers\InstalacionController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MensajesController.cs" />
+    <Compile Include="Controllers\ProductosController.cs" />
     <Compile Include="Controllers\Skins.cs" />
     <Compile Include="Controllers\UsuariosController.cs" />
     <Compile Include="Controllers\VentasController.cs" />
@@ -236,6 +237,7 @@
     <Compile Include="Models\HorarioModels.cs" />
     <Compile Include="Models\InstalacionModels.cs" />
     <Compile Include="Models\LineaVentasModels.cs" />
+    <Compile Include="Models\ProductoModels.cs" />
     <Compile Include="Models\UsuarioModels.cs" />
     <Compile Include="Models\VentasModels.cs" />
     <Compile Include="Models\VerMensajes.cs" />
@@ -943,6 +945,7 @@
     <Content Include="Views\Ventas\Index.cshtml" />
     <Content Include="Views\Mensajes\Details.cshtml" />
     <Content Include="Views\Horario\Create.cshtml" />
+    <Content Include="Views\Productos\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

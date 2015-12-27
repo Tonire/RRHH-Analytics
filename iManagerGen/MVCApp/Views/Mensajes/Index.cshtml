@@ -9,39 +9,11 @@
     if (User.IsInRole("Empleado")) {
         Layout = "~/Views/Shared/_EmpleadoLayout.cshtml";
     }
-    ViewBag.Title = "Mensajería";
+    ViewBag.Title = "Productos";
 
     ViewBag.Breadcrumb = new Breadcrumb(new Crumb[] {
         new Crumb("Mensajería", "", "fa fa-envelope"), new Crumb("Recibidos")
     });
-}
-@{
-    if (TempData["Creado"] != null) {
-        <text>
-            <div class="row">
-                <div class="alert alert-success alert-dismissible" style="margin-right: 15px; margin-left: 15px;">
-                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-                    <h4><i class="icon fa fa-check"></i> Mensaje enviado!</h4>
-                    El mensaje se ha enviado correctamente.
-                </div>
-            </div>
-
-        </text>
-    }
-}
-@{
-    if (TempData["ErrorBorr"] != null) {
-        <text>
-            <div class="row">
-                <div class="alert alert-danger alert-dismissible" style="margin-right: 15px; margin-left: 15px;">
-                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-                    <h4><i class="icon fa fa-check"></i> Error!</h4>
-                    No hemos podido elminar el mensaje, intentalo de nuevo porfavor.
-                </div>
-            </div>
-
-        </text>
-    }
 }
 <div class="row">
     <div class="col-md-3">
