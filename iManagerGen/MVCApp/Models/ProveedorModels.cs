@@ -17,24 +17,26 @@ namespace MVCApp.Models {
         [StringLength(maximumLength: 200, ErrorMessage = "El nombre no puede tener más de 200 caracteres")]
         public string Nombre { get; set; }
 
+        [Display(Prompt = "CIF", Description = "CIF del proveedor", Name = "CIF del proveedor")]
+        [Required(ErrorMessage = "Debe indicar un CIF para el proveedor")]
+        public string CIF { get; set; }
+
         [Display(Prompt = "Teléfono", Description = "Teléfono del proveedor", Name = "Telefono")]
         [Required(ErrorMessage = "Debe indicar un teléfono para el proveedor")]
         public string Telefono { get; set; }
 
-        [Display(Prompt = "Teléfono", Description = "Teléfono del proveedor", Name = "Telefono")]
-        [Required(ErrorMessage = "Debe indicar un teléfono para el proveedor")]
+        [Display(Prompt = "Direccion", Description = "Direccion del proveedor", Name = "Direccion")]
+        [Required(ErrorMessage = "Debe indicar una direccion para el proveedor")]
         public string Direccion { get; set; }
 
-        [Display(Prompt = "Teléfono", Description = "Teléfono del proveedor", Name = "Telefono")]
-        [Required(ErrorMessage = "Debe indicar un teléfono para el proveedor")]
+        [Display(Prompt = "Localidad", Description = "Localidad del proveedor", Name = "Localidad")]
+        [Required(ErrorMessage = "Debe indicar una localidad para el proveedor")]
         public string Localidad { get; set; }
 
-        [Display(Prompt = "Teléfono", Description = "Teléfono del proveedor", Name = "Telefono")]
-        [Required(ErrorMessage = "Debe indicar un teléfono para el proveedor")]
+        [Display(Prompt = "Pais", Description = "Pais del proveedor", Name = "Pais")]
+        [Required(ErrorMessage = "Debe indicar un Pais para el proveedor")]
         public string Pais { get; set; }
 
-        [Display(Prompt = "Teléfono", Description = "Teléfono del proveedor", Name = "Telefono")]
-        [Required(ErrorMessage = "Debe indicar un teléfono para el proveedor")]
-        public string CIF { get; set; }
+        
     }
 }

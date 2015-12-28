@@ -15,6 +15,7 @@ namespace MVCApp.Models {
             proveedor.Direccion = en.Direccion;
             proveedor.Localidad = en.Localidad;
             proveedor.Pais = en.Pais;
+            proveedor.CIF = en.CIF;
 
             return proveedor;
         }

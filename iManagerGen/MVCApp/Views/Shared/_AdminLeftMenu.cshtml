@@ -63,10 +63,16 @@
                     <li><a href="@Url.Action("Create", "Usuarios")"><i class="fa fa-circle-o"></i> Crear Usuarios</a></li>
                 </ul>
             </li>
-            <li>
-                <a href="@Url.Action("Index", "Home")">
-                    <i class="fa fa-stack-overflow"></i> <span>Proveedores</span>
+            <li class="treeview">
+                <a href="#">
+                    <i class="fa fa-stack-overflow"></i>
+                    <span>Proveedores</span>
+                    <i class="fa fa-angle-left pull-right"></i>
                 </a>
+                <ul class="treeview-menu">
+                    <li><a href="@Url.Action("Index", "Proveedores")"><i class="fa fa-circle-o"></i> Ver Proveedores</a></li>
+                    <li><a href="@Url.Action("Create", "Proveedores")"><i class="fa fa-circle-o"></i> Crear Proveedor</a></li>
+                </ul>
             </li>
             <li class="treeview">
                 <a href="#">

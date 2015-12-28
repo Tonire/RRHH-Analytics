@@ -1,0 +1,169 @@
+﻿@model IEnumerable<MVCApp.Models.ProveedorModels>
+@{
+    if (User.IsInRole("SuperAdministrador")) {
+        Layout = "~/Views/Shared/_SuperLayout.cshtml";
+    }
+    if (User.IsInRole("Administrador")) {
+        Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    }
+    ViewBag.Title = "Proveedores";
+
+    ViewBag.Breadcrumb = new Breadcrumb(new Crumb[] {
+        new Crumb("Proveedores", "", "fa-users"), new Crumb("Ver Proveedores")
+    });
+
+}
+@{
+    if (TempData["Creado"] != null) {
+        <text>
+            <div class="row">
+                <div class="alert alert-success alert-dismissible" style="margin-right: 15px; margin-left: 15px;">
+                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                    <h4><i class="icon fa fa-check"></i> Usuario Creado!</h4>
+                    El usuario ha sido creado correctamente.
+                </div>
+            </div>
+
+        </text>
+    }
+}
+@{
+    if (TempData["Modificado"] != null) {
+        <text>
+            <div class="row">
+                <div class="alert alert-success alert-dismissible" style="margin-right: 15px; margin-left: 15px;">
+                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                    <h4><i class="icon fa fa-check"></i> Proveedor Modificado!</h4>
+                    El proveedor ha sido modificado correctamente.
+                </div>
+            </div>
+
+        </text>
+    }
+}
+@{
+    if (TempData["Borrado"] != null) {
+        <text>
+            <div class="row">
+                <div class="alert alert-success alert-dismissible" style="margin-right: 15px; margin-left: 15px;">
+                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                    <h4><i class="icon fa fa-check"></i> Proveedor Eliminado!</h4>
+                    El proveedor ha sido eliminado correctamente.
+                </div>
+            </div>
+
+        </text>
+    }
+}
+<div class="row">
+    <div class="col-xs-12">
+        <div class="box">
+            <div class="box-header">
+                <h3 class="box-title">Lista de proveedores</h3>
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body">
+                <table id="example2" class="table table-bordered table-hover table-striped dataTable">
+                    <thead>
+                        <tr>
+                            <th>Email Proveedor</th>
+                            <th>CIF</th>
+                            <th>Nombre</th>
+                            <th>Telefono</th>
+                            <th>Localidad</th>
+                            <th>Pais</th>
+                            <th>Dirección</th>
+                            <th>Acción</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model) {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Email)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.CIF)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Nombre)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Telefono)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Localidad)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Pais)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Direccion)
+                                </td>
+                                <td>
+                                    <form action="/Proveedores/Edit" method="get" id="@item.Email" style="display:inline-block;cursor:pointer">
+                                        <input type="hidden" name="email" value="@item.Email" />
+                                        <a title="Editar Proveedor" class="fa fa-edit" onclick="document.getElementById('@item.Email').submit()"></a>
+                                    </form>
+                                    <form action="/Proveedores/Delete" method="post" style="display:inline-block;cursor:pointer;padding-right:5px;">
+                                        <input type="hidden" name="id" value="@item.Email" />
+                                        <a title="Eliminar Proveedor" class="fa fa-remove" onclick="document.getElementById('@item.Email').nextElementSibling.submit()"></a>
+                                    </form>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <th>Email Proveedor</th>
+                            <th>CIF</th>
+                            <th>Nombre</th>
+                            <th>Telefono</th>
+                            <th>Localidad</th>
+                            <th>Pais</th>
+                            <th>Dirección</th>
+                            <th>Acción</th>
+                        </tr>
+                    </tfoot>
+                </table>
+
+            </div><!-- /.box-body -->
+        </div><!-- /.box -->
+    </div><!-- /.col -->
+</div><!-- /.row -->
+@section scripts {
+    @*NOTE: These should NOT be used in a production situation
+        They do contains useful snippets on how to setup charts*@
+    <!-- DataTables -->
+    <script type="text/javascript" language="javascript" src="~/Scripts/AdminLTE/plugins/datatables/jquery.dataTables.min.js"></script>
+    <script src="~/Scripts/AdminLTE/plugins/datatables/dataTables.bootstrap.js"></script>
+    <script type="text/javascript" language="javascript" src="~/Scripts/AdminLTE/plugins/datatables/dataTables.responsive.min.js"></script>
+    <!-- SlimScroll -->
+    <script src="~/Scripts/AdminLTE/plugins/slimScroll/jquery.slimscroll.min.js"></script>
+
+    @Scripts.Render("~/bundles/jqueryval")
+    <!-- page script -->
+    <script>
+        $(document).ready(function () {
+            $('#example2').DataTable({
+                responsive: true,
+                autoWidth: false,
+                paging: true,
+                "language": {
+                    "url": "../../Scripts/AdminLTE/plugins/datatables/datatables-sp.js"
+                }
+            });
+        });
+    </script>
+}
+@section especificos{
+    <!-- DataTables -->
+    <style>
+        .form-control.input-sm {
+            width: 100%;
+        }
+    </style>
+    <link rel="stylesheet" type="text/css" href="~/Scripts/AdminLTE/plugins/datatables/dataTables.bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="~/Scripts/AdminLTE/plugins/datatables/dataTables.responsive.css">
+
+}

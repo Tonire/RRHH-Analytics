@@ -963,11 +963,13 @@
     <Content Include="Views\Pedidos\Details.cshtml" />
     <Content Include="Views\Productos\Details.cshtml" />
     <Content Include="Views\Productos\Edit.cshtml" />
+    <Content Include="Views\Proveedores\Index.cshtml" />
+    <Content Include="Views\Proveedores\Edit.cshtml" />
+    <Content Include="Views\Proveedores\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Images\App_LocalResources\" />
-    <Folder Include="Views\Proveedores\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
