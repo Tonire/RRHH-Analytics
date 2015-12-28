@@ -137,7 +137,7 @@
         <!-- MAP & BOX PANE -->
         <div class="box box-success">
             <div class="box-header with-border">
-                <h3 class="box-title">Visitors Report</h3>
+                <h3 class="box-title">Mapa de proveedores</h3>
                 <div class="box-tools pull-right">
                     <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
                     <button class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
@@ -153,17 +153,17 @@
                     </div><!-- /.col -->
                     <div class="col-md-3 col-sm-4">
                         <div class="pad box-pane-right bg-green" style="min-height: 280px">
-                            <div class="description-block margin-bottom">
+                            <div class="description-block margin-bottom" style="visibility:hidden">
                                 <div class="sparkbar pad" data-color="#fff">90,70,90,70,75,80,70</div>
                                 <h5 class="description-header">8390</h5>
                                 <span class="description-text">Visits</span>
                             </div><!-- /.description-block -->
                             <div class="description-block margin-bottom">
                                 <div class="sparkbar pad" data-color="#fff">90,50,90,70,61,83,63</div>
-                                <h5 class="description-header">30%</h5>
-                                <span class="description-text">Referrals</span>
+                                <h5 class="description-header">@Model.listaProveedores.ToList().Count</h5>
+                                <span class="description-text">Proveedores</span>
                             </div><!-- /.description-block -->
-                            <div class="description-block">
+                            <div class="description-block" style="visibility:hidden">
                                 <div class="sparkbar pad" data-color="#fff">90,50,90,70,61,83,63</div>
                                 <h5 class="description-header">70%</h5>
                                 <span class="description-text">Organic</span>
@@ -859,30 +859,34 @@
                 <text>
                     objeto = @Html.Raw(Json.Encode(item))
                     arrayProveedores.push(objeto);
-                </text>
+            </text>
             }
-            alert(JSON.stringify(arrayProveedores));
+            var llamadas = arrayProveedores.length;
+            var contador = 0;
             for(i=0;i<arrayProveedores.length;i++){
                 var address = arrayProveedores[i].Direccion+", "+arrayProveedores[i].Localidad;
-                alert(address);
-
+                var localidad = arrayProveedores[i].Localidad;
                 geocoder.geocode({'address': address}, function(results, status) {
                     if (status === google.maps.GeocoderStatus.OK) {
                         var array = new Array();
                         array.push(results[0].geometry.location.lat());
                         array.push(results[0].geometry.location.lng());
-                        var objeto = {latLng: array, name: arrayProveedores[i].Localidad};
+                        var objeto = {latLng: array, name: arrayProveedores[contador].Nombre};
                         marcadores.push(objeto);
-                        alert(JSON.stringify(marcadores));
-                        dibujarMapa();
+
+                        llamadas--;
+                        contador++;
+                        if(llamadas<=0){
+                            dibujarMapa();
+                        }
                     } else {
-                        alert('Geocode was not successful for the following reason: ' + status);
+                        //alert('Geocode was not successful for the following reason: ' + status);
                     }
+                    
                 });
 
             }
-            
-           
+            //alert(JSON.stringify(marcadores)); 
         }
 
         function dibujarMapa(){

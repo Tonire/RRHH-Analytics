@@ -17,6 +17,8 @@ namespace MVCApp.Controllers
         {
             //Comprobamos que aun no se ha realizado la configuración de la aplicacion
             AparienciaCEN apariencia = new AparienciaCEN();
+            
+
             if (!apariencia.GetApariencia(0, 3).Any()) //Si se cumple es que aun no hemos insertado nada en apariencia
             {
                 TempData["Instalacion"] = true;
@@ -29,6 +31,10 @@ namespace MVCApp.Controllers
             MovimientosCEN movimientoCEN = new MovimientosCEN();
             PedidoCEN pedidoCEN= new PedidoCEN();
             ProveedorCEN proveedorCEN = new ProveedorCEN();
+            UsuarioCEN usuarioCEN = new UsuarioCEN();
+            VentaCEN ventaCEN = new VentaCEN();
+            ProductoCEN productoCEN = new ProductoCEN();
+
             HomeModels homeModel= new HomeModels();
             homeModel.totalAnyoGastos = new List<double>();
             homeModel.totalAnyoIngresos = new List<double>();
@@ -38,6 +44,10 @@ namespace MVCApp.Controllers
             }
             homeModel.PedidosPendientes = pedidoCEN.GetPedidosPendientes().ToList();
             homeModel.listaProveedores = new AssemblerProveedores().ConvertListENToModel(proveedorCEN.DameTodos(0,-1)).ToList();
+            homeModel.numeroUsuarios = usuarioCEN.contarUsuarios();
+            homeModel.numeroVentas = ventaCEN.contarVentas();
+            homeModel.numeroPedidiosPendientes = pedidoCEN.contarPedidosPendientes();
+            homeModel.numeroProductos = productoCEN.contarProductos();
             return View(homeModel);
         }
 
