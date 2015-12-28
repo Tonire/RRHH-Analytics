@@ -10,7 +10,6 @@ namespace MVCApp.Models {
             LineaVentasModels ventas = new LineaVentasModels();
             ventas.cantidad = en.Cantidad;
             ventas.referencia = en.Producto.Referencia;
-
             return ventas;
         }
         public IList<LineaVentasModels> ConvertListENToModel(IList<LineaVentaEN> ens) {

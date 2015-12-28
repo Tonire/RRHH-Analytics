@@ -26,18 +26,22 @@ $('#vender').on("click", function () {
     }
 });
 
-function add(){
-    var objeto = { referencia: $('#idProducto').val(), cantidad: $('#cantidad').val() };
-    array.push(objeto);
-    var stringHTML = "<tr><td>" + $('#idProducto').val() + "</td><td>" + $('#cantidad').val() + "</td><td><a href='#' onClick='return quitar(this)' class='fa fa-remove' id='" + array.length + "'></a></td></tr>";
-    $('#tbody').append(stringHTML);
+function add() {
+    if ($('#cantidad').val() != "" && parseInt($('#cantidad').val())>0) {
+        var objeto = { referencia: $('#idProducto').val(), cantidad: $('#cantidad').val() };
+        array.push(objeto);
+        var stringHTML = "<tr><td>" + $('#idProducto').val() + "</td><td>" + $('#idProducto').find(":selected").text() + "</td><td>" + $('#cantidad').val() + "</td><td><a href='#' onClick='return quitar(this)' class='fa fa-remove' id='" + array.length + "'></a></td></tr>";
+        $('#tbody').append(stringHTML);
+    }
 }
 
 $('#add').on("click", function () {
-    var objeto = { referencia: $('#idProducto').val(), cantidad: $('#cantidad').val() };
-    array.push(objeto);
-    var stringHTML = "<tr><td>" + $('#idProducto').val() + "</td><td>" + $('#cantidad').val() + "</td><td><a href='#' onClick='return quitar(this)' class='fa fa-remove' id='" + array.length + "'></a></td></tr>";
-    $('#tbody').append(stringHTML);
+    if ($('#cantidad').val() != "" && parseInt($('#cantidad').val()) > 0) {
+        var objeto = { referencia: $('#idProducto').val(), cantidad: $('#cantidad').val() };
+        array.push(objeto);
+        var stringHTML = "<tr><td>" + $('#idProducto').val() + "</td><td>" + $('#idProducto').find(":selected").text() + "</td><td>" + $('#cantidad').val() + "</td><td><a href='#' onClick='return quitar(this)' class='fa fa-remove' id='" + array.length + "'></a></td></tr>";
+        $('#tbody').append(stringHTML);
+    }
 });
 
 function quitar(elemento) {
@@ -62,6 +66,19 @@ function limpiarTabla() {
     $('#tbody').empty();
     $('#idProducto').val("");
     $('#cantidad').val("");
+}
+function mostrar() {
+
+    if($('#webcam').hasClass('oculto')){
+        document.getElementById('webcam').setAttribute('style', 'display:block');
+        $('#webcam').toggleClass('oculto', false);
+        $('#webcam').toggleClass('visible', true);
+    } else {
+        $('#webcam').toggleClass('visible', false);
+        $('#webcam').toggleClass('oculto', true);
+        document.getElementById('webcam').setAttribute('style', 'display:none');
+    }
+    
 }
 
 
@@ -207,7 +224,7 @@ $(function () {
         if (code === lastCode) {
 
         } else {
-            $('#idProducto').val(code);
+            $('#idProducto').val(code).change();
             navigator.vibrate(500);
             var cantidad = 1;
             if (parseInt($('#cantidad').val()) >= 1) {

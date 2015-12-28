@@ -5,12 +5,13 @@ using System.Web;
 using System.Web.Mvc;
 using IManagerGenNHibernate.CEN.IManager;
 using IManagerGenNHibernate.EN.IManager;
+using IManagerGenNHibernate.CAD.IManager;
 using MVCApp.Models;
 using EjemploProyectoCP.CPs;
 using Newtonsoft.Json.Linq;
 namespace MVCApp.Controllers
 {
-    public class PedidosController : Controller
+    public class PedidosController : BasicController
     {
         //
         // GET: /Pedido/
@@ -28,7 +29,12 @@ namespace MVCApp.Controllers
 
         public ActionResult Details(int id)
         {
-            return View();
+            SessionInitialize();
+            LineaPedidoCAD lineaCAD = new LineaPedidoCAD(session);
+            LineaPedidoCEN lineaPedidoCEN = new LineaPedidoCEN(lineaCAD);
+            IEnumerable<LineaPedidosModels> lineaPedidoModels= new AssemblerLineaPedidos().ConvertListENToModel(lineaPedidoCEN.GetLineasPedidoByPedido(id)).ToList();
+            SessionClose();
+            return View(lineaPedidoModels);
         }
 
         //

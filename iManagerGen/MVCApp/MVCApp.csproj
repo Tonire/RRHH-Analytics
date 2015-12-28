@@ -232,6 +232,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountModels.cs" />
+    <Compile Include="Models\AssemblerLineaPedidos.cs" />
     <Compile Include="Models\AssemblerProveedores.cs" />
     <Compile Include="Models\AssemblerUsuarios.cs" />
     <Compile Include="Models\AssemblerLineaVentas.cs" />
@@ -958,6 +959,7 @@
     <Content Include="Views\Pedidos\Create.cshtml" />
     <Content Include="Views\Pedidos\Index.cshtml" />
     <Content Include="Views\Productos\Create.cshtml" />
+    <Content Include="Views\Pedidos\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

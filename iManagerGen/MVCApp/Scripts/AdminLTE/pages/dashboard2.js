@@ -1,6 +1,4 @@
 'use strict';
-
-
   //---------------------------
   //- END MONTHLY SALES CHART -
   //---------------------------
@@ -189,4 +187,3 @@
       spotColor: $this.data('spotcolor')
     });
   });
-});

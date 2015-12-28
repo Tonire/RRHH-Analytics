@@ -7,5 +7,6 @@ namespace MVCApp.Models {
     public class LineaPedidosModels {
         public int cantidad { get; set; }
         public int referencia { get; set; }
+        public string nombre { get; set; }
     }
 }

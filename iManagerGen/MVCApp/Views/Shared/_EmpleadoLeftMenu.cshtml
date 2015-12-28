@@ -39,44 +39,47 @@
                     <i class="fa fa-dashboard"></i> <span>Tabla resúmen</span>
                 </a>
             </li>
-            <li>
-                <a href="@Url.Action("Index", "Mensajes")">
-                    <i class="fa fa-envelope"></i> <span>Mensajería</span> <small class="label pull-right bg-yellow">@ViewData["Emails"]</small>
-                </a>
-            </li>
             <li class="treeview">
                 <a href="#">
-                    <i class="fa fa-users"></i>
-                    <span>Control de usuarios</span>
+                    <i class="fa fa-envelope"></i>
+                    <span>Mensajería</span>
                     <i class="fa fa-angle-left pull-right"></i>
                 </a>
                 <ul class="treeview-menu">
-                    <li><a href="@Url.Action("Index", "Usuarios")"><i class="fa fa-circle-o"></i> Ver usuarios</a></li>
-                    <li><a href="@Url.Action("Create", "Usuarios")"><i class="fa fa-circle-o"></i> Crear Usuarios</a></li>
+                    <li><a href="@Url.Action("Index", "Mensajes")"><i class="fa fa-circle-o"></i> Mensajes recibidos</a></li>
+                    <li><a href="@Url.Action("Enviados", "Mensajes")"><i class="fa fa-circle-o"></i> Mensajes enviados</a></li>
+                    <li><a href="@Url.Action("Crear", "Mensajes")"><i class="fa fa-circle-o"></i> Enviar Mensaje</a></li>
                 </ul>
             </li>
             <li>
                 <a href="@Url.Action("Index", "Home")">
-                    <i class="fa fa-users"></i> <span>Proveedores</span>
+                    <i class="fa fa-stack-overflow"></i> <span>Proveedores</span>
                 </a>
             </li>
             <li class="treeview">
                 <a href="#">
-                    <i class="fa fa-users"></i> <span>Productos</span>
+                    <i class="fa fa-th-large"></i> <span>Productos</span>
+                    <i class="fa fa-angle-left pull-right"></i>
                 </a>
                 <ul class="treeview-menu">
                     <li><a href="@Url.Action("Index", "Productos")"><i class="fa fa-circle-o"> </i>Ver Productos</a></li>
                     <li><a href="@Url.Action("Create", "Productos")"><i class="fa fa-circle-o"> </i>Añadir Productos</a></li>
                 </ul>
             </li>
-            <li>
-                <a href="@Url.Action("Index", "Home")">
-                    <i class="fa fa-users"></i> <span>Pedidos</span>
+            <li class="treeview">
+                <a href="#">
+                    <i class="fa fa-random"></i>
+                    <span>Gestión de pedidos</span>
+                    <i class="fa fa-angle-left pull-right"></i>
                 </a>
+                <ul class="treeview-menu">
+                    <li><a href="@Url.Action("Index", "Pedidos")"><i class="fa fa-circle-o"></i> Ver Pedidos</a></li>
+                    <li><a href="@Url.Action("Create", "Pedidos")"><i class="fa fa-circle-o"></i> Crear Pedidos</a></li>
+                </ul>
             </li>
             <li>
                 <a href="@Url.Action("Index", "Ventas")">
-                    <i class="fa fa-users"></i> <span>Registrar Venta</span>
+                    <i class="fa fa-credit-card"></i> <span>Registrar Venta</span>
                 </a>
             </li>
             <li class="treeview">
@@ -86,12 +89,8 @@
                     <i class="fa fa-angle-left pull-right"></i>
                 </a>
                 <ul class="treeview-menu">
-                    <li><a href="@Url.Action("Index", "Home")"><i class="fa fa-circle-o"></i> Añadir Horario</a></li>
                     <li><a href="@Url.Action("Index", "Home")"><i class="fa fa-circle-o"></i> Ver</a></li>
                 </ul>
-            </li>
-            <li>
-                <a href="@Url.Action("Index", "Home")"><i class="fa fa-users"></i> <span>Apariencia</span></a>
             </li>
 
         </ul>

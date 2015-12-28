@@ -46,7 +46,7 @@
                     <div class="col-md-3 col-xs-12">
                         <div class="form-horizontal">
                             <div class="form-group">
-                                <label class="col-sm-4 col-xs-12 control-label" for="idProducto">Id del producto</label>
+                                <label class="col-sm-4 col-xs-12 control-label" for="idProducto">Producto</label>
                                 <div class="col-sm-8 col-xs-12">
                                     @Html.DropDownListFor(model => model.SelectedProducto, new SelectList(Model.productos, "Referencia", "Nombre"), new { @class = "form-control col-xs-12 js-example-basic-single", @id = "idProducto" })
                                 </div>
@@ -61,12 +61,16 @@
                         </div>
                     </div>
                     <div class="col-md-9 col-xs-12">
-                        <button id="add" type="submit" class="btn btn-info" style="margin-bottom:5px">Añadir</button>
-                        <br />
+                        <div class="row">
+                            <button id="add" type="submit" class="btn btn-info" style="margin-bottom:10px"><i class="fa fa-plus-square"></i> Añadir</button>
+                        </div>
+                        <div class="row">
+                            <button id="barcode" type="submit" onclick="mostrar();" class="btn btn-info" style="margin-bottom:10px"><i class="fa fa-video-camera"></i>  Escanear</button>
+                        </div>
                     </div>
                     
                 </div>
-                <div class="row">
+                <div id="webcam" style="display:none" class="row oculto">
                     <div class="col-md-4 col-xs-12">
                         <div id="interactive" class="viewport"></div>
                     </div>
@@ -74,7 +78,8 @@
                 <table id="example3" class="table table-bordered table-hover table-striped table-responsive">
                     <thead>
                         <tr>
-                            <th>Referencia</th>
+                            <th>Referencia producto</th>
+                            <th>Nombre</th>
                             <th>Cantidad</th>
                             <th>Acción</th>
                         </tr>
@@ -83,7 +88,8 @@
                     </tbody>
                     <tfoot>
                         <tr>
-                            <th>Referencia</th>
+                            <th>Referencia producto</th>
+                            <th>Nombre</th>
                             <th>Cantidad</th>
                             <th>Acción</th>
                         </tr>

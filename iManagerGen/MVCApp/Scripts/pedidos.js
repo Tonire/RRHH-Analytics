@@ -27,17 +27,21 @@ $('#pedir').on("click", function () {
 });
 
 function add() {
-    var objeto = { referencia: $('#idProducto').val(), cantidad: $('#cantidad').val() };
-    array.push(objeto);
-    var stringHTML = "<tr><td>" + $('#idProducto').val() + "</td><td>" + $('#cantidad').val() + "</td><td><a href='#' onClick='return quitar(this)' class='fa fa-remove' id='" + array.length + "'></a></td></tr>";
-    $('#tbody').append(stringHTML);
+    if ($('#cantidad').val() != "" && parseInt($('#cantidad').val()) > 0) {
+        var objeto = { referencia: $('#idProducto').val(), cantidad: $('#cantidad').val() };
+        array.push(objeto);
+        var stringHTML = "<tr><td>" + $('#idProducto').val() + "</td><td>" + $('#idProducto').find(":selected").text() + "</td><td>" + $('#cantidad').val() + "</td><td><a href='#' onClick='return quitar(this)' class='fa fa-remove' id='" + array.length + "'></a></td></tr>";
+        $('#tbody').append(stringHTML);
+    }
 }
 
 $('#add').on("click", function () {
-    var objeto = { referencia: $('#idProducto').val(), cantidad: $('#cantidad').val() };
-    array.push(objeto);
-    var stringHTML = "<tr><td>" + $('#idProducto').val() + "</td><td>" + $('#cantidad').val() + "</td><td><a href='#' onClick='return quitar(this)' class='fa fa-remove' id='" + array.length + "'></a></td></tr>";
-    $('#tbody').append(stringHTML);
+    if ($('#cantidad').val() != "" && parseInt($('#cantidad').val()) > 0) {
+        var objeto = { referencia: $('#idProducto').val(), cantidad: $('#cantidad').val() };
+        array.push(objeto);
+        var stringHTML = "<tr><td>" + $('#idProducto').val() + "</td><td>" + $('#idProducto').find(":selected").text() + "</td><td>" + $('#cantidad').val() + "</td><td><a href='#' onClick='return quitar(this)' class='fa fa-remove' id='" + array.length + "'></a></td></tr>";
+        $('#tbody').append(stringHTML);
+    }
 });
 
 function quitar(elemento) {

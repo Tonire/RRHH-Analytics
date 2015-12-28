@@ -118,6 +118,7 @@
                                     @Html.DisplayFor(modelItem => item.FechaCancelacion)
                                 </td>
                                 <td>
+                                    <a title="Ver Pedido" href="@Url.Action("Details",new{id=item.Id})" class="fa fa-eye" style="padding-right:5px;"></a>
                                     <form action="/Pedidos/Confirmar" method="post" id="@item.Id" style="display:inline-block;cursor:pointer;padding-right:5px;">
                                         <input type="hidden" name="id" value="@item.Id" />
                                         <a title="Confirmar Pedido" class="fa fa-check-square" onclick="document.getElementById('@item.Id').submit()"></a>
