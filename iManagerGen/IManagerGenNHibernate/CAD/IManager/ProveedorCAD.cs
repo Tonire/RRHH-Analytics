@@ -171,7 +171,7 @@ public void Destroy (string email)
         }
 }
 
-public void AddProducto (string p_Proveedor_OID, System.Collections.Generic.IList<int> p_producto_OIDs)
+public void AddProducto (string p_Proveedor_OID, System.Collections.Generic.IList<string> p_producto_OIDs)
 {
         IManagerGenNHibernate.EN.IManager.ProveedorEN proveedorEN = null;
         try
@@ -183,7 +183,7 @@ public void AddProducto (string p_Proveedor_OID, System.Collections.Generic.ILis
                         proveedorEN.Producto = new System.Collections.Generic.List<IManagerGenNHibernate.EN.IManager.ProductoEN>();
                 }
 
-                foreach (int item in p_producto_OIDs) {
+                foreach (string item in p_producto_OIDs) {
                         productoENAux = new IManagerGenNHibernate.EN.IManager.ProductoEN ();
                         productoENAux = (IManagerGenNHibernate.EN.IManager.ProductoEN)session.Load (typeof(IManagerGenNHibernate.EN.IManager.ProductoEN), item);
                         productoENAux.Proveedor.Add (proveedorEN);
@@ -210,7 +210,7 @@ public void AddProducto (string p_Proveedor_OID, System.Collections.Generic.ILis
         }
 }
 
-public void QuitarProducto (string p_Proveedor_OID, System.Collections.Generic.IList<int> p_producto_OIDs)
+public void QuitarProducto (string p_Proveedor_OID, System.Collections.Generic.IList<string> p_producto_OIDs)
 {
         try
         {
@@ -220,7 +220,7 @@ public void QuitarProducto (string p_Proveedor_OID, System.Collections.Generic.I
 
                 IManagerGenNHibernate.EN.IManager.ProductoEN productoENAux = null;
                 if (proveedorEN.Producto != null) {
-                        foreach (int item in p_producto_OIDs) {
+                        foreach (string item in p_producto_OIDs) {
                                 productoENAux = (IManagerGenNHibernate.EN.IManager.ProductoEN)session.Load (typeof(IManagerGenNHibernate.EN.IManager.ProductoEN), item);
                                 if (proveedorEN.Producto.Contains (productoENAux) == true) {
                                         proveedorEN.Producto.Remove (productoENAux);
@@ -307,7 +307,7 @@ public ProveedorEN GetProveedor (string email)
         return proveedorEN;
 }
 
-public System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.ProveedorEN> GetProveedoresByProducto (int p_producto)
+public System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.ProveedorEN> GetProveedoresByProducto (string p_producto)
 {
         System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.ProveedorEN> result;
         try

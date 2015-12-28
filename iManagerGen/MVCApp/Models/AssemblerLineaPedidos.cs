@@ -13,7 +13,7 @@ namespace MVCApp.Models {
                 lPedidos.referencia = en.Producto.Referencia;
                 lPedidos.nombre = en.Producto.Nombre;
             } else {
-                lPedidos.referencia = 000000000;
+                lPedidos.referencia = "No disponible";
                 lPedidos.nombre = "No disponible";
             }
             return lPedidos;

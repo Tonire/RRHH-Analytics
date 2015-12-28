@@ -49,7 +49,7 @@ namespace MVCApp.Controllers
                 foreach (JObject objeto in jarray) {
                     LineaVentasModels lineaVentaModel = new LineaVentasModels();
                     JToken token = objeto.GetValue("referencia");
-                    lineaVentaModel.referencia = Int32.Parse(token.ToString());
+                    lineaVentaModel.referencia = token.ToString();
                     token = objeto.GetValue("cantidad");
                     lineaVentaModel.cantidad = Int32.Parse(token.ToString());
                    // lineaVentaModel.cantidad = Int32.Parse();

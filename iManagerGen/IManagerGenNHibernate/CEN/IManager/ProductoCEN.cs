@@ -36,10 +36,10 @@ public IProductoCAD get_IProductoCAD ()
         return this._IProductoCAD;
 }
 
-public int CrearProducto (int p_referencia, string p_nombre, string p_marca, float p_precioCompra, float p_precioVenta, int p_stock, System.Collections.Generic.IList<string> p_proveedor)
+public string CrearProducto (string p_referencia, string p_nombre, string p_marca, float p_precioCompra, float p_precioVenta, int p_stock, System.Collections.Generic.IList<string> p_proveedor)
 {
         ProductoEN productoEN = null;
-        int oid;
+        string oid;
 
         //Initialized ProductoEN
         productoEN = new ProductoEN ();
@@ -75,7 +75,7 @@ public int CrearProducto (int p_referencia, string p_nombre, string p_marca, flo
         return oid;
 }
 
-public void Modify (int p_Producto_OID, string p_nombre, string p_marca, float p_precioCompra, float p_precioVenta, int p_stock)
+public void Modify (string p_Producto_OID, string p_nombre, string p_marca, float p_precioCompra, float p_precioVenta, int p_stock)
 {
         ProductoEN productoEN = null;
 
@@ -92,7 +92,7 @@ public void Modify (int p_Producto_OID, string p_nombre, string p_marca, float p
         _IProductoCAD.Modify (productoEN);
 }
 
-public void Destroy (int referencia)
+public void Destroy (string referencia)
 {
         _IProductoCAD.Destroy (referencia);
 }
@@ -104,7 +104,7 @@ public System.Collections.Generic.IList<ProductoEN> GetAllProductos (int first, 
         list = _IProductoCAD.GetAllProductos (first, size);
         return list;
 }
-public ProductoEN GetProducto (int referencia)
+public ProductoEN GetProducto (string referencia)
 {
         ProductoEN productoEN = null;
 
@@ -112,13 +112,13 @@ public ProductoEN GetProducto (int referencia)
         return productoEN;
 }
 
-public void AsignarProveedor (int p_Producto_OID, System.Collections.Generic.IList<string> p_proveedor_OIDs)
+public void AsignarProveedor (string p_Producto_OID, System.Collections.Generic.IList<string> p_proveedor_OIDs)
 {
         //Call to ProductoCAD
 
         _IProductoCAD.AsignarProveedor (p_Producto_OID, p_proveedor_OIDs);
 }
-public void QuitarProveedor (int p_Producto_OID, System.Collections.Generic.IList<string> p_proveedor_OIDs)
+public void QuitarProveedor (string p_Producto_OID, System.Collections.Generic.IList<string> p_proveedor_OIDs)
 {
         //Call to ProductoCAD
 

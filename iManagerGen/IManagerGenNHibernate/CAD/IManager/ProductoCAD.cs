@@ -28,7 +28,7 @@ public ProductoCAD(ISession sessionAux) : base (sessionAux)
 
 
 
-public ProductoEN ReadOIDDefault (int referencia)
+public ProductoEN ReadOIDDefault (string referencia)
 {
         ProductoEN productoEN = null;
 
@@ -80,7 +80,7 @@ public System.Collections.Generic.IList<ProductoEN> ReadAllDefault (int first, i
         return result;
 }
 
-public int CrearProducto (ProductoEN producto)
+public string CrearProducto (ProductoEN producto)
 {
         try
         {
@@ -150,7 +150,7 @@ public void Modify (ProductoEN producto)
                 SessionClose ();
         }
 }
-public void Destroy (int referencia)
+public void Destroy (string referencia)
 {
         try
         {
@@ -206,7 +206,7 @@ public System.Collections.Generic.IList<ProductoEN> GetAllProductos (int first, 
 
 //Sin e: GetProducto
 //Con e: ProductoEN
-public ProductoEN GetProducto (int referencia)
+public ProductoEN GetProducto (string referencia)
 {
         ProductoEN productoEN = null;
 
@@ -233,7 +233,7 @@ public ProductoEN GetProducto (int referencia)
         return productoEN;
 }
 
-public void AsignarProveedor (int p_Producto_OID, System.Collections.Generic.IList<string> p_proveedor_OIDs)
+public void AsignarProveedor (string p_Producto_OID, System.Collections.Generic.IList<string> p_proveedor_OIDs)
 {
         IManagerGenNHibernate.EN.IManager.ProductoEN productoEN = null;
         try
@@ -272,7 +272,7 @@ public void AsignarProveedor (int p_Producto_OID, System.Collections.Generic.ILi
         }
 }
 
-public void QuitarProveedor (int p_Producto_OID, System.Collections.Generic.IList<string> p_proveedor_OIDs)
+public void QuitarProveedor (string p_Producto_OID, System.Collections.Generic.IList<string> p_proveedor_OIDs)
 {
         try
         {

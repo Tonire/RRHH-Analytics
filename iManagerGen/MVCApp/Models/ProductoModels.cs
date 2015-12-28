@@ -9,8 +9,7 @@ namespace MVCApp.Models {
     public class ProductoModels {
         [Display(Prompt = "Referencia", Description = "Referencia del producto", Name = "Referencia")]
         [Required(ErrorMessage = "Debe asignar una referencia al producto")]
-        [Range(minimum: 0, maximum: Int32.MaxValue, ErrorMessage = "Debes introducir una referencia válida.")]
-        public int Referencia { get; set; }
+        public string Referencia { get; set; }
 
         [Display(Prompt = "Nombre", Description = "Nombre del producto", Name = "Nombre")]
         [Required(ErrorMessage = "Debe indicar un nombre para el producto")]

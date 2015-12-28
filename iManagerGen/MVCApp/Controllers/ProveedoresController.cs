@@ -13,6 +13,7 @@ namespace MVCApp.Controllers
         [Authorize(Roles = "SuperAdministrador, Administrador")]
         public ActionResult Index()
         {
+
             return View();
         }
 

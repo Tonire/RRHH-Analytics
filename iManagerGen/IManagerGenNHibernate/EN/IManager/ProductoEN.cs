@@ -8,7 +8,7 @@ public partial class ProductoEN
 /**
  *	Atributo referencia
  */
-private int referencia;
+private string referencia;
 
 
 
@@ -71,7 +71,7 @@ private System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.Linea
 
 
 
-public virtual int Referencia {
+public virtual string Referencia {
         get { return referencia; } set { referencia = value;  }
 }
 
@@ -136,7 +136,7 @@ public ProductoEN()
 
 
 
-public ProductoEN(int referencia, string nombre, string marca, float precioCompra, float precioVenta, int stock, System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.LineaPedidoEN> lineaPedido, System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.ProveedorEN> proveedor, System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.LineaVentaEN> lineaVenta
+public ProductoEN(string referencia, string nombre, string marca, float precioCompra, float precioVenta, int stock, System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.LineaPedidoEN> lineaPedido, System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.ProveedorEN> proveedor, System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.LineaVentaEN> lineaVenta
                   )
 {
         this.init (Referencia, nombre, marca, precioCompra, precioVenta, stock, lineaPedido, proveedor, lineaVenta);
@@ -148,7 +148,7 @@ public ProductoEN(ProductoEN producto)
         this.init (Referencia, producto.Nombre, producto.Marca, producto.PrecioCompra, producto.PrecioVenta, producto.Stock, producto.LineaPedido, producto.Proveedor, producto.LineaVenta);
 }
 
-private void init (int referencia, string nombre, string marca, float precioCompra, float precioVenta, int stock, System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.LineaPedidoEN> lineaPedido, System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.ProveedorEN> proveedor, System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.LineaVentaEN> lineaVenta)
+private void init (string referencia, string nombre, string marca, float precioCompra, float precioVenta, int stock, System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.LineaPedidoEN> lineaPedido, System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.ProveedorEN> proveedor, System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.LineaVentaEN> lineaVenta)
 {
         this.Referencia = referencia;
 

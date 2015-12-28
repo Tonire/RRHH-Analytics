@@ -16,9 +16,9 @@ void Modify (ProveedorEN proveedor);
 void Destroy (string email);
 
 
-void AddProducto (string p_Proveedor_OID, System.Collections.Generic.IList<int> p_producto_OIDs);
+void AddProducto (string p_Proveedor_OID, System.Collections.Generic.IList<string> p_producto_OIDs);
 
-void QuitarProducto (string p_Proveedor_OID, System.Collections.Generic.IList<int> p_producto_OIDs);
+void QuitarProducto (string p_Proveedor_OID, System.Collections.Generic.IList<string> p_producto_OIDs);
 
 System.Collections.Generic.IList<ProveedorEN> DameTodos (int first, int size);
 
@@ -26,6 +26,6 @@ System.Collections.Generic.IList<ProveedorEN> DameTodos (int first, int size);
 ProveedorEN GetProveedor (string email);
 
 
-System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.ProveedorEN> GetProveedoresByProducto (int p_producto);
+System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.ProveedorEN> GetProveedoresByProducto (string p_producto);
 }
 }

@@ -178,7 +178,7 @@ public static void InitializeData ()
 
                 #region Producto
                 ProductoEN producto1 = new ProductoEN ();
-                producto1.Referencia = 56489;
+                producto1.Referencia = "56489";
                 producto1.Nombre = "Camiseta XL";
                 producto1.Marca = "Noke";
                 producto1.PrecioCompra = 10;
@@ -186,7 +186,7 @@ public static void InitializeData ()
                 producto1.Stock = 0;
                 productoCEN.CrearProducto (producto1.Referencia, producto1.Nombre, producto1.Marca, producto1.PrecioCompra, producto1.PrecioVenta, producto1.Stock, proveedores);
                 producto1 = new ProductoEN ();
-                producto1.Referencia = 15468;
+                producto1.Referencia = "15468";
                 producto1.Nombre = "Chandal";
                 producto1.Marca = "Odidas";
                 producto1.PrecioCompra = 20;
@@ -202,7 +202,7 @@ public static void InitializeData ()
                 lp1.Cantidad = 5;
                 lp1.Producto = producto1;
                 lp2.Cantidad = 2;
-                lp2.Producto = productoCEN.GetProducto (56489);
+                lp2.Producto = productoCEN.GetProducto ("56489");
                 IList<LineaPedidoEN> listaLineas = new List<LineaPedidoEN>();
                 listaLineas.Add (lp1);
                 listaLineas.Add (lp2);

@@ -6,25 +6,25 @@ namespace IManagerGenNHibernate.CAD.IManager
 {
 public partial interface IProductoCAD
 {
-ProductoEN ReadOIDDefault (int referencia);
+ProductoEN ReadOIDDefault (string referencia);
 
-int CrearProducto (ProductoEN producto);
+string CrearProducto (ProductoEN producto);
 
 void Modify (ProductoEN producto);
 
 
-void Destroy (int referencia);
+void Destroy (string referencia);
 
 
 System.Collections.Generic.IList<ProductoEN> GetAllProductos (int first, int size);
 
 
-ProductoEN GetProducto (int referencia);
+ProductoEN GetProducto (string referencia);
 
 
-void AsignarProveedor (int p_Producto_OID, System.Collections.Generic.IList<string> p_proveedor_OIDs);
+void AsignarProveedor (string p_Producto_OID, System.Collections.Generic.IList<string> p_proveedor_OIDs);
 
-void QuitarProveedor (int p_Producto_OID, System.Collections.Generic.IList<string> p_proveedor_OIDs);
+void QuitarProveedor (string p_Producto_OID, System.Collections.Generic.IList<string> p_proveedor_OIDs);
 
 System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.ProductoEN> GetProductosByProveedor (string p_proveedor);
 }

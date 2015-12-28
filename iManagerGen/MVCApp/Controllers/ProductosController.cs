@@ -24,7 +24,7 @@ namespace MVCApp.Controllers {
         //
         // GET: /Productos/Details/5
 
-        public ActionResult Details(int id) {
+        public ActionResult Details(string id) {
             ProveedorCEN proveedorCEN = new ProveedorCEN();
             ProductoModels productoModels= new ProductoModels();
             ProductoCEN productoCEN = new ProductoCEN();
@@ -75,7 +75,7 @@ namespace MVCApp.Controllers {
         //
         // GET: /Productos/Edit/5
 
-        public ActionResult Edit(int id) {
+        public ActionResult Edit(string id) {
             ProductoModels productoModels = new ProductoModels();
             ProductoCEN productoCEN = new ProductoCEN();
             ProductoEN productoEN = productoCEN.GetProducto(id);
@@ -117,7 +117,7 @@ namespace MVCApp.Controllers {
         //
         // GET: /Productos/Delete/5
         [Authorize]
-        public ActionResult Delete(int id) {
+        public ActionResult Delete(string id) {
             try {
 
                 ProductoCEN productoCEN = new ProductoCEN();
@@ -168,7 +168,7 @@ namespace MVCApp.Controllers {
             try {
                 string id = Request["referencia"];
                 ProductoCEN productoCEN = new ProductoCEN();
-                productoCEN.Destroy(Int32.Parse(id));
+                productoCEN.Destroy(id);
                 return RedirectToAction("Index");
             } catch (Exception ex) {
                 return RedirectToAction("Index");

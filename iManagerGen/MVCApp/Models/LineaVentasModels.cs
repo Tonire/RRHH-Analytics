@@ -6,6 +6,6 @@ using System.Web;
 namespace MVCApp.Models {
     public class LineaVentasModels {
         public int cantidad { get; set; }
-        public int referencia { get; set; }
+        public string referencia { get; set; }
     }
 }

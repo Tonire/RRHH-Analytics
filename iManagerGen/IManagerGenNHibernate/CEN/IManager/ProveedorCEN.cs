@@ -86,13 +86,13 @@ public void Destroy (string email)
         _IProveedorCAD.Destroy (email);
 }
 
-public void AddProducto (string p_Proveedor_OID, System.Collections.Generic.IList<int> p_producto_OIDs)
+public void AddProducto (string p_Proveedor_OID, System.Collections.Generic.IList<string> p_producto_OIDs)
 {
         //Call to ProveedorCAD
 
         _IProveedorCAD.AddProducto (p_Proveedor_OID, p_producto_OIDs);
 }
-public void QuitarProducto (string p_Proveedor_OID, System.Collections.Generic.IList<int> p_producto_OIDs)
+public void QuitarProducto (string p_Proveedor_OID, System.Collections.Generic.IList<string> p_producto_OIDs)
 {
         //Call to ProveedorCAD
 
@@ -113,7 +113,7 @@ public ProveedorEN GetProveedor (string email)
         return proveedorEN;
 }
 
-public System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.ProveedorEN> GetProveedoresByProducto (int p_producto)
+public System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.ProveedorEN> GetProveedoresByProducto (string p_producto)
 {
         return _IProveedorCAD.GetProveedoresByProducto (p_producto);
 }

@@ -36,7 +36,7 @@ public ILineaVentaCAD get_ILineaVentaCAD ()
         return this._ILineaVentaCAD;
 }
 
-public int CrearLineaVenta (int p_cantidad, int p_producto)
+public int CrearLineaVenta (int p_cantidad, string p_producto)
 {
         LineaVentaEN lineaVentaEN = null;
         int oid;
@@ -46,7 +46,7 @@ public int CrearLineaVenta (int p_cantidad, int p_producto)
         lineaVentaEN.Cantidad = p_cantidad;
 
 
-        if (p_producto != -1) {
+        if (p_producto != null) {
                 // El argumento p_producto -> Property producto es oid = false
                 // Lista de oids id
                 lineaVentaEN.Producto = new IManagerGenNHibernate.EN.IManager.ProductoEN ();
