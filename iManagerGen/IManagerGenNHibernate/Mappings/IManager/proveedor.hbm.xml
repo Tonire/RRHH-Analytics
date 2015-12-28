@@ -15,6 +15,18 @@
 					<property name="Telefono" type="string"> 
 						<column name="telefono"  not-null="true"/>
 					</property>
+					<property name="Direccion" type="string"> 
+						<column name="direccion"  not-null="true"/>
+					</property>
+					<property name="Localidad" type="string"> 
+						<column name="localidad"  not-null="true"/>
+					</property>
+					<property name="Pais" type="string"> 
+						<column name="pais"  not-null="true"/>
+					</property>
+					<property name="CIF" type="string"> 
+						<column name="CIF"  not-null="true"/>
+					</property>
 			
 			
 			
@@ -30,6 +42,14 @@
 									<column name="FK_referencia_idProducto"/> 
       						</many-to-many>
     					</bag>
+			
+			
+			
+			
+					
+					
+					
+					
 					
 					
 					

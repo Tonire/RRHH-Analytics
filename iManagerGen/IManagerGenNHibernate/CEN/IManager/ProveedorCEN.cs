@@ -36,7 +36,7 @@ public IProveedorCAD get_IProveedorCAD ()
         return this._IProveedorCAD;
 }
 
-public string CrearProveedor (string p_email, string p_nombre, string p_telefono)
+public string CrearProveedor (string p_email, string p_nombre, string p_telefono, string p_direccion, string p_localidad, string p_pais, string p_CIF)
 {
         ProveedorEN proveedorEN = null;
         string oid;
@@ -49,13 +49,21 @@ public string CrearProveedor (string p_email, string p_nombre, string p_telefono
 
         proveedorEN.Telefono = p_telefono;
 
+        proveedorEN.Direccion = p_direccion;
+
+        proveedorEN.Localidad = p_localidad;
+
+        proveedorEN.Pais = p_pais;
+
+        proveedorEN.CIF = p_CIF;
+
         //Call to ProveedorCAD
 
         oid = _IProveedorCAD.CrearProveedor (proveedorEN);
         return oid;
 }
 
-public void Modify (string p_Proveedor_OID, string p_nombre, string p_telefono)
+public void Modify (string p_Proveedor_OID, string p_nombre, string p_telefono, string p_direccion, string p_localidad, string p_pais, string p_CIF)
 {
         ProveedorEN proveedorEN = null;
 
@@ -64,6 +72,10 @@ public void Modify (string p_Proveedor_OID, string p_nombre, string p_telefono)
         proveedorEN.Email = p_Proveedor_OID;
         proveedorEN.Nombre = p_nombre;
         proveedorEN.Telefono = p_telefono;
+        proveedorEN.Direccion = p_direccion;
+        proveedorEN.Localidad = p_localidad;
+        proveedorEN.Pais = p_pais;
+        proveedorEN.CIF = p_CIF;
         //Call to ProveedorCAD
 
         _IProveedorCAD.Modify (proveedorEN);

@@ -12,8 +12,9 @@ namespace MVCApp.Models {
             proveedor.Email = en.Email;
             proveedor.Nombre = en.Nombre;
             proveedor.Telefono = en.Telefono;
-
-            
+            proveedor.Direccion = en.Direccion;
+            proveedor.Localidad = en.Localidad;
+            proveedor.Pais = en.Pais;
 
             return proveedor;
         }

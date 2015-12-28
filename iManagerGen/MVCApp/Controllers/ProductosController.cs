@@ -5,12 +5,13 @@ using System.Web;
 using System.Web.Mvc;
 using IManagerGenNHibernate.CEN.IManager;
 using IManagerGenNHibernate.EN.IManager;
+using IManagerGenNHibernate.CAD.IManager;
 using MVCApp.Models;
 using EjemploProyectoCP.CPs;
 
 namespace MVCApp.Controllers
 {
-    public class ProductosController : Controller
+    public class ProductosController : BasicController
     {
         //
         // GET: /Productos/
@@ -100,8 +101,31 @@ namespace MVCApp.Controllers
         public ActionResult Delete(int id)
         {
             try {
+                
                 ProductoCEN productoCEN = new ProductoCEN();
+                ProductoEN productoEN = new ProductoEN();
+                productoEN = productoCEN.GetProducto(id);
+                MensajeCEN mensajeCEN = new MensajeCEN();
+                UsuarioCEN usuarioCEN = new UsuarioCEN();
+                SessionInitialize();
+                PedidoCAD pedidoCAD = new PedidoCAD(session);
+                PedidoCEN pedidoCEN = new PedidoCEN(pedidoCAD);
+                //Cancelamos los pedidos que tenían este producto
+                IList<PedidoEN> pedidosP=pedidoCEN.GetPedidosPendientes();
+                foreach(PedidoEN pedido in pedidosP){
+                        foreach (LineaPedidoEN lp in pedido.LineaPedido) {
+                            if (lp.Producto.Referencia == productoEN.Referencia) {
+                                pedidoCEN.Modify(pedido.Id, IManagerGenNHibernate.Enumerated.IManager.EstadoPedidoEnum.rechazado, pedido.FechaRealizacion, null, DateTime.Now);
+                                break;
+                            }
+                        }
+                }
                 productoCEN.Destroy((id));
+                SessionClose();
+                foreach(UsuarioEN usuarioEN in usuarioCEN.DameTodos(0,-1)){
+                    mensajeCEN.CreaMensaje(User.Identity.Name,usuarioEN.Email,"Producto Eliminado","El Producto con referencia "+ id + " ha sido eliminado. También han sido cancelados todos los pedidos pendientes donde aparecía este producto",false,DateTime.Now,false);    
+                }
+                
                 return RedirectToAction("Index");
             } catch (Exception ex) {
                 return RedirectToAction("Index");

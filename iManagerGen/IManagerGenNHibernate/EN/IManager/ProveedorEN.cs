@@ -33,6 +33,34 @@ private System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.Produ
 
 
 
+/**
+ *	Atributo direccion
+ */
+private string direccion;
+
+
+
+/**
+ *	Atributo localidad
+ */
+private string localidad;
+
+
+
+/**
+ *	Atributo pais
+ */
+private string pais;
+
+
+
+/**
+ *	Atributo cIF
+ */
+private string cIF;
+
+
+
 
 
 
@@ -60,6 +88,30 @@ public virtual System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManage
 
 
 
+public virtual string Direccion {
+        get { return direccion; } set { direccion = value;  }
+}
+
+
+
+public virtual string Localidad {
+        get { return localidad; } set { localidad = value;  }
+}
+
+
+
+public virtual string Pais {
+        get { return pais; } set { pais = value;  }
+}
+
+
+
+public virtual string CIF {
+        get { return cIF; } set { cIF = value;  }
+}
+
+
+
 
 
 public ProveedorEN()
@@ -69,19 +121,19 @@ public ProveedorEN()
 
 
 
-public ProveedorEN(string email, string nombre, string telefono, System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.ProductoEN> producto
+public ProveedorEN(string email, string nombre, string telefono, System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.ProductoEN> producto, string direccion, string localidad, string pais, string cIF
                    )
 {
-        this.init (Email, nombre, telefono, producto);
+        this.init (Email, nombre, telefono, producto, direccion, localidad, pais, cIF);
 }
 
 
 public ProveedorEN(ProveedorEN proveedor)
 {
-        this.init (Email, proveedor.Nombre, proveedor.Telefono, proveedor.Producto);
+        this.init (Email, proveedor.Nombre, proveedor.Telefono, proveedor.Producto, proveedor.Direccion, proveedor.Localidad, proveedor.Pais, proveedor.CIF);
 }
 
-private void init (string email, string nombre, string telefono, System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.ProductoEN> producto)
+private void init (string email, string nombre, string telefono, System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.ProductoEN> producto, string direccion, string localidad, string pais, string cIF)
 {
         this.Email = email;
 
@@ -91,6 +143,14 @@ private void init (string email, string nombre, string telefono, System.Collecti
         this.Telefono = telefono;
 
         this.Producto = producto;
+
+        this.Direccion = direccion;
+
+        this.Localidad = localidad;
+
+        this.Pais = pais;
+
+        this.CIF = cIF;
 }
 
 public override bool Equals (object obj)

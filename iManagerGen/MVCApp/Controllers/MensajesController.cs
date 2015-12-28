@@ -42,6 +42,8 @@ namespace MVCApp.Controllers
             if (mensajeEN.Destinatario.Email.CompareTo(User.Identity.Name) != 0 || mensajeEN.Remitente.Email.CompareTo(User.Identity.Name)!=0) {
                 RedirectToAction("Index", "Mensajes");
             }
+            MensajeCEN mensajeCEN2 = new MensajeCEN();
+            mensajeCEN2.Modify(mensajeEN.Id, mensajeEN.Asunto, mensajeEN.Contenido, true, mensajeEN.Fecha, mensajeEN.Borrado);
             return View(mensaje);
         }
 

@@ -24,11 +24,11 @@ namespace MVCApp.Models {
 
         [Display(Prompt = "Precio de compra", Description = "Precio de compra del producto", Name = "Precio Compra")]
         [Required(ErrorMessage = "Debe indicar un nombre para el artículo")]
-        public int PrecioCompra { get; set; }
+        public float PrecioCompra { get; set; }
 
         [Display(Prompt = "Precio de venta", Description = "Precio de venta del producto", Name = "Precio Venta")]
         [Required(ErrorMessage = "Debe indicar un precio de venta para el producto")]
-        public int PrecioVenta { get; set; }
+        public float PrecioVenta { get; set; }
 
         //[Display(Prompt = "Stock", Description = "Stock del producto", Name = "Stock")]
         //[Required(ErrorMessage = "Debe indicar un stock para el producto")]

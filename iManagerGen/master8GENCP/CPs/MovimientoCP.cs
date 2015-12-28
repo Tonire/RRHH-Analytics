@@ -37,7 +37,7 @@ namespace EjemploProyectoCP.CPs
                 _IMovimientosCAD = new MovimientosCAD(session);
                 movimientosCEN = new MovimientosCEN(_IMovimientosCAD);
                 
-                int total = 0;
+                float total = 0;
                 int anyo = 0;
                 int mes = 0;
                 int movimiento = 0;
@@ -52,7 +52,7 @@ namespace EjemploProyectoCP.CPs
                         ventaEN = _IVentaCAD.ReadOIDDefault(p_oid);
                         foreach (LineaVentaEN lp in ventaEN.LineaVenta)
                         {
-                            total = total+(lp.Producto.PrecioVenta * lp.Cantidad);
+                            total = total+(lp.Producto.PrecioVenta * (float)lp.Cantidad);
                         }
                         //Creamos el movimiento con el anyo y mes de la venta, tipo y el total calculado
                         movimiento = movimientosCEN.CrearMovimiento(anyo,mes,tipo,total);
@@ -68,7 +68,7 @@ namespace EjemploProyectoCP.CPs
                         pedidoEN = _IPedidoCAD.ReadOIDDefault(p_oid);
                         foreach (LineaPedidoEN lp in pedidoEN.LineaPedido)
                         {
-                            total = total+(lp.Producto.PrecioCompra * lp.Cantidad);
+                            total = total + (lp.Producto.PrecioCompra * (float)lp.Cantidad);
                         }
                         movimiento = movimientosCEN.CrearMovimiento(anyo, mes, tipo, total);
                         movimientosCEN.RelationerPedido(movimiento, p_oid);

@@ -20,5 +20,21 @@ namespace MVCApp.Models {
         [Display(Prompt = "Teléfono", Description = "Teléfono del proveedor", Name = "Telefono")]
         [Required(ErrorMessage = "Debe indicar un teléfono para el proveedor")]
         public string Telefono { get; set; }
+
+        [Display(Prompt = "Teléfono", Description = "Teléfono del proveedor", Name = "Telefono")]
+        [Required(ErrorMessage = "Debe indicar un teléfono para el proveedor")]
+        public string Direccion { get; set; }
+
+        [Display(Prompt = "Teléfono", Description = "Teléfono del proveedor", Name = "Telefono")]
+        [Required(ErrorMessage = "Debe indicar un teléfono para el proveedor")]
+        public string Localidad { get; set; }
+
+        [Display(Prompt = "Teléfono", Description = "Teléfono del proveedor", Name = "Telefono")]
+        [Required(ErrorMessage = "Debe indicar un teléfono para el proveedor")]
+        public string Pais { get; set; }
+
+        [Display(Prompt = "Teléfono", Description = "Teléfono del proveedor", Name = "Telefono")]
+        [Required(ErrorMessage = "Debe indicar un teléfono para el proveedor")]
+        public string CIF { get; set; }
     }
 }

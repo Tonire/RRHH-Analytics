@@ -36,7 +36,7 @@ public IProductoCAD get_IProductoCAD ()
         return this._IProductoCAD;
 }
 
-public int CrearProducto (int p_referencia, string p_nombre, string p_marca, int p_precioCompra, int p_precioVenta, int p_stock, System.Collections.Generic.IList<string> p_proveedor)
+public int CrearProducto (int p_referencia, string p_nombre, string p_marca, float p_precioCompra, float p_precioVenta, int p_stock, System.Collections.Generic.IList<string> p_proveedor)
 {
         ProductoEN productoEN = null;
         int oid;
@@ -75,7 +75,7 @@ public int CrearProducto (int p_referencia, string p_nombre, string p_marca, int
         return oid;
 }
 
-public void Modify (int p_Producto_OID, string p_nombre, string p_marca, int p_precioCompra, int p_precioVenta, int p_stock)
+public void Modify (int p_Producto_OID, string p_nombre, string p_marca, float p_precioCompra, float p_precioVenta, int p_stock)
 {
         ProductoEN productoEN = null;
 

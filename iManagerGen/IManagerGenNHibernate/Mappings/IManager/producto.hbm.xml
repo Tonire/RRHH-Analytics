@@ -15,10 +15,10 @@
 					<property name="Marca" type="string"> 
 						<column name="marca"  not-null="true"/>
 					</property>
-					<property name="PrecioCompra" type="integer"> 
+					<property name="PrecioCompra" type="float"> 
 						<column name="precioCompra"  not-null="true"/>
 					</property>
-					<property name="PrecioVenta" type="integer"> 
+					<property name="PrecioVenta" type="float"> 
 						<column name="precioVenta"  not-null="true"/>
 					</property>
 					<property name="Stock" type="integer"> 

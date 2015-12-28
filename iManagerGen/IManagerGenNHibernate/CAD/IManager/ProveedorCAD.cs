@@ -118,6 +118,18 @@ public void Modify (ProveedorEN proveedor)
 
                 proveedorEN.Telefono = proveedor.Telefono;
 
+
+                proveedorEN.Direccion = proveedor.Direccion;
+
+
+                proveedorEN.Localidad = proveedor.Localidad;
+
+
+                proveedorEN.Pais = proveedor.Pais;
+
+
+                proveedorEN.CIF = proveedor.CIF;
+
                 session.Update (proveedorEN);
                 SessionCommit ();
         }
