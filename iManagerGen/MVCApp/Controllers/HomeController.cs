@@ -28,6 +28,7 @@ namespace MVCApp.Controllers
 
             MovimientosCEN movimientoCEN = new MovimientosCEN();
             PedidoCEN pedidoCEN= new PedidoCEN();
+            ProveedorCEN proveedorCEN = new ProveedorCEN();
             HomeModels homeModel= new HomeModels();
             homeModel.totalAnyoGastos = new List<double>();
             homeModel.totalAnyoIngresos = new List<double>();
@@ -36,6 +37,7 @@ namespace MVCApp.Controllers
                 homeModel.totalAnyoIngresos.Add(movimientoCEN.GetMovimientoTotalMesAnyo(i, 2015, IManagerGenNHibernate.Enumerated.IManager.TipoMovimientoEnum.ingreso));
             }
             homeModel.PedidosPendientes = pedidoCEN.GetPedidosPendientes().ToList();
+            homeModel.listaProveedores = new AssemblerProveedores().ConvertListENToModel(proveedorCEN.DameTodos(0,-1)).ToList();
             return View(homeModel);
         }
 

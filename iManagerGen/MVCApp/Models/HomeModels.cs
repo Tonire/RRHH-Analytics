@@ -8,5 +8,6 @@ namespace MVCApp.Models {
         public IList<double> totalAnyoGastos { get; set;}
         public IList<double> totalAnyoIngresos {get; set;}
         public IEnumerable<PedidoEN> PedidosPendientes {get; set;}
+        public IEnumerable<ProveedorModels> listaProveedores { get; set; }
     }
 }
