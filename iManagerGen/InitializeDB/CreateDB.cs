@@ -165,14 +165,14 @@ public static void InitializeData ()
                 proveedor1.Email = "alibaba@china.com";
                 proveedor1.Nombre = "Alibaba GROUP";
                 proveedor1.Telefono = "0213-02546-23354";
-                proveedorCEN.CrearProveedor (proveedor1.Email, proveedor1.Nombre, proveedor1.Telefono, "x", "x", "x","x");
+                proveedorCEN.CrearProveedor (proveedor1.Email, proveedor1.Nombre, proveedor1.Telefono, "x", "x", "x", "x");
                 proveedores.Add (proveedor1.Email);
 
                 proveedor1 = new ProveedorEN ();
                 proveedor1.Email = "lg@ladrones.com";
                 proveedor1.Nombre = "LG";
                 proveedor1.Telefono = "548946512";
-                proveedorCEN.CrearProveedor (proveedor1.Email, proveedor1.Nombre, proveedor1.Telefono, "x", "x", "x","x");
+                proveedorCEN.CrearProveedor (proveedor1.Email, proveedor1.Nombre, proveedor1.Telefono, "x", "x", "x", "x");
                 proveedores.Add (proveedor1.Email);
                 #endregion
 

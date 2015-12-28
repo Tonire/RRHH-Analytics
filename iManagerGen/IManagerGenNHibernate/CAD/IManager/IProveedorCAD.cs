@@ -24,5 +24,8 @@ System.Collections.Generic.IList<ProveedorEN> DameTodos (int first, int size);
 
 
 ProveedorEN GetProveedor (string email);
+
+
+System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.ProveedorEN> GetProveedoresByProducto (int p_producto);
 }
 }

@@ -1,0 +1,110 @@
+﻿@model MVCApp.Models.ProductoModels
+@{
+    if (User.IsInRole("SuperAdministrador")) {
+        Layout = "~/Views/Shared/_SuperLayout.cshtml";
+    }
+    if (User.IsInRole("Administrador")) {
+        Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    }
+    ViewBag.Title = "Modificar producto";
+
+    ViewBag.Breadcrumb = new Breadcrumb(new Crumb[] {
+        new Crumb("Productos", "", "fa-th-large"), new Crumb("Modificar producto")
+    });
+}
+<div class="row">
+    <div class="col-xs-12">
+        <div class="box">
+            <!-- /.box-header -->
+            <div class="box-body">
+                @using (Html.BeginForm("Edit", "Productos", FormMethod.Post, new { role = "form", id = "productoForm" })) {
+                    @Html.AntiForgeryToken()
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                    <div class="box-body">
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.Referencia)
+                            @Html.TextBoxFor(model => model.Referencia, new { @class = "form-control", @type = "hidden" })
+                            <div style="font-size:1.3em">@Html.DisplayFor(model => model.Referencia, new { @class = "form-control"})</div>
+                            @Html.ValidationMessageFor(model => model.Referencia, "", new { @class = "text-danger" })
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.Nombre)
+                            @Html.TextBoxFor(model => model.Nombre, new { @class = "form-control", @placeholder = "Introduce el nombre" })
+                            @Html.ValidationMessageFor(model => model.Nombre, "", new { @class = "text-danger" })
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.Marca)
+                            @Html.TextBoxFor(model => model.Marca, new { @class = "form-control", @placeholder = "Introduce La marca" })
+                            @Html.ValidationMessageFor(model => model.Marca, "", new { @class = "text-danger" })
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.PrecioCompra)
+                            @Html.TextBoxFor(model => model.PrecioCompra, new { @class = "form-control", @placeholder = "Introduce el precio de compra" })
+                            @Html.ValidationMessageFor(model => model.PrecioCompra, "", new { @class = "text-danger" })
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.PrecioVenta)
+                            @Html.TextBoxFor(model => model.PrecioVenta, new { @class = "form-control", @placeholder = "Introduce el precio de venta" })
+                            @Html.ValidationMessageFor(model => model.PrecioVenta, "", new { @class = "text-danger" })
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.proveedor)
+                            <br />
+                            @Html.ListBoxFor(model => model.SelectedItems, new SelectList(Model.proveedor, "Email", "Nombre"), new { @multiple = "multiple", @class = "form-control js-example-basic-multiple", @id = "proveedores" })
+                            @Html.ValidationMessageFor(model => model.proveedor, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                            <!-- /.box-body -->
+
+                    <div class="box-footer">
+                        <button type="submit" class="btn btn-primary">Modificar producto</button>
+                    </div>
+                }
+            </div>
+            <!-- /.box-body -->
+        </div>
+    </div>
+</div>
+@section scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+
+    <script src="~/Scripts/AdminLTE/plugins/select2/select2.full.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $(".js-example-basic-multiple").select2();
+        });
+    </script>
+    <script>
+        $(document).ready(function () {
+            var form = $('#userForm')
+                , formData = $.data(form[0])
+                , settings = formData.validator.settings
+                // Store existing event handlers in local variables
+                , oldErrorPlacement = settings.errorPlacement
+                , oldSuccess = settings.success;
+
+            settings.errorPlacement = function (label, element) {
+
+                // Call old handler so it can update the HTML
+                oldErrorPlacement(label, element);
+
+                // Add Bootstrap classes to newly added elements
+                label.parents('.form-group').addClass('has-error');
+                label.addClass('text-danger');
+            };
+
+            settings.success = function (label) {
+                // Remove error class from <div class="form-group">, but don't worry about
+                // validation error messages as the plugin is going to remove it anyway
+                label.parents('.form-group').removeClass('has-error');
+
+                // Call old handler to do rest of the work
+                oldSuccess(label);
+            };
+        });
+    </script>
+}
+@section especificos{
+    <!--select2-->
+    <link rel="stylesheet" href="~/Scripts/AdminLTE/plugins/select2/select2.min.css">
+}

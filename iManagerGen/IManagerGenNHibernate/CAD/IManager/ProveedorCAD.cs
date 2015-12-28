@@ -306,5 +306,36 @@ public ProveedorEN GetProveedor (string email)
 
         return proveedorEN;
 }
+
+public System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.ProveedorEN> GetProveedoresByProducto (int p_producto)
+{
+        System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.ProveedorEN> result;
+        try
+        {
+                SessionInitializeTransaction ();
+                //String sql = @"FROM ProveedorEN self where select prov FROM ProveedorEN as prov inner join prov.Producto as prod where prod.Referencia=:p_producto";
+                //IQuery query = session.CreateQuery(sql);
+                IQuery query = (IQuery)session.GetNamedQuery ("ProveedorENgetProveedoresByProductoHQL");
+                query.SetParameter ("p_producto", p_producto);
+
+                result = query.List<IManagerGenNHibernate.EN.IManager.ProveedorEN>();
+                SessionCommit ();
+        }
+
+        catch (Exception ex) {
+                SessionRollBack ();
+                if (ex is IManagerGenNHibernate.Exceptions.ModelException)
+                        throw ex;
+                throw new IManagerGenNHibernate.Exceptions.DataLayerException ("Error in ProveedorCAD.", ex);
+        }
+
+
+        finally
+        {
+                SessionClose ();
+        }
+
+        return result;
+}
 }
 }

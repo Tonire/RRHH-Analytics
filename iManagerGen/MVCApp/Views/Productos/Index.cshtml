@@ -14,7 +14,7 @@
     
 }
         @{
-            if (ViewData["Creado"]!=null) { 
+            if (TempData["Creado"]!=null) { 
                 <text>
                 <div class="row">
                     <div class="alert alert-success alert-dismissible" style="margin-right: 15px; margin-left: 15px;">
@@ -27,6 +27,20 @@
                 </text>
             }
         }
+@{
+    if (TempData["Modificado"] != null) {
+        <text>
+            <div class="row">
+                <div class="alert alert-success alert-dismissible" style="margin-right: 15px; margin-left: 15px;">
+                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                    <h4><i class="icon fa fa-check"></i> Producto modificado!</h4>
+                    El producto se ha modificado correctamente.
+                </div>
+            </div>
+
+        </text>
+    }
+}
         <div class="row">
             <div class="col-xs-12">
                 <div class="box">
@@ -69,8 +83,9 @@
                                             @Html.DisplayFor(modelItem => item.Stock)
                                         </td>
                                         <td>
-                                            <a href="@Url.Action("Edit", new { /* id=item.PrimaryKey */ })" class="fa fa-pencil" style="padding-right:5px;"></a>
-                                            <a href="@Url.Action("Delete", new { id=item.Referencia  })" class="fa fa-remove"></a>
+                                            <a title="Ver Producto" href="@Url.Action("Details", new {  id=item.Referencia  })" class="fa fa-eye" style="padding-right:5px;"></a>
+                                            <a title="Editar Producto" href="@Url.Action("Edit", new {  id=item.Referencia  })" class="fa fa-pencil" style="padding-right:5px;"></a>
+                                            <a title="Eliminar Producto" href="@Url.Action("Delete", new { id=item.Referencia  })" class="fa fa-remove"></a>
                                         </td>
                                     </tr>
                                 }

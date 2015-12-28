@@ -342,6 +342,9 @@
       <operations xmi:type="es.ua.dlsi.ooh:Operation" xmi:id="_RwNtMI1dEeW4-tNygwEk4A" name="getProveedor" operationType="ReadOID" type="Object" typeObject="_WVDBkHwKEeW-XJNIUeA2IA">
         <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_Y-On4a1uEeWOspyo8lsfaQ" name="p_Proveedor_OID" type="OID" typeObject="_WVDBkHwKEeW-XJNIUeA2IA"/>
       </operations>
+      <operations xmi:type="es.ua.dlsi.ooh:Operation" xmi:id="__AmjEK1_EeWbPstzDfhm9Q" name="getProveedoresByProducto" operationType="ReadFilter" type="Object" collectionType="List" typeObject="_WVDBkHwKEeW-XJNIUeA2IA" filter="select prov FROM ProveedorEN as prov inner join prov.Producto as prod where prod.Referencia=:p_producto" automaticSynchronize="false">
+        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_MkkeYK2AEeWbPstzDfhm9Q" name="p_producto" type="OID" typeObject="_qb0_EHwJEeW-XJNIUeA2IA"/>
+      </operations>
       <attributes xmi:type="es.ua.dlsi.ooh:Attribute" xmi:id="_cBfnAHwKEeW-XJNIUeA2IA" alias="email" name="email" isOID="true" unique="true"/>
       <attributes xmi:type="es.ua.dlsi.ooh:Attribute" xmi:id="_Y702kHwKEeW-XJNIUeA2IA" alias="nombre" name="nombre" unique="true"/>
       <attributes xmi:type="es.ua.dlsi.ooh:Attribute" xmi:id="_dW8XAHwKEeW-XJNIUeA2IA" alias="telefono" name="telefono"/>
@@ -1325,6 +1328,13 @@
           <styles xmi:type="notation:FontStyle" xmi:id="_RwPiYo1dEeW4-tNygwEk4A" fontName="Segoe UI"/>
           <styles xmi:type="notation:FillStyle" xmi:id="_RwPiY41dEeW4-tNygwEk4A"/>
           <layoutConstraint xmi:type="notation:Bounds" xmi:id="_RwPiZI1dEeW4-tNygwEk4A"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="__BTtsK1_EeWbPstzDfhm9Q" type="3004" element="__AmjEK1_EeWbPstzDfhm9Q">
+          <children xmi:type="notation:DecorationNode" xmi:id="__BUUwK1_EeWbPstzDfhm9Q" type="5004"/>
+          <styles xmi:type="notation:DescriptionStyle" xmi:id="__BTtsa1_EeWbPstzDfhm9Q"/>
+          <styles xmi:type="notation:FontStyle" xmi:id="__BTtsq1_EeWbPstzDfhm9Q" fontName="Segoe UI"/>
+          <styles xmi:type="notation:FillStyle" xmi:id="__BTts61_EeWbPstzDfhm9Q"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="__BTttK1_EeWbPstzDfhm9Q"/>
         </children>
         <styles xmi:type="notation:SortingStyle" xmi:id="_WVDoqnwKEeW-XJNIUeA2IA"/>
         <styles xmi:type="notation:FilteringStyle" xmi:id="_WVDoq3wKEeW-XJNIUeA2IA"/>

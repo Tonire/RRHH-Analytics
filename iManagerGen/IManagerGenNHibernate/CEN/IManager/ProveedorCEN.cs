@@ -112,5 +112,10 @@ public ProveedorEN GetProveedor (string email)
         proveedorEN = _IProveedorCAD.GetProveedor (email);
         return proveedorEN;
 }
+
+public System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.ProveedorEN> GetProveedoresByProducto (int p_producto)
+{
+        return _IProveedorCAD.GetProveedoresByProducto (p_producto);
+}
 }
 }

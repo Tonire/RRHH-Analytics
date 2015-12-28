@@ -1,0 +1,115 @@
+﻿@model MVCApp.Models.ProductoModels
+@{
+    if (User.IsInRole("SuperAdministrador")) {
+        Layout = "~/Views/Shared/_SuperLayout.cshtml";
+    }
+    if (User.IsInRole("Administrador")) {
+        Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    }
+    ViewBag.Title = "Productos";
+
+    ViewBag.Breadcrumb = new Breadcrumb(new Crumb[] {
+        new Crumb("Productos", "", "fa-users"), new Crumb("Ver Productos")
+    });
+
+}
+<div class="row">
+    <div class="col-xs-12">
+        <div class="box">
+            <div class="box-header">
+                <h3 class="box-title">Proveedores para @Model.Nombre (@Model.Referencia)</h3>
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body">
+                <table id="example2" class="table table-bordered table-hover table-striped dataTable">
+                    <thead>
+                        <tr>
+                            <th>Email Proveedor</th>
+                            <th>CIF</th>
+                            <th>Nombre</th>
+                            <th>Telefono</th>
+                            <th>Localidad</th>
+                            <th>Pais</th>
+                            <th>Dirección</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model.proveedor) {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Email)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.CIF)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Nombre)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Telefono)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Localidad)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Pais)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Direccion)
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <th>Email Proveedor</th>
+                            <th>CIF</th>
+                            <th>Nombre</th>
+                            <th>Telefono</th>
+                            <th>Localidad</th>
+                            <th>Pais</th>
+                            <th>Dirección</th>
+                        </tr>
+                    </tfoot>
+                </table>
+
+            </div><!-- /.box-body -->
+        </div><!-- /.box -->
+    </div><!-- /.col -->
+</div><!-- /.row -->
+@section scripts {
+    @*NOTE: These should NOT be used in a production situation
+        They do contains useful snippets on how to setup charts*@
+    <!-- DataTables -->
+    <script type="text/javascript" language="javascript" src="~/Scripts/AdminLTE/plugins/datatables/jquery.dataTables.min.js"></script>
+    <script src="~/Scripts/AdminLTE/plugins/datatables/dataTables.bootstrap.js"></script>
+    <script type="text/javascript" language="javascript" src="~/Scripts/AdminLTE/plugins/datatables/dataTables.responsive.min.js"></script>
+    <!-- SlimScroll -->
+    <script src="~/Scripts/AdminLTE/plugins/slimScroll/jquery.slimscroll.min.js"></script>
+
+    @Scripts.Render("~/bundles/jqueryval")
+    <!-- page script -->
+    <script>
+        $(document).ready(function () {
+            $('#example2').DataTable({
+                responsive: true,
+                autoWidth: false,
+                paging: true,
+                "language": {
+                    "url": "../../Scripts/AdminLTE/plugins/datatables/datatables-sp.js"
+                }
+            });
+        });
+    </script>
+}
+@section especificos{
+    <!-- DataTables -->
+    <style>
+        .form-control.input-sm {
+            width: 100%;
+        }
+    </style>
+    <link rel="stylesheet" type="text/css" href="~/Scripts/AdminLTE/plugins/datatables/dataTables.bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="~/Scripts/AdminLTE/plugins/datatables/dataTables.responsive.css">
+
+}

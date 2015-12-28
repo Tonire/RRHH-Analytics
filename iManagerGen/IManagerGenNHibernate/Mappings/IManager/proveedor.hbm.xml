@@ -58,5 +58,6 @@
 		 </class>	
 		  
 		  <query name="ProveedorENReadAllHQL">from ProveedorEN</query>
+		  <query name="ProveedorENgetProveedoresByProductoHQL"><![CDATA[select prov FROM ProveedorEN as prov inner join prov.Producto as prod where prod.Referencia=:p_producto]]></query>
 		</hibernate-mapping>
 	
