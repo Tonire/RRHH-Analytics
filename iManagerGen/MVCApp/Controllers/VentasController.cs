@@ -20,7 +20,10 @@ namespace MVCApp.Controllers
         [Authorize]
         public ActionResult Index()
         {
-            return View();
+            ProductoCEN productoCEN = new ProductoCEN();
+            VentasModels ventasModels = new VentasModels();
+            ventasModels.productos = productoCEN.GetAllProductos(0, -1).ToList();
+            return View(ventasModels);
         }
 
         //

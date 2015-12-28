@@ -42,6 +42,32 @@
         </text>
     }
 }
+@{
+    if (TempData["ErrorConfirmado"] != null) {
+        <text>
+            <div class="row">
+                <div class="alert alert-danger alert-dismissible" style="margin-right: 15px; margin-left: 15px;">
+                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                    <h4><i class="icon fa fa-check"></i> Error!</h4>
+                    No puedes confirmar un pedido cancelado.
+                </div>
+            </div>
+        </text>
+    }
+}
+@{
+    if (TempData["ErrorCancelado"] != null) {
+        <text>
+            <div class="row">
+                <div class="alert alert-danger alert-dismissible" style="margin-right: 15px; margin-left: 15px;">
+                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                    <h4><i class="icon fa fa-check"></i> Error!</h4>
+                    No puedes cancelar un pedido confirmado.
+                </div>
+            </div>
+        </text>
+    }
+}
 <div class="row">
     <div class="col-xs-12">
         <div class="box">
@@ -124,9 +150,9 @@
     @*NOTE: These should NOT be used in a production situation
         They do contains useful snippets on how to setup charts*@
     <!-- DataTables -->
-    <script type="text/javascript" language="javascript" src="//cdn.datatables.net/1.10.10/js/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" language="javascript" src="~/Scripts/AdminLTE/plugins/datatables/jquery.dataTables.min.js"></script>
     <script src="~/Scripts/AdminLTE/plugins/datatables/dataTables.bootstrap.js"></script>
-    <script type="text/javascript" language="javascript" src="//cdn.datatables.net/responsive/1.0.0/js/dataTables.responsive.min.js"></script>
+    <script type="text/javascript" language="javascript" src="~/Scripts/AdminLTE/plugins/datatables/dataTables.responsive.min.js"></script>
     <!-- SlimScroll -->
     <script src="~/Scripts/AdminLTE/plugins/slimScroll/jquery.slimscroll.min.js"></script>
 
@@ -137,7 +163,10 @@
             $('#example2').DataTable({
                 responsive: true,
                 autoWidth: false,
-                paging: true
+                paging: true,
+                "language": {
+                    "url": "../../Scripts/AdminLTE/plugins/datatables/datatables-sp.json"
+                }
             });
         });
     </script>
@@ -150,6 +179,8 @@
         }
     </style>
     <link rel="stylesheet" type="text/css" href="~/Scripts/AdminLTE/plugins/datatables/dataTables.bootstrap.css">
-    <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/responsive/1.0.0/css/dataTables.responsive.css">
+    <link rel="stylesheet" type="text/css" href="~/Scripts/AdminLTE/plugins/datatables/dataTables.responsive.css">
 
 }
+
+

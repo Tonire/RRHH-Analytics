@@ -94,9 +94,9 @@
     @*NOTE: These should NOT be used in a production situation
         They do contains useful snippets on how to setup charts*@
     <!-- DataTables -->
-    <script type="text/javascript" language="javascript" src="//cdn.datatables.net/1.10.10/js/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" language="javascript" src="~/Scripts/AdminLTE/plugins/datatables/jquery.dataTables.min.js"></script>
     <script src="~/Scripts/AdminLTE/plugins/datatables/dataTables.bootstrap.js"></script>
-    <script type="text/javascript" language="javascript" src="//cdn.datatables.net/responsive/1.0.0/js/dataTables.responsive.min.js"></script>
+    <script type="text/javascript" language="javascript" src="~/Scripts/AdminLTE/plugins/datatables/dataTables.responsive.min.js"></script>
     <!-- SlimScroll -->
     <script src="~/Scripts/AdminLTE/plugins/slimScroll/jquery.slimscroll.min.js"></script>
     
@@ -107,7 +107,10 @@
             $('#example2').DataTable({
                 responsive: true,
                 autoWidth: false,
-                paging: true
+                paging: true,
+                "language": {
+                    "url": "../../Scripts/AdminLTE/plugins/datatables/datatables-sp.json"
+                }
             });
         });
     </script>
@@ -120,6 +123,6 @@
         }
     </style>
     <link rel="stylesheet" type="text/css" href="~/Scripts/AdminLTE/plugins/datatables/dataTables.bootstrap.css">
-    <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/responsive/1.0.0/css/dataTables.responsive.css">
+    <link rel="stylesheet" type="text/css" href="~/Scripts/AdminLTE/plugins/datatables/dataTables.responsive.css">
     
 }

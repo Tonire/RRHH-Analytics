@@ -1,4 +1,5 @@
-﻿@{
+﻿@model MVCApp.Models.ProductoModels
+@{
     if (User.IsInRole("SuperAdministrador")) {
         Layout = "~/Views/Shared/_SuperLayout.cshtml";
     }
@@ -45,10 +46,11 @@
                     <div class="col-md-3 col-xs-12">
                         <div class="form-horizontal">
                             <div class="form-group">
-                                <label class="col-sm-4 col-xs-12 control-label" for="idProducto">Id del producto</label>
+                                <label class="col-sm-4 col-xs-12 control-label" for="idProducto">Producto</label>
                                 <div class="col-sm-8 col-xs-12">
-                                    <input type="number" id="idProducto" class="form-control col-xs-12" />
+                                    @Html.DropDownListFor(model => model.SelectedProducto, new SelectList(Model.productos, "Referencia", "Nombre"), new { @class = "form-control col-xs-12 js-example-basic-single", @id = "idProducto" })
                                 </div>
+
                             </div>
                             <div class="form-group">
                                 <label class="col-sm-4 col-xs-12 control-label" for="cantidad">Cantidad</label>
@@ -94,30 +96,20 @@
 @section scripts {
     @*NOTE: These should NOT be used in a production situation
         They do contains useful snippets on how to setup charts*@
-    <!-- DataTables -->
-
-    <script type="text/javascript" language="javascript" src="//cdn.datatables.net/1.10.10/js/jquery.dataTables.min.js"></script>
-    <script src="~/Scripts/AdminLTE/plugins/datatables/dataTables.bootstrap.js"></script>
-    <script type="text/javascript" language="javascript" src="//cdn.datatables.net/responsive/1.0.0/js/dataTables.responsive.min.js"></script>
     <!-- SlimScroll -->
     <script src="~/Scripts/AdminLTE/plugins/slimScroll/jquery.slimscroll.min.js"></script>
     <script src="~/Scripts/JSON.js" type="text/javascript"></script>
     <script src="~/Scripts/pedidos.js" type="text/javascript"></script>
-
-    @Scripts.Render("~/bundles/jqueryval")
+    <script src="~/Scripts/AdminLTE/plugins/select2/select2.full.min.js"></script>
     <script>
-
+        $(document).ready(function () {
+            $(".js-example-basic-single").select2();
+        });
     </script>
-
+    @Scripts.Render("~/bundles/jqueryval")
+   
 }
 @section especificos{
-    <!-- DataTables -->
-    <style>
-        .form-control.input-sm {
-            width: 100%;
-        }
-    </style>
-    <link rel="stylesheet" type="text/css" href="~/Scripts/AdminLTE/plugins/datatables/dataTables.bootstrap.css">
-    <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/responsive/1.0.0/css/dataTables.responsive.css">
-
+    <!--select2-->
+    <link rel="stylesheet" href="~/Scripts/AdminLTE/plugins/select2/select2.min.css">
 }

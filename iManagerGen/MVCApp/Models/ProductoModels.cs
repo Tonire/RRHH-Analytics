@@ -41,5 +41,12 @@ namespace MVCApp.Models {
         //public IList<string> proovedoresStrings { get; set; }
         //public string[] selectedProveedores { get; set; }
         public IEnumerable<string> SelectedItems { get; set; }
+
+        [Display(Name = "Productos")]
+        public IEnumerable<ProductoEN> productos { get; set; }
+
+        //public IList<string> proovedoresStrings { get; set; }
+        //public string[] selectedProveedores { get; set; }
+        public IEnumerable<string> SelectedProducto { get; set; }
     }
 }

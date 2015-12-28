@@ -369,9 +369,11 @@
     <Content Include="Scripts\AdminLTE\plugins\ckeditor\plugins\wsc\README.md" />
     <Content Include="Scripts\AdminLTE\plugins\ckeditor\README.md" />
     <Content Include="Scripts\AdminLTE\plugins\ckeditor\skins\moono\readme.md" />
+    <None Include="Scripts\AdminLTE\plugins\datatables\datatables-sp.json" />
     <Content Include="Scripts\AdminLTE\plugins\datatables\dataTables.responsive.css" />
     <Content Include="Scripts\AdminLTE\plugins\datatables\dataTables.responsive.js" />
     <Content Include="Scripts\AdminLTE\plugins\datatables\dataTables.responsive.min.js" />
+    <Content Include="Scripts\AdminLTE\plugins\datatables\jquery.dataTables.min.js" />
     <Content Include="Scripts\AdminLTE\plugins\input-mask\phone-codes\phone-be.json" />
     <Content Include="Scripts\AdminLTE\plugins\input-mask\phone-codes\phone-codes.json" />
     <Content Include="Scripts\AdminLTE\app.js" />
@@ -955,6 +957,7 @@
     <Content Include="Views\Productos\Index.cshtml" />
     <Content Include="Views\Pedidos\Create.cshtml" />
     <Content Include="Views\Pedidos\Index.cshtml" />
+    <Content Include="Views\Productos\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

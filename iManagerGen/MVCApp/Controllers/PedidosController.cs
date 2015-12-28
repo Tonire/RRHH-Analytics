@@ -36,7 +36,10 @@ namespace MVCApp.Controllers
 
         public ActionResult Create()
         {
-            return View();
+            ProductoCEN productoCEN = new ProductoCEN();
+            ProductoModels productoModels = new ProductoModels();
+            productoModels.productos = productoCEN.GetAllProductos(0,-1).ToList();
+            return View(productoModels);
         }
 
         //
@@ -105,13 +108,19 @@ namespace MVCApp.Controllers
                 string id = Request["id"];
                 PedidoCEN pedidoCEN = new PedidoCEN();
                 PedidoEN pedidoEN=pedidoCEN.GetPedidoById(Int32.Parse(id));
-                pedidoCEN.Modify(pedidoEN.Id,IManagerGenNHibernate.Enumerated.IManager.EstadoPedidoEnum.rechazado,pedidoEN.FechaRealizacion,null,DateTime.Now);
-                TempData["Cancelado"] = true;
-                return RedirectToAction("Index");
+                if(pedidoEN.Estado!=IManagerGenNHibernate.Enumerated.IManager.EstadoPedidoEnum.confirmado){
+                    pedidoCEN.Modify(pedidoEN.Id, IManagerGenNHibernate.Enumerated.IManager.EstadoPedidoEnum.rechazado, pedidoEN.FechaRealizacion, null, DateTime.Now);
+                    TempData["Cancelado"] = true;
+                    return RedirectToAction("Index");
+                } else {
+                    TempData["ErrorCancelado"] = true;
+                    return RedirectToAction("Index");
+                }
+                
             }
             catch
             {
-                return View();
+                return RedirectToAction("Index");
             }
         }
         //
@@ -127,7 +136,8 @@ namespace MVCApp.Controllers
                 TempData["Confirmado"] = true;
                 return RedirectToAction("Index");
             } catch {
-                return View();
+                TempData["ErrorConfirmado"] = true;
+                return RedirectToAction("Index");
             }
         }
     }
