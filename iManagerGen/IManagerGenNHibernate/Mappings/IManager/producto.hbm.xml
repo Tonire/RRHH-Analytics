@@ -24,6 +24,9 @@
 					<property name="Stock" type="integer"> 
 						<column name="stock"  not-null="true"/>
 					</property>
+					<property name="Ventas" type="integer"> 
+						<column name="ventas"  not-null="true"/>
+					</property>
 			
 			
 			
@@ -64,6 +67,8 @@
 							<one-to-many class="IManagerGenNHibernate.EN.IManager.LineaVentaEN"/>
 					    </bag>
 					
+			
+					
 					
 					
 					
@@ -78,5 +83,6 @@
 		  
 		  <query name="ProductoENReadAllHQL">from ProductoEN</query>
 		  <query name="ProductoENgetProductosByProveedorHQL"><![CDATA[select prod FROM ProductoEN as prod inner join prod.Proveedor as prov where prov.Email=:p_proveedor]]></query>
+		  <query name="ProductoENcontarProductosHQL"><![CDATA[select count(*) FROM ProductoEN]]></query>
 		</hibernate-mapping>
 	

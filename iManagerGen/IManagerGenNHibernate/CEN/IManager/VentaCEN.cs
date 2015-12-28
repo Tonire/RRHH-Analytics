@@ -90,5 +90,10 @@ public VentaEN GetVentaById (int id)
         ventaEN = _IVentaCAD.GetVentaById (id);
         return ventaEN;
 }
+
+public int ContarVentas ()
+{
+        return _IVentaCAD.ContarVentas ();
+}
 }
 }

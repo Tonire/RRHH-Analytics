@@ -61,7 +61,7 @@ namespace MVCApp.Controllers {
                     for (int i = 0; i < model.SelectedItems.ToList().Count; i++) {
                         proveedores.Add(model.SelectedItems.ToList()[i]);
                     }
-                    productoCEN.CrearProducto(model.Referencia, model.Nombre, model.Marca, float.Parse(model.PrecioCompra, CultureInfo.InvariantCulture.NumberFormat), float.Parse(model.PrecioVenta, CultureInfo.InvariantCulture.NumberFormat), 0, proveedores);
+                    productoCEN.CrearProducto(model.Referencia, model.Nombre, model.Marca, float.Parse(model.PrecioCompra, CultureInfo.InvariantCulture.NumberFormat), float.Parse(model.PrecioVenta, CultureInfo.InvariantCulture.NumberFormat), 0, proveedores,0);
                     TempData["creado"] = true;
                     return RedirectToAction("Index");
                 } catch {
@@ -99,8 +99,8 @@ namespace MVCApp.Controllers {
                 // TODO: Add update logic here
                 ProductoCEN productoCEN = new ProductoCEN();
                 ProveedorCEN proveedorCEN= new ProveedorCEN();
-                int stock = productoCEN.GetProducto(productoModels.Referencia).Stock;
-                productoCEN.Modify(productoModels.Referencia, productoModels.Nombre, productoModels.Marca, float.Parse(productoModels.PrecioCompra, CultureInfo.InvariantCulture.NumberFormat), float.Parse(productoModels.PrecioVenta, CultureInfo.InvariantCulture.NumberFormat), stock);
+                ProductoEN productoEN = productoCEN.GetProducto(productoModels.Referencia);
+                productoCEN.Modify(productoModels.Referencia, productoModels.Nombre, productoModels.Marca, float.Parse(productoModels.PrecioCompra, CultureInfo.InvariantCulture.NumberFormat), float.Parse(productoModels.PrecioVenta, CultureInfo.InvariantCulture.NumberFormat), productoEN.Stock,productoEN.Ventas);
                 IList<string> proveedoresIDS = new List<string>();
                 foreach(ProveedorEN proveedor in proveedorCEN.GetProveedoresByProducto(productoModels.Referencia)){
                     proveedoresIDS.Add(proveedor.Email);

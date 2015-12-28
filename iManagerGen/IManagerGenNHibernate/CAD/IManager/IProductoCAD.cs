@@ -27,5 +27,8 @@ void AsignarProveedor (string p_Producto_OID, System.Collections.Generic.IList<s
 void QuitarProveedor (string p_Producto_OID, System.Collections.Generic.IList<string> p_proveedor_OIDs);
 
 System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.ProductoEN> GetProductosByProveedor (string p_proveedor);
+
+
+int ContarProductos ();
 }
 }

@@ -133,6 +133,9 @@ public void Modify (ProductoEN producto)
 
                 productoEN.Stock = producto.Stock;
 
+
+                productoEN.Ventas = producto.Ventas;
+
                 session.Update (productoEN);
                 SessionCommit ();
         }
@@ -322,6 +325,37 @@ public System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.Produc
                 query.SetParameter ("p_proveedor", p_proveedor);
 
                 result = query.List<IManagerGenNHibernate.EN.IManager.ProductoEN>();
+                SessionCommit ();
+        }
+
+        catch (Exception ex) {
+                SessionRollBack ();
+                if (ex is IManagerGenNHibernate.Exceptions.ModelException)
+                        throw ex;
+                throw new IManagerGenNHibernate.Exceptions.DataLayerException ("Error in ProductoCAD.", ex);
+        }
+
+
+        finally
+        {
+                SessionClose ();
+        }
+
+        return result;
+}
+public int ContarProductos ()
+{
+        int result;
+
+        try
+        {
+                SessionInitializeTransaction ();
+                //String sql = @"FROM ProductoEN self where select count(*) FROM ProductoEN";
+                //IQuery query = session.CreateQuery(sql);
+                IQuery query = (IQuery)session.GetNamedQuery ("ProductoENcontarProductosHQL");
+
+
+                result = query.UniqueResult<int>();
                 SessionCommit ();
         }
 

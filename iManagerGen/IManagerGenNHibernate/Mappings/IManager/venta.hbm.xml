@@ -56,5 +56,6 @@
 		  
 		  <query name="VentaENReadAllHQL">from VentaEN</query>
 		  <query name="VentaENgetVentasByUsuarioHQL"><![CDATA[FROM VentaEN WHERE usurio=:p_usuario]]></query>
+		  <query name="VentaENcontarVentasHQL"><![CDATA[select count(*) FROM VentaEN]]></query>
 		</hibernate-mapping>
 	

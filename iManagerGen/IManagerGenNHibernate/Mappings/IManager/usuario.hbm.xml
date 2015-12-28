@@ -101,5 +101,6 @@
 		 </class>	
 		  
 		  <query name="UsuarioENReadAllHQL">from UsuarioEN</query>
+		  <query name="UsuarioENcontarUsuariosHQL"><![CDATA[select count(*) FROM UsuarioEN]]></query>
 		</hibernate-mapping>
 	

@@ -73,5 +73,9 @@ public System.Collections.Generic.IList<UsuarioEN> DameTodos (int first, int siz
         list = _IUsuarioCAD.DameTodos (first, size);
         return list;
 }
+public int ContarUsuarios ()
+{
+        return _IUsuarioCAD.ContarUsuarios ();
+}
 }
 }

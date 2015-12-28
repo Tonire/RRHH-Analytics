@@ -323,5 +323,37 @@ public System.Collections.Generic.IList<PedidoEN> DameTodos (int first, int size
 
         return result;
 }
+
+public int ContarPedidosPendientes ()
+{
+        int result;
+
+        try
+        {
+                SessionInitializeTransaction ();
+                //String sql = @"FROM PedidoEN self where select count(*) FROM PedidoEN where estado=1";
+                //IQuery query = session.CreateQuery(sql);
+                IQuery query = (IQuery)session.GetNamedQuery ("PedidoENcontarPedidosPendientesHQL");
+
+
+                result = query.UniqueResult<int>();
+                SessionCommit ();
+        }
+
+        catch (Exception ex) {
+                SessionRollBack ();
+                if (ex is IManagerGenNHibernate.Exceptions.ModelException)
+                        throw ex;
+                throw new IManagerGenNHibernate.Exceptions.DataLayerException ("Error in PedidoCAD.", ex);
+        }
+
+
+        finally
+        {
+                SessionClose ();
+        }
+
+        return result;
+}
 }
 }

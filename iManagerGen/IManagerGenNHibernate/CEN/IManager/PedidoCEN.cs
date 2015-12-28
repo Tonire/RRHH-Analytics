@@ -95,5 +95,9 @@ public System.Collections.Generic.IList<PedidoEN> DameTodos (int first, int size
         list = _IPedidoCAD.DameTodos (first, size);
         return list;
 }
+public int ContarPedidosPendientes ()
+{
+        return _IPedidoCAD.ContarPedidosPendientes ();
+}
 }
 }

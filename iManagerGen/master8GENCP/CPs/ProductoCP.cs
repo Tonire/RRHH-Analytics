@@ -21,11 +21,12 @@ namespace EjemploProyectoCP.CPs {
                 _IProductoCAD = new ProductoCAD(session);
                 productoCEN = new ProductoCEN(_IProductoCAD);
                 int stock = 0;
-
+                int ventas=0;
                 foreach (LineaVentaEN lp in lineasPedidos) {
                     stock = lp.Producto.Stock - lp.Cantidad;
+                    ventas = lp.Producto.Ventas++;
                     if (stock >= 0) {
-                        productoCEN.Modify(lp.Producto.Referencia, lp.Producto.Nombre, lp.Producto.Marca, lp.Producto.PrecioCompra, lp.Producto.PrecioVenta, stock);
+                        productoCEN.Modify(lp.Producto.Referencia, lp.Producto.Nombre, lp.Producto.Marca, lp.Producto.PrecioCompra, lp.Producto.PrecioVenta, stock,ventas);
                     } else {
                         throw new ModelException("Stock insuficiente: "+stock+" Producto: "+lp.Producto.Nombre);
                     }
@@ -49,7 +50,7 @@ namespace EjemploProyectoCP.CPs {
                 int stock = 0;
                 foreach (LineaPedidoEN lp in lineasPedidos) {
                     stock = lp.Producto.Stock + lp.Cantidad;
-                    productoCEN.Modify(lp.Producto.Referencia, lp.Producto.Nombre, lp.Producto.Marca, lp.Producto.PrecioCompra, lp.Producto.PrecioVenta, stock);
+                    productoCEN.Modify(lp.Producto.Referencia, lp.Producto.Nombre, lp.Producto.Marca, lp.Producto.PrecioCompra, lp.Producto.PrecioVenta, stock,lp.Producto.Ventas);
                 }
                 SessionCommit();
             } catch (Exception ex) {

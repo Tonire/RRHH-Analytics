@@ -36,7 +36,7 @@ public IProductoCAD get_IProductoCAD ()
         return this._IProductoCAD;
 }
 
-public string CrearProducto (string p_referencia, string p_nombre, string p_marca, float p_precioCompra, float p_precioVenta, int p_stock, System.Collections.Generic.IList<string> p_proveedor)
+public string CrearProducto (string p_referencia, string p_nombre, string p_marca, float p_precioCompra, float p_precioVenta, int p_stock, System.Collections.Generic.IList<string> p_proveedor, int p_ventas)
 {
         ProductoEN productoEN = null;
         string oid;
@@ -69,13 +69,15 @@ public string CrearProducto (string p_referencia, string p_nombre, string p_marc
                 productoEN.Proveedor = new System.Collections.Generic.List<IManagerGenNHibernate.EN.IManager.ProveedorEN>();
         }
 
+        productoEN.Ventas = p_ventas;
+
         //Call to ProductoCAD
 
         oid = _IProductoCAD.CrearProducto (productoEN);
         return oid;
 }
 
-public void Modify (string p_Producto_OID, string p_nombre, string p_marca, float p_precioCompra, float p_precioVenta, int p_stock)
+public void Modify (string p_Producto_OID, string p_nombre, string p_marca, float p_precioCompra, float p_precioVenta, int p_stock, int p_ventas)
 {
         ProductoEN productoEN = null;
 
@@ -87,6 +89,7 @@ public void Modify (string p_Producto_OID, string p_nombre, string p_marca, floa
         productoEN.PrecioCompra = p_precioCompra;
         productoEN.PrecioVenta = p_precioVenta;
         productoEN.Stock = p_stock;
+        productoEN.Ventas = p_ventas;
         //Call to ProductoCAD
 
         _IProductoCAD.Modify (productoEN);
@@ -127,6 +130,10 @@ public void QuitarProveedor (string p_Producto_OID, System.Collections.Generic.I
 public System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.ProductoEN> GetProductosByProveedor (string p_proveedor)
 {
         return _IProductoCAD.GetProductosByProveedor (p_proveedor);
+}
+public int ContarProductos ()
+{
+        return _IProductoCAD.ContarProductos ();
 }
 }
 }
