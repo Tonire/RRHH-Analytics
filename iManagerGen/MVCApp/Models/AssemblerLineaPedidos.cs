@@ -9,8 +9,13 @@ namespace MVCApp.Models {
         public LineaPedidosModels ConvertENToModelUI(LineaPedidoEN en) {
             LineaPedidosModels lPedidos = new LineaPedidosModels();
             lPedidos.cantidad = en.Cantidad;
-            lPedidos.referencia = en.Producto.Referencia;
-            lPedidos.nombre = en.Producto.Nombre;
+            if (en.Producto != null) {
+                lPedidos.referencia = en.Producto.Referencia;
+                lPedidos.nombre = en.Producto.Nombre;
+            } else {
+                lPedidos.referencia = 000000000;
+                lPedidos.nombre = "No disponible";
+            }
             return lPedidos;
         }
         public IList<LineaPedidosModels> ConvertListENToModel(IList<LineaPedidoEN> ens) {

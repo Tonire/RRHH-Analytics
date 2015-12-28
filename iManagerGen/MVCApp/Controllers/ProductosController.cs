@@ -85,7 +85,7 @@ namespace MVCApp.Controllers
             try
             {
                 // TODO: Add update logic here
-
+                
                 return RedirectToAction("Index");
             }
             catch
@@ -96,27 +96,35 @@ namespace MVCApp.Controllers
 
         //
         // GET: /Productos/Delete/5
-
+        [Authorize]
         public ActionResult Delete(int id)
         {
-            return View();
+            try {
+                ProductoCEN productoCEN = new ProductoCEN();
+                productoCEN.Destroy((id));
+                return RedirectToAction("Index");
+            } catch (Exception ex) {
+                return RedirectToAction("Index");
+            }
         }
 
         //
         // POST: /Productos/Delete/5
 
         [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
+        [Authorize]
+        public ActionResult Delete()
         {
             try
             {
-                // TODO: Add delete logic here
-
+                string id = Request["referencia"];
+                ProductoCEN productoCEN = new ProductoCEN();
+                productoCEN.Destroy(Int32.Parse(id));
                 return RedirectToAction("Index");
             }
-            catch
+            catch(Exception ex)
             {
-                return View();
+                return RedirectToAction("Index");
             }
         }
     }

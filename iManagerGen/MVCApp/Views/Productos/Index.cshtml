@@ -70,7 +70,7 @@
                                         </td>
                                         <td>
                                             <a href="@Url.Action("Edit", new { /* id=item.PrimaryKey */ })" class="fa fa-pencil" style="padding-right:5px;"></a>
-                                            <a href="@Url.Action("Delete", new { /* id=item.PrimaryKey */ })" class="fa fa-remove"></a>
+                                            <a href="@Url.Action("Delete", new { id=item.Referencia  })" class="fa fa-remove"></a>
                                         </td>
                                     </tr>
                                 }
@@ -111,7 +111,7 @@
                 autoWidth: false,
                 paging: true,
                 "language": {
-                    "url": "../../Scripts/AdminLTE/plugins/datatables/datatables-sp.json"
+                    "url": "../../Scripts/AdminLTE/plugins/datatables/datatables-sp.js"
                 }
             });
         });
