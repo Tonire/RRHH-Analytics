@@ -1,0 +1,336 @@
+//PROVEEDORES
+//1
+proveedorCEN.CrearProveedor ("comunicacion.spain@adidas.com", "Adidas España S.A", "976 710 100", "Avenida María Zambrano", "Zaragoza", "España", "ESA28788909");
+proveedores.Add ("comunicacion.spain@adidas.com");
+
+//2
+proveedorCEN.CrearProveedor ("proveedor@nike.com", "American Nike, S.L.", "933 793 500", "Avda. Baix Llobregat 5", "El Prat de Llobregat", "España", "ESB59088054");
+proveedores.Add ("proveedor@nike.com");
+
+//3
+proveedorCEN.CrearProveedor ("j.pinillos@asics.es", "Asics Iberia, S.L.", "902 884 128", "C/ Canudas 9", "El Prat de Llobregat", "España", "ESB60739968");
+proveedores.Add ("j.pinillos@asics.es");
+
+//4
+proveedorCEN.CrearProveedor ("info-es@puma.com", "Puma Iberia, S.L.", "938 001 100", "Plaza De La Pau", "Cornellà de Llobregat", "España", "ESB85868339");
+proveedores.Add ("info-es@puma.com");
+
+//5
+proveedorCEN.CrearProveedor ("info@vans.es", "Vans Clothing, S.L.", "925 557 315", "C/ Polio Industrial Las Villas De Yuncos Carlos", "Yuncos", "España", "ESB45569761");
+proveedores.Add ("info@vans.es");
+
+//6
+proveedorCEN.CrearProveedor ("info@lecoqsportif.com", "Le Coq Sportif España, S.A.", "937 106 027", "C/ Rda Maiols 1", "Sant Quirze del Vallès", "España", "ESA50900513");
+proveedores.Add ("info@lecoqsportif.com");
+
+
+//PRODUCTOS
+
+//1
+productoCEN.CrearProducto("O07596", "Tabe 11 JSY Azul", "Adidas", "23.55", "32.50", 34, proveedores);
+
+//2
+productoCEN.CrearProducto("O07598", "Tabe 11 JSY Rojo", "Adidas", "23.55", "32.50", 34, proveedores);
+
+//3
+productoCEN.CrearProducto("O07606", "Tabe 11 JSY Negro", "Adidas", "23.55", "32.50", 34, proveedores);
+
+//4
+productoCEN.CrearProducto("O07611", "Tabe 11 JSY Base Negro", "Adidas", "23.55", "32.50", 34, proveedores);
+
+//6
+productoCEN.CrearProducto("O07612", "Tabe 11 JSY Base Azul", "Adidas", "23.55", "32.50", 34, proveedores);
+
+//7
+productoCEN.CrearProducto("O07585", "Tabe 11 JSY Larga Blanca-Rojo", "Adidas", "23.55", "32.50", 34, proveedores);
+
+//8
+productoCEN.CrearProducto("O07586", "Tabe 11 JSY Larga Negra-Rojo", "Adidas", "23.55", "32.50", 34, proveedores);
+
+//9
+productoCEN.CrearProducto("O07587", "Tabe 11 JSY Larga Blanca-Azul", "Adidas", "23.55", "32.50", 34, proveedores);
+
+//10
+productoCEN.CrearProducto("O07592", "Tabe 11 JSY Larga Negro-Blanco", "Adidas", "23.55", "32.50", 34, proveedores);
+
+//11
+productoCEN.CrearProducto("F50486", "Tabe 14 JSY black/white", "Adidas", "23.55", "32.50", 34, proveedores);
+
+//12
+productoCEN.CrearProducto("F50491", "Tabe 14 JSY bold blue/white", "Adidas", "23.55", "32.50", 34, proveedores);
+
+//13
+productoCEN.CrearProducto("F50490", "Tabe 14 JSY white/red", "Adidas", "23.55", "32.50", 34, proveedores);
+
+//14
+productoCEN.CrearProducto("F50485", "Tabe 14 JSY power red/white", "Adidas", "23.55", "32.50", 34, proveedores);
+
+//15
+productoCEN.CrearProducto("F50487", "Tabe 14 JSY dark blue/white", "Adidas", "23.55", "32.50", 34, proveedores);
+
+//16
+productoCEN.CrearProducto("F50632", "Tabe 14 SHO bold blue/white", "Adidas", "23.55", "32.50", 34, proveedores);
+
+//17
+productoCEN.CrearProducto("F50633", "Tabe 14 SHO dark blue/white", "Adidas", "23.55", "32.50", 34, proveedores);
+
+//18
+productoCEN.CrearProducto("F50631", "Tabe 14 JSY power red/white", "Adidas", "23.55", "32.50", 34, proveedores);
+
+//19
+productoCEN.CrearProducto("F50636", "Tabe 14 JSY white/red", "Adidas", "23.55", "32.50", 34, proveedores);
+
+//20
+productoCEN.CrearProducto("Z73940", "Adidas Team 13 Jersey White/Black", "Adidas", "23.55", "32.50", 34, proveedores);
+
+//21
+productoCEN.CrearProducto("Z73944", "Adidas Team 13 Jersey White/ Cobalt", "Adidas", "23.55", "32.50", 34, proveedores);
+
+//22
+productoCEN.CrearProducto("132974", "Luge Training", "Adidas", "23.55", "32.50", 34, proveedores);
+
+//23
+productoCEN.CrearProducto("F38433", "VLHOOPS MID", "Adidas", "23.55", "32.50", 34, proveedores);
+
+//24
+productoCEN.CrearProducto("G65302", "adizero F50 TRX FG", "Adidas", "23.55", "32.50", 34, proveedores);
+
+//25
+productoCEN.CrearProducto("M29605", "adizero counterblas", "Adidas", "23.55", "32.50", 34, proveedores);
+
+//26
+productoCEN.CrearProducto("D73809", "SEELEY", "Adidas", "23.55", "32.50", 34, proveedores);
+
+//27
+productoCEN.CrearProducto("Q33931", "F5 TRX TF", "Adidas", "23.55", "32.50", 34, proveedores);
+
+//28
+productoCEN.CrearProducto("G65442", "F5 TRX HG J", "Adidas", "23.55", "32.50", 34, proveedores);
+
+//29
+productoCEN.CrearProducto("M29916", "Nitrocharge 3.0 HG", "Adidas", "23.55", "32.50", 34, proveedores);
+
+//30
+productoCEN.CrearProducto("C75631", "SEELEY BOAT", "Adidas", "23.55", "32.50", 34, proveedores);
+
+//31
+productoCEN.CrearProducto("Q23904", "11Nova TRX FG", "Adidas", "23.55", "32.50", 34, proveedores);
+
+//32
+productoCEN.CrearProducto("D67836", "ZX SANDAL W", "Adidas", "23.55", "32.50", 34, proveedores);
+
+//33
+productoCEN.CrearProducto("Q21663", "Predator LZ TRX FG", "Adidas", "23.55", "32.50", 34, proveedores);
+
+//34
+productoCEN.CrearProducto("Q23914", "11Questra IN J", "Adidas", "23.55", "32.50", 34, proveedores);
+
+//35
+productoCEN.CrearProducto("Q33811", "P Absolado LZ SG", "Adidas", "23.55", "32.50", 34, proveedores);
+
+//36
+productoCEN.CrearProducto("G65342", "F10 TRX AG", "Adidas", "23.55", "32.50", 34, proveedores);
+
+//37
+productoCEN.CrearProducto("D73804", "VARIAL MID J", "Adidas", "23.55", "32.50", 34, proveedores);
+
+//38
+productoCEN.CrearProducto("D67233", "BASKETPRO OCTO I", "Adidas", "23.55", "32.50", 34, proveedores);
+
+//39
+productoCEN.CrearProducto("Q23885", "P Absolion LZ TRX A", "Adidas", "23.55", "32.50", 34, proveedores);
+
+//40
+productoCEN.CrearProducto("G98180", "SEELEY", "Adidas", "23.55", "32.50", 34, proveedores);
+
+//41
+productoCEN.CrearProducto("L44750", "F50 adizero TRX FG", "Adidas", "23.55", "32.50", 34, proveedores);
+
+//42
+productoCEN.CrearProducto("D67002", "F10 TRX AG J", "Adidas", "23.55", "32.50", 34, proveedores);
+
+//43
+productoCEN.CrearProducto("Q33865", "F10 TRX AG", "Adidas", "23.55", "32.50", 34, proveedores);
+
+//44
+productoCEN.CrearProducto("Q23887", "Predito LZ TRX HG J", "Adidas", "23.55", "32.50", 34, proveedores);
+
+//45
+productoCEN.CrearProducto("Q33691", "nitrocharge 3.0 TRX", "Adidas", "23.55", "32.50", 34, proveedores);
+
+//46
+productoCEN.CrearProducto("G65380", "F30 TRX AG", "Adidas", "23.55", "32.50", 34, proveedores);
+
+//47
+productoCEN.CrearProducto("G65578", "ARTILLERY AS LOW", "Adidas", "23.55", "32.50", 34, proveedores);
+
+//48
+productoCEN.CrearProducto("M20162", "Predito Instinct FG", "Adidas", "23.55", "32.50", 34, proveedores);
+
+//49
+productoCEN.CrearProducto("D67175", "adizero HJ ST", "Adidas", "23.55", "32.50", 34, proveedores);
+
+//50
+productoCEN.CrearProducto("Q21672", "Predito LZ TRX TF", "Adidas", "23.55", "32.50", 34, proveedores);
+
+//51
+productoCEN.CrearProducto("CV-113823-AS5B", "STAR PLAYER EV MILK/ATHLETIC NAVY OX", "Converse", "23.55", "32.50", 34, proveedores);
+
+//52
+productoCEN.CrearProducto("CV-117381-AS1", "ALL STAR SPECIALTY DEEP FOREST HI", "Converse", "23.55", "32.50", 34, proveedores);
+
+//53
+productoCEN.CrearProducto("CV-CBGBP902-BK", "WALLET", "Converse", "23.55", "32.50", 34, proveedores);
+
+//54
+productoCEN.CrearProducto("CV-CKQ3107-MNT", "T-SHIRT V-NECK", "Converse", "23.55", "32.50", 34, proveedores);
+
+//55
+productoCEN.CrearProducto("CV-CKQ3203-BR", "POLO", "Converse", "23.55", "32.50", 34, proveedores);
+
+//56
+productoCEN.CrearProducto("CV-CKQ3214-PPL", "T-SHIRT CREW S/S", "Converse", "23.55", "32.50", 34, proveedores);
+
+//57
+productoCEN.CrearProducto("CV-CKQ9205-BK", "JACKET", "Converse", "23.55", "32.50", 34, proveedores);
+
+//58
+productoCEN.CrearProducto("CV-CSCR205-BK", "BUFANDA", "Converse", "23.55", "32.50", 34, proveedores);
+
+//59
+productoCEN.CrearProducto("CV-CWR5511-BK", "LEGGINS", "Converse", "23.55", "32.50", 34, proveedores);
+
+//60
+productoCEN.CrearProducto("CV-7J236-I1", "ALL STAR CORE RED OX", "Converse", "23.55", "32.50", 34, proveedores);
+
+//61
+productoCEN.CrearProducto("CV-532466C-D1", "LADY ALL STAR BLACK OX", "Converse", "23.55", "32.50", 34, proveedores);
+
+//62
+productoCEN.CrearProducto("CV-CS104-MIL", "CAP", "Converse", "23.55", "32.50", 34, proveedores);
+
+//63
+productoCEN.CrearProducto("CV-CWR3616-CLM", "FASHION LOGO TOP", "Converse", "23.55", "32.50", 34, proveedores);
+
+//64
+productoCEN.CrearProducto("CV-CWR2609-PP", "SOLID LONG SLEEVE", "Converse", "23.55", "32.50", 34, proveedores);
+
+//65
+productoCEN.CrearProducto("CV-CWQ3206-VLT", "BOAT WHIT ROLL UP SLEEVE", "Converse", "23.55", "32.50", 34, proveedores);
+
+//66
+productoCEN.CrearProducto("119066-9985", "NIKE Da.Hoody", "Nike", "23.55", "32.50", 34, proveedores);
+
+//67
+productoCEN.CrearProducto("119143-7185", "NIKE NOS YA76 BF FZ Hoody", "Nike", "23.55", "32.50", 34, proveedores);
+
+//68
+productoCEN.CrearProducto("119144-7185", "NIKE NOS N45 BF Cuf Pant", "Nike", "23.55", "32.50", 34, proveedores);
+
+//69
+productoCEN.CrearProducto("119148-9000", "NIKE NOS SS Solid Swoosh V Neck Tee", "Nike", "23.55", "32.50", 34, proveedores);
+
+//70
+productoCEN.CrearProducto("119150-9500", "NIKE NOS Legend Slim Poly Pant", "Nike", "23.55", "32.50", 34, proveedores);
+
+//71
+productoCEN.CrearProducto("119151-9500", "NIKE NOS Jersey Cuffed Capri", "Nike", "23.55", "32.50", 34, proveedores);
+
+//72
+productoCEN.CrearProducto("119153-9000", "NIKE NOS Definition Bra", "Nike", "23.55", "32.50", 34, proveedores);
+
+//73
+productoCEN.CrearProducto("119153-9501", "NIKE NOS Definition Bra", "Nike", "23.55", "32.50", 34, proveedores);
+
+//74
+productoCEN.CrearProducto("119154-7185", "NIKE NOS Wmns Jersey Short", "Nike", "23.55", "32.50", 34, proveedores);
+
+//75
+productoCEN.CrearProducto("119154-9501", "NIKE NOS Wmns Jersey Short", "Nike", "23.55", "32.50", 34, proveedores);
+
+//76
+productoCEN.CrearProducto("119155-9500", "NIKE NOS Regular DF Cotton Capri", "Nike", "23.55", "32.50", 34, proveedores);
+
+//77
+productoCEN.CrearProducto("119156-9500", "NIKE NOS Regular DF Cotton Pant", "Nike", "23.55", "32.50", 34, proveedores);
+
+//78
+productoCEN.CrearProducto("119157-9000", "NIKE NOS Core Compression SL Top", "Nike", "23.55", "32.50", 34, proveedores);
+
+//79
+productoCEN.CrearProducto("119157-9500", "NIKE NOS Core Compression SL Top", "Nike", "23.55", "32.50", 34, proveedores);
+
+//80
+productoCEN.CrearProducto("119159-9500", "NIKE NOS Core Compression 6 Short", "Nike", "23.55", "32.50", 34, proveedores);
+
+//81
+productoCEN.CrearProducto("119160-7185", "NIKE NOS Squad Fleece Cuffed Pant", "Nike", "23.55", "32.50", 34, proveedores);
+
+//82
+productoCEN.CrearProducto("119160-9501", "NIKE NOS Squad Fleece Cuffed Pant", "Nike", "23.55", "32.50", 34, proveedores);
+
+//83
+productoCEN.CrearProducto("119161-9501", "NIKE NOS Squad Fleece FZ Hoody", "Nike", "23.55", "32.50", 34, proveedores);
+
+//84
+productoCEN.CrearProducto("119213-5162", "NIKE NOS AD Basic Woven Short", "Nike", "23.55", "32.50", 34, proveedores);
+
+//85
+productoCEN.CrearProducto("119214-5162", "NIKE NOS AD Basic Woven Med Short", "Nike", "23.55", "32.50", 34, proveedores);
+
+//86
+productoCEN.CrearProducto("119215-5162", "NIKE NOS AD Essential Cuffed Pant", "Nike", "23.55", "32.50", 34, proveedores);
+
+//87
+productoCEN.CrearProducto("119217-9500", "NIKE NOS Nike Fly Short", "Nike", "23.55", "32.50", 34, proveedores);
+
+//88
+productoCEN.CrearProducto("119218-3000", "NIKE NOS DFCT Version 2.", "Nike", "23.55", "32.50", 34, proveedores);
+
+//89
+productoCEN.CrearProducto("119221-7185", "NIKE NOS AD Jersey Medium", "Nike", "23.55", "32.50", 34, proveedores);
+
+//90
+productoCEN.CrearProducto("119221-9501", "NIKE NOS AD Jersey Medium", "Nike", "23.55", "32.50", 34, proveedores);
+
+//91
+productoCEN.CrearProducto("120514-5015", "Graphic He.Woven Short", "Nike", "23.55", "32.50", 34, proveedores);
+
+//92
+productoCEN.CrearProducto("120517-5036", "Rib Tank Stripe Da. Top", "Nike", "23.55", "32.50", 34, proveedores);
+
+//93
+productoCEN.CrearProducto("120518-7012", "Nike Campus Knit Set", "Nike", "23.55", "32.50", 34, proveedores);
+
+//94
+productoCEN.CrearProducto("120539-9020", "DFCT He.T-Shirt", "Nike", "23.55", "32.50", 34, proveedores);
+
+//95
+productoCEN.CrearProducto("120547-9000", "Basketball JDI Ki.T-Shirt", "Nike", "23.55", "32.50", 34, proveedores);
+
+//96
+productoCEN.CrearProducto("120859-5000", "NIKE NOS Waffle Swoosh SS Tee", "Nike", "23.55", "32.50", 34, proveedores);
+
+//97
+productoCEN.CrearProducto("120860-9500", "NIKE NOS Legend SS Top", "Nike", "23.55", "32.50", 34, proveedores);
+
+//98
+productoCEN.CrearProducto("120861-7185", "NIKE NOS Jersey Cuffed Capri", "Nike", "23.55", "32.50", 34, proveedores);
+
+//99
+productoCEN.CrearProducto("120862-9500", "NIKE NOS Speed Legend SS Top 2.", "Nike", "23.55", "32.50", 34, proveedores);
+
+//100
+productoCEN.CrearProducto("122142-5000", "CLASIC FLEECE FZ Da.Hoody", "Nike", "23.55", "32.50", 34, proveedores);
+
+//101
+productoCEN.CrearProducto("122240-9000", "NIKE RUBY CREW Da.Shirt", "Nike", "23.55", "32.50", 34, proveedores);
+
+//102
+productoCEN.CrearProducto("122241-5004", "CLASSIC FLEECE FZ JDI He.Hoody", "Nike", "23.55", "32.50", 34, proveedores);
+
+//103
+productoCEN.CrearProducto("122242-7006", "SWOOSH FILL He.Shirt", "Nike", "23.55", "32.50", 34, proveedores);
+
+//104
+productoCEN.CrearProducto("122243-5005", "CLASSIC FRESHER PANT He.Hose", "Nike", "23.55", "32.50", 34, proveedores);
