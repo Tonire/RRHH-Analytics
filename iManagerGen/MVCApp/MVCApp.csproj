@@ -224,6 +224,7 @@
     <Compile Include="Controllers\MensajesController.cs" />
     <Compile Include="Controllers\PedidosController.cs" />
     <Compile Include="Controllers\ProductosController.cs" />
+    <Compile Include="Controllers\ProveedoresController.cs" />
     <Compile Include="Controllers\Skins.cs" />
     <Compile Include="Controllers\UsuariosController.cs" />
     <Compile Include="Controllers\VentasController.cs" />
@@ -370,7 +371,7 @@
     <Content Include="Scripts\AdminLTE\plugins\ckeditor\plugins\wsc\README.md" />
     <Content Include="Scripts\AdminLTE\plugins\ckeditor\README.md" />
     <Content Include="Scripts\AdminLTE\plugins\ckeditor\skins\moono\readme.md" />
-    <None Include="Scripts\AdminLTE\plugins\datatables\datatables-sp.json" />
+    <Content Include="Scripts\AdminLTE\plugins\datatables\datatables-sp.js" />
     <Content Include="Scripts\AdminLTE\plugins\datatables\dataTables.responsive.css" />
     <Content Include="Scripts\AdminLTE\plugins\datatables\dataTables.responsive.js" />
     <Content Include="Scripts\AdminLTE\plugins\datatables\dataTables.responsive.min.js" />
@@ -966,6 +967,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Images\App_LocalResources\" />
+    <Folder Include="Views\Proveedores\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
