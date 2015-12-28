@@ -131,7 +131,7 @@ public System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.Produc
 {
         return _IProductoCAD.GetProductosByProveedor (p_proveedor);
 }
-public int ContarProductos ()
+public long ContarProductos ()
 {
         return _IProductoCAD.ContarProductos ();
 }

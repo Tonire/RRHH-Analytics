@@ -9,9 +9,9 @@ namespace MVCApp.Models {
         public IList<double> totalAnyoIngresos {get; set;}
         public IEnumerable<PedidoEN> PedidosPendientes {get; set;}
         public IEnumerable<ProveedorModels> listaProveedores { get; set; }
-        public int numeroUsuarios { get; set; }
-        public int numeroVentas { get; set; }
-        public int numeroPedidiosPendientes { get; set; }
-        public int numeroProductos { get; set; }
+        public long numeroUsuarios { get; set; }
+        public long numeroVentas { get; set; }
+        public long numeroPedidiosPendientes { get; set; }
+        public long numeroProductos { get; set; }
     }
 }

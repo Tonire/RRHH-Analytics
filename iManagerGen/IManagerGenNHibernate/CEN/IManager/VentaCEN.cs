@@ -91,7 +91,7 @@ public VentaEN GetVentaById (int id)
         return ventaEN;
 }
 
-public int ContarVentas ()
+public long ContarVentas ()
 {
         return _IVentaCAD.ContarVentas ();
 }

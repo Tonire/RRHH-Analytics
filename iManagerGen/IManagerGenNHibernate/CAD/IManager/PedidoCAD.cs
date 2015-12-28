@@ -324,9 +324,9 @@ public System.Collections.Generic.IList<PedidoEN> DameTodos (int first, int size
         return result;
 }
 
-public int ContarPedidosPendientes ()
+public long ContarPedidosPendientes ()
 {
-        int result;
+        long result;
 
         try
         {
@@ -336,7 +336,7 @@ public int ContarPedidosPendientes ()
                 IQuery query = (IQuery)session.GetNamedQuery ("PedidoENcontarPedidosPendientesHQL");
 
 
-                result = query.UniqueResult<int>();
+                result = query.UniqueResult<long>();
                 SessionCommit ();
         }
 

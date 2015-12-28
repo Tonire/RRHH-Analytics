@@ -343,9 +343,9 @@ public System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.Produc
 
         return result;
 }
-public int ContarProductos ()
+public long ContarProductos ()
 {
-        int result;
+        long result;
 
         try
         {
@@ -355,7 +355,7 @@ public int ContarProductos ()
                 IQuery query = (IQuery)session.GetNamedQuery ("ProductoENcontarProductosHQL");
 
 
-                result = query.UniqueResult<int>();
+                result = query.UniqueResult<long>();
                 SessionCommit ();
         }
 

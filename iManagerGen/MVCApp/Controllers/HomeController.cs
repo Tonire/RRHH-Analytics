@@ -44,10 +44,10 @@ namespace MVCApp.Controllers
             }
             homeModel.PedidosPendientes = pedidoCEN.GetPedidosPendientes().ToList();
             homeModel.listaProveedores = new AssemblerProveedores().ConvertListENToModel(proveedorCEN.DameTodos(0,-1)).ToList();
-            homeModel.numeroUsuarios = usuarioCEN.contarUsuarios();
-            homeModel.numeroVentas = ventaCEN.contarVentas();
-            homeModel.numeroPedidiosPendientes = pedidoCEN.contarPedidosPendientes();
-            homeModel.numeroProductos = productoCEN.contarProductos();
+            homeModel.numeroUsuarios = usuarioCEN.ContarUsuarios();
+            homeModel.numeroVentas = ventaCEN.ContarVentas();
+            homeModel.numeroPedidiosPendientes = pedidoCEN.ContarPedidosPendientes();
+            homeModel.numeroProductos = productoCEN.ContarProductos();
             return View(homeModel);
         }
 

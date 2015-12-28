@@ -227,9 +227,9 @@ public string Registrar (UsuarioEN usuario)
         return usuario.Email;
 }
 
-public int ContarUsuarios ()
+public long ContarUsuarios ()
 {
-        int result;
+        long result;
 
         try
         {
@@ -239,7 +239,7 @@ public int ContarUsuarios ()
                 IQuery query = (IQuery)session.GetNamedQuery ("UsuarioENcontarUsuariosHQL");
 
 
-                result = query.UniqueResult<int>();
+                result = query.UniqueResult<long>();
                 SessionCommit ();
         }
 

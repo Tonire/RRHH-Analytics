@@ -23,6 +23,6 @@ System.Collections.Generic.IList<UsuarioEN> DameTodos (int first, int size);
 
 string Registrar (UsuarioEN usuario);
 
-int ContarUsuarios ();
+long ContarUsuarios ();
 }
 }

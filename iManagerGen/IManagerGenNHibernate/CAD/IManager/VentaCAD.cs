@@ -228,9 +228,9 @@ public VentaEN GetVentaById (int id)
         return ventaEN;
 }
 
-public int ContarVentas ()
+public long ContarVentas ()
 {
-        int result;
+        long result;
 
         try
         {
@@ -240,7 +240,7 @@ public int ContarVentas ()
                 IQuery query = (IQuery)session.GetNamedQuery ("VentaENcontarVentasHQL");
 
 
-                result = query.UniqueResult<int>();
+                result = query.UniqueResult<long>();
                 SessionCommit ();
         }
 

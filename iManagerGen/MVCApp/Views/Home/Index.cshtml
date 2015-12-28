@@ -28,42 +28,51 @@
 <!-- Info boxes -->
 <div class="row">
     <div class="col-md-3 col-sm-6 col-xs-12">
-        <div class="info-box">
-            <span class="info-box-icon bg-aqua"><i class="ion ion-ios-gear-outline"></i></span>
-            <div class="info-box-content">
-                <span class="info-box-text">CPU Traffic</span>
-                <span class="info-box-number">90<small>%</small></span>
-            </div><!-- /.info-box-content -->
-        </div><!-- /.info-box -->
+        <a href="@Url.Action("Index","Productos")" style="color:black;">
+            <div class="info-box">
+                <span class="info-box-icon bg-aqua"><i class="ion ion-cube"></i></span>
+                <div class="info-box-content">
+                    <span class="info-box-text">PRODUCTOS</span>
+                    <span class="info-box-number">@Model.numeroProductos</span>
+                </div><!-- /.info-box-content -->
+            </div><!-- /.info-box -->
+        </a>
     </div><!-- /.col -->
     <div class="col-md-3 col-sm-6 col-xs-12">
+    <a href="@Url.Action("Index","Pedidos")" style="color:black;">
         <div class="info-box">
-            <span class="info-box-icon bg-red"><i class="fa fa-google-plus"></i></span>
+            <span class="info-box-icon bg-red"><i class="ion ion-load-a"></i></span>
             <div class="info-box-content">
-                <span class="info-box-text">Likes</span>
-                <span class="info-box-number">41,410</span>
+                <span class="info-box-text">PEDIDOS PENDIENTES</span>
+                <span class="info-box-number">@Model.numeroPedidiosPendientes</span>
             </div><!-- /.info-box-content -->
         </div><!-- /.info-box -->
+    </a>
+        
     </div><!-- /.col -->
     <!-- fix for small devices only -->
     <div class="clearfix visible-sm-block"></div>
     <div class="col-md-3 col-sm-6 col-xs-12">
-        <div class="info-box">
-            <span class="info-box-icon bg-green"><i class="ion ion-ios-cart-outline"></i></span>
-            <div class="info-box-content">
-                <span class="info-box-text">Sales</span>
-                <span class="info-box-number">760</span>
-            </div><!-- /.info-box-content -->
-        </div><!-- /.info-box -->
-    </div><!-- /.col -->
+        <a href="@Url.Action("Index","Ventas")" style="color:black;">
+            <div class="info-box">
+                <span class="info-box-icon bg-green"><i class="ion ion-ios-cart-outline"></i></span>
+                <div class="info-box-content">
+                    <span class="info-box-text">VENTAS</span>
+                    <span class="info-box-number">@Model.numeroVentas</span>
+                </div><!-- /.info-box-content -->
+            </div><!-- /.info-box -->
+        </a>
+</div><!-- /.col -->
     <div class="col-md-3 col-sm-6 col-xs-12">
-        <div class="info-box">
-            <span class="info-box-icon bg-yellow"><i class="ion ion-ios-people-outline"></i></span>
-            <div class="info-box-content">
-                <span class="info-box-text">New Members</span>
-                <span class="info-box-number">2,000</span>
-            </div><!-- /.info-box-content -->
-        </div><!-- /.info-box -->
+        <a href="@Url.Action("Index","Usuarios")" style="color:black;">
+            <div class="info-box">
+                <span class="info-box-icon bg-yellow"><i class="ion ion-ios-people-outline"></i></span>
+                <div class="info-box-content">
+                    <span class="info-box-text">USUARIOS</span>
+                    <span class="info-box-number">@Model.numeroUsuarios</span>
+                </div><!-- /.info-box-content -->
+            </div><!-- /.info-box -->
+        </a>
     </div><!-- /.col -->
 </div><!-- /.row -->
 <div class="row">
@@ -159,7 +168,7 @@
                                 <span class="description-text">Visits</span>
                             </div><!-- /.description-block -->
                             <div class="description-block margin-bottom">
-                                <div class="sparkbar pad" data-color="#fff">90,50,90,70,61,83,63</div>
+                                <i class="fa fa-stack-overflow" style="height: 80px; width: 80px; text-align: center; font-size: 45px; line-height: 90px;"></i>
                                 <h5 class="description-header">@Model.listaProveedores.ToList().Count</h5>
                                 <span class="description-text">Proveedores</span>
                             </div><!-- /.description-block -->

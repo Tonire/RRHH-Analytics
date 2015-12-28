@@ -22,6 +22,6 @@ System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.VentaEN> GetV
 VentaEN GetVentaById (int id);
 
 
-int ContarVentas ();
+long ContarVentas ();
 }
 }

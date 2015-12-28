@@ -31,6 +31,6 @@ PedidoEN GetPedidoById (int id);
 System.Collections.Generic.IList<PedidoEN> DameTodos (int first, int size);
 
 
-int ContarPedidosPendientes ();
+long ContarPedidosPendientes ();
 }
 }
