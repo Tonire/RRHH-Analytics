@@ -15,7 +15,7 @@
     // Using the ViewBag on a page to set the title and sub-title
     // This will cause the _AdminLteLayout to include this value in the page title
     // And also set the top titles in the main content area of the page
-    ViewBag.Title = "Admin LTE";
+    ViewBag.Title = "iManager";
     ViewBag.TitleSmall = "Version 2.0";
 
     // EXAMPLE:
@@ -91,9 +91,9 @@
                         <div class="col-md-12">
                             <p class="text-center">Año</p>
                             <select id="anyo-graph" class="form-control center-block" style="width:60%;">
-                                <option class="selected">2015</option>
-                                <option>2016</option>
-                                <option>2017</option>
+                                <option value="2015">2015</option>
+                                <option value="2016">2016</option>
+                                <option value="2017">2017</option>
                             </select>
                         </div>
                         
@@ -776,7 +776,18 @@
             var salesChartCanvas = $("#salesChart").get(0).getContext("2d");
             // This will get the first returned node in the jQuery collection.
             var salesChart = new Chart(salesChartCanvas);
-
+            var ingresos= new Array();
+            var gastos= new Array();
+            @foreach(var item in Model.totalAnyoIngresos){
+                <text>
+                    ingresos.push(@Html.Raw(Json.Encode(item)));
+                </text>
+            }
+            @foreach(var item in Model.totalAnyoGastos){
+                <text>
+                    gastos.push(@Html.Raw(Json.Encode(item)));
+                </text>
+            }
             var salesChartData = {
                 labels: ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"],
                 datasets: [
@@ -788,7 +799,7 @@
                       pointStrokeColor: "#c1c7d1",
                       pointHighlightFill: "#fff",
                       pointHighlightStroke: "rgb(220,220,220)",
-                      data: @Html.Raw(Json.Encode(Model.totalAnyoIngresos))
+                      data: ingresos[0]
                   },
                   {
                       label: "Gastos",
@@ -798,11 +809,49 @@
                       pointStrokeColor: "rgba(60,141,188,1)",
                       pointHighlightFill: "#fff",
                       pointHighlightStroke: "rgba(60,141,188,1)",
-                      data: @Html.Raw(Json.Encode(Model.totalAnyoGastos))
+                      data: gastos[0]
                   }
                 ]
             };
-
+            $('#anyo-graph').change(function() {
+                var i;
+                switch(this.value){
+                    case "2015":
+                        i=0;
+                        break;
+                    case "2016":
+                        i=1;
+                        break;
+                    case "2017":
+                        i=2;
+                        break;
+                }
+                salesChartData = {
+                    labels: ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"],
+                    datasets: [
+                      {
+                          label: "Ingresos",
+                          fillColor: "rgb(210, 214, 222)",
+                          strokeColor: "rgb(210, 214, 222)",
+                          pointColor: "rgb(210, 214, 222)",
+                          pointStrokeColor: "#c1c7d1",
+                          pointHighlightFill: "#fff",
+                          pointHighlightStroke: "rgb(220,220,220)",
+                          data: ingresos[i]
+                      },
+                      {
+                          label: "Gastos",
+                          fillColor: "rgba(60,141,188,0.9)",
+                          strokeColor: "rgba(60,141,188,0.8)",
+                          pointColor: "#3b8bba",
+                          pointStrokeColor: "rgba(60,141,188,1)",
+                          pointHighlightFill: "#fff",
+                          pointHighlightStroke: "rgba(60,141,188,1)",
+                          data: gastos[i]
+                      }
+                    ]
+                };
+            });
             var salesChartOptions = {
                 //Boolean - If we should show the scale at all
                 showScale: true,

@@ -36,12 +36,21 @@ namespace MVCApp.Controllers
             ProductoCEN productoCEN = new ProductoCEN();
 
             HomeModels homeModel= new HomeModels();
-            homeModel.totalAnyoGastos = new List<double>();
-            homeModel.totalAnyoIngresos = new List<double>();
-            for (int i = 1; i <= 12; i++) {
-                homeModel.totalAnyoGastos.Add(movimientoCEN.GetMovimientoTotalMesAnyo(i,2015,IManagerGenNHibernate.Enumerated.IManager.TipoMovimientoEnum.gasto));
-                homeModel.totalAnyoIngresos.Add(movimientoCEN.GetMovimientoTotalMesAnyo(i, 2015, IManagerGenNHibernate.Enumerated.IManager.TipoMovimientoEnum.ingreso));
+            homeModel.totalAnyoGastos = new List<List<double>>();
+            homeModel.totalAnyoIngresos = new List<List<double>>();
+            List<double> auxGastos = new List<double>();
+            List<double> auxIngresos = new List<double>();
+            for (int j = 2015; j < 2018; j++ ) {
+                for (int i = 1; i <= 12; i++) {
+                    auxGastos.Add(movimientoCEN.GetMovimientoTotalMesAnyo(i, j, IManagerGenNHibernate.Enumerated.IManager.TipoMovimientoEnum.gasto));
+                    auxIngresos.Add(movimientoCEN.GetMovimientoTotalMesAnyo(i, j, IManagerGenNHibernate.Enumerated.IManager.TipoMovimientoEnum.ingreso));
+                }
+                homeModel.totalAnyoGastos.Add(auxGastos);
+                homeModel.totalAnyoIngresos.Add(auxIngresos);
+                auxGastos = new List<double>();
+                auxIngresos = new List<double>();
             }
+            
             homeModel.PedidosPendientes = pedidoCEN.GetPedidosPendientes().ToList();
             homeModel.listaProveedores = new AssemblerProveedores().ConvertListENToModel(proveedorCEN.DameTodos(0,-1)).ToList();
             homeModel.numeroUsuarios = usuarioCEN.ContarUsuarios();
