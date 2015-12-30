@@ -64,6 +64,10 @@ namespace MVCApp.Controllers
             }
             IList<PedidoEN> listaUltimosPedidos = pedidoCEN.DameTodos(Int32.Parse(pedidoCEN.ContarPedidos().ToString())-7,7);
             homeModel.listaUltimosPedidos = listaUltimosPedidos;
+
+            List<ProductoEN> productosMasVendidos = (List<ProductoEN>)productoCEN.GetAllProductos(0,-1);
+            var sortedList = productosMasVendidos.OrderBy(x => x.Ventas);
+            homeModel.productosMasVendidos = sortedList;
             return View(homeModel);
         }
 
