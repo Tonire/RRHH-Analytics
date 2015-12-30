@@ -66,8 +66,10 @@ namespace MVCApp.Controllers
             homeModel.listaUltimosPedidos = listaUltimosPedidos;
 
             List<ProductoEN> productosMasVendidos = (List<ProductoEN>)productoCEN.GetAllProductos(0,-1);
-            var sortedList = productosMasVendidos.OrderBy(x => x.Ventas);
+            var sortedList = productosMasVendidos.OrderByDescending(x => x.Ventas);
+            List<ProductoEN> lista5productosMasVendidos = new List<ProductoEN>();
             homeModel.productosMasVendidos = sortedList;
+            homeModel.otrosCuenta=productoCEN.ContarProductos()-5;
             return View(homeModel);
         }
 
