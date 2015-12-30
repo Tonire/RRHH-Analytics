@@ -16,6 +16,7 @@ namespace MVCApp.Models {
         public List<double> totalIngresos{ get; set;}
         public List<double> totalGastos { get; set; }
         public List<double> ganancia { get; set; }
+        public IEnumerable<PedidoEN> listaUltimosPedidos { get; set; }
         public HomeModels() {
             totalIngresos = new List<double>();
             totalGastos = new List<double>();

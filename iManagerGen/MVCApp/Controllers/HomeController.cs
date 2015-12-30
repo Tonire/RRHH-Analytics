@@ -62,7 +62,8 @@ namespace MVCApp.Controllers
                 homeModel.totalGastos.Add(movimientoCEN.GetMovimientoTotalAnyo(i, IManagerGenNHibernate.Enumerated.IManager.TipoMovimientoEnum.gasto));
                 homeModel.ganancia.Add(movimientoCEN.GetMovimientoTotalAnyo(i, IManagerGenNHibernate.Enumerated.IManager.TipoMovimientoEnum.ingreso)-movimientoCEN.GetMovimientoTotalAnyo(i, IManagerGenNHibernate.Enumerated.IManager.TipoMovimientoEnum.gasto));
             }
-            
+            IList<PedidoEN> listaUltimosPedidos = pedidoCEN.DameTodos(Int32.Parse(pedidoCEN.ContarPedidos().ToString())-7,7);
+            homeModel.listaUltimosPedidos = listaUltimosPedidos;
             return View(homeModel);
         }
 

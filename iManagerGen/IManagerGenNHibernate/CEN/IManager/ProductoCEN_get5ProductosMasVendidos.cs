@@ -14,7 +14,7 @@ namespace IManagerGenNHibernate.CEN.IManager
 {
 public partial class ProductoCEN
 {
-public System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.ProductoEN> Get5ProductosMasVendidos (string p_oid)
+public System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.ProductoEN> Get5ProductosMasVendidos ()
 {
         /*PROTECTED REGION ID(IManagerGenNHibernate.CEN.IManager_Producto_get5ProductosMasVendidos) ENABLED START*/
 

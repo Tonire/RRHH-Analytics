@@ -74,5 +74,6 @@
 		  <query name="PedidoENgetPedidosConfirmadosHQL"><![CDATA[FROM PedidoEN where estado=2]]></query>
 		  <query name="PedidoENgetPedidosCanceladosHQL"><![CDATA[FROM PedidoEN where estado=3]]></query>
 		  <query name="PedidoENcontarPedidosPendientesHQL"><![CDATA[select count(*) FROM PedidoEN where estado=1]]></query>
+		  <query name="PedidoENcontarPedidosHQL"><![CDATA[select count(*) FROM PedidoEN]]></query>
 		</hibernate-mapping>
 	
