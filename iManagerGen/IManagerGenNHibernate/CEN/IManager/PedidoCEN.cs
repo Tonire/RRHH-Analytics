@@ -99,5 +99,9 @@ public long ContarPedidosPendientes ()
 {
         return _IPedidoCAD.ContarPedidosPendientes ();
 }
+public long ContarPedidos ()
+{
+        return _IPedidoCAD.ContarPedidos ();
+}
 }
 }

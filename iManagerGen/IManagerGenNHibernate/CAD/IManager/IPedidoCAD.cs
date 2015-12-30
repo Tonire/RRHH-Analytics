@@ -32,5 +32,8 @@ System.Collections.Generic.IList<PedidoEN> DameTodos (int first, int size);
 
 
 long ContarPedidosPendientes ();
+
+
+long ContarPedidos ();
 }
 }

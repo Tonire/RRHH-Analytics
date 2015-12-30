@@ -28,10 +28,18 @@ namespace MVCApp.Controllers {
             ProveedorCEN proveedorCEN = new ProveedorCEN();
             ProductoModels productoModels= new ProductoModels();
             ProductoCEN productoCEN = new ProductoCEN();
-            ProductoEN productoEN = productoCEN.GetProducto(id);
-            productoModels.Nombre = productoEN.Nombre;
-            productoModels.Referencia = id;
-            productoModels.proveedor = new AssemblerProveedores().ConvertListENToModel(proveedorCEN.GetProveedoresByProducto(id)).ToList();
+            ProductoEN productoEN = null;
+            if (id != null) {
+                productoEN = productoCEN.GetProducto(id);
+            }
+            if (productoEN != null) {
+                productoModels.Nombre = productoEN.Nombre;
+                productoModels.Referencia = id;
+                productoModels.proveedor = new AssemblerProveedores().ConvertListENToModel(proveedorCEN.GetProveedoresByProducto(id)).ToList();
+            } else {
+                return RedirectToAction("Index");
+            }
+            
 
             return View(productoModels);
         }
@@ -80,13 +88,16 @@ namespace MVCApp.Controllers {
             ProductoCEN productoCEN = new ProductoCEN();
             ProductoEN productoEN = productoCEN.GetProducto(id);
             ProveedorCEN proveedorCEN = new ProveedorCEN();
-            productoModels.Referencia = productoEN.Referencia;
-            productoModels.Nombre = productoEN.Nombre;
-            productoModels.Marca = productoEN.Marca;
-            productoModels.PrecioCompra = productoEN.PrecioCompra.ToString();
-            productoModels.PrecioVenta = productoEN.PrecioVenta.ToString();
-            productoModels.proveedor = new AssemblerProveedores().ConvertListENToModel(proveedorCEN.DameTodos(0,-1)).ToList();
-            
+            if (productoEN != null) {
+                productoModels.Referencia = productoEN.Referencia;
+                productoModels.Nombre = productoEN.Nombre;
+                productoModels.Marca = productoEN.Marca;
+                productoModels.PrecioCompra = productoEN.PrecioCompra.ToString();
+                productoModels.PrecioVenta = productoEN.PrecioVenta.ToString();
+                productoModels.proveedor = new AssemblerProveedores().ConvertListENToModel(proveedorCEN.DameTodos(0, -1)).ToList();
+            } else {
+                return RedirectToAction("Index");
+            }
             return View(productoModels);
         }
 
@@ -96,7 +107,7 @@ namespace MVCApp.Controllers {
         [HttpPost]
         public ActionResult Edit(ProductoModels productoModels) {
             try {
-                // TODO: Add update logic here
+
                 ProductoCEN productoCEN = new ProductoCEN();
                 ProveedorCEN proveedorCEN= new ProveedorCEN();
                 ProductoEN productoEN = productoCEN.GetProducto(productoModels.Referencia);

@@ -65,16 +65,21 @@ namespace MVCApp.Controllers
             string id=Request["email"];
             ProveedorModels proveedorModels = new ProveedorModels();
             ProveedorCEN proveedorCEN = new ProveedorCEN();
-            ProveedorEN proveedorEN = proveedorCEN.GetProveedor(id);
-
-            proveedorModels.Email = proveedorEN.Email;
-            proveedorModels.CIF = proveedorEN.CIF;
-            proveedorModels.Nombre = proveedorEN.Nombre;
-            proveedorModels.Telefono = proveedorEN.Telefono;
-            proveedorModels.Direccion = proveedorEN.Direccion;
-            proveedorModels.Localidad = proveedorEN.Localidad;
-            proveedorModels.Pais = proveedorEN.Pais;
-
+            ProveedorEN proveedorEN = null;
+            if (id != null) {
+                proveedorEN = proveedorCEN.GetProveedor(id);
+            }
+            if (proveedorEN != null) {
+                proveedorModels.Email = proveedorEN.Email;
+                proveedorModels.CIF = proveedorEN.CIF;
+                proveedorModels.Nombre = proveedorEN.Nombre;
+                proveedorModels.Telefono = proveedorEN.Telefono;
+                proveedorModels.Direccion = proveedorEN.Direccion;
+                proveedorModels.Localidad = proveedorEN.Localidad;
+                proveedorModels.Pais = proveedorEN.Pais;
+            } else {
+                return RedirectToAction("Index");
+            }
             return View(proveedorModels);
         }
 

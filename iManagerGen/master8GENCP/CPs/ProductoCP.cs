@@ -24,7 +24,7 @@ namespace EjemploProyectoCP.CPs {
                 int ventas=0;
                 foreach (LineaVentaEN lp in lineasPedidos) {
                     stock = lp.Producto.Stock - lp.Cantidad;
-                    ventas = lp.Producto.Ventas++;
+                    ventas = lp.Producto.Ventas + 1 * lp.Cantidad; ;
                     if (stock >= 0) {
                         productoCEN.Modify(lp.Producto.Referencia, lp.Producto.Nombre, lp.Producto.Marca, lp.Producto.PrecioCompra, lp.Producto.PrecioVenta, stock,ventas);
                     } else {

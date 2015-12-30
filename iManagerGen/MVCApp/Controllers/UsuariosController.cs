@@ -86,6 +86,9 @@ namespace MVCApp.Controllers
                 catch (MembershipCreateUserException e) {
                     ModelState.AddModelError("", ErrorCodeToString(e.StatusCode));
                 }
+                catch(IManagerGenNHibernate.Exceptions.DataLayerException ex){
+                    ModelState.AddModelError("", "El DNI  que has introducido ya existe en la base de datos.");
+                }
             }
 
             // Si llegamos a este punto, es que se ha producido un error y volvemos a mostrar el formulario
