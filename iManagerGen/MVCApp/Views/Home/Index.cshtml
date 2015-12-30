@@ -108,32 +108,46 @@
                 <div class="row">
                     <div class="col-sm-3 col-xs-6">
                         <div class="description-block border-right">
-                            <span class="description-percentage text-green"><i class="fa fa-caret-up"></i> 17%</span>
-                            <h5 class="description-header">$35,210.43</h5>
-                            <span class="description-text">TOTAL REVENUE</span>
+                            <h5 class="description-header text-green"><i class="fa fa-caret-up"></i> @Math.Round(Model.totalIngresos[0],2) €</h5>
+
+                            <span class="description-text">INGRESOS TOTALES</span>
                         </div><!-- /.description-block -->
                     </div><!-- /.col -->
                     <div class="col-sm-3 col-xs-6">
                         <div class="description-block border-right">
-                            <span class="description-percentage text-yellow"><i class="fa fa-caret-left"></i> 0%</span>
-                            <h5 class="description-header">$10,390.90</h5>
-                            <span class="description-text">TOTAL COST</span>
+                            <h5 class="description-header text-red"><i class="fa fa-caret-down"></i> @Math.Round(Model.totalGastos[0],2) €</h5>
+                            <span class="description-text">GASTOS TOTALES</span>
                         </div><!-- /.description-block -->
                     </div><!-- /.col -->
                     <div class="col-sm-3 col-xs-6">
                         <div class="description-block border-right">
-                            <span class="description-percentage text-green"><i class="fa fa-caret-up"></i> 20%</span>
-                            <h5 class="description-header">$24,813.53</h5>
-                            <span class="description-text">TOTAL PROFIT</span>
+                            @{
+                                string tipo;
+                                string tipo2;
+                                if (Model.ganancia[0] > 0) {
+                                    tipo = "up";
+                                    tipo2 = "green";
+                                }
+                                else if (Model.ganancia[0] < 0) {
+                                    tipo = "down";
+                                    tipo2 = "red";
+                                }
+                                else {
+                                    tipo = "left";
+                                    tipo2 = "yellow";
+                                }
+                            }
+                            <h5 class="description-header text-@tipo2"><i class="fa fa-caret-@tipo"></i> @Math.Round(Model.ganancia[0],2) €</h5>
+                            <span class="description-text">GANANCIA TOTAL</span>
                         </div><!-- /.description-block -->
                     </div><!-- /.col -->
                     <div class="col-sm-3 col-xs-6">
                         <div class="description-block">
-                            <div class="col-md-4 col-md-offset-4 text-left col-xs-4 col-xs-offset-3">
-                                <span style="background-color: rgb(210, 214, 222); display: inline-block; width: 12px; height: 12px; margin-right: 5px; "></span>INGRESOS
+                            <div class="center-block">
+                                <span style="background-color: rgb(210, 214, 222); display: inline-block; width: 12px; height: 12px; margin-right: 5px;"></span><span>INGRESOS</span>
                             </div>
-                            <div class="col-md-4 col-md-offset-4 text-left col-xs-4 col-xs-offset-3">
-                                <span style="background-color: rgba(60,141,188,0.9); display: inline-block; width: 12px; height: 12px; margin-right: 5px;"></span>GASTOS
+                            <div class="center-block" style="padding-right:12px;">
+                                <span style="background-color: rgba(60,141,188,0.9); display: inline-block; width: 12px; height: 12px; margin-right: 5px;"></span><span>GASTOS</span>
                             </div>
                         </div><!-- /.description-block -->
                     </div>
@@ -777,6 +791,7 @@
 
             // Get context with jQuery - using jQuery's .get() method.
             var salesChartCanvas = $("#salesChart").get(0).getContext("2d");
+
             // This will get the first returned node in the jQuery collection.
             var salesChart = new Chart(salesChartCanvas);
             
@@ -875,6 +890,7 @@
                         i = 2;
                         break;
                 }
+                salesChartCanvas = $("#salesChart").get(0).getContext("2d");
                 salesChartData.datasets[0].data = ingresos[i];
                 salesChartData.datasets[1].data = gastos[i];
                 if(first){
