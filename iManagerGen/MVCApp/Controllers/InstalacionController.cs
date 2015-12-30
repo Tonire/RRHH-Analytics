@@ -80,6 +80,9 @@ namespace MVCApp.Controllers
                 catch(IOException e1){
                     ModelState.AddModelError("","Error subiendo la imágen.");
                 }
+                catch(Exception ex){
+
+                }
             }
 
             // Si llegamos a este punto, es que se ha producido un error y volvemos a mostrar el formulario
