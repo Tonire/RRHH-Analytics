@@ -63,7 +63,10 @@ namespace MVCApp.Controllers
                 homeModel.ganancia.Add(movimientoCEN.GetMovimientoTotalAnyo(i, IManagerGenNHibernate.Enumerated.IManager.TipoMovimientoEnum.ingreso)-movimientoCEN.GetMovimientoTotalAnyo(i, IManagerGenNHibernate.Enumerated.IManager.TipoMovimientoEnum.gasto));
             }
             IList<PedidoEN> listaUltimosPedidos = pedidoCEN.DameTodos(Int32.Parse(pedidoCEN.ContarPedidos().ToString())-7,7);
-            homeModel.listaUltimosPedidos = listaUltimosPedidos;
+            homeModel.listaUltimosPedidos = listaUltimosPedidos.Reverse();
+
+            IList<ProductoEN> listaUltimosProductos = productoCEN.GetAllProductos(Int32.Parse(productoCEN.ContarProductos().ToString())-5,5);
+            homeModel.listaUltimosProductos = listaUltimosProductos.Reverse();
 
             List<ProductoEN> productosMasVendidos = (List<ProductoEN>)productoCEN.GetAllProductos(0,-1);
             var sortedList = productosMasVendidos.OrderByDescending(x => x.Ventas);

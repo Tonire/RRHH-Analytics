@@ -22,7 +22,7 @@
     // Using the Breadcrumb class to create a dynamically generated breadcrumb on the page with
     // Titles, plus optional icon and URLs
     ViewBag.Breadcrumb = new Breadcrumb(new Crumb[] {
-        new Crumb("Table resúmen", "", "fa-dashboard")
+        new Crumb("Tabla resúmen", "", "fa-dashboard")
     });
 }
 <!-- Info boxes -->
@@ -255,62 +255,42 @@
                     <table class="table no-margin">
                         <thead>
                             <tr>
-                                <th>Order ID</th>
-                                <th>Item</th>
-                                <th>Status</th>
-                                <th>Popularity</th>
+                                <th>Id del Pedido</th>
+                                <th>Estado del pedido</th>
+                                <th>Fecha Pedido</th>
+                                <th>Fecha Confirmación</th>
+                                <th>Fecha Cancelación</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td><a href="pages/examples/invoice.html">OR9842</a></td>
-                                <td>Call of Duty IV</td>
-                                <td><span class="label label-success">Shipped</span></td>
-                                <td><div class="sparkbar" data-color="#00a65a" data-height="20">90,80,90,-70,61,-83,63</div></td>
-                            </tr>
-                            <tr>
-                                <td><a href="pages/examples/invoice.html">OR1848</a></td>
-                                <td>Samsung Smart TV</td>
-                                <td><span class="label label-warning">Pending</span></td>
-                                <td><div class="sparkbar" data-color="#f39c12" data-height="20">90,80,-90,70,61,-83,68</div></td>
-                            </tr>
-                            <tr>
-                                <td><a href="pages/examples/invoice.html">OR7429</a></td>
-                                <td>iPhone 6 Plus</td>
-                                <td><span class="label label-danger">Delivered</span></td>
-                                <td><div class="sparkbar" data-color="#f56954" data-height="20">90,-80,90,70,-61,83,63</div></td>
-                            </tr>
-                            <tr>
-                                <td><a href="pages/examples/invoice.html">OR7429</a></td>
-                                <td>Samsung Smart TV</td>
-                                <td><span class="label label-info">Processing</span></td>
-                                <td><div class="sparkbar" data-color="#00c0ef" data-height="20">90,80,-90,70,-61,83,63</div></td>
-                            </tr>
-                            <tr>
-                                <td><a href="pages/examples/invoice.html">OR1848</a></td>
-                                <td>Samsung Smart TV</td>
-                                <td><span class="label label-warning">Pending</span></td>
-                                <td><div class="sparkbar" data-color="#f39c12" data-height="20">90,80,-90,70,61,-83,68</div></td>
-                            </tr>
-                            <tr>
-                                <td><a href="pages/examples/invoice.html">OR7429</a></td>
-                                <td>iPhone 6 Plus</td>
-                                <td><span class="label label-danger">Delivered</span></td>
-                                <td><div class="sparkbar" data-color="#f56954" data-height="20">90,-80,90,70,-61,83,63</div></td>
-                            </tr>
-                            <tr>
-                                <td><a href="pages/examples/invoice.html">OR9842</a></td>
-                                <td>Call of Duty IV</td>
-                                <td><span class="label label-success">Shipped</span></td>
-                                <td><div class="sparkbar" data-color="#00a65a" data-height="20">90,80,90,-70,61,-83,63</div></td>
-                            </tr>
+                            @foreach (var item in Model.listaUltimosPedidos) {
+                                <tr>
+                                    <td><a title="Ver Pedido" href="@Url.Action("/Details/"+item.Id,"Pedidos")">@item.Id</a></td>
+                                    <td>@{
+                                        switch (item.Estado.ToString()) {
+                                            case "pendiente":
+                                                <text><span class="label label-warning">Pendiente</span></text>
+                                                break;
+                                            case "confirmado":
+                                                <text><span class="label label-success">Confirmado</span></text>
+                                                break;
+                                            case "rechazado":
+                                                <text><span class="label label-danger">Cancelado</span></text>
+                                                break;
+                                            }
+                                        }</td>
+                                    <td>@item.FechaRealizacion</td>
+                                    <td>@item.FechaConfirmacion</td>
+                                    <td>@item.FechaCancelacion</td>
+                                </tr>
+                            }
                         </tbody>
                     </table>
                 </div><!-- /.table-responsive -->
             </div><!-- /.box-body -->
             <div class="box-footer clearfix">
-                <a href="javascript::;" class="btn btn-sm btn-info btn-flat pull-left">Hacer Nuevo Pedido</a>
-                <a href="javascript::;" class="btn btn-sm btn-default btn-flat pull-right">Ver Pedidos</a>
+                <a href="@Url.Action("Create","Pedidos")" class="btn btn-sm btn-info btn-flat pull-left">Hacer Pedido</a>
+                <a href="@Url.Action("Index","Pedidos")" class="btn btn-sm btn-default btn-flat pull-right">Ver Pedidos</a>
             </div><!-- /.box-footer -->
         </div><!-- /.box -->
     </div><!-- /.col -->
@@ -326,54 +306,21 @@
             </div><!-- /.box-header -->
             <div class="box-body">
                 <ul class="products-list product-list-in-box">
-                    <li class="item">
-                        <div class="product-img">
-                            <img src="http://placehold.it/50x50/d2d6de/ffffff" alt="Product Image" />
-                        </div>
-                        <div class="product-info">
-                            <a href="javascript::;" class="product-title">Samsung TV <span class="label label-warning pull-right">$1800</span></a>
-                            <span class="product-description">
-                                Samsung 32" 1080p 60Hz LED Smart HDTV.
-                            </span>
-                        </div>
-                    </li><!-- /.item -->
-                    <li class="item">
-                        <div class="product-img">
-                            <img src="/Content/AdminLTE/img/default-50x50.gif" alt="Product Image" />
-                        </div>
-                        <div class="product-info">
-                            <a href="javascript::;" class="product-title">Bicycle <span class="label label-info pull-right">$700</span></a>
-                            <span class="product-description">
-                                26" Mongoose Dolomite Men's 7-speed, Navy Blue.
-                            </span>
-                        </div>
-                    </li><!-- /.item -->
-                    <li class="item">
-                        <div class="product-img">
-                            <img src="/Content/AdminLTE/img/default-50x50.gif" alt="Product Image" />
-                        </div>
-                        <div class="product-info">
-                            <a href="javascript::;" class="product-title">Xbox One <span class="label label-danger pull-right">$350</span></a>
-                            <span class="product-description">
-                                Xbox One Console Bundle with Halo Master Chief Collection.
-                            </span>
-                        </div>
-                    </li><!-- /.item -->
-                    <li class="item">
-                        <div class="product-img">
-                            <img src="/Content/AdminLTE/img/default-50x50.gif" alt="Product Image" />
-                        </div>
-                        <div class="product-info">
-                            <a href="javascript::;" class="product-title">PlayStation 4 <span class="label label-success pull-right">$399</span></a>
-                            <span class="product-description">
-                                PlayStation 4 500GB Console (PS4)
-                            </span>
-                        </div>
-                    </li><!-- /.item -->
+                    @foreach (var item in Model.listaUltimosProductos) {
+                        <li class="item">
+                            <div class="product-info" style="margin-left: 10px;">
+                                <a href="@Url.Action("/Details/"+@item.Referencia,"Productos")" class="product-title">@item.Nombre <span class="label label-success pull-right">@item.PrecioVenta €</span></a>
+                                <span class="product-description">
+                                 @item.Marca
+                                </span>
+                            </div>
+                        </li>
+                    }
+
                 </ul>
             </div><!-- /.box-body -->
             <div class="box-footer text-center">
-                <a href="javascript::;" class="uppercase">Ver Todos</a>
+                <a href="@Url.Action("Index","Productos")" class="uppercase">Ver Todos</a>
             </div><!-- /.box-footer -->
         </div><!-- /.box -->
     </div><!-- /.col -->
