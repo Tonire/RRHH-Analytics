@@ -333,4 +333,455 @@ proveedores.Add ("info@lecoqsportif.com");
 
                 //104
                 productoCEN.CrearProducto("122243-5005", "CLASSIC FRESHER PANT He.Hose", "Nike", (float)82.61, (float)95.37, 6, proveedores,0);
+
+
+
+
+       #region LineasPedido
+                
+                //LineaPedido1  
+                LineaPedidoEN lp1 = new LineaPedidoEN ();
+                lp1.Cantidad = 22;
+                lp1.Producto = productoCEN.GetProducto ("O07592");
+                LineaPedidoEN lp2 = new LineaPedidoEN();
+                lp2.Cantidad = 16;
+                lp2.Producto = productoCEN.GetProducto ("Q23885");
+                LineaPedidoEN lp3 = new LineaPedidoEN();
+                lp3.Cantidad = 7;
+                lp3.Producto = productoCEN.GetProducto("G65380");
+                LineaPedidoEN lp4 = new LineaPedidoEN();
+                lp4.Cantidad = 7;
+                lp4.Producto = productoCEN.GetProducto("Q33691");
+                IList<LineaPedidoEN> Pedido01_1 = new List<LineaPedidoEN>();
+                Pedido01_1.Add(lp1);
+                Pedido01_1.Add(lp2);
+                Pedido01_1.Add(lp3);
+                Pedido01_1.Add(lp4);
+
+                //LineaPedido2
+                LineaPedidoEN lp5 = new LineaPedidoEN();
+                lp5.Cantidad = 3;
+                lp5.Producto = productoCEN.GetProducto("O07587");
+                LineaPedidoEN lp6 = new LineaPedidoEN();
+                lp6.Cantidad = 18;
+                lp6.Producto = productoCEN.GetProducto("D73804");
+                LineaPedidoEN lp7 = new LineaPedidoEN();
+                lp7.Cantidad = 2;
+                lp7.Producto = productoCEN.GetProducto("CV-117381-AS1");
+                LineaPedidoEN lp8 = new LineaPedidoEN();
+                lp8.Cantidad = 5;
+                lp8.Producto = productoCEN.GetProducto("G65442");
+                LineaPedidoEN lp9 = new LineaPedidoEN();
+                lp9.Cantidad = 2;
+                lp9.Producto = productoCEN.GetProducto("132974");
+                LineaPedidoEN lp10 = new LineaPedidoEN();
+                lp10.Cantidad = 4;
+                lp10.Producto = productoCEN.GetProducto("L44750");
+                LineaPedidoEN lp11 = new LineaPedidoEN();
+                lp11.Cantidad = 2;
+                lp11.Producto = productoCEN.GetProducto("119213-5162");
+                LineaPedidoEN lp12 = new LineaPedidoEN();
+                lp12.Cantidad = 6;
+                lp12.Producto = productoCEN.GetProducto("O07611");
+                LineaPedidoEN lp13 = new LineaPedidoEN();
+                lp13.Cantidad = 5;
+                lp13.Producto = productoCEN.GetProducto("F50486");
+                LineaPedidoEN lp14 = new LineaPedidoEN();
+                lp14.Cantidad = 3;
+                lp14.Producto = productoCEN.GetProducto("CV-CKQ9205-BK");
+
+                IList<LineaPedidoEN> Pedido02_1 = new List<LineaPedidoEN>();
+                Pedido02_1.Add(lp5);
+                Pedido02_1.Add(lp6);
+                Pedido02_1.Add(lp7);
+                Pedido02_1.Add(lp8);
+                Pedido02_1.Add(lp9);
+                Pedido02_1.Add(lp10);
+                Pedido02_1.Add(lp11);
+                Pedido02_1.Add(lp12);
+                Pedido02_1.Add(lp13);
+                Pedido02_1.Add(lp14);
+
+
+                //LineaPedido3  
+                LineaPedidoEN lp15 = new LineaPedidoEN();
+                lp15.Cantidad = 3;
+                lp15.Producto = productoCEN.GetProducto("Q23904");
+                LineaPedidoEN lp16 = new LineaPedidoEN();
+                lp16.Cantidad = 4;
+                lp16.Producto = productoCEN.GetProducto("D67175");
+                LineaPedidoEN lp17 = new LineaPedidoEN();
+                lp17.Cantidad = 5;
+                lp17.Producto = productoCEN.GetProducto("Q33865");
+                LineaPedidoEN lp18 = new LineaPedidoEN();
+                lp18.Cantidad = 2;
+                lp18.Producto = productoCEN.GetProducto("Z73940");
+                IList<LineaPedidoEN> Pedido03_1 = new List<LineaPedidoEN>();
+                Pedido03_1.Add(lp15);
+                Pedido03_1.Add(lp16);
+                Pedido03_1.Add(lp17);
+                Pedido03_1.Add(lp18);
+
+
+                //LineaPedido4
+                LineaPedidoEN lp19 = new LineaPedidoEN();
+                lp19.Cantidad = 9;
+                lp19.Producto = productoCEN.GetProducto("Q21672");
+                LineaPedidoEN lp20 = new LineaPedidoEN();
+                lp20.Cantidad = 18;
+                lp20.Producto = productoCEN.GetProducto("CV-532466C-D1");
+                LineaPedidoEN lp21 = new LineaPedidoEN();
+                lp21.Cantidad = 3;
+                lp21.Producto = productoCEN.GetProducto("119148-9000");
+       
+             
+                IList<LineaPedidoEN> Pedido04_1 = new List<LineaPedidoEN>();
+                Pedido04_1.Add(lp19);
+                Pedido04_1.Add(lp20);
+                Pedido04_1.Add(lp21);
+           
+
+                //LineaPedido5  
+                LineaPedidoEN lp22 = new LineaPedidoEN();
+                lp22.Cantidad = 12;
+                lp22.Producto = productoCEN.GetProducto("Z73944");
+                LineaPedidoEN lp23 = new LineaPedidoEN();
+                lp23.Cantidad = 8;
+                lp23.Producto = productoCEN.GetProducto("119161-9501");
+                LineaPedidoEN lp24 = new LineaPedidoEN();
+                lp24.Cantidad = 2;
+                lp24.Producto = productoCEN.GetProducto("F50490");
+                LineaPedidoEN lp25 = new LineaPedidoEN();
+                lp25.Cantidad = 9;
+                lp25.Producto = productoCEN.GetProducto("119153-9501");
+                LineaPedidoEN lp26 = new LineaPedidoEN();
+                lp26.Cantidad = 2;
+                lp26.Producto = productoCEN.GetProducto("D67233");
+                LineaPedidoEN lp27 = new LineaPedidoEN();
+                lp27.Cantidad = 8;
+                lp27.Producto = productoCEN.GetProducto("L44750");
+                LineaPedidoEN lp28 = new LineaPedidoEN();
+                lp28.Cantidad = 5;
+                lp28.Producto = productoCEN.GetProducto("122243-5005");
+                LineaPedidoEN lp29 = new LineaPedidoEN();
+                lp29.Cantidad = 3;
+                lp29.Producto = productoCEN.GetProducto("F50485");
+                LineaPedidoEN lp30 = new LineaPedidoEN();
+                lp30.Cantidad = 10;
+                lp30.Producto = productoCEN.GetProducto("O07598");
+              
+                IList<LineaPedidoEN> Pedido05_1 = new List<LineaPedidoEN>();
+                Pedido05_1.Add(lp22);
+                Pedido05_1.Add(lp23);
+                Pedido05_1.Add(lp24);
+                Pedido05_1.Add(lp25);
+                Pedido05_1.Add(lp26);
+                Pedido05_1.Add(lp27);
+                Pedido05_1.Add(lp28);
+                Pedido05_1.Add(lp29);
+               
+
+                //LineaPedido6
+                LineaPedidoEN lp31 = new LineaPedidoEN();
+                lp31.Cantidad = 8;
+                lp31.Producto = productoCEN.GetProducto("120517-5036");
+                LineaPedidoEN lp32 = new LineaPedidoEN();
+                lp32.Cantidad = 1;
+                lp32.Producto = productoCEN.GetProducto("CV-CWR2609-PP");
+                LineaPedidoEN lp33 = new LineaPedidoEN();
+                lp33.Cantidad = 3;
+                lp33.Producto = productoCEN.GetProducto("Q23885");
+                LineaPedidoEN lp34 = new LineaPedidoEN();
+                lp34.Cantidad = 6;
+                lp34.Producto = productoCEN.GetProducto("122142-5000");
+                LineaPedidoEN lp35 = new LineaPedidoEN();
+                lp35.Cantidad = 6;
+                lp35.Producto = productoCEN.GetProducto("CV-CWQ3206-VLT");
+                LineaPedidoEN lp36 = new LineaPedidoEN();
+                lp36.Cantidad = 7;
+                lp36.Producto = productoCEN.GetProducto("119213-5162");
+                IList<LineaPedidoEN> Pedido06_1 = new List<LineaPedidoEN>();
+                Pedido06_1.Add(lp31);
+                Pedido06_1.Add(lp32);
+                Pedido06_1.Add(lp33);
+                Pedido06_1.Add(lp34);
+                Pedido06_1.Add(lp35);
+                Pedido06_1.Add(lp36);
+              
+                //LineaPedido7  
+                LineaPedidoEN lp37 = new LineaPedidoEN();
+                lp37.Cantidad = 4;
+                lp37.Producto = productoCEN.GetProducto("O07612");
+                LineaPedidoEN lp38 = new LineaPedidoEN();
+                lp38.Cantidad = 8;
+                lp38.Producto = productoCEN.GetProducto("120514-5015");
+                LineaPedidoEN lp39 = new LineaPedidoEN();
+                lp39.Cantidad = 8;
+                lp39.Producto = productoCEN.GetProducto("Q23885");
+                LineaPedidoEN lp40 = new LineaPedidoEN();
+                lp40.Cantidad = 3;
+                lp40.Producto = productoCEN.GetProducto("122142-5000");
+                LineaPedidoEN lp41 = new LineaPedidoEN();
+                lp41.Cantidad = 8;
+                lp41.Producto = productoCEN.GetProducto("120514-5015");
+                
+                IList<LineaPedidoEN> Pedido07_1 = new List<LineaPedidoEN>();
+                Pedido07_1.Add(lp31);
+                Pedido07_1.Add(lp32);
+                Pedido07_1.Add(lp33);
+                Pedido07_1.Add(lp34);
+                Pedido07_1.Add(lp35);
+                
+                
+
+                //LineaPedido8  
+                LineaPedidoEN lp42 = new LineaPedidoEN();
+                lp42.Cantidad = 4;
+                lp42.Producto = productoCEN.GetProducto("O07612");
+                LineaPedidoEN lp43 = new LineaPedidoEN();
+                lp43.Cantidad = 1;
+                lp43.Producto = productoCEN.GetProducto("120514-5015");
+                LineaPedidoEN lp44 = new LineaPedidoEN();
+                lp44.Cantidad = 2;
+                lp44.Producto = productoCEN.GetProducto("F50490");
+                LineaPedidoEN lp45 = new LineaPedidoEN();
+                lp45.Cantidad = 3;
+                lp45.Producto = productoCEN.GetProducto("119153-9000");
+                LineaPedidoEN lp46 = new LineaPedidoEN();
+                lp46.Cantidad = 4;
+                lp46.Producto = productoCEN.GetProducto("F50490");
+
+                IList<LineaPedidoEN> Pedido08_1 = new List<LineaPedidoEN>();
+                Pedido08_1.Add(lp42);
+                Pedido08_1.Add(lp43);
+                Pedido08_1.Add(lp44);
+                Pedido08_1.Add(lp45);
+                Pedido08_1.Add(lp46);
+
+                //LineaPedido9  
+                LineaPedidoEN lp47 = new LineaPedidoEN();
+                lp47.Cantidad = 9;
+                lp47.Producto = productoCEN.GetProducto("O07612");
+                LineaPedidoEN lp48 = new LineaPedidoEN();
+                lp48.Cantidad = 12;
+                lp48.Producto = productoCEN.GetProducto("120514-5015");
+                
+
+                IList<LineaPedidoEN> Pedido09_1 = new List<LineaPedidoEN>();
+                Pedido09_1.Add(lp47);
+                Pedido09_1.Add(lp48);
+               
+
+                //LineaPedido10
+                LineaPedidoEN lp49 = new LineaPedidoEN();
+                lp49.Cantidad = 4;
+                lp49.Producto = productoCEN.GetProducto("D67836");
+                LineaPedidoEN lp50 = new LineaPedidoEN();
+                lp50.Cantidad = 5;
+                lp50.Producto = productoCEN.GetProducto("F50636");
+                LineaPedidoEN lp51 = new LineaPedidoEN();
+                lp51.Cantidad = 2;
+                lp51.Producto = productoCEN.GetProducto("CV-CKQ3107-MNT");
+                LineaPedidoEN lp52 = new LineaPedidoEN();
+                lp52.Cantidad = 8;
+                lp52.Producto = productoCEN.GetProducto("CV-CS104-MIL");
+               
+
+                IList<LineaPedidoEN> Pedido10_1 = new List<LineaPedidoEN>();
+                Pedido10_1.Add(lp49);
+                Pedido10_1.Add(lp50);
+                Pedido10_1.Add(lp51);
+                Pedido10_1.Add(lp52);
+               
+
+                //LineaPedido11
+                LineaPedidoEN lp53 = new LineaPedidoEN();
+                lp53.Cantidad = 8;
+                lp53.Producto = productoCEN.GetProducto("CV-CKQ3214-PPL");
+                LineaPedidoEN lp54 = new LineaPedidoEN();
+                lp54.Cantidad = 15;
+                lp54.Producto = productoCEN.GetProducto("120547-9000");
+                LineaPedidoEN lp55 = new LineaPedidoEN();
+                lp55.Cantidad = 8;
+                lp55.Producto = productoCEN.GetProducto("Q33691");
+                LineaPedidoEN lp56 = new LineaPedidoEN();
+                lp56.Cantidad = 4;
+                lp56.Producto = productoCEN.GetProducto("119155-9500");
+                LineaPedidoEN lp57 = new LineaPedidoEN();
+                lp57.Cantidad = 10;
+                lp57.Producto = productoCEN.GetProducto("CV-CKQ3214-PPL");
+                LineaPedidoEN lp58 = new LineaPedidoEN();
+                lp58.Cantidad = 3;
+                lp58.Producto = productoCEN.GetProducto("120539-9020");
+                LineaPedidoEN lp59 = new LineaPedidoEN();
+                lp59.Cantidad = 6;
+                lp59.Producto = productoCEN.GetProducto("120862-9500");
+                LineaPedidoEN lp60 = new LineaPedidoEN();
+                lp60.Cantidad = 16;
+                lp60.Producto = productoCEN.GetProducto("Z73944");
+
+
+                IList<LineaPedidoEN> Pedido11_1 = new List<LineaPedidoEN>();
+                Pedido11_1.Add(lp53);
+                Pedido11_1.Add(lp54);
+                Pedido11_1.Add(lp55);
+                Pedido11_1.Add(lp56);
+                Pedido11_1.Add(lp57);
+                Pedido11_1.Add(lp58);
+                Pedido11_1.Add(lp59);
+                Pedido11_1.Add(lp60);
+
+                //LineaPedido12  
+                LineaPedidoEN lp61 = new LineaPedidoEN();
+                lp61.Cantidad = 3;
+                lp61.Producto = productoCEN.GetProducto("G65202");
+                LineaPedidoEN lp62 = new LineaPedidoEN();
+                lp62.Cantidad = 6;
+                lp62.Producto = productoCEN.GetProducto("CV-532466C-D1");
+                LineaPedidoEN lp63 = new LineaPedidoEN();
+                lp63.Cantidad = 3;
+                lp63.Producto = productoCEN.GetProducto("D67002");
+                LineaPedidoEN lp64 = new LineaPedidoEN();
+                lp64.Cantidad = 4;
+                lp64.Producto = productoCEN.GetProducto("G65302");
+                LineaPedidoEN lp65 = new LineaPedidoEN();
+                lp65.Cantidad = 7;
+                lp65.Producto = productoCEN.GetProducto("M29605");
+                LineaPedidoEN lp66 = new LineaPedidoEN();
+                lp66.Cantidad = 4;
+                lp66.Producto = productoCEN.GetProducto("O07586");
+             
+
+
+                IList<LineaPedidoEN> Pedido12_1 = new List<LineaPedidoEN>();
+                Pedido12_1.Add(lp53);
+                Pedido12_1.Add(lp54);
+                Pedido12_1.Add(lp55);
+                Pedido12_1.Add(lp56);
+                Pedido12_1.Add(lp57);
+                Pedido12_1.Add(lp58);
+                Pedido12_1.Add(lp59);
+                Pedido12_1.Add(lp60);    
+
+                #endregion
+
+                #region Pedido
+
+                //Pedido1
+                PedidoEN pedido1 = new PedidoEN ();
+                pedido1.Estado = IManagerGenNHibernate.Enumerated.IManager.EstadoPedidoEnum.pendiente;
+                pedido1.FechaRealizacion = DateTime.Parse("01/05/2015 10:12:30",System.Globalization.CultureInfo.InvariantCulture);
+                int pedido = pedidoCEN.CrearPedido(pedido1.Estado, pedido1.FechaRealizacion, toni.Email, Pedido01_1);
+                pedidoCP.AumentarStockConfirmarPedidoHacerMovimiento(pedido, DateTime.Parse("01/07/2015 12:50:12",System.Globalization.CultureInfo.InvariantCulture));
+                double totalGastosAnyo = movimientosCEN.GetMovimientoTotalAnyo(2015, IManagerGenNHibernate.Enumerated.IManager.TipoMovimientoEnum.gasto);
+                pedidoCEN.Destroy(pedidoCEN.GetPedidosConfirmados()[0].Id);
+
+                //Pedido2
+                PedidoEN pedido2 = new PedidoEN();
+                pedido2.Estado = IManagerGenNHibernate.Enumerated.IManager.EstadoPedidoEnum.pendiente;
+                pedido2.FechaRealizacion = DateTime.Parse("02/14/2015 9:26:21", System.Globalization.CultureInfo.InvariantCulture);
+                int ped2 = pedidoCEN.CrearPedido(pedido2.Estado, pedido2.FechaRealizacion, toni.Email, Pedido02_1);
+                pedidoCP.AumentarStockConfirmarPedidoHacerMovimiento(ped2, DateTime.Parse("02/19/2015 14:10:00", System.Globalization.CultureInfo.InvariantCulture));
+                totalGastosAnyo = movimientosCEN.GetMovimientoTotalAnyo(2015, IManagerGenNHibernate.Enumerated.IManager.TipoMovimientoEnum.gasto);
+                pedidoCEN.Destroy(pedidoCEN.GetPedidosConfirmados()[0].Id);
+
+                //Pedido3
+                PedidoEN pedido3 = new PedidoEN();
+                pedido3.Estado = IManagerGenNHibernate.Enumerated.IManager.EstadoPedidoEnum.pendiente;
+                pedido3.FechaRealizacion = DateTime.Parse("03/14/2015 10:36:41", System.Globalization.CultureInfo.InvariantCulture);
+                int ped3 = pedidoCEN.CrearPedido(pedido3.Estado, pedido3.FechaRealizacion, toni.Email, Pedido03_1);
+                pedidoCP.AumentarStockConfirmarPedidoHacerMovimiento(ped3, DateTime.Parse("03/19/2015 09:19:56", System.Globalization.CultureInfo.InvariantCulture));
+                totalGastosAnyo = movimientosCEN.GetMovimientoTotalAnyo(2015, IManagerGenNHibernate.Enumerated.IManager.TipoMovimientoEnum.gasto);
+                pedidoCEN.Destroy(pedidoCEN.GetPedidosConfirmados()[0].Id);
+
+
+                //Pedido4
+                PedidoEN pedido4 = new PedidoEN();
+                pedido4.Estado = IManagerGenNHibernate.Enumerated.IManager.EstadoPedidoEnum.pendiente;
+                pedido4.FechaRealizacion = DateTime.Parse("04/24/2015 15:16:11", System.Globalization.CultureInfo.InvariantCulture);
+                int ped4 = pedidoCEN.CrearPedido(pedido4.Estado, pedido4.FechaRealizacion, toni.Email, Pedido04_1);
+                pedidoCP.AumentarStockConfirmarPedidoHacerMovimiento(ped4, DateTime.Parse("04/25/2015 11:17:08", System.Globalization.CultureInfo.InvariantCulture));
+                totalGastosAnyo = movimientosCEN.GetMovimientoTotalAnyo(2015, IManagerGenNHibernate.Enumerated.IManager.TipoMovimientoEnum.gasto);
+                pedidoCEN.Destroy(pedidoCEN.GetPedidosConfirmados()[0].Id);
+
+                //Pedido5
+                PedidoEN pedido5 = new PedidoEN();
+                pedido5.Estado = IManagerGenNHibernate.Enumerated.IManager.EstadoPedidoEnum.pendiente;
+                pedido5.FechaRealizacion = DateTime.Parse("05/05/2015 18:03:21", System.Globalization.CultureInfo.InvariantCulture);
+                int ped5 = pedidoCEN.CrearPedido(pedido5.Estado, pedido5.FechaRealizacion, toni.Email, Pedido05_1);
+                pedidoCP.AumentarStockConfirmarPedidoHacerMovimiento(ped5, DateTime.Parse("05/10/2015 12:01:10", System.Globalization.CultureInfo.InvariantCulture));
+                totalGastosAnyo = movimientosCEN.GetMovimientoTotalAnyo(2015, IManagerGenNHibernate.Enumerated.IManager.TipoMovimientoEnum.gasto);
+                pedidoCEN.Destroy(pedidoCEN.GetPedidosConfirmados()[0].Id);
+
+
+                //Pedido6
+                PedidoEN pedido6 = new PedidoEN();
+                pedido6.Estado = IManagerGenNHibernate.Enumerated.IManager.EstadoPedidoEnum.pendiente;
+                pedido6.FechaRealizacion = DateTime.Parse("06/11/2015 08:07:56", System.Globalization.CultureInfo.InvariantCulture);
+                int ped6 = pedidoCEN.CrearPedido(pedido6.Estado, pedido6.FechaRealizacion, toni.Email, Pedido06_1);
+                pedidoCP.AumentarStockConfirmarPedidoHacerMovimiento(ped6, DateTime.Parse("06/14/2015 16:46:48", System.Globalization.CultureInfo.InvariantCulture));
+                totalGastosAnyo = movimientosCEN.GetMovimientoTotalAnyo(2015, IManagerGenNHibernate.Enumerated.IManager.TipoMovimientoEnum.gasto);
+                pedidoCEN.Destroy(pedidoCEN.GetPedidosConfirmados()[0].Id);
+
+
+                //Pedido7
+                PedidoEN pedido7 = new PedidoEN();
+                pedido7.Estado = IManagerGenNHibernate.Enumerated.IManager.EstadoPedidoEnum.pendiente;
+                pedido7.FechaRealizacion = DateTime.Parse("07/23/2015 14:01:01", System.Globalization.CultureInfo.InvariantCulture);
+                int ped7 = pedidoCEN.CrearPedido(pedido7.Estado, pedido7.FechaRealizacion, toni.Email, Pedido07_1);
+                pedidoCP.AumentarStockConfirmarPedidoHacerMovimiento(ped7, DateTime.Parse("07/13/2015 10:37:09", System.Globalization.CultureInfo.InvariantCulture));
+                totalGastosAnyo = movimientosCEN.GetMovimientoTotalAnyo(2015, IManagerGenNHibernate.Enumerated.IManager.TipoMovimientoEnum.gasto);
+                pedidoCEN.Destroy(pedidoCEN.GetPedidosConfirmados()[0].Id);
+
+
+                //Pedido8
+                PedidoEN pedido8 = new PedidoEN();
+                pedido8.Estado = IManagerGenNHibernate.Enumerated.IManager.EstadoPedidoEnum.pendiente;
+                pedido8.FechaRealizacion = DateTime.Parse("08/24/2015 15:16:11", System.Globalization.CultureInfo.InvariantCulture);
+                int ped8 = pedidoCEN.CrearPedido(pedido8.Estado, pedido8.FechaRealizacion, toni.Email, Pedido08_1);
+                pedidoCP.AumentarStockConfirmarPedidoHacerMovimiento(ped8, DateTime.Parse("08/29/2015 11:17:08", System.Globalization.CultureInfo.InvariantCulture));
+                totalGastosAnyo = movimientosCEN.GetMovimientoTotalAnyo(2015, IManagerGenNHibernate.Enumerated.IManager.TipoMovimientoEnum.gasto);
+                pedidoCEN.Destroy(pedidoCEN.GetPedidosConfirmados()[0].Id);
+
+                //Pedido9
+                PedidoEN pedido9 = new PedidoEN();
+                pedido9.Estado = IManagerGenNHibernate.Enumerated.IManager.EstadoPedidoEnum.pendiente;
+                pedido9.FechaRealizacion = DateTime.Parse("09/02/2015 17:51:03", System.Globalization.CultureInfo.InvariantCulture);
+                int ped9 = pedidoCEN.CrearPedido(pedido9.Estado, pedido9.FechaRealizacion, toni.Email, Pedido09_1);
+                pedidoCP.AumentarStockConfirmarPedidoHacerMovimiento(ped9, DateTime.Parse("09/12/2015 11:00:08", System.Globalization.CultureInfo.InvariantCulture));
+                totalGastosAnyo = movimientosCEN.GetMovimientoTotalAnyo(2015, IManagerGenNHibernate.Enumerated.IManager.TipoMovimientoEnum.gasto);
+                pedidoCEN.Destroy(pedidoCEN.GetPedidosConfirmados()[0].Id);
+
+
+                //Pedido10
+                PedidoEN pedido10 = new PedidoEN();
+                pedido10.Estado = IManagerGenNHibernate.Enumerated.IManager.EstadoPedidoEnum.pendiente;
+                pedido10.FechaRealizacion = DateTime.Parse("10/04/2015 15:06:47", System.Globalization.CultureInfo.InvariantCulture);
+                int ped10 = pedidoCEN.CrearPedido(pedido10.Estado, pedido10.FechaRealizacion, toni.Email, Pedido10_1);
+                pedidoCP.AumentarStockConfirmarPedidoHacerMovimiento(ped10, DateTime.Parse("10/21/2015 09:25:04", System.Globalization.CultureInfo.InvariantCulture));
+                totalGastosAnyo = movimientosCEN.GetMovimientoTotalAnyo(2015, IManagerGenNHibernate.Enumerated.IManager.TipoMovimientoEnum.gasto);
+                pedidoCEN.Destroy(pedidoCEN.GetPedidosConfirmados()[0].Id);
+
+
+                //Pedido11
+                PedidoEN pedido11 = new PedidoEN();
+                pedido11.Estado = IManagerGenNHibernate.Enumerated.IManager.EstadoPedidoEnum.pendiente;
+                pedido11.FechaRealizacion = DateTime.Parse("11/20/2015 12:00:28", System.Globalization.CultureInfo.InvariantCulture);
+                int ped11 = pedidoCEN.CrearPedido(pedido11.Estado, pedido11.FechaRealizacion, toni.Email, Pedido11_1);
+                pedidoCP.AumentarStockConfirmarPedidoHacerMovimiento(ped11, DateTime.Parse("11/25/2015 17:17:08", System.Globalization.CultureInfo.InvariantCulture));
+                totalGastosAnyo = movimientosCEN.GetMovimientoTotalAnyo(2015, IManagerGenNHibernate.Enumerated.IManager.TipoMovimientoEnum.gasto);
+                pedidoCEN.Destroy(pedidoCEN.GetPedidosConfirmados()[0].Id);
+
+
+                //Pedido12
+                PedidoEN pedido12 = new PedidoEN();
+                pedido12.Estado = IManagerGenNHibernate.Enumerated.IManager.EstadoPedidoEnum.pendiente;
+                pedido12.FechaRealizacion = DateTime.Parse("12/14/2015 15:16:11", System.Globalization.CultureInfo.InvariantCulture);
+                int ped12 = pedidoCEN.CrearPedido(pedido12.Estado, pedido12.FechaRealizacion, toni.Email, Pedido12_1);
+                pedidoCP.AumentarStockConfirmarPedidoHacerMovimiento(ped12, DateTime.Parse("12/17/2015 08:27:45", System.Globalization.CultureInfo.InvariantCulture));
+                totalGastosAnyo = movimientosCEN.GetMovimientoTotalAnyo(2015, IManagerGenNHibernate.Enumerated.IManager.TipoMovimientoEnum.gasto);
+                pedidoCEN.Destroy(pedidoCEN.GetPedidosConfirmados()[0].Id);
+            
+
+                #endregion
          
