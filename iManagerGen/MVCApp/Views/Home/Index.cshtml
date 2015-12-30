@@ -129,9 +129,12 @@
                     </div><!-- /.col -->
                     <div class="col-sm-3 col-xs-6">
                         <div class="description-block">
-                            <span class="description-percentage text-red"><i class="fa fa-caret-down"></i> 18%</span>
-                            <h5 class="description-header">1200</h5>
-                            <span class="description-text">GOAL COMPLETIONS</span>
+                            <div class="col-md-4 col-md-offset-4 text-left col-xs-4 col-xs-offset-3">
+                                <span style="background-color: rgb(210, 214, 222); display: inline-block; width: 12px; height: 12px; margin-right: 5px; "></span>INGRESOS
+                            </div>
+                            <div class="col-md-4 col-md-offset-4 text-left col-xs-4 col-xs-offset-3">
+                                <span style="background-color: rgba(60,141,188,0.9); display: inline-block; width: 12px; height: 12px; margin-right: 5px;"></span>GASTOS
+                            </div>
                         </div><!-- /.description-block -->
                     </div>
                 </div><!-- /.row -->
@@ -776,6 +779,7 @@
             var salesChartCanvas = $("#salesChart").get(0).getContext("2d");
             // This will get the first returned node in the jQuery collection.
             var salesChart = new Chart(salesChartCanvas);
+            
             var ingresos= new Array();
             var gastos= new Array();
             @foreach(var item in Model.totalAnyoIngresos){
@@ -813,45 +817,7 @@
                   }
                 ]
             };
-            $('#anyo-graph').change(function() {
-                var i;
-                switch(this.value){
-                    case "2015":
-                        i=0;
-                        break;
-                    case "2016":
-                        i=1;
-                        break;
-                    case "2017":
-                        i=2;
-                        break;
-                }
-                salesChartData = {
-                    labels: ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"],
-                    datasets: [
-                      {
-                          label: "Ingresos",
-                          fillColor: "rgb(210, 214, 222)",
-                          strokeColor: "rgb(210, 214, 222)",
-                          pointColor: "rgb(210, 214, 222)",
-                          pointStrokeColor: "#c1c7d1",
-                          pointHighlightFill: "#fff",
-                          pointHighlightStroke: "rgb(220,220,220)",
-                          data: ingresos[i]
-                      },
-                      {
-                          label: "Gastos",
-                          fillColor: "rgba(60,141,188,0.9)",
-                          strokeColor: "rgba(60,141,188,0.8)",
-                          pointColor: "#3b8bba",
-                          pointStrokeColor: "rgba(60,141,188,1)",
-                          pointHighlightFill: "#fff",
-                          pointHighlightStroke: "rgba(60,141,188,1)",
-                          data: gastos[i]
-                      }
-                    ]
-                };
-            });
+
             var salesChartOptions = {
                 //Boolean - If we should show the scale at all
                 showScale: true,
@@ -892,7 +858,33 @@
             };
 
             //Create the line chart
-            salesChart.Line(salesChartData, salesChartOptions);
+            var sales = salesChart.Line(salesChartData, salesChartOptions);
+            
+            var sales2;
+            first = false;
+            $('#anyo-graph').change(function () {
+                var i;
+                switch (this.value) {
+                    case "2015":
+                        i = 0;
+                        break;
+                    case "2016":
+                        i = 1;
+                        break;
+                    case "2017":
+                        i = 2;
+                        break;
+                }
+                salesChartData.datasets[0].data = ingresos[i];
+                salesChartData.datasets[1].data = gastos[i];
+                if(first){
+                    sales2.destroy();
+                }
+                sales.destroy();
+                salesChart = new Chart(salesChartCanvas);
+                sales2 = salesChart.Line(salesChartData, salesChartOptions);
+                first = true;
+            });
         });
     </script>
 
