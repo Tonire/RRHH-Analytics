@@ -39,8 +39,8 @@ namespace MVCApp.Controllers
             MensajeEN mensajeEN=mensajeCEN.GetMensaje(id);
             VerMensajesModels mensaje = new VerMensajes().ConvertENToModelUI(mensajeEN);
             SessionClose();
-            if (mensajeEN.Destinatario.Email.CompareTo(User.Identity.Name) != 0 || mensajeEN.Remitente.Email.CompareTo(User.Identity.Name)!=0) {
-                RedirectToAction("Index", "Mensajes");
+            if ((mensajeEN == null) || (mensajeEN.Destinatario.Email.CompareTo(User.Identity.Name) != 0 || mensajeEN.Remitente.Email.CompareTo(User.Identity.Name) != 0)) {
+                return RedirectToAction("Index", "Mensajes");
             }
             MensajeCEN mensajeCEN2 = new MensajeCEN();
             mensajeCEN2.Modify(mensajeEN.Id, mensajeEN.Asunto, mensajeEN.Contenido, true, mensajeEN.Fecha, mensajeEN.Borrado);
@@ -71,7 +71,7 @@ namespace MVCApp.Controllers
                 usuarioRemitente = usuarioCEN.GetUsuarioByEmail(remitente);
 
                 sJSON = sJSON + "{";
-                sJSON = sJSON + "\"Asunto\":\"" + listaMensajes[i].Asunto + "\", \"Remitente\":\"" + listaMensajes[i].Remitente.Nombre + " " + listaMensajes[i].Remitente.Apellidos + "\", \"Rol\": \"" + usuarioRemitente.GetType().Name + "\"";
+                sJSON = sJSON + "\"Asunto\":\"" + listaMensajes[i].Asunto + "\", \"Remitente\":\"" + listaMensajes[i].Remitente.Nombre + " " + listaMensajes[i].Remitente.Apellidos + "\", \"Rol\": \"" + usuarioRemitente.GetType().Name + "\", \"Id\": \""+listaMensajes[i].Id + "\"";
                 if (i == listaMensajes.Count - 1) {
                     sJSON = sJSON + "}";
                 } else {
@@ -152,7 +152,7 @@ namespace MVCApp.Controllers
                 SessionInitialize();
                 MensajeCAD mensajeCAD = new MensajeCAD();
                 MensajeCEN mensajeCEN = new MensajeCEN(mensajeCAD);
-                if(mensajeCEN.GetMensaje(id).Destinatario.Email.CompareTo(User.Identity.Name)==0){
+                if(((mensajeCEN.GetMensaje(id) != null) && (mensajeCEN.GetMensaje(id).Destinatario.Email.CompareTo(User.Identity.Name)==0))){
                     mensajeCEN.Destroy(id);
                 } else {
                     TempData["ErrorBorr"] = true;
@@ -178,7 +178,7 @@ namespace MVCApp.Controllers
                 MensajeCAD mensajeCAD = new MensajeCAD();
                 MensajeCEN mensajeCEN = new MensajeCEN(mensajeCAD);
                 MensajeEN mensajeEN= mensajeCEN.GetMensaje(id);
-                if (mensajeEN.Remitente.Email.CompareTo(User.Identity.Name) == 0) {
+                if ((mensajeEN != null) && (mensajeEN.Remitente.Email.CompareTo(User.Identity.Name) == 0)) {
                     mensajeCEN.Modify(mensajeEN.Id,mensajeEN.Asunto,mensajeEN.Contenido,mensajeEN.Leido,mensajeEN.Fecha,true);
                 } else {
                     TempData["ErrorBorr"] = true;

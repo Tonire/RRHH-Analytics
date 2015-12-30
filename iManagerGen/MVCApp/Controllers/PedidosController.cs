@@ -29,12 +29,16 @@ namespace MVCApp.Controllers
 
         public ActionResult Details(int id)
         {
-            SessionInitialize();
-            LineaPedidoCAD lineaCAD = new LineaPedidoCAD(session);
-            LineaPedidoCEN lineaPedidoCEN = new LineaPedidoCEN(lineaCAD);
-            IEnumerable<LineaPedidosModels> lineaPedidoModels= new AssemblerLineaPedidos().ConvertListENToModel(lineaPedidoCEN.GetLineasPedidoByPedido(id)).ToList();
-            SessionClose();
-            return View(lineaPedidoModels);
+            try {
+                SessionInitialize();
+                LineaPedidoCAD lineaCAD = new LineaPedidoCAD(session);
+                LineaPedidoCEN lineaPedidoCEN = new LineaPedidoCEN(lineaCAD);
+                IEnumerable<LineaPedidosModels> lineaPedidoModels = new AssemblerLineaPedidos().ConvertListENToModel(lineaPedidoCEN.GetLineasPedidoByPedido(id)).ToList();
+                SessionClose();
+                return View(lineaPedidoModels);
+            } catch {
+                return RedirectToAction("Index");
+            }
         }
 
         //
@@ -113,8 +117,11 @@ namespace MVCApp.Controllers
                 // TODO: Add delete logic here
                 string id = Request["id"];
                 PedidoCEN pedidoCEN = new PedidoCEN();
-                PedidoEN pedidoEN=pedidoCEN.GetPedidoById(Int32.Parse(id));
-                if(pedidoEN.Estado!=IManagerGenNHibernate.Enumerated.IManager.EstadoPedidoEnum.confirmado){
+                PedidoEN pedidoEN = null;
+                if (id != null) {
+                    pedidoEN = pedidoCEN.GetPedidoById(Int32.Parse(id));
+                }
+                if(pedidoEN != null && pedidoEN.Estado!=IManagerGenNHibernate.Enumerated.IManager.EstadoPedidoEnum.confirmado){
                     pedidoCEN.Modify(pedidoEN.Id, IManagerGenNHibernate.Enumerated.IManager.EstadoPedidoEnum.rechazado, pedidoEN.FechaRealizacion, null, DateTime.Now);
                     TempData["Cancelado"] = true;
                     return RedirectToAction("Index");
@@ -122,7 +129,6 @@ namespace MVCApp.Controllers
                     TempData["ErrorCancelado"] = true;
                     return RedirectToAction("Index");
                 }
-                
             }
             catch
             {
@@ -138,8 +144,10 @@ namespace MVCApp.Controllers
                 // TODO: Add delete logic here
                 string id = Request["id"];
                 PedidoCP pedidoCP = new PedidoCP();
-                pedidoCP.AumentarStockConfirmarPedidoHacerMovimiento(Int32.Parse(id),DateTime.Now);
-                TempData["Confirmado"] = true;
+                if (id != null) {
+                    pedidoCP.AumentarStockConfirmarPedidoHacerMovimiento(Int32.Parse(id), DateTime.Now);
+                    TempData["Confirmado"] = true;
+                }
                 return RedirectToAction("Index");
             } catch {
                 TempData["ErrorConfirmado"] = true;

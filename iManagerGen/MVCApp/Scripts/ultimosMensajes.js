@@ -7,11 +7,13 @@ $.get("/Mensajes/getUltimosMensajes/", function (json) {
     var asunto, remitente, rol;
     var html = "";
     var rutaFoto = "";
+    var id = "";
     for (i = 0; i < listaMensajes.length ; i++) {
         
         asunto = listaMensajes[i].Asunto;
         remitente = listaMensajes[i].Remitente;
         rol = listaMensajes[i].Rol;
+        id = listaMensajes[i].Id;
         switch (rol) {
             case "SuperAdministradorEN":
                 rutaFoto = "/Images/SuperAdminLogo.png";
@@ -23,7 +25,7 @@ $.get("/Mensajes/getUltimosMensajes/", function (json) {
                 rutaFoto = "/Images/EmpleadoLogo.png";
                 break;
         }
-        html = "<li><a href='#'><div class='pull-left'><img src='"+rutaFoto+"' class='img-circle' alt='User Image'></div><h4>" + remitente + " <small><i class='fa fa-clock-o'></i> 5 mins</small></h4><p>" + asunto + "</p></a></li>";
+        html = "<li><a href='/Mensajes/Details/" + id + "''><div class='pull-left'><img src='" + rutaFoto + "' class='img-circle' alt='User Image'></div><h4>" + remitente + " <small><i class='fa fa-clock-o'></i> 5 mins</small></h4><p>" + asunto + "</p></a></li>";
         //alert("Asunto: " + asunto + "\nRemitente: " + remitente + "\nRol: " + rol);
         $("#menu-ultimos-mensajes").append(html);
     }
