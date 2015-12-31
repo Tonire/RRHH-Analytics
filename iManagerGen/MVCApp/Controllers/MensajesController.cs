@@ -39,11 +39,15 @@ namespace MVCApp.Controllers
             MensajeEN mensajeEN=mensajeCEN.GetMensaje(id);
             VerMensajesModels mensaje = new VerMensajes().ConvertENToModelUI(mensajeEN);
             SessionClose();
-            if ((mensajeEN == null) || (mensajeEN.Destinatario.Email.CompareTo(User.Identity.Name) != 0 || mensajeEN.Remitente.Email.CompareTo(User.Identity.Name) != 0)) {
+            if ((mensajeEN == null)) {
                 return RedirectToAction("Index", "Mensajes");
             }
-            MensajeCEN mensajeCEN2 = new MensajeCEN();
-            mensajeCEN2.Modify(mensajeEN.Id, mensajeEN.Asunto, mensajeEN.Contenido, true, mensajeEN.Fecha, mensajeEN.Borrado);
+            if ((mensajeEN.Destinatario.Email.CompareTo(User.Identity.Name) == 0 || mensajeEN.Remitente.Email.CompareTo(User.Identity.Name) == 0)) {
+                MensajeCEN mensajeCEN2 = new MensajeCEN();
+                mensajeCEN2.Modify(mensajeEN.Id, mensajeEN.Asunto, mensajeEN.Contenido, true, mensajeEN.Fecha, mensajeEN.Borrado);
+            } else {
+                return RedirectToAction("Index");
+            }
             return View(mensaje);
         }
 
