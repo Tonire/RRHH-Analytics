@@ -1445,136 +1445,272 @@ public static void InitializeData ()
 
                 //Venta49        
                 VentaEN venta49 = new VentaEN();
-                venta49.FechaVenta = DateTime.Parse("01/16/2015 10:12:30", System.Globalization.CultureInfo.InvariantCulture);
-                ventaCP.RestarStockCrearVentaHacerMovimiento(toni.Email, DateTime.Parse("01/16/2015 10:12:30", System.Globalization.CultureInfo.InvariantCulture), Venta09_1);
+                venta49.FechaVenta = DateTime.Parse("02/06/2015 10:12:30", System.Globalization.CultureInfo.InvariantCulture);
+                ventaCP.RestarStockCrearVentaHacerMovimiento(toni.Email, DateTime.Parse("02/06/2015 10:12:30", System.Globalization.CultureInfo.InvariantCulture), Venta09_1);
 
                 //Venta50        
                 VentaEN venta50 = new VentaEN();
-                venta50.FechaVenta = DateTime.Parse("01/16/2015 10:12:30", System.Globalization.CultureInfo.InvariantCulture);
-                ventaCP.RestarStockCrearVentaHacerMovimiento(toni.Email, DateTime.Parse("01/16/2015 10:12:30", System.Globalization.CultureInfo.InvariantCulture), Venta10_1);
+                venta50.FechaVenta = DateTime.Parse("02/06/2015 14:12:30", System.Globalization.CultureInfo.InvariantCulture);
+                ventaCP.RestarStockCrearVentaHacerMovimiento(toni.Email, DateTime.Parse("02/06/2015 14:12:30", System.Globalization.CultureInfo.InvariantCulture), Venta10_1);
 
                 //Venta51        
                 VentaEN venta51 = new VentaEN();
-                venta51.FechaVenta = DateTime.Parse("01/16/2015 10:12:30", System.Globalization.CultureInfo.InvariantCulture);
-                ventaCP.RestarStockCrearVentaHacerMovimiento(toni.Email, DateTime.Parse("01/16/2015 10:12:30", System.Globalization.CultureInfo.InvariantCulture), Venta11_1);
+                venta51.FechaVenta = DateTime.Parse("02/07/2015 10:12:30", System.Globalization.CultureInfo.InvariantCulture);
+                ventaCP.RestarStockCrearVentaHacerMovimiento(toni.Email, DateTime.Parse("02/07/2015 10:12:30", System.Globalization.CultureInfo.InvariantCulture), Venta11_1);
 
                 //Venta52        
                 VentaEN venta52 = new VentaEN();
-                venta52.FechaVenta = DateTime.Parse("01/16/2015 10:12:30", System.Globalization.CultureInfo.InvariantCulture);
-                ventaCP.RestarStockCrearVentaHacerMovimiento(toni.Email, DateTime.Parse("01/16/2015 10:12:30", System.Globalization.CultureInfo.InvariantCulture), Venta12_1);
+                venta52.FechaVenta = DateTime.Parse("02/08/2015 10:12:30", System.Globalization.CultureInfo.InvariantCulture);
+                ventaCP.RestarStockCrearVentaHacerMovimiento(toni.Email, DateTime.Parse("02/08/2015 10:12:30", System.Globalization.CultureInfo.InvariantCulture), Venta12_1);
 
                 //Venta53       
                 VentaEN venta53 = new VentaEN();
-                venta53.FechaVenta = DateTime.Parse("01/16/2015 10:12:30", System.Globalization.CultureInfo.InvariantCulture);
-                ventaCP.RestarStockCrearVentaHacerMovimiento(toni.Email, DateTime.Parse("01/16/2015 10:12:30", System.Globalization.CultureInfo.InvariantCulture), Venta13_1);
+                venta53.FechaVenta = DateTime.Parse("02/09/2015 10:12:30", System.Globalization.CultureInfo.InvariantCulture);
+                ventaCP.RestarStockCrearVentaHacerMovimiento(toni.Email, DateTime.Parse("02/09/2015 10:12:30", System.Globalization.CultureInfo.InvariantCulture), Venta13_1);
 
                 //Venta54       
                 VentaEN venta54 = new VentaEN();
-                venta54.FechaVenta = DateTime.Parse("01/16/2015 10:12:30", System.Globalization.CultureInfo.InvariantCulture);
-                ventaCP.RestarStockCrearVentaHacerMovimiento(toni.Email, DateTime.Parse("01/16/2015 10:12:30", System.Globalization.CultureInfo.InvariantCulture), Venta13_1);
+                venta54.FechaVenta = DateTime.Parse("02/09/2015 12:12:30", System.Globalization.CultureInfo.InvariantCulture);
+                ventaCP.RestarStockCrearVentaHacerMovimiento(toni.Email, DateTime.Parse("02/09/2015 12:12:30", System.Globalization.CultureInfo.InvariantCulture), Venta13_1);
 
                 //Venta55       
                 VentaEN venta55 = new VentaEN();
-                venta55.FechaVenta = DateTime.Parse("01/16/2015 10:12:30", System.Globalization.CultureInfo.InvariantCulture);
-                ventaCP.RestarStockCrearVentaHacerMovimiento(toni.Email, DateTime.Parse("01/16/2015 10:12:30", System.Globalization.CultureInfo.InvariantCulture), Venta13_1);
+                venta55.FechaVenta = DateTime.Parse("02/10/2015 10:12:30", System.Globalization.CultureInfo.InvariantCulture);
+                ventaCP.RestarStockCrearVentaHacerMovimiento(toni.Email, DateTime.Parse("02/10/2015 10:12:30", System.Globalization.CultureInfo.InvariantCulture), Venta13_1);
 
                 //Venta56       
                 VentaEN venta56 = new VentaEN();
-                venta56.FechaVenta = DateTime.Parse("01/16/2015 10:12:30", System.Globalization.CultureInfo.InvariantCulture);
-                ventaCP.RestarStockCrearVentaHacerMovimiento(toni.Email, DateTime.Parse("01/16/2015 10:12:30", System.Globalization.CultureInfo.InvariantCulture), Venta13_1);
+                venta56.FechaVenta = DateTime.Parse("02/10/2015 12:12:30", System.Globalization.CultureInfo.InvariantCulture);
+                ventaCP.RestarStockCrearVentaHacerMovimiento(toni.Email, DateTime.Parse("02/10/2015 12:12:30", System.Globalization.CultureInfo.InvariantCulture), Venta13_1);
 
                 //Venta57       
                 VentaEN venta57 = new VentaEN();
-                venta57.FechaVenta = DateTime.Parse("01/16/2015 10:12:30", System.Globalization.CultureInfo.InvariantCulture);
-                ventaCP.RestarStockCrearVentaHacerMovimiento(toni.Email, DateTime.Parse("01/16/2015 10:12:30", System.Globalization.CultureInfo.InvariantCulture), Venta13_1);
+                venta57.FechaVenta = DateTime.Parse("02/11/2015 10:12:30", System.Globalization.CultureInfo.InvariantCulture);
+                ventaCP.RestarStockCrearVentaHacerMovimiento(toni.Email, DateTime.Parse("02/11/2015 10:12:30", System.Globalization.CultureInfo.InvariantCulture), Venta13_1);
 
                 //Venta58       
                 VentaEN venta58 = new VentaEN();
-                venta18.FechaVenta = DateTime.Parse("01/16/2015 10:12:30", System.Globalization.CultureInfo.InvariantCulture);
-                ventaCP.RestarStockCrearVentaHacerMovimiento(toni.Email, DateTime.Parse("01/16/2015 10:12:30", System.Globalization.CultureInfo.InvariantCulture), Venta13_1);
+                venta18.FechaVenta = DateTime.Parse("02/12/2015 10:12:30", System.Globalization.CultureInfo.InvariantCulture);
+                ventaCP.RestarStockCrearVentaHacerMovimiento(toni.Email, DateTime.Parse("02/12/2015 10:12:30", System.Globalization.CultureInfo.InvariantCulture), Venta13_1);
 
                 //Venta59       
                 VentaEN venta59 = new VentaEN();
-                venta19.FechaVenta = DateTime.Parse("01/16/2015 10:12:30", System.Globalization.CultureInfo.InvariantCulture);
-                ventaCP.RestarStockCrearVentaHacerMovimiento(toni.Email, DateTime.Parse("01/16/2015 10:12:30", System.Globalization.CultureInfo.InvariantCulture), Venta13_1);
+                venta19.FechaVenta = DateTime.Parse("02/13/2015 10:12:30", System.Globalization.CultureInfo.InvariantCulture);
+                ventaCP.RestarStockCrearVentaHacerMovimiento(toni.Email, DateTime.Parse("02/13/2015 10:12:30", System.Globalization.CultureInfo.InvariantCulture), Venta13_1);
 
                 //Venta60       
                 VentaEN venta60 = new VentaEN();
-                venta60.FechaVenta = DateTime.Parse("01/16/2015 10:12:30", System.Globalization.CultureInfo.InvariantCulture);
-                ventaCP.RestarStockCrearVentaHacerMovimiento(toni.Email, DateTime.Parse("01/16/2015 10:12:30", System.Globalization.CultureInfo.InvariantCulture), Venta13_1);
+                venta60.FechaVenta = DateTime.Parse("02/14/2015 10:12:30", System.Globalization.CultureInfo.InvariantCulture);
+                ventaCP.RestarStockCrearVentaHacerMovimiento(toni.Email, DateTime.Parse("02/14/2015 10:12:30", System.Globalization.CultureInfo.InvariantCulture), Venta13_1);
 
                 //Venta61       
                 VentaEN venta61 = new VentaEN();
-                venta61.FechaVenta = DateTime.Parse("01/16/2015 10:12:30", System.Globalization.CultureInfo.InvariantCulture);
-                ventaCP.RestarStockCrearVentaHacerMovimiento(toni.Email, DateTime.Parse("01/16/2015 10:12:30", System.Globalization.CultureInfo.InvariantCulture), Venta13_1);
+                venta61.FechaVenta = DateTime.Parse("02/16/2015 10:12:30", System.Globalization.CultureInfo.InvariantCulture);
+                ventaCP.RestarStockCrearVentaHacerMovimiento(toni.Email, DateTime.Parse("02/16/2015 10:12:30", System.Globalization.CultureInfo.InvariantCulture), Venta13_1);
 
                 //Venta62       
                 VentaEN venta62 = new VentaEN();
-                venta22.FechaVenta = DateTime.Parse("01/16/2015 10:12:30", System.Globalization.CultureInfo.InvariantCulture);
-                ventaCP.RestarStockCrearVentaHacerMovimiento(toni.Email, DateTime.Parse("01/16/2015 10:12:30", System.Globalization.CultureInfo.InvariantCulture), Venta13_1);
+                venta22.FechaVenta = DateTime.Parse("02/17/2015 10:12:30", System.Globalization.CultureInfo.InvariantCulture);
+                ventaCP.RestarStockCrearVentaHacerMovimiento(toni.Email, DateTime.Parse("02/17/2015 10:12:30", System.Globalization.CultureInfo.InvariantCulture), Venta13_1);
 
                 //Venta63       
                 VentaEN venta63 = new VentaEN();
-                venta63.FechaVenta = DateTime.Parse("01/16/2015 10:12:30", System.Globalization.CultureInfo.InvariantCulture);
-                ventaCP.RestarStockCrearVentaHacerMovimiento(toni.Email, DateTime.Parse("01/16/2015 10:12:30", System.Globalization.CultureInfo.InvariantCulture), Venta13_1);
+                venta63.FechaVenta = DateTime.Parse("02/18/2015 10:12:30", System.Globalization.CultureInfo.InvariantCulture);
+                ventaCP.RestarStockCrearVentaHacerMovimiento(toni.Email, DateTime.Parse("02/18/2015 10:12:30", System.Globalization.CultureInfo.InvariantCulture), Venta13_1);
 
                 //Venta64       
                 VentaEN venta64 = new VentaEN();
-                venta64.FechaVenta = DateTime.Parse("01/16/2015 10:12:30", System.Globalization.CultureInfo.InvariantCulture);
-                ventaCP.RestarStockCrearVentaHacerMovimiento(toni.Email, DateTime.Parse("01/16/2015 10:12:30", System.Globalization.CultureInfo.InvariantCulture), Venta13_1);
+                venta64.FechaVenta = DateTime.Parse("02/20/2015 10:12:30", System.Globalization.CultureInfo.InvariantCulture);
+                ventaCP.RestarStockCrearVentaHacerMovimiento(toni.Email, DateTime.Parse("02/20/2015 10:12:30", System.Globalization.CultureInfo.InvariantCulture), Venta13_1);
 
                 //Venta65       
                 VentaEN venta65 = new VentaEN();
-                venta65.FechaVenta = DateTime.Parse("01/16/2015 10:12:30", System.Globalization.CultureInfo.InvariantCulture);
-                ventaCP.RestarStockCrearVentaHacerMovimiento(toni.Email, DateTime.Parse("01/16/2015 10:12:30", System.Globalization.CultureInfo.InvariantCulture), Venta13_1);
+                venta65.FechaVenta = DateTime.Parse("02/21/2015 10:12:30", System.Globalization.CultureInfo.InvariantCulture);
+                ventaCP.RestarStockCrearVentaHacerMovimiento(toni.Email, DateTime.Parse("02/21/2015 10:12:30", System.Globalization.CultureInfo.InvariantCulture), Venta13_1);
 
                 //Venta66       
                 VentaEN venta66 = new VentaEN();
-                venta66.FechaVenta = DateTime.Parse("01/16/2015 10:12:30", System.Globalization.CultureInfo.InvariantCulture);
-                ventaCP.RestarStockCrearVentaHacerMovimiento(toni.Email, DateTime.Parse("01/16/2015 10:12:30", System.Globalization.CultureInfo.InvariantCulture), Venta13_1);
+                venta66.FechaVenta = DateTime.Parse("02/21/2015 10:12:30", System.Globalization.CultureInfo.InvariantCulture);
+                ventaCP.RestarStockCrearVentaHacerMovimiento(toni.Email, DateTime.Parse("02/21/2015 10:12:30", System.Globalization.CultureInfo.InvariantCulture), Venta13_1);
 
                 //Venta67       
                 VentaEN venta67 = new VentaEN();
-                venta67.FechaVenta = DateTime.Parse("01/16/2015 10:12:30", System.Globalization.CultureInfo.InvariantCulture);
-                ventaCP.RestarStockCrearVentaHacerMovimiento(toni.Email, DateTime.Parse("01/16/2015 10:12:30", System.Globalization.CultureInfo.InvariantCulture), Venta13_1);
+                venta67.FechaVenta = DateTime.Parse("02/23/2015 10:12:30", System.Globalization.CultureInfo.InvariantCulture);
+                ventaCP.RestarStockCrearVentaHacerMovimiento(toni.Email, DateTime.Parse("02/23/2015 10:12:30", System.Globalization.CultureInfo.InvariantCulture), Venta13_1);
 
                 //Venta68       
                 VentaEN venta68 = new VentaEN();
-                venta68.FechaVenta = DateTime.Parse("01/16/2015 10:12:30", System.Globalization.CultureInfo.InvariantCulture);
-                ventaCP.RestarStockCrearVentaHacerMovimiento(toni.Email, DateTime.Parse("01/16/2015 10:12:30", System.Globalization.CultureInfo.InvariantCulture), Venta13_1);
+                venta68.FechaVenta = DateTime.Parse("02/24/2015 10:12:30", System.Globalization.CultureInfo.InvariantCulture);
+                ventaCP.RestarStockCrearVentaHacerMovimiento(toni.Email, DateTime.Parse("02/24/2015 10:12:30", System.Globalization.CultureInfo.InvariantCulture), Venta13_1);
 
                 //Venta69       
                 VentaEN venta69 = new VentaEN();
-                venta69.FechaVenta = DateTime.Parse("01/16/2015 10:12:30", System.Globalization.CultureInfo.InvariantCulture);
-                ventaCP.RestarStockCrearVentaHacerMovimiento(toni.Email, DateTime.Parse("01/16/2015 10:12:30", System.Globalization.CultureInfo.InvariantCulture), Venta13_1);
+                venta69.FechaVenta = DateTime.Parse("02/26/2015 10:12:30", System.Globalization.CultureInfo.InvariantCulture);
+                ventaCP.RestarStockCrearVentaHacerMovimiento(toni.Email, DateTime.Parse("02/26/2015 10:12:30", System.Globalization.CultureInfo.InvariantCulture), Venta13_1);
 
                 //Venta70      
                 VentaEN venta70 = new VentaEN();
-                venta70.FechaVenta = DateTime.Parse("01/16/2015 10:12:30", System.Globalization.CultureInfo.InvariantCulture);
-                ventaCP.RestarStockCrearVentaHacerMovimiento(toni.Email, DateTime.Parse("01/16/2015 10:12:30", System.Globalization.CultureInfo.InvariantCulture), Venta13_1);
+                venta70.FechaVenta = DateTime.Parse("02/27/2015 10:12:30", System.Globalization.CultureInfo.InvariantCulture);
+                ventaCP.RestarStockCrearVentaHacerMovimiento(toni.Email, DateTime.Parse("02/27/2015 10:12:30", System.Globalization.CultureInfo.InvariantCulture), Venta13_1);
 
                 //Venta71       
                 VentaEN venta71 = new VentaEN();
-                venta71.FechaVenta = DateTime.Parse("01/16/2015 10:12:30", System.Globalization.CultureInfo.InvariantCulture);
-                ventaCP.RestarStockCrearVentaHacerMovimiento(toni.Email, DateTime.Parse("01/16/2015 10:12:30", System.Globalization.CultureInfo.InvariantCulture), Venta13_1);
+                venta71.FechaVenta = DateTime.Parse("02/27/2015 12:12:30", System.Globalization.CultureInfo.InvariantCulture);
+                ventaCP.RestarStockCrearVentaHacerMovimiento(toni.Email, DateTime.Parse("02/27/2015 12:12:30", System.Globalization.CultureInfo.InvariantCulture), Venta13_1);
 
                 //Venta72       
                 VentaEN venta72 = new VentaEN();
-                venta72.FechaVenta = DateTime.Parse("01/16/2015 10:12:30", System.Globalization.CultureInfo.InvariantCulture);
-                ventaCP.RestarStockCrearVentaHacerMovimiento(toni.Email, DateTime.Parse("01/16/2015 10:12:30", System.Globalization.CultureInfo.InvariantCulture), Venta13_1);
+                venta72.FechaVenta = DateTime.Parse("02/27/2015 14:12:30", System.Globalization.CultureInfo.InvariantCulture);
+                ventaCP.RestarStockCrearVentaHacerMovimiento(toni.Email, DateTime.Parse("02/27/2015 14:12:30", System.Globalization.CultureInfo.InvariantCulture), Venta13_1);
 
 
                 //Venta73       
                 VentaEN venta73 = new VentaEN();
-                venta73.FechaVenta = DateTime.Parse("01/16/2015 10:12:30", System.Globalization.CultureInfo.InvariantCulture);
-                ventaCP.RestarStockCrearVentaHacerMovimiento(toni.Email, DateTime.Parse("01/16/2015 10:12:30", System.Globalization.CultureInfo.InvariantCulture), Venta13_1);
+                venta73.FechaVenta = DateTime.Parse("02/27/2015 20:12:30", System.Globalization.CultureInfo.InvariantCulture);
+                ventaCP.RestarStockCrearVentaHacerMovimiento(toni.Email, DateTime.Parse("02/27/2015 20:12:30", System.Globalization.CultureInfo.InvariantCulture), Venta13_1);
 
 
-                //Marzo
+                //Marzo-------------------------------------------------------------------------------------
 
-                //Abril
+                //Venta74        
+                VentaEN venta74 = new VentaEN();
+                venta74.FechaVenta = DateTime.Parse("03/01/2015 13:12:30", System.Globalization.CultureInfo.InvariantCulture);
+                ventaCP.RestarStockCrearVentaHacerMovimiento(toni.Email, DateTime.Parse("03/01/2015 13:12:30", System.Globalization.CultureInfo.InvariantCulture), Venta01_1);
 
-                //Mayo
+
+                //Venta75        
+                VentaEN venta75 = new VentaEN();
+                venta75.FechaVenta = DateTime.Parse("03/01/2015 14:12:30", System.Globalization.CultureInfo.InvariantCulture);
+                ventaCP.RestarStockCrearVentaHacerMovimiento(toni.Email, DateTime.Parse("03/01/2015 14:12:30", System.Globalization.CultureInfo.InvariantCulture), Venta02_1);
+
+                //Venta76        
+                VentaEN venta76 = new VentaEN();
+                venta76.FechaVenta = DateTime.Parse("03/02/2015 10:12:30", System.Globalization.CultureInfo.InvariantCulture);
+                ventaCP.RestarStockCrearVentaHacerMovimiento(toni.Email, DateTime.Parse("03/02/2015 10:12:30", System.Globalization.CultureInfo.InvariantCulture), Venta03_1);
+
+                //Venta77        
+                VentaEN venta77 = new VentaEN();
+                venta77.FechaVenta = DateTime.Parse("03/03/2015 10:12:30", System.Globalization.CultureInfo.InvariantCulture);
+                ventaCP.RestarStockCrearVentaHacerMovimiento(toni.Email, DateTime.Parse("03/03/2015 10:12:30", System.Globalization.CultureInfo.InvariantCulture), Venta04_1);
+
+                //Venta78
+                VentaEN venta78 = new VentaEN();
+                venta78.FechaVenta = DateTime.Parse("03/03/2015 14:12:30", System.Globalization.CultureInfo.InvariantCulture);
+                ventaCP.RestarStockCrearVentaHacerMovimiento(toni.Email, DateTime.Parse("03/03/2015 14:12:30", System.Globalization.CultureInfo.InvariantCulture), Venta05_1);
+
+                //Venta79        
+                VentaEN venta79 = new VentaEN();
+                venta79.FechaVenta = DateTime.Parse("03/03/2015 16:12:30", System.Globalization.CultureInfo.InvariantCulture);
+                ventaCP.RestarStockCrearVentaHacerMovimiento(toni.Email, DateTime.Parse("03/03/2015 16:12:30", System.Globalization.CultureInfo.InvariantCulture), Venta06_1);
+
+                //Venta80        
+                VentaEN venta80 = new VentaEN();
+                venta80.FechaVenta = DateTime.Parse("03/04/2015 10:12:30", System.Globalization.CultureInfo.InvariantCulture);
+                ventaCP.RestarStockCrearVentaHacerMovimiento(toni.Email, DateTime.Parse("03/04/2015 10:12:30", System.Globalization.CultureInfo.InvariantCulture), Venta07_1);
+
+                //Venta81        
+                VentaEN venta81 = new VentaEN();
+                venta81.FechaVenta = DateTime.Parse("03/05/2015 10:12:30", System.Globalization.CultureInfo.InvariantCulture);
+                ventaCP.RestarStockCrearVentaHacerMovimiento(toni.Email, DateTime.Parse("03/05/2015 10:12:30", System.Globalization.CultureInfo.InvariantCulture), Venta08_1);
+
+                //Venta82       
+                VentaEN venta82 = new VentaEN();
+                venta82.FechaVenta = DateTime.Parse("03/06/2015 10:12:30", System.Globalization.CultureInfo.InvariantCulture);
+                ventaCP.RestarStockCrearVentaHacerMovimiento(toni.Email, DateTime.Parse("03/06/2015 10:12:30", System.Globalization.CultureInfo.InvariantCulture), Venta09_1);
+
+                //Venta83        
+                VentaEN venta83 = new VentaEN();
+                venta83.FechaVenta = DateTime.Parse("03/06/2015 14:12:30", System.Globalization.CultureInfo.InvariantCulture);
+                ventaCP.RestarStockCrearVentaHacerMovimiento(toni.Email, DateTime.Parse("03/06/2015 14:12:30", System.Globalization.CultureInfo.InvariantCulture), Venta10_1);
+
+                //Venta84        
+                VentaEN venta84 = new VentaEN();
+                venta84.FechaVenta = DateTime.Parse("03/07/2015 10:12:30", System.Globalization.CultureInfo.InvariantCulture);
+                ventaCP.RestarStockCrearVentaHacerMovimiento(toni.Email, DateTime.Parse("03/07/2015 10:12:30", System.Globalization.CultureInfo.InvariantCulture), Venta11_1);
+
+                //Venta85       
+                VentaEN venta85 = new VentaEN();
+                venta85.FechaVenta = DateTime.Parse("03/08/2015 10:12:30", System.Globalization.CultureInfo.InvariantCulture);
+                ventaCP.RestarStockCrearVentaHacerMovimiento(toni.Email, DateTime.Parse("03/08/2015 10:12:30", System.Globalization.CultureInfo.InvariantCulture), Venta12_1);
+
+                //Venta86       
+                VentaEN venta86 = new VentaEN();
+                venta86.FechaVenta = DateTime.Parse("03/09/2015 10:12:30", System.Globalization.CultureInfo.InvariantCulture);
+                ventaCP.RestarStockCrearVentaHacerMovimiento(toni.Email, DateTime.Parse("03/09/2015 10:12:30", System.Globalization.CultureInfo.InvariantCulture), Venta13_1);
+
+                //Venta87       
+                VentaEN venta87 = new VentaEN();
+                venta87.FechaVenta = DateTime.Parse("03/09/2015 12:12:30", System.Globalization.CultureInfo.InvariantCulture);
+                ventaCP.RestarStockCrearVentaHacerMovimiento(toni.Email, DateTime.Parse("03/09/2015 12:12:30", System.Globalization.CultureInfo.InvariantCulture), Venta13_1);
+
+                //Venta88       
+                VentaEN venta88 = new VentaEN();
+                venta88.FechaVenta = DateTime.Parse("03/10/2015 10:12:30", System.Globalization.CultureInfo.InvariantCulture);
+                ventaCP.RestarStockCrearVentaHacerMovimiento(toni.Email, DateTime.Parse("03/10/2015 10:12:30", System.Globalization.CultureInfo.InvariantCulture), Venta13_1);
+
+                //Venta89       
+                VentaEN venta89 = new VentaEN();
+                venta89.FechaVenta = DateTime.Parse("03/10/2015 12:12:30", System.Globalization.CultureInfo.InvariantCulture);
+                ventaCP.RestarStockCrearVentaHacerMovimiento(toni.Email, DateTime.Parse("03/10/2015 12:12:30", System.Globalization.CultureInfo.InvariantCulture), Venta13_1);
+
+                //Venta90       
+                VentaEN venta90 = new VentaEN();
+                venta90.FechaVenta = DateTime.Parse("03/11/2015 10:12:30", System.Globalization.CultureInfo.InvariantCulture);
+                ventaCP.RestarStockCrearVentaHacerMovimiento(toni.Email, DateTime.Parse("03/11/2015 10:12:30", System.Globalization.CultureInfo.InvariantCulture), Venta13_1);
+
+                //Venta91       
+                VentaEN venta91 = new VentaEN();
+                venta91.FechaVenta = DateTime.Parse("03/12/2015 10:12:30", System.Globalization.CultureInfo.InvariantCulture);
+                ventaCP.RestarStockCrearVentaHacerMovimiento(toni.Email, DateTime.Parse("03/12/2015 10:12:30", System.Globalization.CultureInfo.InvariantCulture), Venta13_1);
+
+                //Venta92       
+                VentaEN venta92 = new VentaEN();
+                venta19.FechaVenta = DateTime.Parse("03/13/2015 10:12:30", System.Globalization.CultureInfo.InvariantCulture);
+                ventaCP.RestarStockCrearVentaHacerMovimiento(toni.Email, DateTime.Parse("03/13/2015 10:12:30", System.Globalization.CultureInfo.InvariantCulture), Venta13_1);
+
+                //Vent93       
+                VentaEN venta93 = new VentaEN();
+                venta93.FechaVenta = DateTime.Parse("03/14/2015 10:12:30", System.Globalization.CultureInfo.InvariantCulture);
+                ventaCP.RestarStockCrearVentaHacerMovimiento(toni.Email, DateTime.Parse("03/14/2015 10:12:30", System.Globalization.CultureInfo.InvariantCulture), Venta13_1);
+
+                //Venta94       
+                VentaEN venta94 = new VentaEN();
+                venta94.FechaVenta = DateTime.Parse("03/16/2015 10:12:30", System.Globalization.CultureInfo.InvariantCulture);
+                ventaCP.RestarStockCrearVentaHacerMovimiento(toni.Email, DateTime.Parse("03/16/2015 10:12:30", System.Globalization.CultureInfo.InvariantCulture), Venta13_1);
+
+                //Venta95       
+                VentaEN venta95 = new VentaEN();
+                venta95.FechaVenta = DateTime.Parse("03/17/2015 10:12:30", System.Globalization.CultureInfo.InvariantCulture);
+                ventaCP.RestarStockCrearVentaHacerMovimiento(toni.Email, DateTime.Parse("03/17/2015 10:12:30", System.Globalization.CultureInfo.InvariantCulture), Venta13_1);
+
+                //Venta96       
+                VentaEN venta96 = new VentaEN();
+                venta96.FechaVenta = DateTime.Parse("03/18/2015 10:12:30", System.Globalization.CultureInfo.InvariantCulture);
+                ventaCP.RestarStockCrearVentaHacerMovimiento(toni.Email, DateTime.Parse("03/18/2015 10:12:30", System.Globalization.CultureInfo.InvariantCulture), Venta13_1);
+
+                //Venta97      
+                VentaEN venta97 = new VentaEN();
+                venta97.FechaVenta = DateTime.Parse("03/20/2015 10:12:30", System.Globalization.CultureInfo.InvariantCulture);
+                ventaCP.RestarStockCrearVentaHacerMovimiento(toni.Email, DateTime.Parse("03/20/2015 10:12:30", System.Globalization.CultureInfo.InvariantCulture), Venta13_1);
+
+                //Venta98       
+                VentaEN venta98 = new VentaEN();
+                venta98.FechaVenta = DateTime.Parse("03/21/2015 10:12:30", System.Globalization.CultureInfo.InvariantCulture);
+                ventaCP.RestarStockCrearVentaHacerMovimiento(toni.Email, DateTime.Parse("03/21/2015 10:12:30", System.Globalization.CultureInfo.InvariantCulture), Venta13_1);
+
+                //Venta99       
+                VentaEN venta99 = new VentaEN();
+                venta66.FechaVenta = DateTime.Parse("03/21/2015 10:12:30", System.Globalization.CultureInfo.InvariantCulture);
+                ventaCP.RestarStockCrearVentaHacerMovimiento(toni.Email, DateTime.Parse("03/21/2015 10:12:30", System.Globalization.CultureInfo.InvariantCulture), Venta13_1);
+
+                //Venta100      
+                VentaEN venta100 = new VentaEN();
+                venta100.FechaVenta = DateTime.Parse("03/23/2015 10:12:30", System.Globalization.CultureInfo.InvariantCulture);
+                ventaCP.RestarStockCrearVentaHacerMovimiento(toni.Email, DateTime.Parse("03/23/2015 10:12:30", System.Globalization.CultureInfo.InvariantCulture), Venta13_1);
+
+                //Abril----------------------------------------------------------------------
+
+                //Mayo-----------------------------------------------------------------------
 
                 //Junio
 
