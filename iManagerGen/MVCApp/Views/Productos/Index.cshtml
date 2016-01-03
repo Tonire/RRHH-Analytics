@@ -85,7 +85,7 @@
                                         <td>
                                             <a title="Ver Producto" href="@Url.Action("Details", new {  id=item.Referencia  })" class="fa fa-eye" style="padding-right:5px;"></a>
                                             <a title="Editar Producto" href="@Url.Action("Edit", new {  id=item.Referencia  })" class="fa fa-pencil" style="padding-right:5px;"></a>
-                                            <a title="Eliminar Producto" href="@Url.Action("Delete", new { id=item.Referencia  })" class="fa fa-remove"></a>
+                                            <a title="Eliminar Producto" onclick="borrarProducto('@item.Referencia');" style="cursor:pointer" class="fa fa-remove"></a>
                                         </td>
                                     </tr>
                                 }
@@ -116,9 +116,11 @@
     <script type="text/javascript" language="javascript" src="~/Scripts/AdminLTE/plugins/datatables/dataTables.responsive.min.js"></script>
     <!-- SlimScroll -->
     <script src="~/Scripts/AdminLTE/plugins/slimScroll/jquery.slimscroll.min.js"></script>
+    <script src="~/Scripts/AdminLTE/plugins/sweetAlert/sweetalert.min.js"></script>
+    <script src="~/Scripts/Productos.js"></script>
 
-    @Scripts.Render("~/bundles/jqueryval")
-    <!-- page script -->
+        @Scripts.Render("~/bundles/jqueryval")
+<!-- page script -->
     <script>
         $(document).ready(function () {
             $('#example2').DataTable({
@@ -141,5 +143,5 @@
     </style>
     <link rel="stylesheet" type="text/css" href="~/Scripts/AdminLTE/plugins/datatables/dataTables.bootstrap.css">
     <link rel="stylesheet" type="text/css" href="~/Scripts/AdminLTE/plugins/datatables/dataTables.responsive.css">
-
+    <link rel="stylesheet" type="text/css" href="~/Scripts/AdminLTE/plugins/sweetAlert/sweetalert.css" />
 }

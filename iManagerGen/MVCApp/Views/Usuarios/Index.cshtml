@@ -68,7 +68,7 @@
                                             <a href="@Url.Action("Edit", new { /* id=item.PrimaryKey */ })" class="fa fa-pencil" style="padding-right:5px;"></a>
                                             <form action="/Usuarios/Delete" method="post" id="@item.Email" style="display:inline-block;cursor:pointer">
                                                 <input type="hidden" name="email" value="@item.Email" /> 
-                                                <a class="fa fa-remove" onclick="document.getElementById('@item.Email').submit()"></a>
+                                                <a class="fa fa-remove" onclick="borrarUsuario(document.getElementById('@item.Email'));"></a>
                                             </form>
                                         </td>
                                     </tr>
@@ -99,7 +99,8 @@
     <script type="text/javascript" language="javascript" src="~/Scripts/AdminLTE/plugins/datatables/dataTables.responsive.min.js"></script>
     <!-- SlimScroll -->
     <script src="~/Scripts/AdminLTE/plugins/slimScroll/jquery.slimscroll.min.js"></script>
-    
+    <script src="~/Scripts/AdminLTE/plugins/sweetAlert/sweetalert.min.js"></script>
+    <script src="~/Scripts/Usuarios.js"
        @Scripts.Render("~/bundles/jqueryval")
     <!-- page script -->
     <script>
@@ -124,5 +125,5 @@
     </style>
     <link rel="stylesheet" type="text/css" href="~/Scripts/AdminLTE/plugins/datatables/dataTables.bootstrap.css">
     <link rel="stylesheet" type="text/css" href="~/Scripts/AdminLTE/plugins/datatables/dataTables.responsive.css">
-    
+    <link rel="stylesheet" type="text/css" href="~/Scripts/AdminLTE/plugins/sweetAlert/sweetalert.css" />
 }

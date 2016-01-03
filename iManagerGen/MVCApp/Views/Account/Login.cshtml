@@ -36,7 +36,12 @@
 <body class="hold-transition login-page">
     <div class="login-box">
         <div class="login-logo">
-            <a href="@Url.Action("Login", "Account")"><b>Shop </b>ANALYTICS</a>
+        @if (ViewData["logo"] != null) {
+            <img src="@ViewData["logo"] " />
+        } else {
+            <a href="@Url.Action("Login", "Account")"><b>i</b>Manager</a>
+        }
+            
         </div><!-- /.login-logo -->
         <div class="login-box-body">
             <p class="login-box-msg">Inicia sesión para acceder a tu cuenta.</p>

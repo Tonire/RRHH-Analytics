@@ -873,6 +873,7 @@
     <Content Include="Scripts\AdminLTE\plugins\slimScroll\jquery.slimscroll.min.js" />
     <Content Include="Scripts\AdminLTE\plugins\sparkline\jquery.sparkline.js" />
     <Content Include="Scripts\AdminLTE\plugins\sparkline\jquery.sparkline.min.js" />
+    <Content Include="Scripts\AdminLTE\plugins\sweetAlert\sweetalert.css" />
     <Content Include="Scripts\AdminLTE\plugins\timepicker\bootstrap-timepicker.css" />
     <Content Include="Scripts\AdminLTE\plugins\timepicker\bootstrap-timepicker.js" />
     <Content Include="Scripts\AdminLTE\plugins\timepicker\bootstrap-timepicker.min.css" />
@@ -895,13 +896,16 @@
     <Content Include="Scripts\modernizr-2.8.3.js" />
     <Content Include="Scripts\npm.js" />
     <Content Include="Scripts\pedidos.js" />
+    <Content Include="Scripts\Productos.js" />
     <Content Include="Scripts\quagga.min.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.matchmedia.addListener.js" />
     <Content Include="Scripts\respond.matchmedia.addListener.min.js" />
     <Content Include="Scripts\respond.min.js" />
     <None Include="Scripts\_references.js" />
+    <Content Include="Scripts\AdminLTE\plugins\sweetAlert\sweetalert.min.js" />
     <Content Include="Scripts\ultimosMensajes.js" />
+    <Content Include="Scripts\Usuarios.js" />
     <Content Include="Scripts\ventas.js" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>

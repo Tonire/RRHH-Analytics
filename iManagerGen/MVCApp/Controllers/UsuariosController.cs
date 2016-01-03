@@ -144,10 +144,12 @@ namespace MVCApp.Controllers
             {
                 string id = Request["email"];
                 UsuarioCEN usuarioCEN = new UsuarioCEN();
-                Roles.RemoveUserFromRoles(id, Roles.GetRolesForUser(id));
-                ((SimpleMembershipProvider)Membership.Provider).DeleteAccount(id); // deletes record from webpages_Membership table
-                ((SimpleMembershipProvider)Membership.Provider).DeleteUser(id, true); // deletes record from UserProfile table
-                usuarioCEN.Destroy(id);
+                if (User.Identity.Name != usuarioCEN.GetUsuarioByEmail(id).Email) {
+                    Roles.RemoveUserFromRoles(id, Roles.GetRolesForUser(id));
+                    ((SimpleMembershipProvider)Membership.Provider).DeleteAccount(id); // deletes record from webpages_Membership table
+                    ((SimpleMembershipProvider)Membership.Provider).DeleteUser(id, true); // deletes record from UserProfile table
+                    usuarioCEN.Destroy(id);
+                }
                 return RedirectToAction("Index");
             }
             catch(Exception ex)

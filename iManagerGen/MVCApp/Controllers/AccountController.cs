@@ -31,6 +31,13 @@ namespace MVCApp.Controllers
                     return RedirectToAction("Index", "Home");
 
             }
+             AparienciaCEN aparienciaCEN = new AparienciaCEN();
+             string logo = aparienciaCEN.GetApariencia(0, -1)[0].Logo;
+             if (logo != null) {
+                 ViewData["logo"] = logo;
+             }
+             
+
 
             return View();
         }
@@ -46,6 +53,7 @@ namespace MVCApp.Controllers
             if (ModelState.IsValid && WebSecurity.Login(model.UserName, model.Password, persistCookie: model.RememberMe))
             {
                 UsuarioCEN usuCEN = new UsuarioCEN();
+                
                 UsuarioEN usuEN = usuCEN.IniciarSesion(model.UserName, model.Password); //Llamamos a la logica de negocio
                 if (usuEN!=null)    //Si se cumple quiere decir que se inicia sesion
                 {
