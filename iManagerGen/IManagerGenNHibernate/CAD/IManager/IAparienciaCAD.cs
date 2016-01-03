@@ -14,5 +14,8 @@ System.Collections.Generic.IList<AparienciaEN> GetApariencia (int first, int siz
 
 
 void Modify (AparienciaEN apariencia);
+
+
+void Destroy (string nombre);
 }
 }

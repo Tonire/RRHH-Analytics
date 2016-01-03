@@ -171,5 +171,28 @@ public void Modify (AparienciaEN apariencia)
                 SessionClose ();
         }
 }
+public void Destroy (string nombre)
+{
+        try
+        {
+                SessionInitializeTransaction ();
+                AparienciaEN aparienciaEN = (AparienciaEN)session.Load (typeof(AparienciaEN), nombre);
+                session.Delete (aparienciaEN);
+                SessionCommit ();
+        }
+
+        catch (Exception ex) {
+                SessionRollBack ();
+                if (ex is IManagerGenNHibernate.Exceptions.ModelException)
+                        throw ex;
+                throw new IManagerGenNHibernate.Exceptions.DataLayerException ("Error in AparienciaCAD.", ex);
+        }
+
+
+        finally
+        {
+                SessionClose ();
+        }
+}
 }
 }

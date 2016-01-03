@@ -379,6 +379,9 @@
         <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_3mKsU53dEeW0OISaGBmFaw" name="p_admin"/>
         <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_3mKsVJ3dEeW0OISaGBmFaw" name="p_empleado"/>
       </operations>
+      <operations xmi:type="es.ua.dlsi.ooh:Operation" xmi:id="_cgpIQLJcEeWZB-u1vLKhLA" name="destroy" operationType="Destroy" type="Void">
+        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_eQR54LJcEeWZB-u1vLKhLA" name="p_Apariencia_OID" type="OID" typeObject="_nHi48HwLEeW-XJNIUeA2IA"/>
+      </operations>
       <attributes xmi:type="es.ua.dlsi.ooh:Attribute" xmi:id="_oCNKYHwLEeW-XJNIUeA2IA" alias="nombre" name="nombre" isOID="true" unique="true"/>
       <attributes xmi:type="es.ua.dlsi.ooh:Attribute" xmi:id="_pFM4cHwLEeW-XJNIUeA2IA" alias="logo" name="logo"/>
       <attributes xmi:type="es.ua.dlsi.ooh:Attribute" xmi:id="_vw6kIJ3ZEeW0OISaGBmFaw" alias="superAdmin" name="superAdmin"/>
@@ -1443,6 +1446,13 @@
           <styles xmi:type="notation:FontStyle" xmi:id="_ufHjcnwLEeW-XJNIUeA2IA" fontName="Segoe UI"/>
           <styles xmi:type="notation:FillStyle" xmi:id="_ufHjc3wLEeW-XJNIUeA2IA"/>
           <layoutConstraint xmi:type="notation:Bounds" xmi:id="_ufHjdHwLEeW-XJNIUeA2IA"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_chLTwLJcEeWZB-u1vLKhLA" type="3004" element="_cgpIQLJcEeWZB-u1vLKhLA">
+          <children xmi:type="notation:DecorationNode" xmi:id="_chL60LJcEeWZB-u1vLKhLA" type="5004"/>
+          <styles xmi:type="notation:DescriptionStyle" xmi:id="_chLTwbJcEeWZB-u1vLKhLA"/>
+          <styles xmi:type="notation:FontStyle" xmi:id="_chLTwrJcEeWZB-u1vLKhLA" fontName="Segoe UI"/>
+          <styles xmi:type="notation:FillStyle" xmi:id="_chLTw7JcEeWZB-u1vLKhLA"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_chLTxLJcEeWZB-u1vLKhLA"/>
         </children>
         <styles xmi:type="notation:SortingStyle" xmi:id="_nHkHGnwLEeW-XJNIUeA2IA"/>
         <styles xmi:type="notation:FilteringStyle" xmi:id="_nHkHG3wLEeW-XJNIUeA2IA"/>

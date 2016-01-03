@@ -81,5 +81,10 @@ public void Modify (string p_Apariencia_OID, string p_logo, string p_superAdmin,
 
         _IAparienciaCAD.Modify (aparienciaEN);
 }
+
+public void Destroy (string nombre)
+{
+        _IAparienciaCAD.Destroy (nombre);
+}
 }
 }
