@@ -39,16 +39,16 @@
         </a>
     </div><!-- /.col -->
     <div class="col-md-3 col-sm-6 col-xs-12">
-    <a href="@Url.Action("Index","Pedidos")" style="color:black;">
-        <div class="info-box">
-            <span class="info-box-icon bg-red"><i class="ion ion-load-a"></i></span>
-            <div class="info-box-content">
-                <span class="info-box-text">PEDIDOS PENDIENTES</span>
-                <span class="info-box-number">@Model.numeroPedidiosPendientes</span>
-            </div><!-- /.info-box-content -->
-        </div><!-- /.info-box -->
-    </a>
-        
+        <a href="@Url.Action("Index","Pedidos")" style="color:black;">
+            <div class="info-box">
+                <span class="info-box-icon bg-red"><i class="ion ion-load-a"></i></span>
+                <div class="info-box-content">
+                    <span class="info-box-text">PEDIDOS PENDIENTES</span>
+                    <span class="info-box-number">@Model.numeroPedidiosPendientes</span>
+                </div><!-- /.info-box-content -->
+            </div><!-- /.info-box -->
+        </a>
+
     </div><!-- /.col -->
     <!-- fix for small devices only -->
     <div class="clearfix visible-sm-block"></div>
@@ -62,7 +62,7 @@
                 </div><!-- /.info-box-content -->
             </div><!-- /.info-box -->
         </a>
-</div><!-- /.col -->
+    </div><!-- /.col -->
     <div class="col-md-3 col-sm-6 col-xs-12">
         <a href="@Url.Action("Index","Usuarios")" style="color:black;">
             <div class="info-box">
@@ -96,7 +96,7 @@
                                 <option value="2017">2017</option>
                             </select>
                         </div>
-                        
+
                         <div class="chart-responsive">
                             <!-- Sales Chart Canvas -->
                             <canvas id="salesChart" height="250"></canvas>
@@ -108,14 +108,14 @@
                 <div class="row">
                     <div class="col-sm-3 col-xs-6">
                         <div class="description-block border-right">
-                            <h5 class="description-header text-green"><i class="fa fa-caret-up"></i> @Math.Round(Model.totalIngresos[0],2) €</h5>
+                            <h5 class="description-header text-green"><i class="fa fa-caret-up"></i><span id="ingresos">@Math.Round(Model.totalIngresos[0], 2)</span> €</h5>
 
                             <span class="description-text">INGRESOS TOTALES</span>
                         </div><!-- /.description-block -->
                     </div><!-- /.col -->
                     <div class="col-sm-3 col-xs-6">
                         <div class="description-block border-right">
-                            <h5 class="description-header text-red"><i class="fa fa-caret-down"></i> @Math.Round(Model.totalGastos[0],2) €</h5>
+                            <h5 class="description-header text-red"><i class="fa fa-caret-down"></i> <span id="gastos">@Math.Round(Model.totalGastos[0], 2)</span> €</h5>
                             <span class="description-text">GASTOS TOTALES</span>
                         </div><!-- /.description-block -->
                     </div><!-- /.col -->
@@ -137,7 +137,7 @@
                                     tipo2 = "yellow";
                                 }
                             }
-                            <h5 class="description-header text-@tipo2"><i class="fa fa-caret-@tipo"></i> @Math.Round(Model.ganancia[0],2) €</h5>
+                            <h5 id="color-ganancia" class="description-header text-@tipo2"><i id="icono-ganancia" class="fa fa-caret-@tipo"></i> <span id="ganancia">@Math.Round(Model.ganancia[0], 2)</span> €</h5>
                             <span class="description-text">GANANCIA TOTAL</span>
                         </div><!-- /.description-block -->
                     </div><!-- /.col -->
@@ -199,14 +199,14 @@
                         </div><!-- ./chart-responsive -->
                     </div><!-- /.col -->
                     <div class="col-md-6">
-                    @{
+                        @{
                         var totalVentas = Model.otrosCuenta;
                         var cuentaPV = 0;
                         for(int i=0; i < 3 ; i++){
                             cuentaPV += Model.productosMasVendidos.ElementAt(i).Ventas;
                         }
                         var otros = Math.Abs(totalVentas - cuentaPV);
-                    }
+                        }
                         <ul class="chart-legend clearfix">
                             <li><i class="fa fa-circle-o text-red"></i> @Model.productosMasVendidos.ElementAt(0).Nombre</li>
                             <li><i class="fa fa-circle-o text-green"></i> @Model.productosMasVendidos.ElementAt(1).Nombre</li>
@@ -257,23 +257,25 @@
                             @foreach (var item in Model.listaUltimosPedidos) {
                                 <tr>
                                     <td><a title="Ver Pedido" href="@Url.Action("/Details/"+item.Id,"Pedidos")">@item.Id</a></td>
-                                    <td>@{
+                                    <td>
+                                        @{
                                         switch (item.Estado.ToString()) {
                                             case "pendiente":
                                                 <text><span class="label label-warning">Pendiente</span></text>
                                                 break;
                                             case "confirmado":
-                                                <text><span class="label label-success">Confirmado</span></text>
+                                            <text><span class="label label-success">Confirmado</span></text>
                                                 break;
                                             case "rechazado":
-                                                <text><span class="label label-danger">Cancelado</span></text>
+                                            <text><span class="label label-danger">Cancelado</span></text>
                                                 break;
                                             }
-                                        }</td>
-                                    <td>@item.FechaRealizacion</td>
-                                    <td>@item.FechaConfirmacion</td>
-                                    <td>@item.FechaCancelacion</td>
-                                </tr>
+                                    }
+                                </td>
+                                <td>@item.FechaRealizacion</td>
+                                <td>@item.FechaConfirmacion</td>
+                                <td>@item.FechaCancelacion</td>
+                            </tr>
                             }
                         </tbody>
                     </table>
@@ -302,7 +304,7 @@
                             <div class="product-info" style="margin-left: 10px;">
                                 <a href="@Url.Action("/Details/"+@item.Referencia,"Productos")" class="product-title">@item.Nombre <span class="label label-success pull-right">@item.PrecioVenta €</span></a>
                                 <span class="product-description">
-                                 @item.Marca
+                                    @item.Marca
                                 </span>
                             </div>
                         </li>
@@ -398,13 +400,13 @@
             tooltipTemplate: "<%=value %> <%=label%>"
         };
         //Create pie or douhnut chart
-        // You can switch between pie and douhnut using the method below.  
+        // You can switch between pie and douhnut using the method below.
         pieChart.Doughnut(PieData, pieOptions);
         //-----------------
         //- END PIE CHART -
         //-----------------
 
-        
+
 
         /* SPARKLINE CHARTS
          * ----------------
@@ -450,7 +452,7 @@
             });
         });
     </script>
-    
+
     <script>
         $(function () {
 
@@ -468,17 +470,35 @@
 
             // This will get the first returned node in the jQuery collection.
             var salesChart = new Chart(salesChartCanvas);
-            
+
             var ingresos= new Array();
             var gastos= new Array();
+            var totalGastos= new Array();
+            var totalIngresos= new Array();
+            var totalGanancia= new Array();
             @foreach(var item in Model.totalAnyoIngresos){
                 <text>
-                    ingresos.push(@Html.Raw(Json.Encode(item)));
-                </text>
+            ingresos.push(@Html.Raw(Json.Encode(item)));
+            </text>
             }
             @foreach(var item in Model.totalAnyoGastos){
                 <text>
-                    gastos.push(@Html.Raw(Json.Encode(item)));
+            gastos.push(@Html.Raw(Json.Encode(item)));
+            </text>
+            }
+            @foreach(var item in Model.totalIngresos){
+                <text>
+            totalIngresos.push(@Html.Raw(Json.Encode(item)));
+            </text>
+            }
+            @foreach(var item in Model.totalGastos){
+                <text>
+            totalGastos.push(@Html.Raw(Json.Encode(item)));
+            </text>
+            }
+            @foreach(var item in Model.ganancia){
+                <text>
+            totalGanancia.push(@Html.Raw(Json.Encode(item)));
                 </text>
             }
             var salesChartData = {
@@ -548,7 +568,7 @@
 
             //Create the line chart
             var sales = salesChart.Line(salesChartData, salesChartOptions);
-            
+
             var sales2;
             first = false;
             $('#anyo-graph').change(function () {
@@ -574,14 +594,35 @@
                 salesChart = new Chart(salesChartCanvas);
                 sales2 = salesChart.Line(salesChartData, salesChartOptions);
                 first = true;
-            });
+
+                $("#ingresos").text(totalIngresos[i].toFixed(2));
+                $("#gastos").text(totalGastos[i].toFixed(2));
+                var tipo;
+                var tipo2;
+                if (totalGanancia[i] > 0) {
+                    tipo = "up";
+                    tipo2 = "green";
+                }
+                else if (totalGanancia[i] < 0) {
+                    tipo = "down";
+                    tipo2 = "red";
+                }
+                else {
+                    tipo = "left";
+                    tipo2 = "yellow";
+                }
+                $("#icono-ganancia").attr("class", "fa fa-caret-"+tipo);
+                $("#color-ganancia").attr("class", "description-header text-" + tipo2);
+                $("#ganancia").text(totalGanancia[i].toFixed(2));
+
+                });
         });
     </script>
 
 
 
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBnIi1KcDuS8KtdCxO0AbmWHInGIBiPyCI&signed_in=true&callback=initMap"
-        async defer></script>
+            async defer></script>
 
 
 
@@ -589,7 +630,7 @@
         var marcadores = new Array();
         function initMap() {
             var geocoder = new google.maps.Geocoder();
-                geocodeAddress(geocoder);
+            geocodeAddress(geocoder);
         }
         function geocodeAddress(geocoder) {
             var i=0;
@@ -597,8 +638,8 @@
             var objeto;
             @foreach(var item in Model.listaProveedores){
                 <text>
-                    objeto = @Html.Raw(Json.Encode(item))
-                    arrayProveedores.push(objeto);
+            objeto = @Html.Raw(Json.Encode(item))
+            arrayProveedores.push(objeto);
             </text>
             }
             var llamadas = arrayProveedores.length;
@@ -622,11 +663,11 @@
                     } else {
                         //alert('Geocode was not successful for the following reason: ' + status);
                     }
-                    
+
                 });
 
             }
-            //alert(JSON.stringify(marcadores)); 
+            //alert(JSON.stringify(marcadores));
         }
 
         function dibujarMapa(){
@@ -669,6 +710,6 @@
         }
 
     </script>
-    
-    
+
+
 }
