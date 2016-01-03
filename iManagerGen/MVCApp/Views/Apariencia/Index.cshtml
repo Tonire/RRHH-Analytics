@@ -1,0 +1,140 @@
+﻿@model MVCApp.Models.InstalacionModel
+@{
+    if (User.IsInRole("SuperAdministrador")) {
+        Layout = "~/Views/Shared/_SuperLayout.cshtml";
+    }
+    if (User.IsInRole("Administrador")) {
+        Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    }
+    ViewBag.Title = "Modificar Apariencia";
+
+    ViewBag.Breadcrumb = new Breadcrumb(new Crumb[] {
+        new Crumb("Modificar Apariencia", "", "fa-paint-brush")
+    });
+
+}
+@{
+    if (TempData["AparienciaCambiada"] != null) {
+        <text>
+            <div class="row">
+                <div class="alert alert-success alert-dismissible" style="margin-right: 15px; margin-left: 15px;">
+                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                    <h4><i class="icon fa fa-check"></i> Apariencia Modificada!</h4>
+                    La apariencia ha sido modificada correctamente.
+                </div>
+            </div>
+
+        </text>
+    }
+}
+<div class="row">
+    <div class="col-xs-12">
+        <div class="box">
+            <!-- /.box-header -->
+                @using (Html.BeginForm("Create", "Apariencia", FormMethod.Post, new { enctype = "multipart/form-data", role = "form", id = "userForm" })) {
+                    @Html.AntiForgeryToken()
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                    <div class="box-body">
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.SiteName)
+                            @Html.TextBoxFor(model => model.SiteName, null, new { @class = "form-control", placeholder = "Nombre del sitio" })
+                            @Html.ValidationMessageFor(model => model.SiteName, null, new { @class = "text-danger" })
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <img src="@Model.SiteLogo" class="img-responsive" alt="Logo">
+                                    <label for="file">Logo personalizado</label>
+                                    <input id="file" type="file" name="file" />
+                                    @Html.ValidationMessageFor(model => model.SiteLogo, null, new { @class = "text-danger" })
+                                </div>
+                            </div>
+                        </div>
+                        
+                        @{
+                            List<SelectListItem> listItems = new List<SelectListItem>();
+                            listItems.Add(new SelectListItem {
+                                Text = "Azul",
+                                Value = "0",
+                                Selected = true
+                            });
+                            listItems.Add(new SelectListItem {
+                                Text = "Negro",
+                                Value = "1"
+                            });
+                            listItems.Add(new SelectListItem {
+                                Text = "Violeta",
+                                Value = "2"
+                            });
+                            listItems.Add(new SelectListItem {
+                                Text = "Verde",
+                                Value = "3"
+                            });
+                            listItems.Add(new SelectListItem {
+                                Text = "Rojo",
+                                Value = "4"
+                            });
+                            listItems.Add(new SelectListItem {
+                                Text = "Amarillo",
+                                Value = "5"
+                            });
+                        }
+                        <div class="form-group">
+                            <label for="file">Color Super</label>
+                            @Html.DropDownListFor(model => model.SuperColor, listItems, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.SuperColor, "", new { @class = "text-danger" })
+                        </div>
+                        <div class="form-group">
+                            <label for="file">Color Admin</label>
+                            @Html.DropDownListFor(model => model.AdminColor, listItems, new { @class = "form-control", placeholder = "Color del Tema del Administrador" })
+                            @Html.ValidationMessageFor(model => model.AdminColor, null, new { @class = "text-danger" })
+                        </div>
+
+                        <div class="form-group">
+                            <label for="file">Color Empleado</label>
+                            @Html.DropDownListFor(model => model.EmplColor, listItems, new { @class = "form-control", placeholder = "Color del Tema del Empleado" })
+                            @Html.ValidationMessageFor(model => model.EmplColor, null, new { @class = "text-danger" })
+                        </div>
+                    </div>
+                            <!-- /.box-body -->
+
+                    <div class="box-footer">
+                        <button type="submit" class="btn btn-primary">Modificar Apariencia</button>
+                    </div>
+                }
+            <!-- /.box-body -->
+        </div>
+    </div>
+</div>
+@section scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    <script>
+        $(document).ready(function () {
+            var form = $('#userForm')
+                , formData = $.data(form[0])
+                , settings = formData.validator.settings
+                // Store existing event handlers in local variables
+                , oldErrorPlacement = settings.errorPlacement
+                , oldSuccess = settings.success;
+
+            settings.errorPlacement = function (label, element) {
+
+                // Call old handler so it can update the HTML
+                oldErrorPlacement(label, element);
+
+                // Add Bootstrap classes to newly added elements
+                label.parents('.form-group').addClass('has-error');
+                label.addClass('text-danger');
+            };
+
+            settings.success = function (label) {
+                // Remove error class from <div class="form-group">, but don't worry about
+                // validation error messages as the plugin is going to remove it anyway
+                label.parents('.form-group').removeClass('has-error');
+
+                // Call old handler to do rest of the work
+                oldSuccess(label);
+            };
+        });
+    </script>
+}

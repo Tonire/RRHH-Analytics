@@ -217,6 +217,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AparienciaController.cs" />
     <Compile Include="Controllers\BasicController.cs" />
     <Compile Include="Controllers\HorarioController.cs" />
     <Compile Include="Controllers\InstalacionController.cs" />
@@ -966,6 +967,7 @@
     <Content Include="Views\Proveedores\Index.cshtml" />
     <Content Include="Views\Proveedores\Edit.cshtml" />
     <Content Include="Views\Proveedores\Create.cshtml" />
+    <Content Include="Views\Apariencia\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

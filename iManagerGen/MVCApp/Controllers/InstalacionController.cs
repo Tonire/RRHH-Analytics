@@ -81,7 +81,7 @@ namespace MVCApp.Controllers
                     ModelState.AddModelError("","Error subiendo la imágen.");
                 }
                 catch(Exception ex){
-
+                    ModelState.AddModelError("", "Error desconocido, contacte con un admin");
                 }
             }
 
