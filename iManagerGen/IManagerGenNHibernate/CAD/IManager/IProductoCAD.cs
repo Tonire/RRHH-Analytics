@@ -30,8 +30,5 @@ System.Collections.Generic.IList<IManagerGenNHibernate.EN.IManager.ProductoEN> G
 
 
 long ContarProductos ();
-
-
-long TotalVentas ();
 }
 }

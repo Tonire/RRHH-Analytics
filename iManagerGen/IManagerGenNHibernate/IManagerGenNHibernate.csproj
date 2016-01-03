@@ -152,6 +152,7 @@
 	<Compile Include="CEN\IManager\ProductoCEN.cs" />
 	<Compile Include="CAD\IManager\IProductoCAD.cs" />
 	<Compile Include="CAD\IManager\ProductoCAD.cs" />
+			<Compile Include="CEN\IManager\ProductoCEN_Get5ProductosMasVendidos.cs" />
 	<Compile Include="EN\IManager\ProveedorEN.cs" />
 	<Compile Include="CEN\IManager\ProveedorCEN.cs" />
 	<Compile Include="CAD\IManager\IProveedorCAD.cs" />

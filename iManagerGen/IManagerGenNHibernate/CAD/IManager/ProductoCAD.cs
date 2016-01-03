@@ -374,36 +374,5 @@ public long ContarProductos ()
 
         return result;
 }
-public long TotalVentas ()
-{
-        long result;
-
-        try
-        {
-                SessionInitializeTransaction ();
-                //String sql = @"FROM ProductoEN self where select sum(Ventas) FROM ProductoEN";
-                //IQuery query = session.CreateQuery(sql);
-                IQuery query = (IQuery)session.GetNamedQuery ("ProductoENtotalVentasHQL");
-
-
-                result = query.UniqueResult<long>();
-                SessionCommit ();
-        }
-
-        catch (Exception ex) {
-                SessionRollBack ();
-                if (ex is IManagerGenNHibernate.Exceptions.ModelException)
-                        throw ex;
-                throw new IManagerGenNHibernate.Exceptions.DataLayerException ("Error in ProductoCAD.", ex);
-        }
-
-
-        finally
-        {
-                SessionClose ();
-        }
-
-        return result;
-}
 }
 }

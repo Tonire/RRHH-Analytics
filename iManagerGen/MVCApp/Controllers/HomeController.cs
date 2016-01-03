@@ -72,7 +72,7 @@ namespace MVCApp.Controllers
             var sortedList = productosMasVendidos.OrderByDescending(x => x.Ventas);
             List<ProductoEN> lista5productosMasVendidos = new List<ProductoEN>();
             homeModel.productosMasVendidos = sortedList;
-            homeModel.otrosCuenta = productoCEN.TotalVentas();
+            homeModel.otrosCuenta=productoCEN.ContarProductos()-5;
             return View(homeModel);
         }
 

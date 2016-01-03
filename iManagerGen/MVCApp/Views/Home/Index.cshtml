@@ -200,12 +200,12 @@
                     </div><!-- /.col -->
                     <div class="col-md-6">
                     @{
-                        var totalVentas = Model.otrosCuenta;
+                        var cuenta = Model.numeroVentas;
                         var cuentaPV = 0;
                         for(int i=0; i < 3 ; i++){
                             cuentaPV += Model.productosMasVendidos.ElementAt(i).Ventas;
                         }
-                        var otros = Math.Abs(totalVentas - cuentaPV);
+                        cuenta = Math.Abs(cuenta - cuentaPV);
                     }
                         <ul class="chart-legend clearfix">
                             <li><i class="fa fa-circle-o text-red"></i> @Model.productosMasVendidos.ElementAt(0).Nombre</li>
@@ -221,7 +221,7 @@
                     <li><a href="#">@Model.productosMasVendidos.ElementAt(0).Nombre <span class="pull-right text-green"><i class="fa fa-angle-left"></i> @Model.productosMasVendidos.ElementAt(0).Ventas</span></a></li>
                     <li><a href="#">@Model.productosMasVendidos.ElementAt(1).Nombre <span class="pull-right text-green"><i class="fa fa-angle-left"></i> @Model.productosMasVendidos.ElementAt(1).Ventas</span></a></li>
                     <li><a href="#">@Model.productosMasVendidos.ElementAt(2).Nombre <span class="pull-right text-green"><i class="fa fa-angle-left"></i> @Model.productosMasVendidos.ElementAt(2).Ventas</span></a></li>
-                    <li><a href="#">Otros <span class="pull-right text-green"><i class="fa fa-angle-left"></i> @otros</span></a></li>
+                    <li><a href="#">Otros <span class="pull-right text-green"><i class="fa fa-angle-left"></i> @cuenta</span></a></li>
                 </ul>
             </div><!-- /.footer -->
         </div><!-- /.box -->
@@ -333,12 +333,10 @@
         var pieChart = new Chart(pieChartCanvas);
         var array = new Array();
         var arrayNombres = new Array();
-        @for (int i = 0; i < 3;i++ ) {
+        @for (int i = 0; i < 5;i++ ) {
             <text>array.push(@Html.Raw((@Model.productosMasVendidos.ToList()[i].Ventas ))); </text>
             <text>arrayNombres.push("@Html.Raw(@Model.productosMasVendidos.ToList()[i].Nombre)"); </text>
         }
-        array.push(@otros);
-        arrayNombres.push("Otros");
         var PieData = [
           {
               value: array[0],
@@ -360,8 +358,8 @@
           },
           {
               value: array[3],
-              color: "#d2d6de",
-              highlight: "#d2d6de",
+              color: "#00c0ef",
+              highlight: "#00c0ef",
               label: ""+ arrayNombres[3] +""
           }//,
           /*{
