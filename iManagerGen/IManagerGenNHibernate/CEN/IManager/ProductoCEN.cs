@@ -135,5 +135,9 @@ public long ContarProductos ()
 {
         return _IProductoCAD.ContarProductos ();
 }
+public long TotalVentas ()
+{
+        return _IProductoCAD.TotalVentas ();
+}
 }
 }
