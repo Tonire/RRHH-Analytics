@@ -84,5 +84,6 @@
 		  <query name="ProductoENReadAllHQL">from ProductoEN</query>
 		  <query name="ProductoENgetProductosByProveedorHQL"><![CDATA[select prod FROM ProductoEN as prod inner join prod.Proveedor as prov where prov.Email=:p_proveedor]]></query>
 		  <query name="ProductoENcontarProductosHQL"><![CDATA[select count(*) FROM ProductoEN]]></query>
+		  <query name="ProductoENtotalVentasHQL"><![CDATA[select sum(Ventas) FROM ProductoEN]]></query>
 		</hibernate-mapping>
 	
