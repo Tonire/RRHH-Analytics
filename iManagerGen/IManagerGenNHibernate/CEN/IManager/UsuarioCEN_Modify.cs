@@ -32,7 +32,8 @@ public void Modify (string p_Usuario_OID, string p_DNI, String p_password, strin
         usuarioEN = new UsuarioEN ();
         usuarioEN.Email = p_Usuario_OID;
         usuarioEN.DNI = p_DNI;
-        usuarioEN.Password = Utils.Util.GetEncondeMD5(System.Text.Encoding.UTF8.GetString(hash));
+        string strHash = Convert.ToBase64String(hash);
+        usuarioEN.Password = Utils.Util.GetEncondeMD5(strHash);
         usuarioEN.Nombre = p_nombre;
         usuarioEN.Apellidos = p_apellidos;
         usuarioEN.FechaRegistro = p_fechaRegistro;
