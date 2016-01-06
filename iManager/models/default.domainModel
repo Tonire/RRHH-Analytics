@@ -6,7 +6,7 @@
         <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_VrgLwHv-EeWyGcqmZGlzvA" name="p_oid" type="OID" typeObject="_FkwKoHv-EeWyGcqmZGlzvA"/>
         <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_kZZKQHwDEeW-XJNIUeA2IA" name="pass"/>
       </operations>
-      <operations xmi:type="es.ua.dlsi.ooh:Operation" xmi:id="_VtuHYHwAEeWyGcqmZGlzvA" name="modify" operationType="Modifier" type="Void">
+      <operations xmi:type="es.ua.dlsi.ooh:Operation" xmi:id="_VtuHYHwAEeWyGcqmZGlzvA" name="modify" operationType="Modifier" type="Void" customized="true">
         <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_j2Wf4I0gEeW4-tNygwEk4A" name="p_Usuario_OID" type="OID" typeObject="_FkwKoHv-EeWyGcqmZGlzvA"/>
         <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_j2Wf4Y0gEeW4-tNygwEk4A" name="p_DNI"/>
         <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_j2Wf4o0gEeW4-tNygwEk4A" name="p_password" type="Password"/>

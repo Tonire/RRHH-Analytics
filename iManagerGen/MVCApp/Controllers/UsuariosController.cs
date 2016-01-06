@@ -80,6 +80,7 @@ namespace MVCApp.Controllers
                             empleadoCEN.New_(model.Email, model.DNI, model.Password, model.Nombre, model.Apellidos, DateTime.Now);
                             break;
                     }
+                    
                     TempData["Creado"] = true;
                     return RedirectToAction("Index");
                 }
@@ -88,6 +89,9 @@ namespace MVCApp.Controllers
                 }
                 catch(IManagerGenNHibernate.Exceptions.DataLayerException ex){
                     ModelState.AddModelError("", "El DNI  que has introducido ya existe en la base de datos.");
+                    Roles.RemoveUserFromRoles(model.Email, Roles.GetRolesForUser(model.Email));
+                    ((SimpleMembershipProvider)Membership.Provider).DeleteAccount(model.Email); // deletes record from webpages_Membership table
+                    ((SimpleMembershipProvider)Membership.Provider).DeleteUser(model.Email, true); // deletes record from UserProfile table
                 }
             }
 
@@ -149,6 +153,7 @@ namespace MVCApp.Controllers
                     ((SimpleMembershipProvider)Membership.Provider).DeleteAccount(id); // deletes record from webpages_Membership table
                     ((SimpleMembershipProvider)Membership.Provider).DeleteUser(id, true); // deletes record from UserProfile table
                     usuarioCEN.Destroy(id);
+                    TempData["UsuarioEliminado"] = true;
                 }
                 return RedirectToAction("Index");
             }

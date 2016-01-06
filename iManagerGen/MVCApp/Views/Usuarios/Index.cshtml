@@ -27,6 +27,21 @@
                 </text>
             }
         }
+
+        @{
+            if (TempData["UsuarioEliminado"] != null) {
+                <text>
+                    <div class="row">
+                        <div class="alert alert-success alert-dismissible" style="margin-right: 15px; margin-left: 15px;">
+                            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                            <h4><i class="icon fa fa-check"></i> Usuario Eliminado!</h4>
+                            El usuario ha sido eliminado correctamente.
+                        </div>
+                    </div>
+
+                </text>
+            }
+        }
         <div class="row">
             <div class="col-xs-12">
                 <div class="box">
