@@ -202,7 +202,7 @@
                         @{
                         var totalVentas = Model.otrosCuenta;
                         var cuentaPV = 0;
-                        for(int i=0; i < 3 ; i++){
+                        for(int i=0; i < 4 ; i++){
                             cuentaPV += Model.productosMasVendidos.ElementAt(i).Ventas;
                         }
                         var otros = Math.Abs(totalVentas - cuentaPV);
@@ -211,7 +211,7 @@
                             <li><i class="fa fa-circle-o text-red"></i> @Model.productosMasVendidos.ElementAt(0).Nombre</li>
                             <li><i class="fa fa-circle-o text-green"></i> @Model.productosMasVendidos.ElementAt(1).Nombre</li>
                             <li><i class="fa fa-circle-o text-yellow"></i> @Model.productosMasVendidos.ElementAt(2).Nombre</li>
-                            <li><i class="fa fa-circle-o text-gray"></i> Otros</li>
+                            <li><i class="fa fa-circle-o text-gray"></i> @Model.productosMasVendidos.ElementAt(3).Nombre</li>
                         </ul>
                     </div><!-- /.col -->
                 </div><!-- /.row -->
@@ -221,7 +221,7 @@
                     <li><a href="#">@Model.productosMasVendidos.ElementAt(0).Nombre <span class="pull-right text-green"><i class="fa fa-angle-left"></i> @Model.productosMasVendidos.ElementAt(0).Ventas</span></a></li>
                     <li><a href="#">@Model.productosMasVendidos.ElementAt(1).Nombre <span class="pull-right text-green"><i class="fa fa-angle-left"></i> @Model.productosMasVendidos.ElementAt(1).Ventas</span></a></li>
                     <li><a href="#">@Model.productosMasVendidos.ElementAt(2).Nombre <span class="pull-right text-green"><i class="fa fa-angle-left"></i> @Model.productosMasVendidos.ElementAt(2).Ventas</span></a></li>
-                    <li><a href="#">Otros <span class="pull-right text-green"><i class="fa fa-angle-left"></i> @otros</span></a></li>
+                    <li><a href="#">@Model.productosMasVendidos.ElementAt(3).Nombre <span class="pull-right text-green"><i class="fa fa-angle-left"></i> @Model.productosMasVendidos.ElementAt(3).Ventas</span></a></li>
                 </ul>
             </div><!-- /.footer -->
         </div><!-- /.box -->
@@ -335,12 +335,10 @@
         var pieChart = new Chart(pieChartCanvas);
         var array = new Array();
         var arrayNombres = new Array();
-        @for (int i = 0; i < 3;i++ ) {
+        @for (int i = 0; i < 4;i++ ) {
             <text>array.push(@Html.Raw((@Model.productosMasVendidos.ToList()[i].Ventas ))); </text>
             <text>arrayNombres.push("@Html.Raw(@Model.productosMasVendidos.ToList()[i].Nombre)"); </text>
         }
-        array.push(@otros);
-        arrayNombres.push("Otros");
         var PieData = [
           {
               value: array[0],
