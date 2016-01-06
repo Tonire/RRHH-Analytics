@@ -36,23 +36,6 @@ public IUsuarioCAD get_IUsuarioCAD ()
         return this._IUsuarioCAD;
 }
 
-public void Modify (string p_Usuario_OID, string p_DNI, String p_password, string p_nombre, string p_apellidos, Nullable<DateTime> p_fechaRegistro)
-{
-        UsuarioEN usuarioEN = null;
-
-        //Initialized UsuarioEN
-        usuarioEN = new UsuarioEN ();
-        usuarioEN.Email = p_Usuario_OID;
-        usuarioEN.DNI = p_DNI;
-        usuarioEN.Password = Utils.Util.GetEncondeMD5 (p_password);
-        usuarioEN.Nombre = p_nombre;
-        usuarioEN.Apellidos = p_apellidos;
-        usuarioEN.FechaRegistro = p_fechaRegistro;
-        //Call to UsuarioCAD
-
-        _IUsuarioCAD.Modify (usuarioEN);
-}
-
 public void Destroy (string email)
 {
         _IUsuarioCAD.Destroy (email);

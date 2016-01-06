@@ -94,6 +94,7 @@
 	<Compile Include="CAD\IManager\IUsuarioCAD.cs" />
 	<Compile Include="CAD\IManager\UsuarioCAD.cs" />
 			<Compile Include="CEN\IManager\UsuarioCEN_IniciarSesion.cs" />
+			<Compile Include="CEN\IManager\UsuarioCEN_Modify.cs" />
 			<Compile Include="CEN\IManager\UsuarioCEN_Registrar.cs" />
 	<Compile Include="EN\IManager\SuperAdministradorEN.cs" />
 	<Compile Include="CEN\IManager\SuperAdministradorCEN.cs" />
