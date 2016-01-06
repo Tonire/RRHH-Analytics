@@ -33,7 +33,7 @@ namespace MVCApp.Controllers
             }
              AparienciaCEN aparienciaCEN = new AparienciaCEN();
              string logo = aparienciaCEN.GetApariencia(0, -1)[0].Logo;
-             if (logo != "") {
+             if (logo != null) {
                  ViewData["logo"] = logo;
              }
              
@@ -195,9 +195,6 @@ namespace MVCApp.Controllers
 
                     if (changePasswordSucceeded)
                     {
-                        UsuarioCEN usuarioCEN = new UsuarioCEN();
-                        UsuarioEN usuarioEN = usuarioCEN.GetUsuarioByEmail(User.Identity.Name);
-                        usuarioCEN.Modify(usuarioEN.Email,usuarioEN.DNI,model.NewPassword,usuarioEN.Nombre,usuarioEN.Apellidos,usuarioEN.FechaRegistro);
                         return RedirectToAction("Manage", new { Message = ManageMessageId.ChangePasswordSuccess });
                     }
                     else

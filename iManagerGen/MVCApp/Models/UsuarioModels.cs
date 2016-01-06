@@ -20,7 +20,6 @@ namespace MVCApp.Models {
 
         [Display(Prompt = "DNI", Description = "DNI del usuario", Name = "DNI")]
         [Required(ErrorMessage = "Debe indicar un nombre para el artículo")]
-        [RegularExpression("^(([A-Z]\\d{8})|(\\d{8}[A-Z]))$", ErrorMessage = "DNI incorrecto")]
         [StringLength(maximumLength: 200, ErrorMessage = "El nombre no puede tener más de 200 caracteres")]
         public string DNI { get; set; }
 

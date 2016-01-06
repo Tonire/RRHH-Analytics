@@ -21,6 +21,16 @@
                 <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
             </div>
         </div>
+        <!-- search form -->
+        <form action="#" method="get" class="sidebar-form">
+            <div class="input-group">
+                <input type="text" name="q" class="form-control" placeholder="Search..." />
+                <span class="input-group-btn">
+                    <button type='submit' name='search' id='search-btn' class="btn btn-flat"><i class="fa fa-search"></i></button>
+                </span>
+            </div>
+        </form>
+        <!-- /.search form -->
         <!-- sidebar menu: : style can be found in sidebar.less -->
         <ul class="sidebar-menu">
             <li class="header">MENÚ DE NAVEGACIÓN</li>
@@ -41,27 +51,10 @@
                     <li><a href="@Url.Action("Crear", "Mensajes")"><i class="fa fa-circle-o"></i> Enviar Mensaje</a></li>
                 </ul>
             </li>
-            <li class="treeview">
-                <a href="#">
-                    <i class="fa fa-users"></i>
-                    <span>Control de usuarios</span>
-                    <i class="fa fa-angle-left pull-right"></i>
+            <li>
+                <a href="@Url.Action("Index", "Home")">
+                    <i class="fa fa-stack-overflow"></i> <span>Proveedores</span>
                 </a>
-                <ul class="treeview-menu">
-                    <li><a href="@Url.Action("Index", "Usuarios")"><i class="fa fa-circle-o"></i> Ver usuarios</a></li>
-                    <li><a href="@Url.Action("Create", "Usuarios")"><i class="fa fa-circle-o"></i> Crear Usuarios</a></li>
-                </ul>
-            </li>
-            <li class="treeview">
-                <a href="#">
-                    <i class="fa fa-stack-overflow"></i>
-                    <span>Proveedores</span>
-                    <i class="fa fa-angle-left pull-right"></i>
-                </a>
-                <ul class="treeview-menu">
-                    <li><a href="@Url.Action("Index", "Proveedores")"><i class="fa fa-circle-o"></i> Ver Proveedores</a></li>
-                    <li><a href="@Url.Action("Create", "Proveedores")"><i class="fa fa-circle-o"></i> Crear Proveedor</a></li>
-                </ul>
             </li>
             <li class="treeview">
                 <a href="#">
@@ -89,6 +82,17 @@
                     <i class="fa fa-credit-card"></i> <span>Registrar Venta</span>
                 </a>
             </li>
+            <li class="treeview">
+                <a href="#">
+                    <i class="fa fa-pie-chart"></i>
+                    <span>Horarios</span>
+                    <i class="fa fa-angle-left pull-right"></i>
+                </a>
+                <ul class="treeview-menu">
+                    <li><a href="@Url.Action("Index", "Home")"><i class="fa fa-circle-o"></i> Ver</a></li>
+                </ul>
+            </li>
+
         </ul>
     </section>
     <!-- /.sidebar -->

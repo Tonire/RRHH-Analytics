@@ -58,9 +58,6 @@ namespace MVCApp.Controllers
                     fileName = "/Images/Uploads/" + fileName;
                     WebSecurity.CreateUserAndAccount(model.UserEmail, model.Password);
                     Roles.AddUserToRole(model.UserEmail, "SuperAdministrador"); // user in role A 
-                    if (file == null) {
-                        fileName = "";
-                    }
                     /*Creamos la apariencia*/
                     AparienciaCEN aparienciaCEN = new AparienciaCEN();
                     aparienciaCEN.CrearApariencia(model.SiteName, fileName, model.SuperColor, model.AdminColor, model.EmplColor);

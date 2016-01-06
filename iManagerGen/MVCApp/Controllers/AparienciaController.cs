@@ -56,8 +56,7 @@ namespace MVCApp.Controllers {
                 if(name.CompareTo(model.SiteName)==0){
                     aparienciaCEN.Modify(name, fileName, model.SuperColor, model.AdminColor, model.EmplColor);
                 } else {
-                    aparienciaCEN.Destroy(name);
-                    aparienciaCEN.CrearApariencia(model.SiteName,fileName,model.SuperColor,model.AdminColor,model.EmplColor);
+                    
                 }
                 
                 Skins skin = new Skins();
