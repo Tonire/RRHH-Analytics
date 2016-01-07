@@ -13,7 +13,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     @*TODO: Change App name*@
-    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <title>@ViewBag.Title - iManager</title>
     <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
     @*Bundle CSS, assuming includes Bootstrap CSS *@
     @Styles.Render("~/Content/css")
@@ -37,7 +37,7 @@
     <div class="login-box">
         <div class="login-logo">
         @if (ViewData["logo"] != null) {
-            <img src="@ViewData["logo"]" width="200" height="100" />
+            <img src="@ViewData["logo"]" width="150" height="100" />
         } else {
             <a href="@Url.Action("Login", "Account")"><b>i</b>Manager</a>
         }
